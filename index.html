@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive">
+
+	<!-- title -->
+	<title>Cakery</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&amp;display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+	   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	<style>
+@import url(asset/fancybox.css);
+  ::-webkit-scrollbar {
+  width: 2px;
+}
+body{overflow-x:hidden; padding:0; margin:0;}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+#cont {
+  width: 100%;
+box-shadow:0 0 5px rgba(0,0,0,0.5);
+height:56px;
+}
+
+
+#cont .content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+ 
+  
+}
+
+#cont .content .contact-profile {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+
+}
+#cont .content .contact-profile img {
+  width: 40px;
+  border-radius: 50%;
+  float: left;
+  margin: 9px 18px 0 9px;
+}
+#cont .content .contact-profile .immune {
+  float: left; margin-top:15px;
+}
+#cont .content .contact-profile .social-media {
+  float: right;
+}
+#cont .content .contact-profile .social-media i {
+ margin-left:10px;font-size:18px;
+  cursor: pointer;
+}
+#cont .content .contact-profile .social-media i:nth-last-child(1) {
+  margin-right: 20px;
+}
+#cont .content .contact-profile .social-media i:hover {
+  color: #435f7a;
+}
+
+#ig_app
+{
+ 
+  padding-bottom: 5px;
+}
+
+#ig_header
+{
+  position: fixed;
+  top: 0;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  color: var(--app-primary-text-color);
+  background-color: #FFF;
+  z-index: 10;
+}
+
+#ig_header img
+{
+  height: 38px;
+}
+
+#ig_header i.fa
+{
+  position: relative;
+ 
+}
+
+#ig_add_post
+{
+  font-size: 28px;
+  margin-right: 24px;
+  margin-top: 2px;
+}
+
+#ig_message i.fa.fa-comment-o
+{
+  font-size: 28px;
+  margin-right: 10px;
+  top: -2px;
+}
+
+#ig_message i.fa.fa-bolt
+{
+  position: absolute;
+  font-size: 18px;
+  transform-origin: center center;
+  transform: rotate(45deg);
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+
+
+#ig_header_stories
+{
+  margin-top: 25px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+#ig_header_stories .ig_friend .ig_story_img {
+  display: block;
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  border-radius: 100%;
+ 
+}
+
+@media screen and (max-width: 600px) {
+  #ig_header_stories .ig_friend .ig_story_img {
+    
+  }
+}
+
+#ig_header_stories .ig_user img
+{
+  position: relative;
+  width: 180px;  
+  border-radius: 100%;
+  object-fit:cover;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35),inset 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+#ig_header_stories .ig_user .ig_add_story
+{
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  font-size: 15.5px;
+  background-color: #0194f6;
+  line-height: 20px;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  margin-top: -20px;
+  margin-right: 15px;
+  border: 2px solid #FFF;
+}
+
+#ig_header_stories .ig_user .ig_story_caption
+{ display: block;
+  font-size: 11px;
+  margin-top: 10px;
+  font-weight: 500;
+  text-transform:uppercase;
+  color:gray;
+  }
+
+#ig_header_stories .ig_friend .ig_story_img
+{
+  transform: scale(1.2);
+}
+
+#ig_header_stories .ig_friend img
+{
+  transform: scale(0.94);
+  border: 4px solid #FFF;
+}
+
+/**/
+#ig_posts 
+{
+  margin-top: 0px;
+}
+
+#ig_posts > div.row
+{
+  margin-bottom: 10px;
+}
+
+#ig_posts .ig_post_head
+{
+  height: 55px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+#ig_posts .ig_post_head li
+{
+  float: left;
+  list-style: none;
+}
+
+#ig_posts .ig_post_head li img
+{
+  width: 40px;
+  border-radius: 100%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+#ig_posts .ig_post_head li:first-child,
+#ig_posts .ig_post_head li:last-child
+{
+  width: 11%;
+}
+
+#ig_posts .ig_post_head li:nth-child(2)
+{
+  width: 60%;
+}
+
+#ig_posts .ig_post_head li .ig_post_name_desc
+{
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+#ig_posts .ig_post_head li .ig_post_name_desc span
+{
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: -5px;
+  letter-spacing: 0.5px;
+}
+
+#ig_posts .ig_post_head .ig_post_options
+{
+  position: absolute;
+  display: inline-block;
+  right: 20px;
+  width: 3.2px;
+  height: 3.2px;
+  background-color: rgba(0, 0, 0, 1.0);
+  border-radius: 100%;
+  box-shadow: 0 7px 0 0 rgba(0, 0, 0, 1.0),
+              0 18px 0 0 rgba(0, 0, 0, 1.0);
+  margin-top: 10px;
+}
+
+#ig_posts .ig_post_content img,
+#ig_posts .ig_post_content video
+{
+  width: 100%;
+}
+#ig_posts .ig_post_likes
+{
+  position: relative;
+  top: 5px;
+  margin-bottom: 18px;
+}
+
+#ig_posts .ig_post_likes .ig_user_imgs
+{
+  margin-left: -2px;
+}
+
+#ig_posts .ig_post_likes .ig_user_imgs img
+{
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+#ig_posts .ig_post_likes .ig_user_imgs img:not(:first-child)
+{
+  margin-left: -10px;
+}
+
+#ig_posts .ig_post_likes
+{
+  font-size: 18px;
+  margin-left: 15px;
+  font-weight: 500;
+  color: var(--app-secondary-text-color);
+}
+
+#ig_posts .ig_post_likes span
+{
+  color: var(--app-primary-text-color);
+  font-weight: 800;
+}
+
+/* -----------------------------------------------------------------------------
+
+# News Styles
+
+----------------------------------------------------------------------------- */
+.news-bg-7 {
+  background-image: url(cake/16.jpg);
+}
+
+.news-bg-8 {
+  background-image: url(cupcake/5.jpg);
+}
+
+.news-bg-9 {
+  background-image: url(cake/5.jpg);
+}
+
+.news-bg-10 {
+  background-image: url(slice/3.jpg);
+}
+
+.news-bg-11 {
+  background-image: url(cake/10.jpg);
+}
+
+.news-bg-12 {
+  background-image: url(slice/1.jpg);
+}
+
+.news-bg-13 {
+  background-image: url(cupcake/1.jpg);
+}
+
+.news-bg-14 {
+  background-image: url(cake/4.jpg);
+}
+
+
+.news-bg-15 {
+  background-image: url(cake/12.jpg);
+}
+
+.news-bg-16 {
+  background-image: url(slice/16.jpg);
+}
+
+
+@media screen and (min-width:820px) {
+  #ig_app {
+    display: none;
+  }
+}
+	</style>
+
+</head>
+<body>
+<div class="wrap" style="margin:0; padding:0;">
+<div id="cont" style ="background-color: #ea5f5f;">
+<div class="content">
+		<div class="contact-profile">
+			<img src="avatar/1.jpg" style="border:2px solid white;" />
+			<p class ="immune" style ="margn-top:1px; font-weight:bold; color:white;">BAKERS'S FRIEND</p>
+			<div class="social-media">
+			 <a href = "index-about.html" style ="color:white;"> <i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+				<a href = "https://api.whatsapp.com/send?phone=+260770304374&text=subscription%20Request%20....." style ="color:white;"><i class="fa fa-bell" aria-hidden="true"></i></a>
+				
+				 <a href = "index.html" style ="color:white;"> <i class="fa fa-home" aria-hidden="true"></i></a>
+			</div>
+</div>
+</div>
+</div>
+        <div class="container-fluid">
+
+        	<div id="ig_app" class="row">
+
+	<section id="ig_header_stories" class="col-12">
+
+<div class="row" style ="padding: 0 2px;">
+						<div class="col-3 text-center ig_user ig_friend">
+							<span class="ig_story_img">
+						<a href ="index-about.html"><img src="avatar/1.jpg" alt=""></a>
+							</span>
+							<span class="ig_story_caption">
+								ABOUT
+							</span>
+						</div>
+					
+						<div class="col-3 text-center ig_user ig_friend">
+							<span class="ig_story_img">
+										<a href ="index-slice.html"><img src="avatar/5.jpg" alt=""></a>
+							</span>
+							<span class="ig_story_caption">
+								SLICES
+							</span>
+						</div>
+						<div class="col-3 text-center ig_user ig_friend">
+							<span class="ig_story_img">
+								<a href ="index-cupcake.html"><img src="avatar/4.jpg" alt=""></a>
+							</span>
+							<span class="ig_story_caption">
+								CUPCAKES
+							</span>
+						</div>
+						<div class="col-3 text-center ig_user ig_friend">
+							<span class="ig_story_img">
+								<a href ="index-cake.html"><img src="avatar/3.jpg" alt=""></a>
+							</span>
+							<span class="ig_story_caption">
+								CAKES
+							</span>
+						</div>
+
+					</div>
+
+				</section> 
+</div>	
+</div>
+	<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">BEST BAKING PRACTICES FOR BAKERS</a></h4>
+	<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-7"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">PERFECT YOUR SKILLS BEFORE YOU GO COMMERCIAL</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">High level baking skills are required for a baker to prepare a high quality product, deliver it on time and meet the client's expections. Before you go commercial ensure that you have attained the right level of skill and are able to deliver professional baked products with ease. There are severe implications for getting into the game too early.   </p>
+							<a href="index-skill.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+	
+		<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-8"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">USE EFFECTIVE ADVERTISING METHODS</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">There are new bakers that have excellent baking skills but no one knows them. They are hiding under the rock. You should reveal yourself to the world as the next big thing in the baking industry. It all starts with enganging and effective advertisement and marketing techniques for your awesome baked products tke you stand out.  </p>
+							<a href="index-marketing.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+	
+		<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-9"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">DO NOT GET FRUSTRATED</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">Frustration occurs when you fail to get it right a few times and you do not know where the fault lies. You have followed the recipe to the letter, you have the right oven temperature and the right combination of ingredients yet it fails to bake and emotions take over. As a beginner you will run into such problems early on from time to time. It is normal and it is part of the learning process. But do not let it tame you. Getting around frustration is above preventing events that will lead to frustration. I know bakers that quit because they could not handle the pressure. </p>
+							<a href="index-frustration.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+	
+		<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-10"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">JOIN A BAKERS ASSOCIATION</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">Members of a bakers association exchange and share ideas and learn from each other thereby allowing each member to up their skills and evolve to the next level. Access useful information, promotions, resources and opportunities that can help you grow your bakery business and succeed in the industry. To join such an association is an excellent business move and here is why.</p>
+							<a href="index-association.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+	
+			<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-11"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">HOW TO HANDLE CLIENTS FROM HELL</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">If someone's dissatisfied with the quality of goods or services that they've received from your bakery, they're perfectly entitled to let you know about it! And if they remain calm and polite, despite their frustration or anger, you'll most likely be willing to help an unhappy customer. If they get aggressive then you can quickly find yourself in a difficult position.</p>
+							<a href="index-client.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+
+	
+			<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-12"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">TAKE LAST MINUTE ORDERS</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">With so many bakeries to choose from a desperate customer will pick yours and request for a cake that they need within a few hours. These are last minute orders and most of them remain unattended because there isn't enough time. If you service a desperate customer you will create an unbreakeable bond with the client and they will place your cakery at the top of the chart.</p>
+							<a href="index-last.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+	
+			<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-13"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">INTRODUCTION TO CUPCAKE PHOTOGRAPHY </a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">In the baking industry product presentation is everything, a beautiful piece of art in form of a nice looking delicious cake or cupcake must go with a perfect photo and artistic presentation with an added wow factor. Bring eyes to your cupcakes with the following cupcake photography and presentation techniques. You can also try out the photography techniques used in our galleries on this page.</p>
+							<a href="index-cupcakes.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+	
+				<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-14"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">STAY ORGANISED AND WELL STOCKED</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">When people walk into my sister's bakery they love it. Some of them want to stay and chat because the environment is so welcoming, neat and well organised. Uncles and aunties that see it for the first time go like, "wow you have done an amazing job it is beautiful". A well organized working space is good for business and creates a productive working space.  </p>
+							<a href="index-organized.html" class="read-more-btn">Tap to read full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+	
+				<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-16"></div></a>
+						
+						<div class="news-text-box" >
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">DIGITAL MARKETING TOOLS</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">Bring eyes to your baked products with the following collection of digital advertising assets. You can use them to advertise and market your baked products on social media.</p>
+							<a href="index-look.html" class="read-more-btn">Tap to view ssets <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div>
+					<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="single-latest-news" style="margin-top:-80px;">
+						<a style="color:#ea5f5f;"><div class="latest-news-bg news-bg-15"></div></a>
+						
+						<div class="news-text-box">
+							<h4 style='text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">DO NOT REFUSE ORDERS</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+							<p class="excerpt" style="text-align:justify; font-size:18px;">Refusing orders can become a habit and you can go from turning down a few orders to many orders. I know bakers that turned down order because they were tired. They would rather get a breather with ice cold six pack of  hunters gold and watch the sinful Kardashians than stand in the bakery to bake one more cake. One thing to remember is that you are existing in a competitive environment. Once you shut a client down you have lost them forever and you have handed them to your competitors.  </p>
+							<a href="index-refuse.html" class="read-more-btn">Tap to view full post <i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	</div
+
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12" style="font-size:11px; text-align:center;">
+					<p style="font-size:18px; padding-bottom:10px; text-align:center;">&copy; 2023 - <a href="">BAKERS</a> FRIEND
+						
+					</p>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+
+</div>
+</body>
+
+
+</html>

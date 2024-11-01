@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+  
+<title>Gallery</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Developer">
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<link rel='stylesheet' href='asset/jquery.fancybox.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<style>
+* {
+  box-sizing: border-box;
+  
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+#cont {
+width: 100%;
+box-shadow:0 0 5px rgba(0,0,0,0.5);
+height:56px;
+}
+
+
+#cont .content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+}
+
+#cont .content .contact-profile {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+
+}
+#cont .content .contact-profile img {
+  width: 40px;
+  border-radius: 50%;
+  float: left;
+  margin: 9px 18px 0 9px;
+}
+#cont .content .contact-profile .immune {
+  float: left; margin-top:15px;
+}
+#cont .content .contact-profile .social-media {
+  float: right;
+}
+#cont .content .contact-profile .social-media i {
+ margin-left:10px;font-size:18px;
+  cursor: pointer;
+}
+#cont .content .contact-profile .social-media i:nth-last-child(1) {
+  margin-right: 20px;
+}
+#cont .content .contact-profile .social-media i:hover {
+  color: #435f7a;
+}
+
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #252a32;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 80rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0 auto;
+}
+
+.main .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.main .card {
+  color: #252a32;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+}
+.main .card-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: 70%;
+  background: #ffffff;
+}
+.main .card-image img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 800px) {
+  .main .container {
+    display: grid;
+     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.5rem;
+  }
+}
+
+.btnn {
+  background-color:#ea5f5f;
+  border: none;
+  color: white;
+  padding: 18px;
+  cursor: pointer;
+  font-size: 18px;
+  width:100%;
+}
+
+.webfooter 
+{
+	background-color:#ea5f5f;
+	color: #ffffff;
+	padding:10px;
+	width:100%;
+}
+
+/* Description in webfooter */
+.webfooter p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+.content p{text-align:center; text-align:center;	font-size: 10px;}
+
+.float{
+	position:fixed;
+	width:48px;
+	height:48px;
+	bottom:20px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:24px;
+	border:1px solid white;
+  z-index:100;
+}
+
+.my-float{
+
+}
+</style>
+
+  
+</head>
+
+<body translate="no">
+<div id="cont" style ="background-color: #ea5f5f;">
+<div class="content">
+		<div class="contact-profile">
+			<img src="avatar/1.jpg" style="border:2px solid white;" />
+			<p class ="immune" style ="margin-top:-1px; font-weight:bold; color:white; font-size:18px;">BAKERS'S FRIEND</p>
+			<div class="social-media">
+		
+				
+		 <a onclick = "history.back()" style ="color:white;"> <i class="fa fa-home" aria-hidden="true"></i></a>
+			</div>
+</div>
+</div>
+</div>
+
+	<div class="news-text-box" >
+							<h4 style='clear:both;text-align:center;'><a style="color:#ea5f5f;font-size:18px; text-transform:uppercase; margin:0; padding:0;text-align:center;">CAKE SLICES PRESENTATION IDEAS</a></h4>
+							<p class="blog-meta" style ="text-align:center;color:gray;font-size:13px;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+													
+						</div>
+
+  <main class="main">
+  <div class="container">
+    <div class="card">
+      <div class="card-image">
+        <a href="slice/1.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/1.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <a href="slice/2.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/2.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <a href="slice/3.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/3.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/4.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/4.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/5.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/5.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/6.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/6.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	    <div class="card">
+      <div class="card-image">
+        <a href="slice/7.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/7.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <a href="slice/8.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/8.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <a href="slice/9.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/9.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/10.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/10.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	    <div class="card">
+      <div class="card-image">
+        <a href="slice/11.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/11.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/12.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/12.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	    <div class="card">
+      <div class="card-image">
+        <a href="slice/13.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/13.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/14.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/14.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+		    <div class="card">
+      <div class="card-image">
+        <a href="slice/15.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/15.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/16.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/16.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+		    <div class="card">
+      <div class="card-image">
+        <a href="slice/17.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/17.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/18.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/18.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+			    <div class="card">
+      <div class="card-image">
+        <a href="slice/19.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/19.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+	
+	 <div class="card">
+      <div class="card-image">
+        <a href="slice/20.jpg" data-fancybox="gallery" data-caption="Multi Plate">
+          <img src="slice/20.jpg" alt="Cake Slice Ideas">
+        </a>
+      </div>
+    </div>
+
+    </div>
+  
+  </div>
+</main>
+
+<div  class="webfooter"style ="clear:both;">
+				
+					 <center><p style ="text-align:center;" > &copy 2024 BAKERS FRIEND </p></center>
+ 
+
+					
+	</div>    
+
+  <script src='asset/jquery.min.js'></script>
+<script src='asset/jquery.fancybox.min.js'></script>
+      <script>
+
+$('[data-fancybox="gallery"]').fancybox({
+  buttons: [
+  "slideShow",
+  "thumbs",
+  "zoom",
+  "fullScreen",
+  "share",
+  "close"],
+
+  loop: false,
+  protect: true });
+
+    </script>
+
+  
+</body>
+
+</html>
