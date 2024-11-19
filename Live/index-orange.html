@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>E-shop</title>
+  
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css">  
+<style>
+@import url(assets/fancybox.css);
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+.pill-nav {
+ background-color:#ff6600;
+  padding: 6px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  margin:5px;
+}
+.pill-nav a {
+  display: inline-block;
+  background-color: white
+  color: #ff6600;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: white;
+  width:32.50%;
+}
+
+.pill-nav a:hover,.pill-nav a:focus {
+ color: gray;
+}
+
+.pill-nav a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+* {
+  border-sizing: border-box; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background: #ff6600;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.topnav-right {
+  float: right;
+}
+
+a {
+  color: #ea3830;
+  text-decoration: none;
+}
+
+.pill-nav {
+ background-color:#ff6600;
+  padding: 6px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  margin:5px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 48.5%;
+  float:left;
+  margin:2px;
+}
+
+.card img {
+  width:100%;
+  object-fit: cover;
+  border-radius:5px;
+ 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h5{font-size:12px;padding:0; margin:0;text-align:center;text-transform:uppercase;}
+
+h6{font-size:12px; font-weight:bold;text-align:center; margin:5px;}
+h6 a{color:#ff6600; margin:5px;}
+.button {
+	background:  #ff6600;
+	border: 0;
+	border-color: transparent;
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 3px;	
+	margin: 5px;	
+	
+	
+}
+
+.button a{font-size: 13px; color:white;}
+
+.footer 
+{
+	background-color:#ff6600;
+	color: #ffffff;
+	padding-top:10px;
+	border-bottom:1px solid #eee;
+	border-top:1px solid #eee;
+	width:100%;
+}
+
+/* Description in footer */
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 13px;
+	text-align: center;
+}
+
+	
+</style>
+</head>
+
+<body translate="no" >
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="" class="active"> ORANGE</a>
+  </div>
+  
+ 
+  <a href="index-register.html" ><i class="fa fa-user" aria-hidden="true"></i></a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+   
+	 <a href="index-login.html"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+    
+  </div>
+  
+</div>
+
+<img src="head/orange.jpg" style="width:100%;">
+
+<div class="pill-nav">
+  <a href='index-gallery.html' style ="color:#ff6600;"><i class="fa fa-camera" aria-hidden="true"></i> GALLERY</a>
+  <a href='index-subscribe.html'style ="color:#ff6600;"><i class="fa fa-bell" aria-hidden="true"></i>SUBSCRIBE</a>
+  <a href='index-contact.html'style ="color:#ff6600;"><i class="fa fa-envelope" aria-hidden="true"></i> CONTACT</a>
+
+ 
+</div>
+<div class ="row" style ="padding:16px; margin-top:-15px;">
+			   							 							   <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/1.jpg" alt="" title="Mobile1">
+		  <h6><a href="">PRODUCT ONE</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+       
+      </div>
+      <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/2.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT TWO</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+	  
+	        <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/7.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT SEVEN</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+      <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/8.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT EIGHT</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+	  
+	    <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/3.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT THREE</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+	  
+	    <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/4.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT FOUR</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+  
+      <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/5.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT FIVE</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+      <div class="card" data-item="category1">
+        <a href="#img">
+          <img src="productimages/6.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT SIX</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+								<button class="button"> 
+								<a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+
+      <div class="card" data-item="category1">
+        <a  href="productimages/9.jpg">
+          <img src="productimages/9.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT NINE</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+							<button class="button"><a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+      <div class="card" data-item="category1">
+        <a  href="#img">
+          <img src="productimages/10.jpg" alt="">
+        </a>
+		  <h6><a href="">PRODUCT TEN</a></h6>
+								
+								<div class="price">
+									<h5>ZMW255.00</h5>
+								</div>
+			<button class="button"><a href=''>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> ADD TO CART</a></button>
+      </div>
+
+   
+			   </div>
+  
+  
+<div  class="footer">
+					<div class="container">
+					 <center><p style ="text-align:center;" >2024 ORANGE FASHION</p></center>
+ 
+
+					</div>
+				</div>
+  
+</div>
+</body>
+<script src="asset/hide.js"></script>
+</html>
+ 

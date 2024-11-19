@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Student Developer</title> 
+ <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+ <link rel='stylesheet' href='css/bootstrap.min.css'>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  
+<style>
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+		* {
+  box-sizing: border-box;
+  font-size:16px;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background: #ea5f5f;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding:16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.topnav-right {
+  float: right;
+}
+
+a {
+  color: #ea3830;
+  text-decoration: none;
+}
+
+.project {
+  position: relative;
+  margin-bottom: 50px;
+  color: #000;
+  border-radius: 0;
+  border: 1px solid #eee;
+  background-color: #fff;
+  box-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.075);
+}
+
+.project-head {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background-color: rgba(67, 78, 94, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+}
+
+.project-hover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(252, 41, 74, 0.9);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 30px;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+}
+
+.project-body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h3.title {
+  color:  #ea5f5f;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.project-btn {
+  margin-bottom: -40px;
+  font-size: 0.9rem;
+  background-color:#ea5f5f;
+  color: white;
+  border: 1px solid #eee;
+  border-radius: 0;
+  width: 120px;
+  box-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.075);
+}
+
+.project-btn:hover {
+  background-color: rgba(252, 41, 74, 1);
+  color: #fff;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ea5f5f;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color:#ea5f5f;
+  color: white;
+ 
+}
+
+.pagination a:hover:not(.active) {background-color: #ea5f5f;  color: white;}
+.footer 
+{
+	background-color:#ea5f5f;
+	padding: 15px;
+	box-shadow: 0 0 6px rgba(140, 132, 132, 0.41);
+	background: #ea5f5f;
+	width: 100%;
+}
+
+
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;	
+	text-align: center;
+	padding:0; margin:0;
+	color:white;
+}
+
+</style>
+
+</head>
+
+<body translate="no">
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="index.html" class="active">LIVEWIRE</a>
+  </div>
+  
+ 
+  <a href="index-live.html" ><i class="fa fa-home" aria-hidden="true"></i></a>
+  
+ <div class="topnav-right">
+   
+	 <a href="index-projects.html"><span style ="background:white; color:#ea5f5f; padding:2px 5px; border-radius:5px;">SHOP</span></a>
+    
+  </div>
+</div><br>
+  <div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+
+
+			<div class="theme">
+				<div class="row">
+				
+				
+									<div class="col-lg-4 item desktop CSharp">
+						<div class="project">
+							<div class="project-head">
+							
+<div class="imgdiv" style = "background:transparent; border:none;">
+	   <img  src="productimages/1.jpg" class="img"style="width:50%; float:left; padding:5px;">
+       <img  src="productimages/2.jpg" class="img"style="width:50%; float:left;padding:5px;">
+</div>
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">RED FASHION</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Red-Theme-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+								<a href="index-red.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item Web html css jquery">
+						<div class="project">
+							<div class="project-head">
+<div class="imgdiv" style = "background:transparent; border:none;">
+	   <img  src="img/18.jpg" class="img"style="width:50%; float:left; padding:5px;">
+       <img  src="img/18.jpg" class="img"style="width:50%; float:left;padding:5px;">
+</div>
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">SHORTS SALES</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Short-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index-short.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item design psd">
+						<div class="project">
+							<div class="project-head">
+<div class="imgdiv" style = "background:transparent; border:none;">
+	   <img  src="img/92a54cd10acc7ccdea459b476f6e7474.jpg" class="img"style="width:50%; float:left; padding:5px;">
+       <img  src="img/92a54cd10acc7ccdea459b476f6e7474.jpg" class="img"style="width:50%; float:left;padding:5px;">
+</div>
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">SALON APP</h3>
+
+								
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Salon-app-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index-salon.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item Web html css javascript">
+						<div class="project">
+							<div class="project-head">
+						<div class="imgdiv" style = "background:transparent; border:none;">
+	   <img  src="productimage/7.jpg" class="img"style="width:50%; float:left; padding:5px;">
+       <img  src="productimage/8.jpg" class="img"style="width:50%; float:left;padding:5px;">
+</div>
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">ORANGE SALES</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Orange-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="index-orange.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item design psd">
+						<div class="project">
+							<div class="project-head">
+						<div class="imgdiv" style = "background:transparent; border:none;">
+	   <img  src="productimages/9.jpg" class="img"style="width:50%; float:left; padding:5px;">
+       <img  src="productimages/10.jpg" class="img"style="width:50%; float:left;padding:5px;">
+</div>
+								
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">DARK THEME</h3>
+
+							
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Dark-Theme-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="index-dark.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item Web html css javascript">
+						<div class="project">
+							<div class="project-head">
+								<img src="productimage/1.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">PHOTORIA PROFESSIONAL SWIPE</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Photoria-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-4 item desktop CSharp">
+						<div class="project">
+							<div class="project-head">
+								<img src="img/9.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">SHORTS APP</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Shorts-app-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+								<a href="projects/index-shorts.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item Web html css jquery">
+						<div class="project">
+							<div class="project-head">
+								<img src="img/LINGERIE.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">VALENTINES THEME</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Valentines-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index-valentine.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item design psd">
+						<div class="project">
+							<div class="project-head">
+								<img src="productimage/13.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">DEEPRED SWIPE</h3>
+
+								
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Deepred-s-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="index-deepred-s.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item Web html css javascript">
+						<div class="project">
+							<div class="project-head">
+								<img src="productimage/14.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">ORANGE SWIPE</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Orange-s-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="index-orange-s.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item design psd">
+						<div class="project">
+							<div class="project-head">
+								<img src="productimage/15.jpg" alt="" class="img-fluid card-img">
+								
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">DARK SWIPE</h3>
+
+							
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Dark-swipe-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="index-dark-s.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 item Web html css javascript">
+						<div class="project">
+							<div class="project-head">
+								<img src="productimage/16.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">SWIPE GALLERY</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Gallery-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index-gallery.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>	
+
+						<div class="col-lg-4 item Web html css javascript">
+						<div class="project">
+							<div class="project-head">
+								<img src="img/SydneyRedBodysuit_AnyaLust_Bracli_700x.webp" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">SWIMSUIT SHOP</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Swimsuitshop-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index-swimsuit.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+						<div class="col-lg-4 item Web html css javascript">
+						<div class="project">
+							<div class="project-head">
+								<img src="img/391044c0c68c6979fdfc8147ee747393.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">DARK THEME JS</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Darktheme-js-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index-darktheme.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+		
+					<div class="col-lg-4 item Web html css javascript">
+						<div class="project">
+							<div class="project-head">
+								<img src="img/Graphic Oversized Tee.jpg" alt="" class="img-fluid card-img">
+							
+							</div>
+
+							<div class="project-body text-center">
+								<h3 class="title">GREEN THEME</h3>
+
+							
+
+								<div class="btn-group" role="group">
+									<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Green theme-Code%20request%20....." class="btn  project-btn"><i class="fa fa-code"></i> SHOP</a>
+									<a href="projects/index-green.html" class="btn  project-btn"><i class="fa fa-eye"></i> DEMO</a>
+								</div>
+							</div>
+						</div>
+					</div>	
+
+		
+					
+	
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div  class="footer">
+					<div class="container">
+					 <center><p style ="text-align:center;" >&copy 2024 STUDENT DEVELOPERS</p></center>
+ 
+
+					</div>
+				</div>  
+
+  
+</body>
+   <script src="asset/view.js"></script>
+</html>

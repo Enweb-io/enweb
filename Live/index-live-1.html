@@ -1,0 +1,1281 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>LIVE</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="fonts/css/font-awesome.min.css">	 
+<style>
+@import url(assets/fancybox.css);
+* {
+  box-sizing: border-box;
+  
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.navigationsystem {
+  overflow: hidden;
+border-bottom:1px solid white;
+  margin:2px;
+   color: #f2f2f2;
+   background:#2c4762;
+ }
+
+.navigationsystem a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background: #ea5f5f;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.topnav-right {
+  float: right;
+}
+.pill-nav {
+ background-color:#2c4762;
+  padding: 7px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  margin:5px;
+}
+.pill-nav a {
+  display: inline-block;
+  background-color: white
+  color: #2c4762;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: white;
+  width:32.40%;
+}
+
+.pill-nav a:hover,.pill-nav a:focus {
+ color: gray;
+}pre{color:white;}
+a {
+  color: #ea3830;
+  text-decoration: none;
+}
+
+#igapp
+{
+
+  padding-bottom: 5px;
+}
+
+#igheader
+{
+  position: fixed;
+  top: 0;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  color: var(--app-primary-text-color);
+  background-color: #FFF;
+  z-index: 10;
+}
+
+#igheader img
+{
+  height: 38px;
+}
+
+#igheader i.fa
+{
+  position: relative;
+ 
+}
+
+#ig_add_post
+{
+  font-size: 28px;
+  margin-right: 24px;
+  margin-top: 2px;
+}
+
+#ig_message i.fa.fa-comment-o
+{
+  font-size: 28px;
+  margin-right: 10px;
+  top: -2px;
+}
+
+#ig_message i.fa.fa-bolt
+{
+  position: absolute;
+  font-size: 14px;
+  transform-origin: center center;
+  transform: rotate(45deg);
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+
+
+#igheader_stories
+{
+  margin-top: 25px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+#igheader_stories .mycat .myimg {
+  display: block;
+  background: linear-gradient(45deg, #f09833 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  border-radius: 100%;
+}
+
+#igheader_stories .ig_user img
+{
+  position: relative;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35),inset 0 0 5px rgba(0, 0, 0, 0.9);
+  object-fit:cover;
+}
+
+#igheader_stories .ig_user .ig_add_story
+{
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  font-size: 15.5px;
+  background-color: #0198f6;
+  line-height: 20px;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  margin-top: -20px;
+  margin-right: 14px;
+  border: 2px solid #FFF;
+}
+
+#igheader_stories .ig_user .mycap
+{
+  font-size: 9px;
+  margin-top: 10px;
+  font-weight: 500;
+  color:gray;
+  font-weight:bold;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+#igheader_stories .mycat .myimg
+{
+  transform: scale(1.2);
+}
+
+#igheader_stories .mycat img
+{
+  transform: scale(0.98);
+  border: 4px solid #FFF;
+}
+
+a h3  {
+  font-size: 10px;
+  text-align:center;
+  text-transform:uppercase;
+  color:gray;
+  padding:3px;
+  margin:3px;
+  
+}
+a {
+text-decoration:none;
+}
+
+a:focus{
+color:skyblue;
+}
+
+.fa:focus, .fa:hover{
+color:skyblue;
+cursor:pointer;
+}
+
+.rows,
+.rows > .imgspan {
+  padding: 8px;
+}
+
+
+.imgspan {
+  float: left;
+  width: 25%;
+}
+
+
+.rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+  .imgspan img {
+    width: 100%; height:auto; border-radius:50%;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+	border-width:4px;
+	border-color:linear-gradient(to right, red, orange);
+	object-fit:cover;
+  }
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 47%;
+  float:left;
+  height: 230px;
+  margin:5px;
+}
+
+.card img {
+  width:100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius:5px;
+ 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  .btn {
+  align-items: center;
+  background-color: #ea5f5f;
+  border-radius:3px;
+  border: none;
+  color: white;
+  padding: 9px;
+  cursor: pointer;
+  font-size:14px;
+  width:92%;
+  margin:0px 20px;
+  
+}
+
+.card-body {
+  align-items: start;
+  padding: 20px;
+  margin-top:160px;
+}
+.btnn {
+  background-color:#ea5f5f;
+  border: none;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  width:100%;
+}
+.footer 
+{
+	background-color:#ea5f5f;
+	color: #ffffff;
+	padding:10px;
+	width:100%;
+}
+
+/* Description in footer */
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+	text-align: center;
+}
+
+.fa:focus{color:skyblue;}
+ @media screen and (min-width:910px) {
+  body {
+    display:none;
+ 
+  }
+  
+
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="index.html" class="active">LIVEWIRE</a>
+  </div>
+  
+ 
+  <a href="index-live.html" ><i class="fa fa-home" aria-hidden="true"></i></a>
+  
+ <div class="topnav-right">
+   
+	 <a href="index-projects.html"><span style ="background:white; color:#ea5f5f; padding:2px 5px; border-radius:5px;">SHOP</span></a>
+    
+  </div>
+</div>		
+						<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:16px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">WEB IMAGE BANNER</a></h4>
+
+						
+	 <p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">The image banner saves as a reception to the web application and instantly communicates the nature of the app to the visitor. A fitness model will tell you that it is a gym, fitnesss or workout application. A woman with a camera will tell you that it is a photography app. </p>							
+							
+
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">OUR CURRENT CODE</a></h4>
+   <div style ="color:white; width:98%; margin:auto; border-radius:4px; background: #2c4762; padding-left:10px;">
+<pre style ="overflow:hidden;"><code>												
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;IMAGES&lt;/title&gt;
+
+&lt;link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/
+ajax/libs/font-awesome/
+4.7.0/css/font-awesome.css"&gt;
+
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+}
+.navigationsystem {
+  overflow: hidden;
+  border-bottom:
+  1px solid white;
+  margin:2px;
+  color: #f2f2f2;
+  background:#2c4762;
+ }
+
+.navigationsystem a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+img {
+  width:100%;
+ } 
+
+.column {
+  width: 50%;
+  float:left;
+  padding: 5px;
+}
+
+p {
+  text-align:center;
+  font-size:16px;
+  color:gray;
+}
+
+.btnn {
+  background-color:#ea5f5f;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  width:100%;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background:#2c4762;
+  color:gray;
+}											
+	
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="navigationsystem"&gt;
+  &lt;a class="" href="#home"&gt;
+  &lt;i class="fa fa-shopping-bag"&gt;
+  &lt;/i&gt; SHOPIFY&lt;/a&gt;
+  &lt;a  href="index-register.html"&gt;
+  &lt;i class="fa fa-user"&gt;
+  &lt;/i&gt; Register&lt;/a&gt;
+  &lt;a  href="index-signin.html"&gt;
+  &lt;i class="fa fa-sign-in"&gt;
+  &lt;/i&gt; Login&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="row"&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/1.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 185.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/2.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 175.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="column"&gt;
+    &lt;img src="productimages/3.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 19O.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/4.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 140.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt; 
+
+&lt;div class="footer" &gt;
+&lt;P&gt;&COPY 2024 SHOPIFY SALES&lt;/P&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;												
+</code></pre>
+</div><h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:16px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">RUN THE CODE</a></h4>
+<div class="navigationsystem" id="menusystem">
+  <a class="" href="#home"><i class="fa fa-shopping-bag"></i> SHOPIFY</a>
+   <a  href="index-reg.html"><i class="fa fa-user"></i> Register</a>
+  <a  href="index-log.html"><i class="fa fa-sign-in"></i> Login</a>
+</div>
+<div class="row">
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/1.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 185.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/2.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 175.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+    <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/3.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 190.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/4.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 140.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+</div>
+<div class="footer" style="color:white; text-align:center; background:#2c4762;">
+<P>&COPY 2024 SHOPIFY SALES</P>
+</div> <br>
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">INSERT AN IMAGE BANNER</a></h4>
+   <div style ="color:white; width:98%; margin:auto; border-radius:4px; background: #2c4762; padding-left:10px;">
+<pre style ="overflow:hidden;"><code>												
+ &lt;img src="productimages/13.jpg" 
+ style="width:100%;" &gt;
+ 
+</code></pre>
+</div>
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">
+
+We have set the width of the image to 100% using inline css. We will place the image under the navigation. </p>
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">UPDATE THE CODE AND RUN</a></h4>
+   <div style ="color:white; width:98%; margin:auto; border-radius:4px; background: #2c4762; padding-left:10px;">
+<pre style ="overflow:hidden;"><code>												
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;IMAGES&lt;/title&gt;
+
+&lt;link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/
+ajax/libs/font-awesome/
+4.7.0/css/font-awesome.css"&gt;
+
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+}
+.navigationsystem {
+  overflow: hidden;
+  border-bottom:
+  1px solid white;
+  margin:2px;
+  color: #f2f2f2;
+  background:#2c4762;
+ }
+
+.navigationsystem a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+img {
+  width:100%;
+ } 
+
+.column {
+  width: 50%;
+  float:left;
+  padding: 5px;
+}
+
+p {
+  text-align:center;
+  font-size:16px;
+  color:gray;
+}
+
+.btnn {
+  background-color:#ea5f5f;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  width:100%;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background:#2c4762;
+  color:gray;
+}											
+	
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="navigationsystem"&gt;
+  &lt;a class="" href="#home"&gt;
+  &lt;i class="fa fa-shopping-bag"&gt;
+  &lt;/i&gt; SHOPIFY&lt;/a&gt;
+  &lt;a  href="index-register.html"&gt;
+  &lt;i class="fa fa-user"&gt;
+  &lt;/i&gt; Register&lt;/a&gt;
+  &lt;a  href="index-signin.html"&gt;
+  &lt;i class="fa fa-sign-in"&gt;
+  &lt;/i&gt; Login&lt;/a&gt;
+&lt;/div&gt;
+
+ &lt;img src="productimages/13.jpg" 
+ style="width:100%;" &gt;
+ 
+&lt;div class="row"&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/1.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 185.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/2.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 175.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="column"&gt;
+    &lt;img src="productimages/3.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 19O.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/4.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 140.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt; 
+
+&lt;div class="footer" &gt;
+&lt;P&gt;&COPY 2024 SHOPIFY SALES&lt;/P&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;												
+</code></pre>
+</div>
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">RUN THE CODE</a></h4>
+<div class="navigationsystem" id="menusystem">
+  <a class="" href="#home"><i class="fa fa-shopping-bag"></i> SHOPIFY</a>
+   <a  href="index-reg.html"><i class="fa fa-user"></i> Register</a>
+  <a  href="index-log.html"><i class="fa fa-sign-in"></i> Login</a>
+</div>
+ <img src="productimages/13.jpg" style="width:100%;" >
+<div class="row">
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/1.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 185.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/2.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 175.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+    <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/3.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 190.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/4.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 140.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+</div>
+<div class="footer" style="color:white; text-align:center; background:#2c4762;">
+<P>&COPY 2024 SHOPIFY SALES</P>
+</div> <br>
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">
+
+I Know it looks cool but we are not done. We need a sub navigation element and you can use this for anything like tags, social media links, page numbers, Links, categories and what you imagine. Let us insert three links with the following HTML.
+<div style ="color:white; width:98%; margin:auto; border-radius:4px; background: #2c4762; padding-left:10px;">
+<pre style ="overflow:hidden;"><code>	
+&lt;div class="pill-nav"&gt;
+  &lt;a href='index.html'&gt;
+  &lt;i class="fa fa-home"&gt;
+  &lt;/i&gt; HOME&lt;/a&gt;
+  &lt;a href='index-signin.html'&gt;
+  &lt;i class="fa fa-sign-in"&gt;
+  &lt;/i&gt; LOGIN&lt;/a&gt;
+  &lt;a href='index-register.html'&gt;
+  &lt;i class="fa fa-user"&gt;
+  &lt;/i&gt; REGISTER&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Style the links with the following CSS.</p>
+<div style ="color:white; width:98%; margin:auto; border-radius:4px; background: #2c4762; padding-left:10px;">
+<pre style ="overflow:hidden;"><code>	
+.pill-nav {
+  background-color:#ea5f5f;
+  padding: 4px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  margin:5px;
+}
+.pill-nav a {
+  display: inline-block;
+  background-color: white
+  color: #ea5f5f;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: white;
+  width:32.40%;
+}
+
+.pill-nav a:hover,.pill-nav a:focus {
+ color: gray;
+}
+</code></pre>
+</div>
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:16px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">UPDATE THE CODE</a></h4>
+<div style ="color:white; width:98%; margin:auto; border-radius:4px; background: #2c4762; padding-left:10px;">
+<pre style ="overflow:hidden;"><code>												
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;IMAGES&lt;/title&gt;
+
+&lt;link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/
+ajax/libs/font-awesome/
+4.7.0/css/font-awesome.css"&gt;
+
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+}
+.navigationsystem {
+  overflow: hidden;
+  border-bottom:
+  1px solid white;
+  margin:2px;
+  color: #f2f2f2;
+  background:#2c4762;
+ }
+
+.navigationsystem a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+img {
+  width:100%;
+ } 
+.pill-nav {
+  background-color:#2c4762;
+  padding: 4px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  margin:5px;
+}
+.pill-nav a {
+  display: inline-block;
+  background-color: white
+  color: #2c4762;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: white;
+  width:32.40%;
+}
+
+.pill-nav a:hover,.pill-nav a:focus {
+ color: gray;
+}
+.column {
+  width: 50%;
+  float:left;
+  padding: 5px;
+}
+
+p {
+  text-align:center;
+  font-size:16px;
+  color:gray;
+}
+
+.btnn {
+  background-color:#ea5f5f;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  width:100%;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background:#2c4762;
+  color:gray;
+}											
+	
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="navigationsystem"&gt;
+  &lt;a class="" href="#home"&gt;
+  &lt;i class="fa fa-shopping-bag"&gt;
+  &lt;/i&gt; SHOPIFY&lt;/a&gt;
+  &lt;a  href="index-register.html"&gt;
+  &lt;i class="fa fa-user"&gt;
+  &lt;/i&gt; Register&lt;/a&gt;
+  &lt;a  href="index-signin.html"&gt;
+  &lt;i class="fa fa-sign-in"&gt;
+  &lt;/i&gt; Login&lt;/a&gt;
+&lt;/div&gt;
+
+ &lt;img src="productimages/13.jpg" 
+ style="width:100%;" &gt;
+ 
+ &lt;div class="pill-nav"&gt;
+  &lt;a href='index.html'&gt;
+  &lt;i class="fa fa-home"&gt;
+  &lt;/i&gt; HOME&lt;/a&gt;
+  &lt;a href='index-signin.html'&gt;
+  &lt;i class="fa fa-sign-in"&gt;
+  &lt;/i&gt; LOGIN&lt;/a&gt;
+  &lt;a href='index-register.html'&gt;
+  &lt;i class="fa fa-user"&gt;
+  &lt;/i&gt; REGISTER&lt;/a&gt;
+&lt;/div&gt;
+ 
+&lt;div class="row"&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/1.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 185.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/2.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 175.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="column"&gt;
+    &lt;img src="productimages/3.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 19O.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/4.jpg" alt="" &gt;
+	&lt;p&gt;ZMW 140.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt; 
+
+&lt;div class="footer" &gt;
+&lt;P&gt;&COPY 2024 SHOPIFY SALES&lt;/P&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;												
+</code></pre>
+</div>
+
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">RUN THE CODE</a></h4>
+<div class="navigationsystem" id="menusystem">
+  <a class="" href="#home"><i class="fa fa-shopping-bag"></i> SHOPIFY</a>
+   <a  href="index-reg.html"><i class="fa fa-user"></i> Register</a>
+  <a  href="index-log.html"><i class="fa fa-sign-in"></i> Login</a>
+</div>
+ <img src="productimages/13.jpg" style="width:100%;" >
+ <div class="pill-nav">
+  <a href=''><i class="fa fa-home"></i> HOME</a>
+  <a href='index-log.html'><i class="fa fa-sign-in"></i> LOGIN</a>
+  <a href='index-reg.html'><i class="fa fa-user"></i> REGISTER</a>
+</div>
+<div class="row">
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/1.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 185.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/2.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 175.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+    <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/3.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 190.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/4.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 140.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+</div>
+<div class="footer" style="color:white; text-align:center; background:#2c4762;">
+<P>&COPY 2024 SHOPIFY SALES</P>
+</div> <br>
+
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:16px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">ADD THE PRODUCT NAME</a></h4>
+<div style ="color:white; width:98%; margin:auto; border-radius:4px; background: #2c4762; padding-left:10px;">
+<pre style ="overflow:hidden;"><code>												
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;IMAGES&lt;/title&gt;
+
+&lt;link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/
+ajax/libs/font-awesome/
+4.7.0/css/font-awesome.css"&gt;
+
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+}
+.navigationsystem {
+  overflow: hidden;
+  border-bottom:
+  1px solid white;
+  margin:2px;
+  color: #f2f2f2;
+  background:#2c4762;
+ }
+
+.navigationsystem a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+img {
+  width:100%;
+ } 
+.pill-nav {
+  background-color:#2c4762;
+  padding: 4px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  margin:5px;
+}
+.pill-nav a {
+  display: inline-block;
+  background-color: white
+  color: #2c4762;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: white;
+  width:32.40%;
+}
+
+.pill-nav a:hover,.pill-nav a:focus {
+ color: gray;
+}
+.column {
+  width: 50%;
+  float:left;
+  padding: 5px;
+}
+
+p {
+  text-align:center;
+  font-size:16px;
+  color:gray;
+}
+
+.btnn {
+  background-color:#ea5f5f;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  width:100%;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background:#2c4762;
+  color:gray;
+}											
+	
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="navigationsystem"&gt;
+  &lt;a class="" href="#home"&gt;
+  &lt;i class="fa fa-shopping-bag"&gt;
+  &lt;/i&gt; SHOPIFY&lt;/a&gt;
+  &lt;a  href="index-register.html"&gt;
+  &lt;i class="fa fa-user"&gt;
+  &lt;/i&gt; Register&lt;/a&gt;
+  &lt;a  href="index-signin.html"&gt;
+  &lt;i class="fa fa-sign-in"&gt;
+  &lt;/i&gt; Login&lt;/a&gt;
+&lt;/div&gt;
+
+ &lt;img src="productimages/13.jpg" 
+ style="width:100%;" &gt;
+ 
+ &lt;div class="pill-nav"&gt;
+  &lt;a href='index.html'&gt;
+  &lt;i class="fa fa-home"&gt;
+  &lt;/i&gt; HOME&lt;/a&gt;
+  &lt;a href='index-signin.html'&gt;
+  &lt;i class="fa fa-sign-in"&gt;
+  &lt;/i&gt; LOGIN&lt;/a&gt;
+  &lt;a href='index-register.html'&gt;
+  &lt;i class="fa fa-user"&gt;
+  &lt;/i&gt; REGISTER&lt;/a&gt;
+&lt;/div&gt;
+ 
+&lt;div class="row"&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/1.jpg" alt="" &gt;
+	&lt;p&gt;SUMMER WEAR&lt;/p&gt;
+	&lt;p&gt;ZMW 185.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/2.jpg" alt="" &gt;
+	&lt;p&gt;SUMMER WEAR&lt;/p&gt;
+	&lt;p&gt;ZMW 175.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="column"&gt;
+    &lt;img src="productimages/3.jpg" alt="" &gt;
+	&lt;p&gt;SUMMER WEAR&lt;/p&gt;
+	&lt;p&gt;ZMW 19O.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="column"&gt;
+    &lt;img src="productimages/4.jpg" alt="" &gt;
+	&lt;p&gt;SUMMER WEAR&lt;/p&gt;
+	&lt;p&gt;ZMW 140.00&lt;/p&gt;
+	&lt;button class="btnn"&gt;
+&lt;i class="fa fa-shopping-bag"&gt;
+&lt;/i&gt; ADD TO CART&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt; 
+
+&lt;div class="footer" &gt;
+&lt;P&gt;&COPY 2024 SHOPIFY SALES&lt;/P&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;												
+</code></pre>
+</div>
+
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">RUN THE CODE</a></h4>
+<div class="navigationsystem" id="menusystem">
+  <a class="" href="#home"><i class="fa fa-shopping-bag"></i> SHOPIFY</a>
+   <a  href="index-reg.html"><i class="fa fa-user"></i> Register</a>
+  <a  href="index-log.html"><i class="fa fa-sign-in"></i> Login</a>
+</div>
+ <img src="productimages/13.jpg" style="width:100%;" >
+ <div class="pill-nav">
+  <a href=''><i class="fa fa-home"></i> HOME</a>
+  <a href='index-log.html'><i class="fa fa-sign-in"></i> LOGIN</a>
+  <a href='index-reg.html'><i class="fa fa-user"></i> REGISTER</a>
+</div>
+<div class="row">
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/1.jpg" style="width:100%;" >
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 185.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/2.jpg" style="width:100%;" >
+		 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 175.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+    <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/3.jpg" style="width:100%;" >
+		 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 190.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/4.jpg" style="width:100%;" >
+		 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 140.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  
+     <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/5.jpg" style="width:100%;" >
+		 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 190.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/6.jpg" style="width:100%;" >
+		 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 140.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  
+     <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/7.jpg" style="width:100%;" >
+		 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 190.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+  <div class="column"style="width:50%; float:left; padding:5px;">
+    <img src="productimages/8.jpg" style="width:100%;" >
+		 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">SUMMER WEAR</p>
+	 <p style="text-align:center;
+  font-size:16px;
+  color:gray;">ZMW 140.00</p>
+  <button class="btnn" style="width:100%"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+  </div>
+</div>
+<div class="footer" style="color:white; text-align:center; background:#2c4762;">
+<P>&COPY 2024 SHOPIFY SALES</P>
+</div> <br>
+	 <p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Our mini yet powerful and very useful real time web application home page is complete. The code is simple and straight forward and very good for beginners. Here is a little homework Set the color of the add to cart button to match the background color of the navigation and footer if you were following.  Then add more product cards since you know how to make one card.  If not download the project and examine code. You can build your own selling or advertisement app that is cost effective than Facebook Ads. This code is complete if you redo it in your Notepad++ you need to use your own images. It will render exactly the same. You need images of the same dimensions and internet connection to render the icons. We will look at the Login and Register next.<p>
+<button style ="padding:10px; font-size:14px;color:white;margin-top:10px; background-color: #ea5f5f; margin-bottom:10px;text-align:center;" class ="btn">
+							<a href="index-signin.html" style ="text-align:center; color:white; text-decoration:none; font-size:14px; "><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN FORM</a></button>
+							
+							<br>
+
+	 
+							
+	<div  class="footer">
+				
+					 <center><p style ="text-align:center;" > &copy 2024 STUDENT DEVELOPER </p></center>
+ 
+
+					
+	</div>
+
+      <script src="asset/view.js"></script>
+
+</body>
+
+
+</html>

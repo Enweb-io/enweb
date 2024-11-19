@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Menu</title>
+  
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+
+.header .bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem 0;
+  background-color:#bb0000;
+  z-index: 99;
+  will-change: transform;
+  transform: translateZ(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+}
+.header .bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.6rem;
+  color: #f1f5f8;
+}
+.header .bottom-nav-link {
+  display: flex;
+  flex-direction: column;
+}
+.header .bottom-nav .active {
+  color: #d32f2f;
+}
+
+
+	
+</style>
+ <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+</head>
+
+<body  style = "background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+url('productimages/4.jpg');background-size:cover; background-position:center;height:100vh; overflow:hidden;">
+
+  
+
+ <header class="header">
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-item">
+        <div class="bottom-nav-link">
+          <i class="material-icons">home</i>
+          <span>Home</span>
+        </div>
+      </div>
+      <div class="bottom-nav-item">
+        <div class="bottom-nav-link">
+          <i class="material-icons">favorite</i>
+          <span>Like</span>
+        </div>
+      </div>
+      <div class="bottom-nav-item">
+        <div class="bottom-nav-link">
+          <i class="material-icons">shopping_cart</i>
+          <span>Cart</span>
+        </div>
+      </div>
+      <div class="bottom-nav-item">
+        <div class="bottom-nav-link">
+          <i class="material-icons">account_circle</i>
+          <span>User</span>
+        </div>
+      </div>
+
+      <div class="bottom-nav-item">
+        <div class="bottom-nav-link">
+          <i class="material-icons">settings</i>
+          <span>Setting</span>
+        </div>
+      </div>
+    </nav>
+
+ </header>
+</body>
+  
+
+</html>
+ 
