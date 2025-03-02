@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel='stylesheet' href='https://icono-49d6.kxcdn.com/icono.min.css'>
+	<style>	
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:#ea5f5f;
+  position: relative;
+  width:98%;
+  margin:5px auto;
+  display:block;
+  border-radius:5px;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  padding:16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav a.icon {
+  float: right;
+}
+.body {
+  display: flex;
+  justify-content: center;
+
+}
+
+.audio-player {
+  height: 50px;
+  width:96%;
+  background: #ea5f5f;
+  font-family: arial;
+  color: white;
+  font-size: 0.85em;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 6px auto;
+}
+.audio-player .timeline {
+  background: white;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+
+}
+.audio-player .timeline .progress {
+  background: coral;
+  width: 0%;
+  height: 100%;
+  transition: 0.25s;
+  border-radius:0px;
+}
+.audio-player .controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 20px;
+}
+.audio-player .controls > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.audio-player .controls .toggle-play.play {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  height: 0;
+  width: 0;
+  border: 7px solid #0000;
+  border-left: 13px solid white;
+}
+.audio-player .controls .toggle-play.play:hover {
+  transform: scale(1.1);
+}
+.audio-player .controls .toggle-play.pause {
+  height: 15px;
+  width: 20px;
+  cursor: pointer;
+  position: relative;
+}
+.audio-player .controls .toggle-play.pause:before {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  background: white;
+  content: "";
+  height: 15px;
+  width: 3px;
+}
+.audio-player .controls .toggle-play.pause:after {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  background: white;
+  content: "";
+  height: 15px;
+  width: 3px;
+}
+.audio-player .controls .toggle-play.pause:hover {
+  transform: scale(1.1);
+}
+.audio-player .controls .time {
+  display: flex;
+}
+.audio-player .controls .time > * {
+  padding: 2px;
+}
+.audio-player .controls .volume-container {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+.audio-player .controls .volume-container .volume-button {
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+.audio-player .controls .volume-container .volume-button .volume {
+  transform: scale(0.7);
+}
+.audio-player .controls .volume-container .volume-slider {
+  position: absolute;
+  left: -3px;
+  top: 15px;
+  z-index: -1;
+  width: 0;
+  height: 15px;
+  background: white;
+  box-shadow: 0 0 20px #000a;
+  transition: 0.25s;
+}
+.audio-player .controls .volume-container .volume-slider .volume-percentage {
+  background: coral;
+  height: 100%;
+  width: 75%;
+}
+.audio-player .controls .volume-container:hover .volume-slider {
+  left: -123px;
+  width: 120px;
+}
+
+
+a h3  {
+  font-size: 10px;
+  text-align:center;
+  text-transform:uppercase;
+  color:gray;
+  padding:3px;
+  margin:3px;
+  font-family:arial;
+  
+}
+a {
+text-decoration:none;
+font-family:arial;
+}
+
+a:focus{
+color:skyblue;
+}
+
+.fa:focus, .fa:hover{
+color:skyblue;
+cursor:pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+.header__wrapper .cols__container .left__col {
+  padding: 25px 20px;
+  text-align: center;
+  max-width: 350px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.header__wrapper .cols__container .left__col .img__container {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.header__wrapper .cols__container .left__col .img__container img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border:4px solid white;
+}
+.header__wrapper .cols__container .left__col .img__container span {
+  position: absolute;
+  background: #2afa6a;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  bottom: 3px;
+  right: 11px;
+  border: 2px solid #fff;
+}
+.header__wrapper .cols__container .left__col h2 {
+  margin-top: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color:#ea5f5f;
+}
+.header__wrapper .cols__container .left__col p {
+  font-size: 12px;
+  color: #818181;
+  margin: 0;
+}
+
+.header__wrapper .cols__container .content p {
+  font-size: 1rem;
+  color: #1d1d1d;
+  line-height: 1.8em;
+}
+
+.header__wrapper .cols__container .right__col .photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 20px;
+}
+.header__wrapper .cols__container .right__col .photos img {
+  max-width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+@media (min-width: 868px) {
+  .header__wrapper .cols__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+  }
+  .header__wrapper .cols__container .left__col {
+    padding: 25px 0px;
+  }
+}
+
+@media (min-width: 1017px) {
+  .header__wrapper .cols__container .left__col {
+    margin: 0;
+    margin-right: auto;
+  }
+ 
+}
+.pill-nav {
+ background-color:#ea5f5f;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+  margin:5px;
+}
+.pill-nav a {
+  display: inline-block;
+  background-color: white
+  color: #ea5f5f;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: white;
+  width:32.60%;
+  color: #ea5f5f;
+}
+
+.pill-nav a:hover,.pill-nav a:focus {
+ color: gray;
+}
+.header__wrapper header {
+  width: 100%;
+  background: url("images/beautiful.jpg") no-repeat 50% 20% / cover;
+  min-height: calc(120px + 15vw);
+}
+h5{text-align:center;}
+
+
+
+.section {
+	padding:5px;
+}
+
+.section h5 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 500;
+	margin: 0 0 10px 0;
+	font-size: 18px;
+}
+
+.product .content {
+	background: #fff;
+}
+
+.product .content img {
+	width: 100%;
+	float: left;
+	margin-bottom: 12px;
+}
+
+.product .content .price {
+	background: #ea5f5f;
+	padding: 3px 10px;
+	color: #fff;
+	position: relative;
+	top: 22px;
+	float: right;
+	margin-top: -22px;
+	font-size:14px;
+}
+
+.product .content .prices {
+	font-size: 14px;
+}
+
+.product .content .offer-type {
+	font-size: 10px;
+	padding: 0 3px;
+	top: -21px;
+	position: relative;
+	color: #fff;
+	margin-bottom: -21px;
+}
+
+.product .content .offer-type span {
+	background: #999;
+	padding: 0 3px;
+}
+
+.product .sub-content {
+	padding:10px;
+}
+
+.list-product .sub-content {
+	padding: 10px 10px 10px 0;
+}
+
+.list-product .col-left {
+	padding-right: 0;
+}
+
+.list-product .content img {
+	margin-bottom: 0;
+}
+.column {
+  border-radius: 5px;
+  width: 50%;
+  float:left;
+  padding:5px;
+  border:none;
+  margin-bottom:5px;
+}
+.product .sub-content h5 {
+	font-size: 15px;
+	line-height: 20px;
+	margin-bottom: 5px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.product .row:last-child {
+	margin-bottom: 5px;
+}
+
+.product .content-left img {
+	width: 100%;
+	float: left;
+}
+
+.product .content-right {
+	overflow: hidden;
+}
+
+.product .button-default {
+	padding: 3px 10px 3px;
+	margin: 6px 0 6px;
+}
+
+
+.button-default {
+	background: #ea5f5f;
+	color: #ffffff;
+	box-shadow: none;
+	margin: 20px 0 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 1px solid #ea5f5f;
+	padding: 13px;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 4px;
+	width:100%;
+}
+
+.button-fullwidth {
+	width: 100%;
+	text-align: center;
+}
+hr {
+  border: none;
+  height: 0.5px;
+  /* Set the hr color */
+  color: #333;  /* old IE */
+  background-color:gray;
+opacity:0.6;
+width:98%;
+margin:10px auto;
+}
+    .aligned {
+            display: flex;
+            align-items: center;
+			font-family:arial;
+			color:gray;
+			font-size:14px;
+			padding-left:10px;
+        }
+		.img{vertical-align:middle;}
+         
+        .span {
+            padding: 10px;
+        }
+
+.button-default a {
+	color: #ffffff;
+}
+.bg-second {
+	background: #f0f2f1;
+}
+.button-default:hover {
+	background: #ea5f5f;
+	opacity: 0.9;
+	box-shadow: none;
+}
+a h5{color:#2c4762; text-transform:uppercase;}
+
+.footer 
+{
+	background-color:#ea5f5f;
+	color: #ffffff;
+	padding-top:10px;
+	border-bottom:1px solid #eee;
+	border-top:1px solid #eee;
+	width:100%;
+}
+
+.btnn {
+  background-color:#ea5f5f;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  width:100%;
+}
+
+  .container {
+            margin:10px auto;
+            position: relative; /* Position for absolute children */
+            overflow: hidden; /* Hide overflow from rounded corners */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .image {
+            width: 100%; /* Full width */
+            height: 300px; /* Fixed height for images */
+            background-size: cover; /* Cover the area */
+            background-position: center; /* Center the image */
+        }
+
+        .dark-overlay {
+            position: absolute; /* Position overlay */
+            bottom: 0; /* Align to bottom */
+            left: 0; /* Align to left */
+            right: 0; /* Align to right */
+            height: 50%; /* Height of overlay */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); /* Dark gradient */
+            display: flex; /* Flexbox for content */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: flex-end; /* Align content to bottom */
+            padding: 10px; /* Padding for overlay */
+            box-sizing: border-box; /* Include padding in height calculations */
+            color: white; /* Text color */
+        }
+
+        .heading {
+            margin: 0; /* Remove default margin */
+            font-size: 24px; /* Font size for heading */
+        }
+
+        .paragraph {
+            margin: 5px 0; /* Margin for paragraph */
+            font-size: 16px; /* Font size for paragraph */
+        }
+
+        .avatar {
+            display: flex; /* Flexbox for avatar and text */
+            align-items: center; /* Center items vertically */
+            margin-top: 10px; /* Space above avatar and text */
+        }
+
+        .avatar-image {
+            width: 30px; /* Avatar size */
+            height: 30px; /* Avatar size */
+            border-radius: 50%; /* Circular shape */
+            margin-right: 10px; /* Space between image and text */
+        }
+
+        .text {
+            margin: 0; /* Remove default margin */
+        }
+
+        .links {
+            display: flex; /* Flexbox for links */
+            justify-content: flex-start; /* Align links to the left */
+            margin-top: 10px; /* Space above links */
+        }
+
+        .link {
+            color: white; /* Link color */
+            margin-right: 15px; /* Space between links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Font size for links */
+        }
+
+        .link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+</style>
+  </head>
+  <body>
+  <div class="topnav">
+  <a href="index.html" class="active"><i class="fa fa-user"></i> BIBLE STORIES</a>
+  <div id="myLinks">
+    <a href="index.html"><i class="fa fa-home"></i></a>
+    <a href="index-about.html"><i class="fa fa-edit"></i></a>
+
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-jonah.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF SAMSON AND DELILAH</a></h4>
+	   <a href = ""> <img src="images/samson.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>
+<div class ="body">
+<div style="width: 0px; height: 50px;"></div>
+<div class="audio-player">
+  <div class="timeline">
+    <div class="progress"></div>
+  </div>
+  <div class="controls">
+    <div class="play-container">
+      <div class="toggle-play play">
+    </div>
+    </div>
+    <div class="time">
+      <div class="current">0:00</div>
+      <div class="divider">/</div>
+      <div class="length"></div>
+    </div>
+    <div class="name">Audio Bible</div>
+
+    <div class="volume-container">
+      <div class="volume-button">
+        <div class="volume icono-volumeMedium"></div>
+      </div>
+      
+      <div class="volume-slider">
+        <div class="volume-percentage"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ <p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:18px;"> 
+Once upon a time, in a land called Israel, there lived a man named Samson. God had chosen him to be a special leader and protector of the Israelites.<br>
+
+Samson was very strong and it was because of his long, thick hair that he had his incredible strength.<br>
+
+The Story of Samson and Delilah for Kids - Samson<br>
+One day, Samson met a woman called Delilah. Although she was extremely beautiful, Delilah was not a particularly good person.<br>
+
+To make matters worse, although Delilah pretended to love Samson, really she was working for the enemies of the Israelites, a tribe of people called the Philistines.<br>
+
+And the Philistines wanted to capture Samson because they were afraid of his incredible strength.<br>
+
+The Story of Samson and Delilah for Kids - Delilah<br>
+Every day Delilah would ask Samson what was the secret of his strength, so that she could report it to the Philistines. But every day, Samson would make up a story, because he was scared of revealing the real source of his strength to anyone.<br>
+
+Each time Delilah fed the Philistines the false information, they tried to capture Samson.<br>
+
+On each occasion, Samson easily broke free thanks to his incredible strength. This happened 3 times, and Delilah realised she’d have to make him feel guilty.<br>
+
+The Story of Samson and Delilah for Kids - Samson breaks free<br>
+Delilah played on the fact that Samson loved her and she pleaded with him to tell her the truth if his love for her was real. Finally, Samson gave in and told her the truth, that his great strength was thanks to his hair which had never been cut.<br>
+
+That night, while Samson was sleeping, Delilah called a servant and had him cut off Samson’s hair.<br>
+
+When Samson woke up, he felt weak and powerless. Then Delilah called for the Philistines to come, and they were able to capture Samson without any trouble.<br>
+
+The Story of Samson and Delilah for Kids - Delilah cuts Samson's hair<br>
+Samson was sad that Delilah had betrayed him and greatly regretted trusting her.<br>
+
+The Philistines were very cruel to Samson. As well as imprisoning him, they also gouged out his eyes.<br>
+
+However, over time, Samson’s hair slowly began to grow back. And with his hair, his strength also slowly began to return as well.<br>
+
+The Story of Samson and Delilah for Kids - Samson has his eyes gouged out<br>
+One day, the Philistines decided to have a big feast to celebrate the fact that their god had delivered Samson into their hands. They even took Samson out of his prison so that they could humiliate him.<br>
+
+During the feast, Samson asked the servant who was guiding him to take him to the pillars in the middle of the temple.<br>
+
+Samson rested his hands on both of the pillars and then prayed to God for strength just one last time.<br>
+
+And then he pushed with all his might, until the pillars began to shake. Before long, the pillars had crumbled, and then the whole temple came tumbling down. </p> 
+  <h4 style='text-align:center;margin-top:10px;'><a href = "index-abraham.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">LESSON FROM THE STORY</a></h4>
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:18px;"> Samson had sacrificed his own life to defeat the enemies of his people. He had shown great bravery, strength, and belief in God, even in his weakest moment.<br>
+
+The strength that samson had was a gift from God. Samson gave his life so that he could defeat the Philistines and the Israelites could be freed. In some ways Samson's story reminds us of Jesus. God gives us special abilities and gifts. These gifts are used to serve him, the church and God's people. However acrifice may also mean giving up our time and materisl things to save God. Intead of watch cartoons on sunday weshould put the cartoons aside and go to church. Instead of playing with toys we can help mum with chores at home that way God will be proud of us. When we have come back from church and the house the clean the we can return to our toys and cartoons. 
+
+	 </p> 
+	
+
+	 <h4 style='text-align:center;margin-top:10px;'><a href = "index-abraham.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">DRAWING CHALLENGE</a></h4>
+<img src ="draw/samson.jpg" style ="width:100%">
+ <p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:18px;"> 
+Now let us have some fun with Samson and the lion in a drawing challenge. Take a plane paper and write your name on top and draw a picture of Samson and the lion using a pencil, do not color the drawing. Label the picture , under the label write one thing that you learnt from the story of Samson. Put it where you can see it and remember the story of Samson and what you learnt from it. You can take a picture of the drawing and share it with us. If it is that good we will publish it. You can do many and choose the best. The drawing should fill the whole page so that we can see it.<br>
+<a href="https://api.whatsapp.com/send?phone=+260770304374&text=Attach%20Drawing%20....." class="button-default"><button class="btnn" style="width:100%"><i class="fa fa-user"></i> SEND DRAWING</button></a>
+	<div class="section product bg-second">
+		<div class="contain">
+		<h5 style = "color:#ea5f5f;font-size: 13px;">NEXT POST</h5>
+			<div class="row">				
+			
+					<div class="column" style ="width:100%;">
+					<div class="content">
+					
+						<img src="pics/maxresdefault (21).jpg" style="margin-top:-6px;">
+						<div class="sub-content">
+							<a href="index-david.html"><h5>DAVID AND THE GIANT GOLIATH</h5></a>
+						<a href="index-david.html"style="color:white;"><button class="button-default">READ MORE</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div style ="padding:10px;">
+	  <div class="container" style="background-image: url('images/IMG-20240417-WA0067.jpg'); background-size:cover;;">
+        <div class="image" > <!-- Replace with your image URL -->
+            <div class="dark-overlay">
+                <h2 class="heading">Christina's Cakery</h2>
+                <p class="paragraph">Delicious cakes for all occassions.</p>
+                <div class="avatar">
+                    <img src="images/2062095_application_chat_communication_logo_whatsapp_icon.svg.jpg" alt="Avatar" class="avatar-image"> <!-- Replace with your avatar image -->
+                    <p class="text">0966 102411</p>
+                </div>
+                <div class="links">
+                    <a href="#" class="link">Location:</a>
+                    <a href="#" class="link">Kamwala Opposite kamwala Primary Sch..</a>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+<div  class="footer">
+					<div class="container">
+					 <center><p style ="text-align:center;" >&copy 2025 KIDS BIBLE STORIES</p></center>
+ 
+
+					</div>
+				</div> 
+  </body>
+  <script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+<script>
+// Possible improvements:
+// - Change timeline and volume slider into input sliders, reskinned
+// - Change into Vue or React component
+// - Be able to grab a custom title instead of "Music Song"
+// - Hover over sliders to see preview of timestamp/volume change
+
+const audioPlayer = document.querySelector(".audio-player");
+const audio = new Audio(
+"story/Samson and Delilah.mp3");
+
+//credit for song: Adrian kreativaweb@gmail.com
+
+console.dir(audio);
+
+audio.addEventListener(
+"loadeddata",
+() => {
+  audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
+  audio.duration);
+
+  audio.volume = 1.2;
+},
+false);
+
+
+//click on timeline to skip around
+const timeline = audioPlayer.querySelector(".timeline");
+timeline.addEventListener("click", e => {
+  const timelineWidth = window.getComputedStyle(timeline).width;
+  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+  audio.currentTime = timeToSeek;
+}, false);
+
+//click volume slider to change volume
+const volumeSlider = audioPlayer.querySelector(".controls .volume-slider");
+volumeSlider.addEventListener('click', e => {
+  const sliderWidth = window.getComputedStyle(volumeSlider).width;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audio.volume = newVolume;
+  audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
+}, false);
+
+//check audio percentage and update time accordingly
+setInterval(() => {
+  const progressBar = audioPlayer.querySelector(".progress");
+  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+  audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
+  audio.currentTime);
+
+}, 500);
+
+//toggle between playing and pausing on button click
+const playBtn = audioPlayer.querySelector(".controls .toggle-play");
+playBtn.addEventListener(
+"click",
+() => {
+  if (audio.paused) {
+    playBtn.classList.remove("play");
+    playBtn.classList.add("pause");
+    audio.play();
+  } else {
+    playBtn.classList.remove("pause");
+    playBtn.classList.add("play");
+    audio.pause();
+  }
+},
+false);
+
+
+audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
+  const volumeEl = audioPlayer.querySelector(".volume-container .volume");
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    volumeEl.classList.remove("icono-volumeMedium");
+    volumeEl.classList.add("icono-volumeMute");
+  } else {
+    volumeEl.classList.add("icono-volumeMedium");
+    volumeEl.classList.remove("icono-volumeMute");
+  }
+});
+
+//turn 128 seconds into 2:08
+function getTimeCodeFromNum(num) {
+  let seconds = parseInt(num);
+  let minutes = parseInt(seconds / 60);
+  seconds -= minutes * 60;
+  const hours = parseInt(minutes / 60);
+  minutes -= hours * 60;
+
+  if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+  return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+  seconds % 60).
+  padStart(2, 0)}`;
+}
+
+    </script>
+</html>

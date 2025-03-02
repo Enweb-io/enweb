@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:title" content="Genesis Gospel Player">
+  <meta name="twitter:description" content="Listen to amazing songs of praise and worship...">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://img.freepik.com/premium-photo/cute-small-girl-praying-church-jesus-giving-blessing-cinematic_868783-26485.jpg">
+    <meta name="twitter:creator" content="@michaellarvel">
+
+  <meta property="og:image" content="https://img.freepik.com/premium-photo/cute-small-girl-praying-church-jesus-giving-blessing-cinematic_868783-26485.jpg.jpg" itemprop="thumbnailUrl">
+  <meta property="og:title" content="Genesis Gospel Player">
+  <meta property="og:url" content="https://img.freepik.com/premium-photo/cute-small-girl-praying-church-jesus-giving-blessing-cinematic_868783-26485.jpg">
+  <meta property="og:description" content="Listen to amazing songs of praise and worship......">
+    <title>KidsBible</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>	
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:#ea5f5f;
+  position: relative;
+  display:block;
+ 
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  padding:16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav a.icon {
+  float: right;
+}
+a h3  {
+  font-size: 10px;
+  text-align:center;
+  text-transform:uppercase;
+  color:gray;
+  padding:3px;
+  margin:3px;
+  font-family:arial;
+  
+}
+a {
+text-decoration:none;
+font-family:arial;
+}
+
+a:focus{
+color:skyblue;
+}
+
+.fa:focus, .fa:hover{
+color:skyblue;
+cursor:pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+.header__wrapper .cols__container .left__col {
+  padding: 25px 20px;
+  text-align: center;
+  max-width: 350px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.header__wrapper .cols__container .left__col .img__container {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.header__wrapper .cols__container .left__col .img__container img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border:4px solid white;
+}
+.header__wrapper .cols__container .left__col .img__container span {
+  position: absolute;
+  background: #2afa6a;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  bottom: 3px;
+  right: 11px;
+  border: 2px solid #fff;
+}
+.header__wrapper .cols__container .left__col h2 {
+  margin-top: 25px;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color:#ea5f5f;
+}
+.header__wrapper .cols__container .left__col p {
+  font-size: 18px;
+  color: #818181;
+  margin: 0;
+}
+
+.header__wrapper .cols__container .content p {
+  font-size: 1rem;
+  color: #1d1d1d;
+  line-height: 1.8em;
+}
+
+.header__wrapper .cols__container .right__col .photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 20px;
+}
+.header__wrapper .cols__container .right__col .photos img {
+  max-width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+@media (min-width: 868px) {
+  .header__wrapper .cols__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+  }
+  .header__wrapper .cols__container .left__col {
+    padding: 25px 0px;
+  }
+}
+
+@media (min-width: 1017px) {
+  .header__wrapper .cols__container .left__col {
+    margin: 0;
+    margin-right: auto;
+  }
+ 
+}
+.pill-nav {
+ background-color:#ea5f5f;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  margin:5px;
+}
+.pill-nav a {
+  display: inline-block;
+  background-color: white
+  color: #ea5f5f;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+  background-color: white;
+  width:32.60%;
+  color: #ea5f5f;
+}
+
+.pill-nav a:hover,.pill-nav a:focus {
+ color: gray;
+}
+.header__wrapper header {
+  width: 100%;
+  background: url("pics/story.jpg") no-repeat 50% 20% / cover;
+  min-height: calc(120px + 15vw);
+}
+h5{text-align:center;}
+
+
+
+.section {
+	padding:5px;
+}
+
+.section h5 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 500;
+	margin: 0 0 10px 0;
+	font-size: 18px;
+}
+
+.product .content {
+	background: #fff;
+}
+
+.product .content img {
+	width: 100%;
+	float: left;
+	margin-bottom: 18px;
+}
+
+.product .content .price {
+	background: #ea5f5f;
+	padding: 3px 10px;
+	color: #fff;
+	position: relative;
+	top: 22px;
+	float: right;
+	margin-top: -22px;
+	font-size:18px;
+}
+
+.product .content .prices {
+	font-size: 18px;
+}
+
+.product .content .offer-type {
+	font-size: 10px;
+	padding: 0 3px;
+	top: -21px;
+	position: relative;
+	color: #fff;
+	margin-bottom: -21px;
+}
+
+.product .content .offer-type span {
+	background: #999;
+	padding: 0 3px;
+}
+
+.product .sub-content {
+	padding:10px;
+}
+
+.list-product .sub-content {
+	padding: 10px 10px 10px 0;
+}
+
+.list-product .col-left {
+	padding-right: 0;
+}
+
+.list-product .content img {
+	margin-bottom: 0;
+}
+.column {
+  border-radius: 5px;
+  width: 50%;
+  float:left;
+  padding:5px;
+  border:none;
+  margin-bottom:5px;
+}
+.product .sub-content h5 {
+	font-size: 15px;
+	line-height: 20px;
+	margin-bottom: 5px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.product .row:last-child {
+	margin-bottom: 5px;
+}
+
+.product .content-left img {
+	width: 100%;
+	float: left;
+}
+
+.product .content-right {
+	overflow: hidden;
+}
+
+.product .button-default {
+	padding: 3px 10px 3px;
+	margin: 6px 0 6px;
+}
+
+
+.button-default {
+	background: #ea5f5f;
+	color: #ffffff;
+	box-shadow: none;
+	margin: 20px 0 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 1px solid #ea5f5f;
+	padding: 13px;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 4px;
+	width:100%;
+}
+
+.button-fullwidth {
+	width: 100%;
+	text-align: center;
+}
+hr {
+  border: none;
+  height: 0.5px;
+  /* Set the hr color */
+  color: #333;  /* old IE */
+  background-color:gray;
+opacity:0.6;
+width:98%;
+margin:10px auto;
+}
+    .aligned {
+            display: flex;
+            align-items: center;
+			font-family:arial;
+			color:gray;
+			font-size:18px;
+			padding-left:10px;
+        }
+		.img{vertical-align:middle;}
+         
+        .span {
+            padding: 10px;
+        }
+
+.button-default a {
+	color: #ffffff;
+}
+.bg-second {
+	background: #f0f2f1;
+}
+.button-default:hover {
+	background: #ea5f5f;
+	opacity: 0.9;
+	box-shadow: none;
+}
+a h5{color:#2c4762; text-transform:uppercase;}
+
+.footer 
+{
+	background-color:#ea5f5f;
+	color: #ffffff;
+	padding-top:10px;
+	border-bottom:1px solid #eee;
+	border-top:1px solid #eee;
+	width:100%;
+}
+
+
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+</style>
+  </head>
+  <body>
+  <div class="topnav">
+  <a href="index.html" class="active"><i class="fa fa-user"></i> BIBLE STORIES</a>
+  <div id="myLinks">
+    <a href="index.html"><i class="fa fa-home"></i></a>
+    <a href="index-about.html"><i class="fa fa-edit"></i></a>
+	  <a href="https://www.addtoany.com/add_to/whatsapp?linkurl=https%3A%2F%2Fenweb-io.github.io%2Fenweb%2Fgenesis%2Fkidsbible%2Findex.html&type=page&linkname=&linknote="><i class="fa fa-share-alt"></i></a>
+	
+
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+    <div class="header__wrapper">
+      <header></header>
+      <div class="cols__container">
+        <div class="left__col">
+          <div class="img__container">
+            <img src="avatar/2.jpg" alt="" />
+            <span></span>
+          </div>
+          <h2>AUNT EDINA</h2>
+     
+       	<h4 style='text-align:center;margin-top:10px;'><a href = "index-about.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">WELCOME TO AUNT EDINA'S BIBLE STORIES FOR KIDS</a></h4> <hr>
+
+        </div>
+   
+      </div>
+    </div>
+
+	   <a href = "index-about.html"> <img src="images/sam.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr><br>
+
+	<h4 style='text-align:center;margin-top:-30px;'><a href = "index-creation.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF CREATION</a></h4>
+	   <a href = "index-creation.html"> <img src="pics/story.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-abraham.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY  OF ABRAHAM AND ISSAC</a></h4>
+	   <a href = "index-abraham.html"> <img src="pics/image191.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>	
+
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-noah.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF NOAH AND THE ARK</a></h4>
+	   <a href = "index-noah.html"> <img src="pics/af194190dba0d091755fbe98f29ec700.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>	
+
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-jonah.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF JONAH AND THE FISH</a></h4>
+	   <a href = "index-jonah.html"> <img src="pics/Jonah-850x560.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>	
+
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-david.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF DAVID AND GOLIATH</a></h4>
+	   <a href = "index-david.html"> <img src="pics/fb2d80ce09147ee644e430ccc643395b.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>	
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-samson.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF SAMSON AND DELILAH</a></h4>
+	   <a href = "index-samson.html"> <img src="images/sam.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-joseph.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF JOSEPH AND HIS BROTHERS</a></h4>
+	   <a href = "index-joseph.html"> <img src="img/joseph.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+<div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-furnace.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF THE FIERY FURNACE</a></h4>
+	   <a href = "index-furnace.html"> <img src="img/furnace.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>	
+
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF DANIEL AND THE LIONS</a></h4>
+	   <a href = "index-daniel.html"> <img src="pics/360_F_571341098_9ShbXTM8UTmk1nRxjko8PZVU0GWCF6PR.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>	
+
+
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-moses.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">THE BIBLE STORY OF MOSES AND ISLAELITES</a></h4>
+	   <a href = "index-moses.html"> <img src="pics/1102002189_univ_lsr_md.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>	
+<h4 style='text-align:center;margin-top:10px;'><a href = "index-parents.html" style="color:#ea5f5f;font-size:13px; font-weight:bold; text-transform:uppercase; margin:0; padding:0;text-align:center;">FOR PARENTS AND GUARDIANS</a></h4>
+	   <a href = "index-parents.html"> <img src="img/2151401969.jpg" alt="" style ="width:96%; margin:auto; display:block; border-radius:5px;"></a>
+														
+
+
+	    <div class="aligned">
+        <img src=
+"avatar/2.jpg" class ="img"
+            width="30" style="border-radius:50%;">
+            
+       <span class="span" style ="font-size:14px">Aunt Edina</span> <span class="date span" style ="font-size:14px"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+    </div>
+
+<hr>
+
+
+
+	<div class="section product bg-second">
+		<div class="container">
+		<h5 style = "color:#ea5f5f;font-size: 13px;">MY PHOTO ALBUMS AND PHOTO STORIES</h5>
+			<div class="row">				
+					<div class="column">
+					<div class="content">
+						
+						<img src="img/29428f690d094e6a94a9ba3df26891.jpg" style="margin-top:-6px;">
+						<div class="sub-content">
+							<a href="index-miracles.html"><h5>MIRACLES BY JESUS</h5></a>
+						<a href="index-miracles.html"style="color:white;"><button class="button-default">PHOTO STORY</button></a>
+						</div>
+					</div>
+				</div>
+				
+					<div class="column">
+					<div class="content">
+					
+						<img src="img/29428f690d094e6a94a9ba3df2686291.jpeg" style="margin-top:-6px;">
+						<div class="sub-content">
+							<a href="index-jesus.html"><h5>JESUS GALLERY</h5></a>
+						<a href="index-jesus.html"style="color:white;"><button class="button-default">PHOTO STORY</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+<div  class="footer">
+					<div class="container">
+					 <center><p style ="text-align:center;" >&copy 2025 KIDS BIBLE STORIES</p></center>
+ 
+
+					</div>
+				</div> 
+  </body>
+  <script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+</html>
