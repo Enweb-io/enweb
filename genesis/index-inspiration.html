@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive">
+
+	<!-- title -->
+	<title>Blog</title>
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+<link rel="stylesheet" href="assets/swiper-bundle.min.css" /> 
+	
+<style>
+@import url(asset/fancybox.css);
+  ::-webkit-scrollbar {
+  width: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  background: #ffffff;
+  padding:0; margin:0;
+  overflow-x:hidden;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+#cont {
+  width: 100%;
+box-shadow:0 0 5px rgba(0,0,0,0.5);
+height:55px;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color:#3b5998;
+  position: relative;
+  width:98%;
+  margin:5px auto;
+  display:block;
+  border-radius:5px;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  padding:16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav a.icon {
+  float: right;
+}
+
+a h3  {
+  font-size: 10px;
+  text-align:center;
+  text-transform:uppercase;
+  color:gray;
+  padding:3px;
+  margin:3px;
+  
+}
+a {
+text-decoration:none;
+}
+
+a:focus{
+color:skyblue;
+}
+
+.rows,
+.rows > .imgspan {
+  padding: 8px;
+}
+
+
+.imgspan {
+  float: left;
+  width: 25%;
+}
+
+
+.rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+  .imgspan img {
+    width: 100%; height:auto; border-radius:50%;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+	border-width:4px;
+	border-color:linear-gradient(to right, red, orange);
+	object-fit:cover;
+  }
+  
+  .btn {
+  align-items: center;
+  background-color: #3b5998;
+  border-radius:3px;
+  border: none;
+  color: white;
+  padding: 9px 100px;
+  cursor: pointer;
+  font-size:16px;
+  width:98%;
+  margin:0 5px;
+  
+}
+.swiper {
+      width: 100%;
+      height:auto;
+	  position: relative;
+      z-index: 1;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+	
+	.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 16px;
+  color: #fff;
+}
+.swiper-button-prev {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  left: 20px;
+}
+.swiper-button-prev:hover {
+  border: 1px solid #fff;
+}
+.swiper-button-next {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  right: 20px;
+}
+.swiper-button-next:hover {
+  border: 1px solid #fff;
+}
+
+.swiper-button-next:hover:after,
+.swiper-button-prev:hover:after {
+  color: #fff;
+}
+
+
+.footer 
+{
+	background-color:#000;
+	color: #ffffff;
+	padding:9px; 
+	width:100%;
+	clear:both;
+}
+
+
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 13px;
+	text-align: center;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding:5px;
+}
+
+.column img {
+  width:100%;
+  object-fit: cover;
+  border-radius:5px;
+  
+}	
+
+.profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+			padding:0 10px;
+        }
+        .avatar {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .text {
+            flex-grow: 1;
+			padding:0;
+			margin:0;
+        }
+		
+		.text p, .text h3 {
+           
+			padding:0;
+			margin:0;
+        }
+        .follow-button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+		
+		 .body {
+            margin: 0; /* Remove default margin */
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center horizontally */
+            align-items: flex-start; /* Align items at the top */
+           
+        }
+
+        .avatar-container {
+            position: relative; /* Position for overlapping */
+        }
+
+        .avatar {
+            width: 60px; /* Width for avatars */
+            height: 60px; /* Height for avatars */
+            border-radius: 50%; /* Make avatars round */
+            margin-left: -15px; /* Overlap effect */
+            border: 4px solid white; /* Optional border for better visibility */
+        }
+
+		</style>
+
+</head>
+<body>
+  <div class="topnav">
+  <a href="index.html" class="active"><i class="fa fa-microphone"></i> GENESIS</a>
+  <div id="myLinks">
+    <a href="index.html"><i class="fa fa-home"></i></a>
+    <a href="index-about.html"><i class="fa fa-edit"></i></a>
+
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<div class="wrap" style="margin:0; padding:0;">		
+						
+	
+							
+  <div class="profile">
+        <img src="avatar/1.jpg" alt="Avatar" class="avatar">
+        <div class="text">
+            <h3>Michael</h3>
+            <p>Content Creator</p>
+        </div>
+        <button class="follow-button">Follow</button>
+    </div>							
+			  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">    <img src="source/101.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" ></div>
+      <div class="swiper-slide">    <img src="slide/2.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" ></div>
+      <div class="swiper-slide">    <img src="slide/3.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" ></div>
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+	  
+	  					<div class="news-text-box" >
+							<h4 style='clear:both;text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">MY INSPIRATION</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;color:gray;font-size:12px;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+	  
+	  	
+	<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;"> 
+In primary school a girl named Maria and I were appointed to the positions of prefects. The first time I ever read the bible in front of people was in my sixth grade. It was during the school assembly under the the zambian flying flag in front of the the whole school. I was nervous but once I opened that small blue book I was the bearer of the good news. After that Maria delivered an outstanding performance leading the choir with a golden beautiful voice. It was thrilling, exciting and very spiritual. I recall one lady teacher say that I was fit to be a prefect. I got exposed to songs of praise and worship in primary school from the class choir and scripture union and I enjoyed every moment of it.  <br>
+Unfortunately Maria past away even before we got to the tenth grade. But I will never forget that wonderful spiritual experience I shared with her.  In senior secondary at David Kaunda we formed a Gospel group named the praise machines. We met after prep either in the dining hall or at the hostels and we rehearsed, it was fun and very spiritually fulfilling.  It was a combination of rap and loud gospel music with live instruments.  That is why we have a loud category on the application. Most of the tracks on the loud praylist were introduced to me by what I consider to be one of the most beautiful lofty awesome and most amazing thing I have ever experienced in the history of my human existence and  twin and big only big brother Matthew. He has tons of folders of Gospel music. Matthew and I enjoy Gospel music very much and he is the most consitent person by side in enire spiritual journey. When we sang in the choir he was nest to me, we sat in church was next to me, when we attended youth bible study he was next to me. He has greatly inspired this project and I will love him for eternity.<br>
+I was raised by a powerful strong woman that brought great people with her. Her sister and I had a bond that was divine in nature. Aunt Edina is one of the most beautiful things I have experienced in this life and may God rest her soul. She moved with Gospel music and I caught most of it when I heard her sing. We spent the whole day in my room searching and downloading gospel music until it was dark. It was an amazing experience, after that she shared some titles with me and I shared gospel music via whatsapp. I was going to surprise her with her own music playlist using this application and then she answered the call a little too earlier. This project is hgreatly inspired by Aund Edina. The last song she shared with me is title Jesus you my healer. <br> 
+<div class ="body">
+ <div class="avatar-container">
+        <img src="avatar/11.jpg" alt="Avatar 1" class="avatar"> <!-- Replace with your avatar images -->
+        <img src="avatar/12.jpg" alt="Avatar 2" class="avatar"> <!-- Replace with your avatar images -->
+        <img src="avatar/13.jpg" alt="Avatar 3" class="avatar"> <!-- Replace with your avatar images -->
+        <img src="avatar/14.jpg" alt="Avatar 4" class="avatar"> <!-- Replace with your avatar images -->
+        <img src="avatar/15.jpg" alt="Avatar 5" class="avatar"> <!-- Replace with your avatar images -->
+        <img src="avatar/16.jpg" alt="Avatar 6" class="avatar"> <!-- Replace with your avatar images -->
+    </div>
+  </div>
+
+							</p>
+		<a onclick="history.back()" style ="text-align:center; color:white; text-decoration:none; "><button style ="padding:12px; font-size:16px;color:white;margin-top:5px; margin-bottom:5px;text-align:center;" class ="btn">
+							REURN TO PREVIOUS </button></a>
+													
+						</div>
+
+		
+
+
+
+
+
+
+
+
+						
+							 
+	
+	  	
+    
+
+	</div>
+			
+							
+
+
+
+	
+		
+<div class="topnav" style ="text-align:center; color:white; padding:16px;">
+  
+  &copy 2025 GENESIS MUSIC PLAYER
+    
+</div>
+ <script src="assets/swiper-bundle.min.js"></script>
+
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+  <script src="asset/fancybox.umd.js"></script>
+   <script src="asset/hide.js"></script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive">
+
+	<!-- title -->
+	<title>Blog</title>
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+<link rel="stylesheet" href="assets/swiper-bundle.min.css" /> 
+	
+<style>
+@import url(asset/fancybox.css);
+  ::-webkit-scrollbar {
+  width: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  background: #ffffff;
+  padding:0; margin:0;
+  overflow-x:hidden;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+#cont {
+  width: 100%;
+box-shadow:0 0 5px rgba(0,0,0,0.5);
+height:55px;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color:#3b5998;
+  position: relative;
+  width:98%;
+  margin:5px auto;
+  display:block;
+  border-radius:5px;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  padding:16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav a.icon {
+  float: right;
+}
+
+a h3  {
+  font-size: 10px;
+  text-align:center;
+  text-transform:uppercase;
+  color:gray;
+  padding:3px;
+  margin:3px;
+  
+}
+a {
+text-decoration:none;
+}
+
+a:focus{
+color:skyblue;
+}
+
+.rows,
+.rows > .imgspan {
+  padding: 8px;
+}
+
+
+.imgspan {
+  float: left;
+  width: 25%;
+}
+
+
+.rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+  .imgspan img {
+    width: 100%; height:auto; border-radius:50%;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+	border-width:4px;
+	border-color:linear-gradient(to right, red, orange);
+	object-fit:cover;
+  }
+  
+  .btn {
+  align-items: center;
+  background-color: #3b5998;
+  border-radius:3px;
+  border: none;
+  color: white;
+  padding: 9px 100px;
+  cursor: pointer;
+  font-size:16px;
+  width:98%;
+  margin:0 5px;
+  
+}
+.swiper {
+      width: 100%;
+      height:auto;
+	  position: relative;
+      z-index: 1;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+	
+	.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 16px;
+  color: #fff;
+}
+.swiper-button-prev {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  left: 20px;
+}
+.swiper-button-prev:hover {
+  border: 1px solid #fff;
+}
+.swiper-button-next {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  right: 20px;
+}
+.swiper-button-next:hover {
+  border: 1px solid #fff;
+}
+
+.swiper-button-next:hover:after,
+.swiper-button-prev:hover:after {
+  color: #fff;
+}
+
+
+.footer 
+{
+	background-color:#000;
+	color: #ffffff;
+	padding:9px; 
+	width:100%;
+	clear:both;
+}
+
+
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 13px;
+	text-align: center;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding:5px;
+}
+
+.column img {
+  width:100%;
+  object-fit: cover;
+  border-radius:5px;
+  
+}	
+
+.profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+			padding:0 10px;
+        }
+        .avatar {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .text {
+            flex-grow: 1;
+			padding:0;
+			margin:0;
+        }
+		
+		.text p, .text h3 {
+           
+			padding:0;
+			margin:0;
+        }
+        .follow-button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+		</style>
+
+</head>
+<body>
+  <div class="topnav">
+  <a href="index.html" class="active"><i class="fa fa-microphone"></i> GENESIS</a>
+  <div id="myLinks">
+    <a href="index.html"><i class="fa fa-home"></i></a>
+    <a href="index-about.html"><i class="fa fa-edit"></i></a>
+
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<div class="wrap" style="margin:0; padding:0;">		
+						
+	
+							
+  <div class="profile">
+        <img src="avatar/1.jpg" alt="Avatar" class="avatar">
+        <div class="text">
+            <h3>Michael</h3>
+            <p>Content Creator</p>
+        </div>
+        <button class="follow-button">AUTHOR</button>
+    </div>							
+			  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">    <img src="source/100.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" ></div>
+      <div class="swiper-slide">    <img src="slide/2.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" ></div>
+      <div class="swiper-slide">    <img src="slide/3.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" ></div>
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+	  
+	  					<div class="news-text-box" >
+							<h4 style='clear:both;text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">BENEFITS OF LISTENING TO GOSPEL MUSIC</a></h4>
+							<p class="blog-meta" style ="margin-top:-20px; text-align:center;color:gray;font-size:12px;">
+								<span class="author"><i class="fa fa-user"></i> Michael</span>
+								<span class="date"><i class="fa fa-calendar"></i> <script type="text/javascript"><!--
+var now = new Date();
+var Weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Weekday[now.getDay()]+", "+Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></span>
+							</p>
+	  
+	  	
+	<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;"> 
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">BEARER OF THE GOOD NEWS</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">If you listen to a song titled Lord I lift your name it says he came from heaven to earth to show the way, from the earth to the cross, from the cross to the grave, from the grave to the sky. The Gospel song it preaching the good news to us. Listening to gospel music bring the word of God  to us and when we allow this word to work in us it elevates our faith and we  became better christians. That is the power of Gospel music. </p>
+
+<a href="index-stations.html" style ="text-align:center; color:white; text-decoration:none; "><button style ="padding:12px; font-size:16px;color:white;margin-top:5px; margin-bottom:5px;text-align:center;" class ="btn">
+							CONTINE READING </button></a>
+
+<img src="source/101.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">GOSPEL IS PRAYER</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">When we pray to God we offer our petitions, cries , supplication and thanks giving. We praise his holy name and worship as we worship him via Gospel music. Gospel music can help you communicate with God.   </p>
+
+
+<img src="source/110.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Improved mental health</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Gospel music can help you feel happier, more relaxed, and less stressed. Quir often than regular we go through trials and tribulation which in turn push us to a cold place of fear, worry, depression and anxiety. Gospel music does help overcome unwanted emotions.  It can free our mind and bring us to a place of peace, a calm mind and a collected heart.</p>
+
+<img src="source/102.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Better sleep</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Music can help you sleep better. Just like rain on the roof Gospel music provides ambient noise which is highly relaxing. Countless christian sleep while Gospel music is playing. Others turn on the audio bible, sorroful mysteries, divine mercy or players against the evil forces that visit us at the darkest hour. All this will allow you to sleep better.    </p>
+
+<img src="source/104.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Stronger faith</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Gospel music can help you feel closer to God and strengthen your faith. In my church we that uwaimba bwino apepa libili. Which translates to if you sing your songs of praise and thanks giving very well then you pray twice. That way you feel closer to God because you are actually close to him.  </p>
+
+<img src="source/105.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Reduced anxiety</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Music can help reduce stress and anxiety. </p>
+
+<img src="source/106.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Improved mood</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Music can help lift your mood. Similar to a point we earlier aluded, sometimes we fail and things do not work out or go as planed. This is like to ruin your day and your mood. Listening to Gospel music in such times will make you feel better.  </p>
+
+<img src="source/107.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Sense of peace</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">The rhythmic patterns of gospel music can help synchronize brainwaves, which can produce a sense of peace. Peace is required for focus, concentration and relaxation.  </p>
+
+<img src="source/108.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Spiritual connection</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Gospel music can help you feel more connected to God and his message.  It constantly reminds us of what is expeted of us as christians and also reminds us of the salvation that came through the living christ. </p>
+
+<img src="source/109.jpg" style="width:98%; margin:5px auto; display:block; border-radius:5px;" >
+    
+<h4 style='text-align:center;margin-top:10px;'><a style="color:#000;font-size:13px; text-transform:uppercase; margin:0; padding:0;text-align:center;">Sense of community</a></h4>	 
+	  
+<p class="blog-meta" style ="clear:both; margin:10px; text-align:justify;color:gray;line-height:1.6; font-size:16px;">Gospel music can unite people in a way that spoken words cannot. Gospel music can also help you pray as a group.   </p>
+
+
+
+							</p>
+		<a onclick="history.back()" style ="text-align:center; color:white; text-decoration:none; "><button style ="padding:12px; font-size:16px;color:white;margin-top:5px; margin-bottom:5px;text-align:center;" class ="btn">
+							RETURN TO PREVIOUS </button></a>
+													
+						</div>
+
+		
+
+
+
+
+
+
+
+
+						
+							 
+	
+	  	
+    
+
+	</div>
+			
+							
+
+
+
+	
+		
+<div class="topnav" style ="text-align:center; color:white; padding:16px;">
+  
+  &copy 2025 GENESIS MUSIC PLAYER
+    
+</div>
+ <script src="assets/swiper-bundle.min.js"></script>
+
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+  <script src="asset/fancybox.umd.js"></script>
+   <script src="asset/hide.js"></script>
+
+</body>
+
+
+</html>
