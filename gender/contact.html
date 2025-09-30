@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+    max-width: 480px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+        url('images/product4.jpg') center/cover no-repeat;
+    height: 100vh;
+    color: #fff;
+}
+
+form {
+    margin-top: 150px;
+}
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: none;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #ea5f5f;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+::-webkit-input-placeholder {
+    color: #fff !important;
+}
+
+.icon-social {
+    padding: 0;
+    margin: 15px 0;
+    list-style: none;
+    text-align: center;
+}
+
+.icon-social li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+
+.icon-social .home { background: #3b5998; }
+.icon-social .phone { background: #dd4b39; }
+.icon-social .envelope { background: #00aced; }
+
+.icon-social a {
+    color: #fff;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+}
+
+p {
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="ENTER NAME..." required>
+    <textarea id="message" placeholder="ENTER MESSAGE..." required></textarea>
+    <input type="submit" value="SUBMIT MESSAGE">
+  </form>
+</div>
+
+<p>OR CONTACT WITH</p>
+<ul class="icon-social">
+    <li class="home"><a href="index.html"><i class="fa fa-home"></i></a></li>
+    <li class="phone"><a href="tel:+260770304374"><i class="fa fa-phone"></i></a></li>
+    <li class="envelope"><a href="mailto:example@email.com"><i class="fa fa-envelope"></i></a></li>
+</ul>
+
+<script>
+// WhatsApp form submission
+document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var name = document.getElementById('name').value.trim();
+    var message = document.getElementById('message').value.trim();
+
+    var whatsappMessage = `Hello, my name is ${name}%0APhone: ${phone}%0AEmail: ${email}%0AMessage: ${message}`;
+    var whatsappURL = `https://wa.me/260770304374?text=${whatsappMessage}`;
+
+    window.open(whatsappURL, '_blank');
+});
+</script>
+
+</body>
+</html>

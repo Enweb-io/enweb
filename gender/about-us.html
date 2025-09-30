@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css" />
+<title>Gender Violence</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+<style>
+  :root{
+    --accent:#a9745b;
+    --muted:#6b6b6b;
+    --bg:#f7f6f5;
+    --card-radius:12px;
+  }
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.3;
+  }
+  	* {
+  box-sizing: border-box;
+  font-size:16px;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  font-family:arial;
+}
+
+a{ font-family:arial;}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background: #3B5998;
+}
+
+.topnav a {
+  float: left;
+  color:white;
+  text-align: center;
+  padding:16px;
+  text-decoration: none;
+  font-size: 16px;
+  font-family:arial;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.topnav-right {
+  float: right;
+}
+
+a {
+  color: #ea3830;
+  text-decoration: none;
+}
+
+ .container {
+            position: relative; /* Position for overlay and buttons */
+            width: 100%; /* Full width */
+            overflow: hidden; /* Crop overflow */
+        }
+
+        .container img {
+           
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .gradient-overlay {
+            position: absolute; /* Position for gradient */
+            bottom: 0; /* Align to bottom */
+            left: 0; /* Align to left */
+            right: 0; /* Align to right */
+            height: 50%; /* Half height for gradient */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent); /* Gradient effect */
+        }
+
+        .avatar-container {
+            position: absolute; /* Position for avatar */
+            bottom: 10%; /* Space from bottom */
+            left: 5%; /* Space from left */
+            display: flex; /* Use flexbox for inline alignment */
+            align-items: center; /* Center vertically */
+            color: white; /* Text color */
+        }
+
+       
+
+        .download-button {
+            position: absolute; /* Position for download button */
+            bottom: 10%; /* Space from bottom */
+            right: 5%; /* Space from right */
+            background-color: #3B5998; /* Button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            padding: 8px 20px; /* Button padding */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+			font-size:12px;
+        }
+
+        .top-buttons {
+            position: absolute; /* Position for top buttons */
+            top: 20px; /* Space from top */
+            right: 20px; /* Space from right */
+            display: flex; /* Use flexbox for buttons */
+			
+        }
+
+        .top-button {
+            width: 40px; /* Width for top buttons */
+            height: 40px; /* Height for top buttons */
+            border-radius: 50%; /* Make buttons round */
+            background-color: white; /* Button color */
+            color: #3B5998; /* Button text color */
+            border: none; /* No border */
+            margin-left: 10px; /* Space between buttons */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+		
+		 .avatar {
+            width: 40px; /* Width for the avatar */
+            height: 40px; /* Height for the avatar */
+            border-radius: 50%; /* Make avatar round */
+            margin-right: 10px; /* Space between avatar and text */
+        }
+
+.profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+			padding:5px 10px;
+        }
+        .avatar {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .text {
+            flex-grow: 1;
+			padding:0;
+			margin:0;
+        }
+		
+		.text p, .text h3 {
+           
+			padding:0;
+			margin:0;
+        }
+        .follow-button {
+            padding: 10px 15px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+.social{
+  border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			width:96%;
+			margin:5px auto;
+			padding:5px;
+			}
+
+  main{max-width:1100px; margin:18px auto; padding:0 12px;}
+
+  .meta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    padding:6px 12px;
+    border-radius:10px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04);
+    margin-bottom:12px;
+  }
+  .left-meta{display:flex; align-items:center; gap:10px;}
+  .avatars{display:flex; align-items:center;}
+  .avatars img{
+    width:28px; height:28px; border-radius:50%; object-fit:cover;
+    border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,0.08);
+    margin-left:-10px;
+  }
+  .avatars img:first-child{margin-left:0;}
+  .meta-text{color:var(--muted); font-size:0.82rem;}
+  .meta-date{color:var(--muted); font-size:0.82rem; display:flex; align-items:center; gap:8px;}
+
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr); /* always two columns */
+    gap:14px;
+    margin:14px 0;
+  }
+
+  /* fixed portrait size cards */
+  .card{
+    position:relative;
+    overflow:hidden;
+    border-radius:var(--card-radius);
+    background:#fff;
+    height:320px;  /* fixed portrait height */
+    display:flex;
+    align-items:flex-end;
+    box-shadow:0 6px 18px rgba(0,0,0,0.04);
+  }
+  
+   .card img{
+    width:100%;
+  
+  }
+  .card a img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    transition:transform .25s ease;
+    border-radius:var(--card-radius);
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .card:hover a img{ transform:scale(1.03); }
+
+  .expand-btn{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.56);
+    color:#fff;
+    cursor:pointer;
+    z-index:4;
+    box-shadow:0 6px 16px rgba(0,0,0,0.16);
+    user-select:none;
+	border:none;
+	font-size:15px;
+  }
+
+  .card-info{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:10px 12px;
+    background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.72) 100%);
+    color:#fff;
+    z-index:3;
+  }
+  .card-info .title{ font-size:1rem; font-weight:600; margin:0 0 4px; }
+  .card-info .desc{ font-size:0.86rem; margin:0; opacity:0.92; color: #f1f1f1; }
+
+  .controls{ text-align:center; margin:14px 0 30px 0; }
+  .btn {
+    display:inline-block; background:#3B5998; color:#fff; border:none;
+    padding:10px 18px; border-radius:999px; cursor:pointer; font-weight:600;
+    box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  }
+
+  .to-top{
+    position:fixed; right:18px; bottom:70px; z-index:999;
+    width:46px; height:46px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:black; color:#fff; cursor:pointer; box-shadow:0 8px 22px rgba(0,0,0,0.18);	
+    display:none;
+	border:3px solid white; opacity:0.8;
+  }
+
+
+
+  .fancybox__thumbs{
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    box-sizing:border-box;
+    padding:8px 12px !important;
+    justify-content:center;
+    background:rgba(0,0,0,0.65) !important;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+  }
+  .fancybox__thumb{
+    border-radius:8px !important;
+    overflow:hidden;
+    box-shadow:0 1px 0 rgba(255,255,255,0.03) inset; 
+    margin:0 4px !important;
+  }
+  .fancybox__thumb.is-selected{
+    outline: 3px solid var(--accent) !important;
+    outline-offset: -3px !important;
+  }
+  
+  .about-section{ border-radius:10px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04); margin:5px auto; background:white; padding:10px; }
+
+  .section-title {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 15px;
+      font-weight: bold;
+	  text-align:center;
+	  text-transform:uppercase;
+	      }
+    .about-section p {
+      text-align: justify;
+      margin-top: 10px;
+      font-size: 15px;
+	  line-height:1.8;
+    }
+    h3 {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  .footer 
+{
+	background-color:#3B5998;
+	color: #ffffff;
+	padding:5px;
+	width:100%;
+	font-family:arial;
+}
+
+
+
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+	text-align: center;
+	font-family:arial;
+}
+</style>
+</head>
+<body>
+<div class="topnav">  <!-- Centered link -->
+
+ <a onclick="history.back()"><i class="fa fa-arrow-left" aria-hidden="true"></i> GENDER VIOLENCE</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+     <a href="index.html" ><i class="fa fa-home" aria-hidden="true"></i></a>
+	
+	
+    
+  </div>
+  
+</div>
+
+    <div class="container">
+        <img src="slide/1.jpg" style="width:100%"> <!-- Replace with your image -->
+        <div class="gradient-overlay"></div>
+        
+        <div class="avatar-container">
+            <img src="avatar/1.jpg" style="width:35px; height:35px;" class="avatar"> <!-- Replace with your avatar image -->
+            <span>ABOUT US</span> <!-- Replace with your text -->
+        </div>
+        
+        <button id="whatsappBtn" class="download-button"><i class="fa fa-whatsapp" aria-hidden="true"> </i> support</button> <!-- Download button -->
+        
+        <div class="top-buttons">
+		     <a onclick ="history.back()"><button class="top-button"><i class="fa fa-angle-left"></i></button></a> <!-- Second top button (Check Icon) -->
+             <a href ="tel:+260950439623"> <button class="top-button"><i class="fa fa-phone"></i></button></a> <!-- First top button (Info Icon) -->
+           
+        </div>
+    </div>
+<main>
+  <div class="meta-row">
+    <div class="left-meta">
+      <div class="avatars">
+        <img src="avatar/1.jpg" alt="Avatar 1">
+        <img src="avatar/2.jpg" alt="Avatar 2">
+        <img src="avatar/3.jpgr" alt="Avatar 3">
+      </div>
+      <div class="meta-text"> <strong>ONE</strong> LOVE</div>
+    </div>
+    <div class="meta-date" aria-label="Post date">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="opacity:.7" aria-hidden="true">
+        <path d="M3.5 0a.5.5 0 0 0 0 1H4v1h8V1h.5a.5.5 0 0 0 0-1h-9zM2 3a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zM15 6H1v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6z"/>
+      </svg>
+      <div style="font-size:.82rem;color:#6b6b6b;"><script type="text/javascript"><!--
+var now = new Date();
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></div>
+    </div>
+  </div>
+
+   <div class="about-section">
+
+  <article>
+
+
+
+<p>
+Hello, my name is Michael, and I am the author of this blog focused on promoting safe and respectful family dynamics. I was inspired to start this initiative after observing the rising cases of gender-based violence against women and girls and the devastating impact it has on women, young girls and their families. I have stood and sat next to a woman whose face was covered in blood because she had being violently abused by a mindless man. At the time I was unable to do anything about it. It was a painful and disturbing sihgt for me as a human being and a man. Justice did not prevail in any of those cases. 
+</p>
+<p>
+I have been writing since my nineth grade at the famous Libala secondary schoold where I was handed the best writter award. I particiapted in a writing compettiton that required us to highlight the value of gender equality between boys and girls. I know that a lot is being done to fight domestic violence and gender violence againts girls and women, but we are still getting many cases. Therefore, it is time to explore other avenues of reasoning and find better methods. 
+
+</p>
+
+<p>
+Domestic violence, particularly gender-based violence against young girls and women, remains a pressing social challenge. We aim to create a <strong>dynamic, interactive platform</strong> to educate families and communities on non-violent approach to settling differences and promote healthier non violence relationships.
+</p>
+<p>
+Gender-based violence (GBV) is one of the most silent yet devastating crises facing our communities today. Often hidden behind closed doors, it leaves scars that run deeper than the eye can see—scars on individuals, families, and entire societies. From subtle signs of emotional abuse to severe physical harm, GBV takes many forms, fueled by inequality, harmful cultural norms, and silence
+</p>
+<p>
+Understanding the causes, recognizing the signs, and knowing the devastating effects is the first step toward change. But beyond awareness lies action: prevention strategies, community-driven solutions, and support systems that empower survivors and hold perpetrators accountable. This blog sheds light on GBV in all its complexity—its signs, causes, effects, and most importantly, the paths we can take together to prevent it and support those affected.
+</p>
+
+<p>Our vision includes:</p>
+<p>
+We have a crystal clear vision for the future of this project. Right now our blog is either dynamic and nor interactive in real time, without a sponsor we lack reseources to build a fully interactive platform with a real time comment system.  We also intend to invest in non AI 3D illustrations of gender based violenct acts and effects and last ad God willing a little further in the future if God permits it short interactive movies to properly illustrate gender violence.
+</p>
+<ul>
+<li><strong>A real-time interactive blog</strong> that allows families to share experiences, access guidance, and engage in live discussions. This will require a fully functional web application and domainname with ssl security certificates. </li>
+<li><strong>3D simulations</strong> that vividly illustrate the consequences of domestic violence, helping viewers empathize and learn safer approaches. This will require animation tools and a high power end computer for processing large volumes of animation data. </li>
+<li><strong>Short films and movies</strong> that tell compelling stories of family dynamics, teaching respect, communication, and understanding. To be tabled a little later depending on the success of the the first two. T-shirt printing is another way we can remind the world of its duty to stop gender based violence against women and girls. I am reaching out to request your sponsorship for an important initiative.</li>
+</ul>
+
+
+<p>
+With your support, we can bring these tools to life, combining technology, storytelling, and education to prevent violence before it starts. Your sponsorship will directly contribute to creating <strong>safer homes and empowered daughters</strong>.
+</p>
+
+
+<p>
+Join us in shaping a future where guidance replaces anger, dialogue replaces fear, hugs and kisses replaces violent fists, and girls grow up safe, respected, and valued. It is the only way for the nation and the entire world to move forward.
+</p>
+</article>
+
+
+</main>
+<!-- Modal -->
+<div id="whatsappModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: #fff; padding: 24px; border-radius: 15px; width: 90%; max-width: 480px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); position: relative;">
+
+    <!-- Heading -->
+    <h3 style="text-align: center; margin-top: 0; font-size:16px; color:#3B5998; margin-bottom: 4px;">SUPPORT OUR PROJECT</h3>
+    <p style="text-align: center; font-size: 12px; color: #666; margin-bottom: 16px;">START A CHAT WITH US</p>
+
+    <!-- Textarea -->
+    <textarea id="cakeMessage" style="width: 100%; height: 80px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); resize: none;" placeholder="Type your cake request..."></textarea>
+
+    <!-- Send Button -->
+    <button id="sendWhatsApp" style="margin-top: 16px; width: 100%; background: #25D366; color: white; padding: 12px; border: none; border-radius: 5px; font-size: 12px; cursor: pointer;">
+     <i class="fa fa-whatsapp" aria-hidden="true"> </i> START A CHAT WITH US
+    </button>
+
+    <!-- Close Button -->
+    <button id="closeModal" style="margin-top: 10px; width: 100%; background: #e74c3c; color: white; padding: 10px; border: none; border-radius: 5px; font-size: 12px; cursor: pointer;">
+      <i class="fa fa-times" aria-hidden="true"> </i> CLOSE CHAT WINDOW
+    </button>
+  </div>
+</div>
+<div  class="footer">
+					<div class="container">
+					 <center><p style ="text-align:center;" >&copy 2025 GENDER VIOLENCE</p></center>
+ 
+
+					</div>
+				</div> 
+
+<button id="toTop" title="Back to top" class="to-top" aria-label="Back to top" style ="border:2px solid white; background:black;">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+<script>
+  const modal = document.getElementById('whatsappModal');
+  const openBtn = document.getElementById('whatsappBtn');
+  const closeBtn = document.getElementById('closeModal');
+  const sendBtn = document.getElementById('sendWhatsApp');
+
+  openBtn.onclick = () => modal.style.display = 'flex';
+  closeBtn.onclick = () => modal.style.display = 'none';
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
+
+  sendBtn.onclick = () => {
+    const message = document.getElementById('cakeMessage').value.trim();
+    const finalMessage = message ? message : "How can we help:";
+    const phone = "260770304374"; // Update to your number
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+</script>
+
+
+</body>
+</html>
