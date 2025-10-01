@@ -356,7 +356,7 @@ a{text-decoration:none;}
       display: none;
       justify-content: center;
       align-items: center;
-      z-index: 1000;
+      z-index: 4000;
     }
 
     .modal.active {
@@ -422,7 +422,7 @@ a{text-decoration:none;}
    form input,
 form textarea {
   width: 100%;
-  padding: 8px;
+  padding: 12px;
   margin: 8px 0;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -440,8 +440,7 @@ form input[type="datetime-local"] {
       width: 100%;
       padding: 12px;
       border: none;
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 14px;
       margin-top: 10px;
       border-radius: 10px;
     }
@@ -599,6 +598,8 @@ form input[type="datetime-local"] {
   border-radius:0;
 }
 
+::placeholder{font-family:arial;}
+
 .card .fa-whatsapp{margin-left:5px;}
 </style>
 </head>
@@ -632,7 +633,7 @@ form input[type="datetime-local"] {
         
         <div class="avatar-container">
             <img src="avatar/1.jpg" style="width:34px; height:34px;" class="avatar"> <!-- Replace with your avatar image -->
-            <span style ="font-size:12px;"><i class="fa fa-user" aria-hidden="true"> </i> ELEGANT JEANSES <i class="fa fa-globe" aria-hidden="true"> </i></span> <!-- Replace with your text -->
+            <span style ="font-size:12px;"><i class="fa fa-user" aria-hidden="true"> </i> ELEGANT JEANS <i class="fa fa-globe" aria-hidden="true"> </i></span> <!-- Replace with your text -->
         </div>
         
         <a href="tel:+260770304374"><button id="whatsappBtn" class="download-button"><i class="fa fa-phone" aria-hidden="true"> </i> CALL</button></a> <!-- Download button -->
@@ -647,7 +648,7 @@ form input[type="datetime-local"] {
 <div class="pill-nav" style ="margin-top:10px;">
   <a href="gallery.html"><i class="fa fa-camera" aria-hidden="true"></i> GALLERY</a>
   <a href='about-us.html'><i class="fa fa-user" aria-hidden="true"></i> ABOUT-US</a>
-  <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20ladies%20JEANSes!%20https://https:enweb-io.github.io/enweb/JEANS/index.html"><i class="fa fa-whatsapp" aria-hidden="true" style ="margin-right:5px;"></i> SHARE</a>
+  <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20ladies%20JEANS!%20https://https:enweb-io.github.io/enweb/fashion/index.html"><i class="fa fa-whatsapp" aria-hidden="true" style ="margin-right:5px;"></i> SHARE</a>
  
 </div>
 <div style ="padding:0 10px;">
@@ -965,18 +966,19 @@ function closeImageModal(){
       <button type="button" onclick="adjustQty(1)" style="padding:5px 10px;" class ="qty-btn">+</button>
     </div>
     <p id="totalDisplay" style="text-align:center;font-weight:bold;margin-top:5px;">
-      Total: ZMW <span id="totalPrice">0</span>
+      TOTAL: ZMW <span id="totalPrice">0</span>
     </p>
 
     <form id="orderForm">
       <input type="text" id="cname" placeholder="Your Name" required>
       <input type="tel" id="cphone" placeholder="Phone Number" required>
       <input type="text" id="caddress" placeholder="address" required>
+	  <p style ="olor:gray; margin:0; text-align:left;">Delivery Date and Time</p>
       <input type="datetime-local" id="cdate" required min="">
       <textarea id="cinstructions" placeholder="Extra Instructions..."></textarea>
     </form>
 
-    <button class="close-btn" onclick="submitOrder()">ORDER THIS ELEGANT JEANS</button>
+    <button class="close-btn" onclick="submitOrder()">SUBMIT ORDER VIA WHATSAPP</button>
   </div>
 </div>
 

@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/swiper-bundle.min.css" /> 
+	<link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+    <title>story</title> 
+  
+  <link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+
+ <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
+  
+<style>
+html,
+body {
+  position: relative;
+  height: 100%;
+  font-weight:normal;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  font-weight:100;
+  letter-spacing:2px;
+}
+.wrap {
+position:fixed;
+top:40px;
+z-index:1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding:0 5px;
+            width:100%;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .text {
+            flex-grow: 1;
+            color: #444;
+        }
+		
+		 .text p, .text h4 {
+            padding:0; margin:2px;
+            color: #fff;
+        }
+        .buttons {
+            display: flex;
+            gap: 5px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background-color:transparent;
+            color: white;
+            cursor: pointer;
+            font-size:24px;
+        }
+        button:focus {
+            color: #ccc;
+        }
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+  overflow:hidden;
+}
+
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+ 
+}
+
+.swiper-pagination { 
+   bottom: initial;
+    top: 10px;
+}
+
+.swiper-pagination-bullet {
+  width: 25px;
+  height: 2px;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  background:#ddd;
+  opacity:0.7;
+   
+}
+.swiper-pagination-bullet::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.swiper-slide img{
+height:100vh; object-fit:cover;}
+
+	
+	.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 14px;
+  color: #fff;
+}
+.swiper-button-prev {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  left: 20px;
+}
+.swiper-button-prev:hover {
+  border: 1px solid #fff;
+}
+.swiper-button-next {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  right: 20px;
+}
+.swiper-button-next:hover {
+  border: 1px solid #fff;
+}
+
+.swiper-button-next:hover:after,
+.swiper-button-prev:hover:after {
+  color: #fff;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ddd;
+  opacity:0.7;
+}
+.swiper-pagination-bullet-active::before {
+  background-color: white; opacity:1;
+  -webkit-animation: slide-progress 2s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+          animation: slide-progress 2s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+}
+.swiper-paused .swiper-pagination-bullet-active::before {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+@-webkit-keyframes slide-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+</style>
+
+
+  
+</head>
+
+<body translate="no">
+  <div class="wrap">
+        <img src="avatar/1.jpg" alt="Avatar" class="avatar">
+        <div class="text">
+            <h4>Natasha Chanda</h4>
+             <p class="tagline"><i class="fa fa-user"></i>Stories . Public <i class="fa fa-globe"></i></p>
+        </div>
+        <div class="buttons">
+            <button onclick ="history.back()"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+            <button onclick ="history.back()"><i class="fa fa-times" aria-hidden="true"></i><button>
+        </div>
+    </div>
+  <main class="content">
+	<!-- Swiper -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><img src="img/1.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/2.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/3.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/4.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/5.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/6.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/7.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/8.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/9.jpg" style="width:100%;"></div>
+			<div class="swiper-slide"><img src="img/10.jpg" style="width:100%;"></div>
+			
+		</div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+		<!-- Add Pagination -->
+	<div class="swiper-pagination" style ="bottom: initial;
+    top: 10px;"></div>
+	</div>
+	</div>
+</main>
+  <script src="assets/swiper-bundle.min.js"></script>
+      <script id="rendered-js" >
+var swiper = new Swiper('.swiper-container', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev' },
+
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false },
+
+  loop: true,
+  watchSlidesProgress: true });
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
+
+
