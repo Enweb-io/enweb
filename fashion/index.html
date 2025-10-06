@@ -427,11 +427,12 @@ form textarea {
   border-radius: 8px;
   border: 1px solid #ccc;
   box-sizing: border-box; /* ✅ Fix overflow */
+  font-size: 16.2px !important;
 }
 
-form input[type="datetime-local"] {
-  padding-right: 4px;
-  box-sizing: border-box; /* Keep consistent */
+form input[type="date"] {
+  padding-right: 4px; /* optional, keeps some spacing */
+  box-sizing: border-box;font-size: 16.2px !important;
 }
 
     .close-btn {
@@ -901,10 +902,27 @@ form input[type="datetime-local"] {
 <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999; transition:opacity 0.3s;">
   
   <!-- Round Close Button -->
-  <span onclick="closeImageModal()" 
-        style="position:absolute; top:20px; right:20px; width:40px; height:40px; display:flex; justify-content:center; align-items:center; font-size:28px; color:white; cursor:pointer; border-radius:50%; background:rgba(0,0,0,0.6); z-index:10000;">
-    &times;
-  </span>
+ <span onclick="closeImageModal()" 
+      style="
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px !important;   /* Force font size */
+        line-height: 1 !important;    /* Remove extra spacing */
+        color: white;
+        cursor: pointer;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.6);
+        z-index: 10000;
+      ">
+  &times;
+</span>
+
   
   <img id="modalImg" src="" 
        style="max-width:90%; max-height:90%; transform:scale(0); transition:transform 0.3s; z-index:9999;">
@@ -916,21 +934,18 @@ form input[type="datetime-local"] {
 function openImageModal(src){
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
-  modal.style.display = 'flex';
-  modal.style.opacity = '0';
-  setTimeout(() => { modal.style.opacity = '1'; }, 10);
-  modalImg.src = src;
-  modalImg.style.transform = 'scale(1)';
+
+  modalImg.src = src;       // Set image immediately
+  modal.style.display = 'flex'; // Show modal immediately
+  modal.style.opacity = '1';    // Ensure fully visible
 }
 
 function closeImageModal(){
   const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImg');
-  modalImg.style.transform = 'scale(0)';
-  modal.style.opacity = '0';
-  setTimeout(() => { modal.style.display = 'none'; }, 300);
+  modal.style.display = 'none'; // Hide modal immediately
 }
 </script>
+
 
 
 <div class="modal" id="orderModal">
@@ -969,14 +984,17 @@ function closeImageModal(){
       TOTAL: ZMW <span id="totalPrice">0</span>
     </p>
 
-    <form id="orderForm">
-      <input type="text" id="cname" placeholder="Your Name" required>
-      <input type="tel" id="cphone" placeholder="Phone Number" required>
-      <input type="text" id="caddress" placeholder="address" required>
-	  <p style ="olor:gray; margin:0; text-align:left;">Delivery Date and Time</p>
-      <input type="datetime-local" id="cdate" required min="">
-      <textarea id="cinstructions" placeholder="Extra Instructions..."></textarea>
-    </form>
+  <form id="orderForm">
+  <input type="text" id="cname" placeholder="Your Name" required>
+  <input type="tel" id="cphone" placeholder="Phone Number" required>
+  <input type="text" id="caddress" placeholder="Address" required>
+  
+  <p style="color:gray; margin:0; text-align:left;">Delivery Date</p>
+  <input type="date" id="cdate" required min="">
+
+  <textarea id="cinstructions" placeholder="Extra Instructions..."></textarea>
+</form>
+
 
     <button class="close-btn" onclick="submitOrder()">SUBMIT ORDER VIA WHATSAPP</button>
   </div>
@@ -1147,7 +1165,7 @@ function submitOrder() {
               `*Quantity:* ${qty}\n` +
               `*Price:* ZMW${total}\n` +
               `*Size:* ${selectedSize}\n` +
-              `*Date & Time:* ${date}\n\n` +
+              `*Delivery Date:* ${date}\n\n` +
               `*CUSTOMER DETAILS* \n\n` +
               `*Name:* ${name}\n` +
               `*Phone No.:* ${phone}\n` +
