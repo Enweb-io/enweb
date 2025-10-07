@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Product Cards — Cross‑platform</title>
+  <!-- Swiper CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <style>
+    /* Base + compatibility-focused CSS (no variables) */
+    html,body{height:100%;margin:0;padding:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;smooth-scroll-behavior:autofill;font-size:16px;-webkit-text-size-adjust:100%;}
+    *{box-sizing:border-box}
+
+    /* Layout */
+    .app{max-width:900px;margin:0 auto;padding:12px 12px 88px;}
+    header{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+    .search-wrap{flex:1;display:flex;gap:8px}
+    .search-wrap input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px solid #ddd;font-size:16px;min-height:44px;-webkit-appearance:none}
+    .btn{min-height:44px;padding:0 14px;border-radius:10px;border:0;background:#222;color:#fff;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .btn.secondary{background:#f3f3f3;color:#111;border:1px solid #ddd}
+
+    /* Messages */
+    .message{font-size:15px;margin:8px 0;color:#444;text-align:center}
+
+    /* Grid of cards */
+    .cards{display:grid;grid-template-columns:repeat(1,1fr);gap:16px}
+    @media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:980px){.cards{grid-template-columns:repeat(3,1fr)}}
+
+    /* Card */
+    .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;flex-direction:column}
+    .card .media{position:relative;flex:0 0 auto}
+    .swiper{width:100%;height:280px}
+    @media(min-width:640px){.swiper{height:320px}}
+    .swiper-slide img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Custom controls (round) */
+    .nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);color:#fff;border:0;cursor:pointer;z-index:20}
+    .nav-btn:focus{outline:3px solid rgba(255,255,255,0.2)}
+    .nav-prev{left:12px}
+    .nav-next{right:12px}
+    /* Make sure rounded buttons behave well in Safari */
+    .nav-btn{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+
+    /* Bullets (custom) */
+    .swiper-pagination{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:8px;z-index:20}
+    .swiper-pagination .swiper-pagination-bullet{width:10px;height:10px;border-radius:50%;opacity:0.6;background:#fff;border:2px solid rgba(0,0,0,0.15)}
+    .swiper-pagination .swiper-pagination-bullet-active{opacity:1;transform:scale(1.15)}
+
+    /* Card body */
+    .card-body{padding:12px 14px 18px;display:flex;flex-direction:column;gap:10px;align-items:stretch}
+    .title{font-weight:700;text-align:center;font-size:17px;line-height:1.1}
+    .price{font-weight:400;text-align:center;color:#666;font-size:15px}
+    .buy{display:block;width:100%;padding:12px;border-radius:10px;border:0;background:#0b76ff;color:#fff;font-weight:700;cursor:pointer;margin-top:6px;font-size:16px}
+
+    /* Load more / Next page button */
+    .controls{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+
+    /* Return to top */
+    .to-top{position:fixed;right:14px;bottom:86px;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#111;color:#fff;border:0;z-index:9999;box-shadow:0 8px 20px rgba(0,0,0,0.25);cursor:pointer;-webkit-appearance:none}
+
+    /* Accessibility & small touches */
+    button, .btn, .buy, .nav-btn{touch-action:manipulation}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <header>
+      <form id="searchForm" class="search-wrap" role="search" onsubmit="return false;">
+        <input id="q" type="search" placeholder="Search products" aria-label="Search products" autocomplete="off">
+        <button id="submitBtn" class="btn" aria-label="Search">Search</button>
+        <button id="clearBtn" class="btn secondary" type="button">Clear</button>
+      </form>
+    </header>
+
+    <div id="message" class="message">Showing featured products</div>
+
+    <main>
+      <section class="cards" id="cards">
+        <!-- Cards inserted manually below - each buy btn has its own unique href (data-buy used here) -->
+
+        <!-- CARD 1 -->
+        <article class="card" data-title="Blue Breeze Dress" data-price="K800">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Blue Breeze Dress</div>
+            <div class="price">K800</div>
+            <a class="buy" href="https://wa.me/260770304374?text=Order%20Blue%20Breeze%20Dress%20-%20K800" rel="noopener noreferrer">Buy via WhatsApp</a>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="card" data-title="Sunny Swim Top" data-price="K450">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Sunny Swim Top</div>
+            <div class="price">K450</div>
+            <a class="buy" href="https://example.com/buy/sunny-swim-top" rel="noopener">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="card" data-title="Forest Skirt" data-price="K320">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Forest Skirt</div>
+            <div class="price">K320</div>
+            <a class="buy" href="mailto:orders@example.com?subject=Order%20Forest%20Skirt&body=I%20want%20to%20order%20Forest%20Skirt%20-%20K320" rel="noopener">Buy via Email</a>
+          </div>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="card" data-title="Crimson Jacket" data-price="K1500">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                 <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Crimson Jacket</div>
+            <div class="price">K1500</div>
+            <a class="buy" href="#" data-buy="/buy/crimson-jacket">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="card" data-title="Oceanic Tee" data-price="K180">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+               <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Oceanic Tee</div>
+            <div class="price">K180</div>
+            <a class="buy" href="https://example.com/buy/oceanic-tee" rel="noopener">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 6 -->
+        <article class="card" data-title="Ivory Linen" data-price="K620">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Ivory Linen</div>
+            <div class="price">K620</div>
+            <a class="buy" href="https://wa.me/260770304374?text=Order%20Ivory%20Linen%20-%20K620">Buy via WhatsApp</a>
+          </div>
+        </article>
+
+        <!-- Extra cards (hidden initially) -->
+        <!-- CARD 7 -->
+        <article class="card hidden" data-title="Coral Wrap" data-price="K420" style="display:none">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Coral Wrap</div>
+            <div class="price">K420</div>
+            <a class="buy" href="https://example.com/buy/coral-wrap">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 8 -->
+        <article class="card hidden" data-title="Marble Shorts" data-price="K210" style="display:none">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                 <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Marble Shorts</div>
+            <div class="price">K210</div>
+            <a class="buy" href="https://example.com/buy/marble-shorts">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 9 -->
+        <article class="card hidden" data-title="Lime Runner" data-price="K980" style="display:none">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                 <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Lime Runner</div>
+            <div class="price">K980</div>
+            <a class="buy" href="https://example.com/buy/lime-runner">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 10 -->
+        <article class="card hidden" data-title="Velvet Slip" data-price="K740" style="display:none">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+                 <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Velvet Slip</div>
+            <div class="price">K740</div>
+            <a class="buy" href="https://example.com/buy/velvet-slip">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 11 -->
+        <article class="card hidden" data-title="Saffron Blouse" data-price="K360" style="display:none">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+               <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Saffron Blouse</div>
+            <div class="price">K360</div>
+            <a class="buy" href="https://example.com/buy/saffron-blouse">Buy now</a>
+          </div>
+        </article>
+
+        <!-- CARD 12 -->
+        <article class="card hidden" data-title="Ginger Wrap" data-price="K520" style="display:none">
+          <div class="media">
+            <div class="swiper" data-swiper>
+              <div class="swiper-wrapper">
+               <div class="swiper-slide"><img src="jeans/1.webp" alt="Blue Breeze front"></div>
+                <div class="swiper-slide"><img src="jeans/2.webp" alt="Blue Breeze back"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <button class="nav-btn nav-prev" aria-label="Previous slide">‹</button>
+            <button class="nav-btn nav-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="card-body">
+            <div class="title">Ginger Wrap</div>
+            <div class="price">K520</div>
+            <a class="buy" href="https://example.com/buy/ginger-wrap">Buy now</a>
+          </div>
+        </article>
+
+      </section>
+
+      <div class="controls">
+        <button id="loadMore" class="btn">Load more</button>
+        <a id="nextPage" class="btn secondary" href="page2.html" style="display:none;text-decoration:none;">Next page</a>
+      </div>
+
+    </main>
+
+    <button id="toTop" class="to-top" title="Return to top" aria-label="Return to top" style="display:none">↑</button>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Progressive, compatibility-first JS
+    (function(){
+      var MAX_INITIAL = 6;
+      var app = document.getElementById('app');
+      var cardsWrap = document.getElementById('cards');
+      var loadMoreBtn = document.getElementById('loadMore');
+      var nextPageBtn = document.getElementById('nextPage');
+      var toTopBtn = document.getElementById('toTop');
+      var message = document.getElementById('message');
+
+      var allCards = Array.prototype.slice.call(cardsWrap.querySelectorAll('.card'));
+      var hiddenCards = allCards.filter(function(c){return c.style.display==='none'});
+      var visibleCount = 0;
+
+      function initSwipers(root){
+        root = root || document;
+        var swipers = root.querySelectorAll('[data-swiper]');
+        swipers.forEach(function(node){
+          // Avoid re-init
+          if(node.dataset.inited) return;
+          var pag = node.querySelector('.swiper-pagination');
+          var container = new Swiper(node,{
+            loop:false,
+            pagination:{el:pag,clickable:true},
+            // keep touch friendliness
+          });
+          node.dataset.inited = '1';
+          // wire up controls next/prev nearby
+          var parent = node.closest('.media');
+          var prev = parent.querySelector('.nav-prev');
+          var next = parent.querySelector('.nav-next');
+          prev.addEventListener('click',function(){container.slidePrev()});
+          next.addEventListener('click',function(){container.slideNext()});
+        });
+      }
+
+      // Show initial set
+      function showInitial(){
+        visibleCount = 0;
+        for(var i=0;i<allCards.length;i++){
+          var c = allCards[i];
+          if(i<MAX_INITIAL){ c.style.display='block'; visibleCount++; }
+          else{ c.style.display='none'; }
+        }
+        // init swipers for shown cards
+        initSwipers(cardsWrap);
+        updateControls();
+      }
+
+      function updateControls(){
+        // If there are any hidden cards show Load more
+        var hiddenExist = allCards.some(function(c){return c.style.display==='none'});
+        loadMoreBtn.style.display = hiddenExist ? 'inline-flex' : 'none';
+        // When all cards are revealed, show next page button
+        if(!hiddenExist){ nextPageBtn.style.display='inline-flex'; }
+        else{ nextPageBtn.style.display='none'; }
+      }
+
+      loadMoreBtn.addEventListener('click',function(){
+        var revealed = 0;
+        for(var i=0;i<allCards.length;i++){
+          var c=allCards[i];
+          if(c.style.display==='none' && revealed<6){ c.style.display='block'; revealed++; }
+        }
+        // init newly visible swipers
+        initSwipers(cardsWrap);
+        updateControls();
+        // feedback
+        var remaining = allCards.filter(function(c){return c.style.display==='none'}).length;
+        if(remaining===0){ message.textContent = 'All products loaded — try Next page'; }
+        else{ message.textContent = remaining + ' more products available'; }
+      });
+
+      // Return to top behavior
+      window.addEventListener('scroll',function(){
+        if(window.scrollY>300){ toTopBtn.style.display='flex'; }
+        else{ toTopBtn.style.display='none'; }
+      });
+      toTopBtn.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+      // Search (simple, runs on submit or Enter) - filters by title
+      var searchForm = document.getElementById('searchForm');
+      var qInput = document.getElementById('q');
+      var clearBtn = document.getElementById('clearBtn');
+      var submitBtn = document.getElementById('submitBtn');
+
+      function doSearch(){
+        var q = (qInput.value || '').trim().toLowerCase();
+        if(q===''){
+          // show initial set if blank
+          showInitial();
+          message.textContent = 'Showing featured products';
+          return;
+        }
+        var found = 0;
+        allCards.forEach(function(c){
+          var title = (c.getAttribute('data-title')||'').toLowerCase();
+          if(title.indexOf(q)!==-1){ c.style.display='block'; found++; }
+          else{ c.style.display='none'; }
+        });
+        message.textContent = found>0 ? found + ' results found' : 'No results found';
+        // re-init swipers for visible cards
+        initSwipers(cardsWrap);
+        // hide controls because search is a focused view
+        loadMoreBtn.style.display='none';
+        nextPageBtn.style.display='none';
+
+        // Close mobile keyboard on submit where supported
+        if(document.activeElement){ document.activeElement.blur(); }
+      }
+
+      searchForm.addEventListener('submit',function(e){ e.preventDefault(); doSearch(); });
+      submitBtn.addEventListener('click',function(e){ e.preventDefault(); doSearch(); });
+      clearBtn.addEventListener('click',function(e){ qInput.value=''; showInitial(); message.textContent='Showing featured products'; if(document.activeElement) document.activeElement.blur(); });
+
+      // Make sure Enter in keyboard triggers submit on Android
+      qInput.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); doSearch(); } });
+
+      // Initialize
+      showInitial();
+
+      // Basic accessibility: allow buy links to be opened via keyboard (they are anchors)
+
+    })();
+  </script>
+</body>
+</html>

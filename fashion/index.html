@@ -28,7 +28,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 0px;
 }
 
 /* Track */
@@ -349,15 +349,19 @@ a{text-decoration:none;}
 }
 
 /* Modal styles */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 4000;
-    }
+ .modal {
+  position: fixed;
+  top: env(safe-area-inset-top);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+  padding-top: env(safe-area-inset-top); /* pushes content below iOS status bar */
+}
 
     .modal.active {
       display: flex;
@@ -433,6 +437,17 @@ form textarea {
 form input[type="date"] {
   padding-right: 4px; /* optional, keeps some spacing */
   box-sizing: border-box;font-size: 16.2px !important;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none; /* Remove Safari native style */
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff; /* Match your other inputs */
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16.2px;
 }
 
     .close-btn {
@@ -898,30 +913,37 @@ form input[type="date"] {
 
 </div>
 
-<!-- IMAGE MODAL -->
 <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999; transition:opacity 0.3s;">
   
   <!-- Round Close Button -->
- <span onclick="closeImageModal()" 
-      style="
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 28px !important;   /* Force font size */
-        line-height: 1 !important;    /* Remove extra spacing */
-        color: white;
-        cursor: pointer;
-        border-radius: 50%;
-        background: rgba(0,0,0,0.6);
-        z-index: 10000;
-      ">
+<span onclick="closeImageModal()" 
+  style="
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10000;
+    line-height: 1;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    transform: scale(1) translateZ(0); /* Prevent Safari stretch */
+    aspect-ratio: 1 / 1;              /* Keeps perfect circle ratio */
+    font-stretch: normal;             /* Fix width distortion on '×' */
+  ">
   &times;
 </span>
+
 
   
   <img id="modalImg" src="" 
@@ -935,15 +957,25 @@ function openImageModal(src){
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
 
-  modalImg.src = src;       // Set image immediately
-  modal.style.display = 'flex'; // Show modal immediately
-  modal.style.opacity = '1';    // Ensure fully visible
+  modalImg.src = src;
+  modal.style.display = 'flex';
+  
+  // Wait a tick, then scale up for a smooth zoom-in effect
+  setTimeout(() => {
+    modalImg.style.transform = 'scale(1)';
+  }, 50);
 }
 
 function closeImageModal(){
   const modal = document.getElementById('imageModal');
-  modal.style.display = 'none'; // Hide modal immediately
+  const modalImg = document.getElementById('modalImg');
+
+  modalImg.style.transform = 'scale(0)';
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 300);
 }
+
 </script>
 
 
