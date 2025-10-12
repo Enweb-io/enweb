@@ -699,7 +699,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 <div class="pill-nav" style ="margin-top:10px;">
   <a href="gallery.html"><i class="fa fa-camera" aria-hidden="true"></i> GALLERY</a>
   <a href='about-us.html'><i class="fa fa-user" aria-hidden="true"></i> ABOUT-US</a>
-  <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20ladies%20JEANS!%20https://https:enweb-io.github.io/enweb/fashion/index.html"><i class="fa fa-whatsapp" aria-hidden="true" style ="margin-right:5px;"></i> SHARE</a>
+ <a href="https://api.whatsapp.com/send?text=Check out this amazing ladies JEANS! https://enweb-io.github.io/enweb/fashion/index.html" target="_blank">
+  <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> SHARE
+</a>
+
  
 </div>
 <div style ="padding:0 10px;">
@@ -958,12 +961,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     right: 30px;
     width: 40px;
     height: 40px;
-    display: flex;
+    display: inline-flex;           /* fix Safari flex stretch bug */
     justify-content: center;
     align-items: center;
     font-size: 28px;
     font-weight: 400;
-    color: white;
+    color: #fff;
     cursor: pointer;
     border-radius: 50%;
     background: rgba(0,0,0,0.6);
@@ -972,12 +975,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: center;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    transform: scale(1) translateZ(0); /* Prevent Safari stretch */
-    aspect-ratio: 1 / 1;              /* Keeps perfect circle ratio */
-    font-stretch: normal;             /* Fix width distortion on '×' */
+    -webkit-transform: translateZ(0); /* safer than scale(1) */
+    font-stretch: normal;
   ">
   &times;
 </span>
+
 
 
   

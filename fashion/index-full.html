@@ -496,38 +496,51 @@ form textarea {
   font-size: 16.2px !important;
 }
 
-/* Common reset for consistent sizing */
+/* Common input style (for all text-like fields) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
 input[type="date"] {
   width: 100%;
-  padding: 12px;
+  height: 45px;              /* Ensures all inputs match */
+  padding: 12px;             /* Internal spacing */
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 16.2px;
-  color: #000; /* Force black text */
+  font-size: 16px;
+  font-family: inherit;
+  color: #000;
   background-color: #fff;
   box-sizing: border-box;
+  line-height: normal;
   text-align: left;
+}
 
-  /* Remove browser-specific UI quirks */
+/* Safari date input special fixes */
+input[type="date"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
-  /* Fix for Safari rendering issues */
-  line-height: normal;
-  height: auto;
 }
 
-/* Prevent Safari’s blue centered placeholder text */
+/* Fix inner date text alignment and height */
 input[type="date"]::-webkit-datetime-edit {
-  color: #000;             /* Force black text */
-  text-align: left;        /* Align text left */
-  padding: 0;              /* Reset internal padding */
-  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #000;
+  text-align: left;
+  padding: 0 4px;
+  line-height: 1.2;
+  box-sizing: border-box;
 }
 
 input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
   text-align: left;
 }
 
@@ -536,7 +549,16 @@ input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
   color: #000;
+  text-align: left;
 }
+
+/* Optional: unify the calendar icon look */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.7;
+  background: transparent;
+  cursor: pointer;
+}
+
 
 /* Remove calendar icon background in Safari/iOS */
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -759,7 +781,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 <div class="pill-nav" style ="margin-top:10px;">
   <a href="gallery.html"><i class="fa fa-camera" aria-hidden="true"></i> GALLERY</a>
   <a href='about-us.html'><i class="fa fa-user" aria-hidden="true"></i> ABOUT-US</a>
-  <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20ladies%20JEANS!%20https://https:enweb-io.github.io/enweb/fashion/index.html"><i class="fa fa-whatsapp" aria-hidden="true" style ="margin-right:5px;"></i> SHARE</a>
+<a href="https://api.whatsapp.com/send?text=Check out this amazing ladies JEANS! https://enweb-io.github.io/enweb/fashion/index.html" target="_blank">
+  <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> SHARE
+</a
  
 </div>
 
