@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nice Eggs</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fafafa;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  header h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .menu {
+    position: relative;
+  }
+  .menu-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  .menu-content button {
+    display: block;
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .menu-content button:hover {
+    background: #f1f1f1;
+  }
+
+  .hero {
+    position: relative;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  .hero img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 60%);
+  }
+  .hero-text {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+  }
+  .hero-text h2 {
+    margin: 0;
+    font-weight: bold;
+  }
+  .hero-text p {
+    margin: 2px 0 0;
+  }
+  .hero-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .hero-buttons .call-btn,
+  .hero-buttons .social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    background: rgba(0,0,0,0.4);
+  }
+  .hero-buttons .call-btn {
+    background: white;
+    color: black;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-buttons .call-btn::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 2s infinite;
+  }
+  @keyframes ripple {
+    0% {transform: scale(0); opacity: 1;}
+    100% {transform: scale(8); opacity: 0;}
+  }
+  .hero-buttons .fa-facebook { background: #1877f2; }
+  .hero-buttons .fa-whatsapp { background: #25D366; }
+
+  .cards {
+    padding: 10px;
+  }
+  .card {
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  .card-info {
+    flex: 1;
+  }
+  .card-info h3 {
+    margin: 0;
+    color: #000;
+    font-size: 16px;
+  }
+  .card-info p {
+    margin: 4px 0;
+    color: #666;
+    font-size: 14px;
+  }
+  .card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-bottom .price {
+    color: orange;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .product-btn {
+    background: orange;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  #loadMore {
+    display: block;
+    margin: 15px auto;
+    background: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  #topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    display: none;
+    background: orange;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <i class="fa fa-arrow-left"></i>
+  <h1>Nice Eggs</h1>
+  <div class="menu">
+    <i class="fa fa-bars" id="menuBtn"></i>
+    <div class="menu-content" id="menuContent">
+      <button data-filter="all">All</button>
+      <button data-filter="dozen">Dozen</button>
+      <button data-filter="six">Six</button>
+      <button data-filter="unit">Unit</button>
+      <button data-filter="tray">Tray</button>
+      <button data-filter="half tray">Half Tray</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <img src="Eggs/hero.jpg" alt="Eggs">
+  <div class="hero-overlay"></div>
+  <div class="hero-buttons">
+    <a href="tel:+260770304374" class="call-btn"><i class="fa fa-phone"></i></a>
+    <div style="display:flex; gap:8px;">
+      <a href="https://facebook.com" target="_blank" class="social-btn fa fa-facebook"></a>
+      <a href="https://wa.me/260770304374" target="_blank" class="social-btn fa fa-whatsapp"></a>
+    </div>
+  </div>
+  <div class="hero-text">
+    <h2>Fresh Eggs</h2>
+    <p>Come and buy fresh eggs</p>
+  </div>
+</div>
+
+<div class="cards" id="cardsContainer"></div>
+<button id="loadMore">Load More</button>
+<button id="topBtn"><i class="fa fa-arrow-up"></i></button>
+
+<script>
+const eggs = [
+  {title:"Dozen Eggs",desc:"12 farm-fresh eggs",price:"K300",img:"Eggs/1.webp",type:"dozen"},
+  {title:"Six Eggs",desc:"6 fresh eggs",price:"K150",img:"Eggs/2.webp",type:"six"},
+  {title:"Unit Egg",desc:"1 single egg",price:"K25",img:"Eggs/3.webp",type:"unit"},
+  {title:"Tray Eggs",desc:"30 fresh eggs",price:"K700",img:"Eggs/4.webp",type:"tray"},
+  {title:"Half Tray",desc:"15 fresh eggs",price:"K400",img:"Eggs/5.webp",type:"half tray"},
+  {title:"Brown Dozen",desc:"12 brown eggs",price:"K320",img:"Eggs/6.webp",type:"dozen"},
+  {title:"Organic Tray",desc:"30 organic eggs",price:"K750",img:"Eggs/7.webp",type:"tray"},
+  {title:"Free Range",desc:"Dozen fresh free-range",price:"K350",img:"Eggs/8.webp",type:"dozen"},
+  {title:"Kids Pack",desc:"6 small eggs",price:"K120",img:"Eggs/9.webp",type:"six"},
+  {title:"Premium Unit",desc:"1 jumbo egg",price:"K35",img:"Eggs/10.webp",type:"unit"},
+  {title:"Mega Tray",desc:"30 large eggs",price:"K780",img:"Eggs/11.webp",type:"tray"},
+  {title:"Half Tray Brown",desc:"15 brown eggs",price:"K420",img:"Eggs/12.webp",type:"half tray"}
+];
+
+let shown = 0;
+let activeFilter = "all";
+const cardsContainer = document.getElementById("cardsContainer");
+const loadMoreBtn = document.getElementById("loadMore");
+const topBtn = document.getElementById("topBtn");
+
+function loadCards() {
+  const filtered = eggs.filter(e => activeFilter === "all" || e.type === activeFilter);
+  const next = filtered.slice(shown, shown + 6);
+  next.forEach(e => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${e.img}">
+      <div class="card-info">
+        <h3>${e.title}</h3>
+        <p>${e.desc}</p>
+        <div class="card-bottom">
+          <span class="price">${e.price}</span>
+          <button class="product-btn share-btn open-modal"
+            data-name="${e.title}"
+            data-price="${e.price.replace('K','')}"
+            data-image="${e.img}"
+            data-description="${e.desc}">
+            ORDER Eggs
+          </button>
+        </div>
+      </div>`;
+    cardsContainer.appendChild(card);
+  });
+  shown += 6;
+  if (shown >= filtered.length) loadMoreBtn.style.display = "none";
+  else loadMoreBtn.style.display = "block";
+}
+
+loadCards();
+
+loadMoreBtn.onclick = loadCards;
+
+window.onscroll = () => {
+  topBtn.style.display = window.scrollY > 200 ? "block" : "none";
+};
+topBtn.onclick = () => window.scrollTo({top:0,behavior:"smooth"});
+
+document.getElementById("menuBtn").onclick = () => {
+  document.getElementById("menuContent").classList.toggle("show");
+};
+document.querySelectorAll("#menuContent button").forEach(btn => {
+  btn.onclick = () => {
+    activeFilter = btn.getAttribute("data-filter");
+    cardsContainer.innerHTML = "";
+    shown = 0;
+    loadCards();
+    document.getElementById("menuContent").classList.remove("show");
+  };
+});
+</script>
+</body>
+</html>
