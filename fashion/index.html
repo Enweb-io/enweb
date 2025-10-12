@@ -965,8 +965,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 <span onclick="closeImageModal()" 
   style="
     position: absolute;
-    top: 40px;
-    right: 30px;
+    top: 70px;
+    right: 60px;
     width: 50px;
     height: 50px;
     display: inline-flex;           /* fix Safari flex stretch bug */
@@ -993,36 +993,27 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   
   <img id="modalImg" src="" 
-       style="max-width:90%; max-height:90%; transform:scale(0); transition:transform 0.3s; z-index:9999;">
+       style="max-width:90%; max-height:90%;  z-index:9999;">
 </div>
 
 
 
 <script>
-function openImageModal(src){
+function openImageModal(src) {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
-
+  
   modalImg.src = src;
   modal.style.display = 'flex';
-  
-  // Wait a tick, then scale up for a smooth zoom-in effect
-  setTimeout(() => {
-    modalImg.style.transform = 'scale(1)';
-  }, 10);
+  modalImg.style.transform = 'none'; // ensure no scaling
 }
 
-function closeImageModal(){
+function closeImageModal() {
   const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImg');
-
-  modalImg.style.transform = 'scale(0)';
-  setTimeout(() => {
-    modal.style.display = 'none';
-  }, 10);
+  modal.style.display = 'none';
 }
-
 </script>
+
 
 
 
