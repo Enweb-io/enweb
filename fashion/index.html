@@ -670,6 +670,159 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius:0;
 }
 
+.modalwrap {
+  position: fixed !important;
+  inset: 0 !important; /* replaces left:0; top:0; width:100%; height:100%; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  z-index: 999999 !important; /* ensure absolute top priority */
+  isolation: isolate; /* create a top-level layer that nothing can escape */
+}
+
+.modalwrap.active {
+  display: flex; /* show when needed */
+}
+
+.modalwrap-content {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  background: none;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000000; /* optional but ensures content sits above backdrop */
+}
+
+
+
+.close {
+  position: fixed; /* ✅ changed from absolute */
+  top: 80px;
+  right: 50px;
+  z-index: 2000000; /* ✅ above all modal layers */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(0,0,0,0.6);
+  line-height: 1;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1) translateZ(0);
+  aspect-ratio: 1 / 1;
+}
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.gallery {
+  display: none;
+}
+
+
+
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.next {
+  right: 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:focus,
+.next:focus {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px; cursor: pointer;
+}
+.column img {
+  border-radius:5px;
+  
+  
+}
+
+
+.column img:hover {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+
+.lightbox {
+  opacity: 0.6;
+}
+
+.active,
+.lightbox:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.modalwrap-content img {
+  width:60%;
+  margin:50px auto;
+  display:block;
+  padding:5px; 
+
+  
+  
+}
+
+@media screen and (max-width: 600px) {
+  .modalwrap-content img  {
+    width: 100%;
+	height:auto;
+  }
+}
+
 ::placeholder{font-family:arial;}
 
 .card .fa-whatsapp{margin-left:5px;}
@@ -744,10 +897,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/1.webp" alt="Product 1" style="width:100%; display:block;">
- <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/2.webp">
+ <span onclick="openimage();currentSlide(1)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -767,10 +919,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/3.webp" alt="Product 2" style="width:100%; display:block;">
- <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/4.webp">
+ <span onclick="openimage();currentSlide(2)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -790,10 +941,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/5.webp" alt="Product 3" style="width:100%; display:block;">
- <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/6.webp">
+ <span onclick="openimage();currentSlide(3)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -813,10 +963,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/7.webp" alt="Product 4" style="width:100%; display:block;">
-  <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/8.webp">
+ <span onclick="openimage();currentSlide(4)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -836,10 +985,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/9.webp" alt="Product 5" style="width:100%; display:block;">
- <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/10.webp">
+ <span onclick="openimage();currentSlide(5)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -859,10 +1007,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/11.webp" alt="Product 6" style="width:100%; display:block;">
- <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/12.webp">
+ <span onclick="openimage();currentSlide(6)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -882,10 +1029,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/13.webp" alt="Product 7" style="width:100%; display:block;">
-<span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/14.webp">
+ <span onclick="openimage();currentSlide(7)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -905,10 +1051,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/15.webp" alt="Product 8" style="width:100%; display:block;">
- <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/16.webp">
+ <span onclick="openimage();currentSlide(8)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -928,10 +1073,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/17.webp" alt="Product 9" style="width:100%; display:block;">
- <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/18.webp">
+ <span onclick="openimage();currentSlide(9)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -951,10 +1095,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   <div class="card">
     <div style="position:relative;">
       <img src="jeans/19.webp" alt="Product 10" style="width:100%; display:block;">
-  <span 
-    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:2;"
-    onclick="openImageModal(this.getAttribute('data-back'))"
-    data-back="jeans/20.webp">
+ <span onclick="openimage();currentSlide(10)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
     <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
   </span>
     </div>
@@ -972,61 +1115,98 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 </div>
 
-<div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999; transition:opacity 0.3s;">
-  
-  <!-- Round Close Button -->
-<span onclick="closeImageModal()" 
-  style="
-    position: absolute;
-    top: 70px;
-    right: 60px;
-    width: 50px;
-    height: 50px;
-    display: inline-flex;           /* fix Safari flex stretch bug */
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    font-weight: 400;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.6);
-    z-index: 10000;
-    line-height: 1;
-    text-align: center;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -webkit-transform: translateZ(0); /* safer than scale(1) */
-    font-stretch: normal;
-  ">
-  &times;
-</span>
-
-
+<div id="modalwrapimg" class="modalwrap">
+  <span class="close cursor" onclick="closeimage()">&times;</span>
+  <div class="modalwrap-content">
 
   
-  <img id="modalImg" src="" 
-       style="max-width:90%; max-height:90%;  z-index:9999;">
+    <div class="gallery">
+    <img src="jeans/2.webp" >
+    </div>
+
+    <div class="gallery">
+        <img src="jeans/4.webp" >
+    </div>
+
+    <div class="gallery">
+   
+      <img src="jeans/6.webp">
+    </div>
+    
+    <div class="gallery">
+   
+      <img src="jeans/8.webp" >
+    </div>
+	
+	 <div class="gallery">
+  
+      <img src="jeans/10.webp" >
+    </div>
+    
+    <div class="gallery">
+        <img src="jeans/12.webp" >
+    </div>
+	
+	<div class="gallery">
+        <img src="jeans/14.webp" >
+    </div>
+	
+	<div class="gallery">
+        <img src="jeans/16.webp" >
+    </div>
+	<div class="gallery">
+        <img src="jeans/18.webp" >
+    </div>
+	
+	<div class="gallery">
+        <img src="jeans/20.webp" >
+    </div>
+	
+	
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a> 
+   
+
 </div>
-
-
-
+</div>
 <script>
-function openImageModal(src) {
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImg');
-  
-  modalImg.src = src;
-  modal.style.display = 'flex';
-  modalImg.style.transform = 'none'; // ensure no scaling
+function openimage() {
+  document.getElementById('modalwrapimg').style.display = "block";
 }
 
-function closeImageModal() {
-  const modal = document.getElementById('imageModal');
-  modal.style.display = 'none';
+function closeimage() {
+  document.getElementById('modalwrapimg').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("gallery");
+  var dots = document.getElementsByClassName("lightbox");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+
 }
 </script>
-
+    
 
 
 
