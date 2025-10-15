@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -448,9 +449,7 @@ form textarea {
 }
 
 /* Base input style */
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"] {
+input[type="date"]{
   height: 45px !important;
   line-height: 45px !important;
   font-size: 16px;
@@ -469,7 +468,7 @@ input[type="datetime-local"] {
 /* Force internal text alignment in Safari */
 input[type="date"]::-webkit-date-and-time-value,
 input[type="time"]::-webkit-date-and-time-value,
-input[type="datetime-local"]::-webkit-date-and-time-value {
+input[type="date"]::-webkit-date-and-time-value {
   text-align: left !important;
   height: 45px !important;
   line-height: 45px !important;
@@ -480,7 +479,7 @@ input[type="datetime-local"]::-webkit-date-and-time-value {
 /* Optional: fix calendar/time icons alignment in Safari */
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator,
-input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
   right: 10px;
   transform: translateY(-50%);
@@ -492,7 +491,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 /* Ensure input field container behaves correctly */
 input[type="date"]:focus,
 input[type="time"]:focus,
-input[type="datetime-local"]:focus {
+input[type="date"]:focus {
   outline: none;
   border-color: #0b76ff;
 }
@@ -1240,10 +1239,7 @@ function showSlides(n) {
     <img src="" class="modal-img" id="modalImage" />
     <h2 id="modalName" style="color:#3B5998;"></h2>
     <p id="modalDesc" style="color:gray; font-size:12px;"></p>
-    <p style="display:none;visibility:hidden;"><b>PRICE</b> ZMW <span id="modalPrice">0</span></p>
-	 <p id="totalDisplay" style="text-align:center;font-weight:bold;margin-top:5px;">
-      TOTAL: ZMW <span id="totalPrice">0</span>
-    </p>
+    <p><b>PRICE</b> ZMW <span id="modalPrice">0</span></p>
 
     <!-- ✅ Sizes container -->
     <div id="sizeWrapper" style="margin:10px 0; display:flex; gap:8px; flex-wrap:wrap;"></div>
@@ -1254,17 +1250,19 @@ function showSlides(n) {
       <span id="qty">1</span>
       <button type="button" onclick="adjustQty(1)" style="padding:5px 10px;" class ="qty-btn">+</button>
     </div>
-   
+    <p id="totalDisplay" style="text-align:center;font-weight:bold;margin-top:5px;">
+      TOTAL: ZMW <span id="totalPrice">0</span>
+    </p>
 
   <form id="orderForm">
   <input type="text" id="cname" placeholder="Your Name" required>
   <input type="tel" id="cphone" placeholder="Phone Number" required>
   <input type="text" id="caddress" placeholder="Address" required>
   
-  <p style="color:gray; margin:0; text-align:left;">Delivery Date Tap To Edit</p>
+  <p style="color:gray; margin:0; text-align:left;">Delivery Date</p>
   <input type="date" id="cdate" required min="" style="height:45px;important!">
 
-  <textarea id="cinstructions" placeholder="Extra Instructions..." required></textarea>
+  <textarea id="cinstructions" placeholder="Extra Instructions..."></textarea>
 </form>
 
 
@@ -1347,8 +1345,6 @@ searchInput.addEventListener('keypress', (e) => {
 });
 </script>
 
-
-
 <script>
 const modal = document.getElementById('orderModal');
 const image = document.getElementById('modalImage');
@@ -1359,40 +1355,6 @@ const qtyDisplay = document.getElementById('qty');
 const totalPriceEl = document.getElementById('totalPrice');
 let basePrice = 0;
 
-// ✅ Date validation setup (runs once, not inside submitOrder)
-const dateInput = document.getElementById('cdate');
-const validationMessage = document.getElementById('validationMessage');
-const today = new Date();
-today.setHours(0,0,0,0);
-
-// Prefill tomorrow’s date & prevent past date selection
-const tomorrow = new Date(today);
-tomorrow.setDate(tomorrow.getDate() + 1);
-dateInput.value = tomorrow.toISOString().split('T')[0];
-dateInput.min = dateInput.value;
-
-dateInput.addEventListener('change', function() {
-  const value = this.value;
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-    validationMessage.textContent = "Please enter a valid date format (YYYY-MM-DD).";
-    this.setCustomValidity("Invalid date format.");
-    return;
-  }
-
-  const selected = new Date(value);
-  selected.setHours(0,0,0,0);
-
-  if (selected < today) {
-    validationMessage.textContent = "Past dates are not allowed.";
-    this.setCustomValidity("Past date not allowed.");
-  } else {
-    validationMessage.textContent = "";
-    this.setCustomValidity("");
-  }
-});
-
-
-// ✅ Open modal logic (unchanged)
 document.querySelectorAll('.open-modal').forEach(btn => {
   btn.addEventListener('click', () => {
     const name = btn.dataset.name;
@@ -1410,6 +1372,7 @@ document.querySelectorAll('.open-modal').forEach(btn => {
     document.body.style.overflow = 'hidden';
     modal.classList.add('active');
 
+    // ✅ Build size buttons
     const sizeWrapper = document.getElementById('sizeWrapper');
     sizeWrapper.innerHTML = '';
     const sizes = btn.dataset.sizes ? btn.dataset.sizes.split(',') : [];
@@ -1428,20 +1391,23 @@ document.querySelectorAll('.open-modal').forEach(btn => {
     ['cname', 'cphone', 'caddress'].forEach(id => {
       document.getElementById(id).value = localStorage.getItem(id) || '';
     });
+
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('cdate').min = now.toISOString().slice(0,16);
   });
 });
 
-
-// ✅ Quantity adjustment
+// ✅ Adjust quantity function
 function adjustQty(change) {
   let qty = parseInt(qtyDisplay.textContent) + change;
   if (qty < 1) qty = 1;
   qtyDisplay.textContent = qty;
+
   totalPriceEl.textContent = basePrice * qty;
 }
 
-
-// ✅ WhatsApp submission with date validation
+// ✅ Submit Order via WhatsApp with quantity + total
 function submitOrder() {
   const name = document.getElementById('cname').value.trim();
   const phone = document.getElementById('cphone').value.trim();
@@ -1455,16 +1421,8 @@ function submitOrder() {
   const selectedSizeBox = document.querySelector('#sizeWrapper .size-box.selected');
   const selectedSize = selectedSizeBox ? selectedSizeBox.textContent : '';
 
-  if (!name || !phone || !address || !instructions || !date || !selectedSize) {
-    alert("Please fill in all required fields, including instructions and size.");
-    return;
-  }
-
-  // ✅ Block submission if past date
-  const selected = new Date(date);
-  selected.setHours(0,0,0,0);
-  if (selected < today) {
-    alert("Delivery date cannot be in the past.");
+  if (!name || !phone || !address || !date || !selectedSize) {
+    alert("Please fill in all required fields, including size.");
     return;
   }
 
@@ -1481,13 +1439,12 @@ function submitOrder() {
               `*CUSTOMER DETAILS* \n\n` +
               `*Name:* ${name}\n` +
               `*Phone No.:* ${phone}\n` +
-              `*Address:* ${address}\n` +
+              `*address:* ${address}\n` +
               `*Instructions:* ${instructions}`;
 
   const encoded = encodeURIComponent(msg);
   window.location.href = `https://wa.me/260770304374?text=${encoded}`;
 }
-
 
 // ✅ Modal close
 function closeModal() {
@@ -1498,7 +1455,6 @@ modal.addEventListener('click', e => {
   if (e.target === modal) closeModal();
 });
 </script>
-
 
 </body>
 </html>
