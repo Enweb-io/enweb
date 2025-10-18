@@ -88,7 +88,7 @@ button:focus,a:focus,input:focus{outline:3px solid rgba(234,95,95,0.25);outline-
     <img src="img/The-Veuvr.jpg" alt="Feature" class="feature-img"/>
     <div class="share-row">
               <button class="share-btn facebook" onclick="history.back()"><i class="fa fa-angle-left"></i></button>
-               <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20gender%20violence%20post!%20https://enweb-io.github.io/postnews22.html"><button class="share-btn whatsapp"><i class="fa fa-whatsapp"></i></button></a>
+              <a href="https://api.whatsapp.com/send?text=Check out this gender violence post! https://enweb-io.github.io/gender/postnews22.html"><button class="share-btn whatsapp"><i class="fa fa-whatsapp"></i></button></a>
             </div>
     <div class="img-overlay">
       <div class="author">
@@ -110,7 +110,7 @@ button:focus,a:focus,input:focus{outline:3px solid rgba(234,95,95,0.25);outline-
     </div>
   </div>
 <article id="postBody" style="padding:15px; text-align:justify; line-height:1.6;">
-  <h1 style="text-align:center; margin:5px; color:#111;font-size:14px;"id="postTitle" >How Girl-Child Education Helps Prevent Gender Violence</h1>
+  <h1 style="text-align:center; margin:20px 10px; color:#111;">How Girl-Child Education Helps Prevent Gender Violence</h1>
 
   <p><strong style="display:block; font-size:14px; margin-bottom:5px; color:#111;">1. Introduction</strong>
   Educating girls is one of the most effective strategies for preventing gender-based violence. Knowledge and empowerment give girls the tools to protect themselves and advocate for their rights.</p>
@@ -148,8 +148,8 @@ button:focus,a:focus,input:focus{outline:3px solid rgba(234,95,95,0.25);outline-
   </div>
 
   <div class="next-post">
-    <div><strong>Next:</strong> <span id="nextTitle"><a  href="postnews23.html">Why womwn suffer in silence</a></span></div>
-    <div> <a class="icon-btn" href="postnews23.html"><button class="next-btn" id="nextPostBtn"><i class="fa fa-angle-right"></i></button></div></a>
+    <div><strong>Next:</strong> <span id="nextTitle">WHY WOMEN SUFFER IN SILENCE</span></div>
+    <div> <a class="icon-btn" href="postnews23.html"><button class="next-btn" id="nextPostBtn">Next Post</button></div></a>
   </div>
 </main>
 <footer>&copy; <span id="yr"></span> GENDER VIOLENCE. ALL RIGHTS RESERVED.</footer>
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const comment = document.getElementById('comment').value.trim();
     if(!name || !email || !comment){ alert('Please fill in all fields.'); return; }
     localStorage.setItem('userEmail', email);
-    window.location.href = `mailto:michaellarvel@gmail.com?subject=How Girl-Child Education Helps Prevent Gender Violence&body=Name: ${name}%0AEmail: ${email}%0AComment: ${comment}`;
+    window.location.href = `mailto:michaellarvel@gmail.com?subject=Gender based violence against women&body=Name: ${name}%0AEmail: ${email}%0AComment: ${comment}`;
     modal.classList.remove('open');
   });
 

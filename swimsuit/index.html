@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gender</title>
+<!--  Open Graph (for Facebook, WhatsApp, LinkedIn, etc.) -->
+<meta property="og:title" content="Elegant Fashion vibes">
+<meta property="og:description" content="Trending fabric designs  for ladies wear.">
+<meta property="og:image" content="https://enweb-io.github.io/enweb/fashion/swim/21.jpg">
+<meta property="og:url" content="https://enweb-io.github.io/enweb/fashion/index.html">
+<meta property="og:type" content="website">
+
+<!--  Twitter Card (specifically for Twitter/X) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elegant Fashion vibes">
+<meta name="twitter:description" content="Trending fabric designs  for ladies wear.">
+<meta name="twitter:image" content="https://enweb-io.github.io/enweb/fashion/swim/21.jpg">
+<meta name="twitter:url" content="https://enweb-io.github.io/enweb/fashion/index.html">
+ <link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+ <!-- Place inside your <head> -->
+<link rel="preload" as="image" href="swim/1.jpg">
+<link rel="preload" as="image" href="swim/2.jpg">
+<link rel="preload" as="image" href="swim/3.jpg">
+<link rel="preload" as="image" href="swim/4.jpg">
+<link rel="preload" as="image" href="swim/5.jpg">
+<link rel="preload" as="image" href="swim/6.jpg">
+<link rel="preload" as="image" href="swim/7.jpg">
+<link rel="preload" as="image" href="swim/8.jpg">
+<link rel="preload" as="image" href="swim/9.jpg">
+<link rel="preload" as="image" href="swim/10.jpg">
+<link rel="preload" as="image" href="swim/626.jpg">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding:0;
+  background: #f8f9fa;
+  padding-bottom:40px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background: #3B5998;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.topnav-right {
+  float: right;
+}
+
+a {
+  color: #ea3830;
+  text-decoration: none;
+}
+.container {
+            position: relative; /* Position for overlay and buttons */
+            width: 100%; /* Full width */
+			height:230px;
+            overflow: hidden; /* Crop overflow */
+        }
+
+        .container img {
+            height:230px;
+            object-fit:cover; /* Maintain aspect ratio */
+        }
+
+        .gradient-overlay {
+            position: absolute; /* Position for gradient */
+            bottom: 0; /* Align to bottom */
+            left: 0; /* Align to left */
+            right: 0; /* Align to right */
+            height: 50%; /* Half height for gradient */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); /* Gradient effect */
+        }
+
+        .avatar-container {
+            position: absolute; /* Position for avatar */
+            bottom: 7%; /* Space from bottom */
+            left: 2%; /* Space from left */
+            display: flex; /* Use flexbox for inline alignment */
+            align-items: center; /* Center vertically */
+            color: white; /* Text color */
+        }
+
+       
+
+        .download-button {
+            position: absolute; /* Position for download button */
+            bottom: 9%; /* Space from bottom */
+            right: 2%; /* Space from right */
+            background-color: #3B5998; /* Button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            padding: 6px 18px; /* Button padding */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+			font-size:13px;
+        }
+
+        .top-buttons {
+            position: absolute; /* Position for top buttons */
+            top: 20px; /* Space from top */
+            right: 20px; /* Space from right */
+            display: flex; /* Use flexbox for buttons */
+			
+        }
+
+        .top-button {
+            width: 35px; /* Width for top buttons */
+            height: 35px; /* Height for top buttons */
+            border-radius: 50%; /* Make buttons round */
+            background-color: white; /* Button color */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            margin-left: 10px; /* Space between buttons */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+		
+		.share-btn {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}
+a{text-decoration:none;}
+
+.fb {
+  background-color: #1877f2;
+}
+
+.whatsapp {
+  background-color: #25d366;
+  position: relative;
+  overflow: hidden;
+}
+		
+		 .avatar {
+            width: 32px; /* Width for the avatar */
+            height: 32px; /* Height for the avatar */
+            border-radius: 50%; /* Make avatar round */
+            margin-right: 10px; /* Space between avatar and text */
+        }
+
+.profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+			padding:5px 10px;
+        }
+        .avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+        .text {
+            flex-grow: 1;
+			padding:0;
+			margin:0;
+        }
+		
+		.text p, .text h3 {
+           
+			padding:0;
+			margin:0;
+        }
+        .follow-button {
+            padding: 6px 15px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+			font-size:11px;
+        }
+
+.social{
+  border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			width:96%;
+			margin:5px auto;
+			padding:5px;
+			}
+.pill-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #3B5998;
+  padding: 6px 5px;   /* less horizontal padding */
+  border-radius: 5px;
+  margin:0 5px;
+}
+
+.pill-nav a {
+  flex: 1; /* equal width for all 3 */
+  margin: 0 3px; 
+  background-color: white;
+  color: #3B5998;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.pill-nav a:hover,
+.pill-nav a:focus {
+  color: gray;
+}
+
+.search-container {
+  display: flex;
+  gap: 5px;
+  margin:10px 0;
+  padding: 5px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.search-container input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+}
+.search-container button {
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+}
+#searchBtn {
+  background: #3B5998;
+}
+#clearBtn {
+  background: #6c757d;
+}
+.search-container button i {
+  font-size: 13px;
+}
+
+.search-container {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* 🔲 Product Grid */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.card {
+  flex: 1 1 48%;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+.product-name {
+  font-weight: bold;
+  color: #000;
+  text-transform:uppercase;
+  margin:5px; padding:5px;
+  font-size:12px;
+}
+.product-price {
+  color: #555;
+  font-size: 12px;
+  text-transform:uppercase;
+  margin:5px; padding:5px;
+}
+.product-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 5px;
+  background-color: #3B5998;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform:uppercase;
+  font-size:13px;
+}
+.product-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 📝 Results Message (moved below grid) */
+.message {
+  margin: 15px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  color: #000;
+}
+.message span {
+  color: #666;
+  font-weight: normal;
+}
+
+/* Modal styles */
+ .modal {
+  position: fixed;
+  top: env(safe-area-inset-top);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+  padding-top: env(safe-area-inset-top); /* pushes content below iOS status bar */
+}
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      position: relative;
+      animation: slideIn .3s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .modal h2, .modal p {
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .qty-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: 10px 0;
+    }
+
+    .qty-btn {
+    background: #3B5998;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #3B5998;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+	aspect-ratio:1/1;
+    }
+
+    .qty-count {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+   form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* ✅ Fix overflow */
+  font-size: 16.2px !important;
+}
+
+/* Base input style */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  height: 45px !important;
+  line-height: 45px !important;
+  font-size: 16px;
+  padding: 0 10px;
+  text-align: left;
+  color: #222;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+}
+
+/* Force internal text alignment in Safari */
+input[type="date"]::-webkit-date-and-time-value,
+input[type="time"]::-webkit-date-and-time-value,
+input[type="datetime-local"]::-webkit-date-and-time-value {
+  text-align: left !important;
+  height: 45px !important;
+  line-height: 45px !important;
+  padding-left: 8px;
+  color: #222;
+}
+
+/* Optional: fix calendar/time icons alignment in Safari */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px;
+  transform: translateY(-50%);
+  top: 50%;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Ensure input field container behaves correctly */
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #0b76ff;
+}
+
+/* Remove calendar icon background in Safari/iOS */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  color: #000;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+    .close-btn {
+      background: #3B5998;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      font-size: 14px;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    .note {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .note b {
+      color: #3B5998;
+    }
+
+    .note u {
+      color: #25d366;
+      cursor: pointer;
+    }
+
+    .load-btn, .top-btn {
+      margin: 20px auto;
+      display: block;
+      padding: 10px 20px;
+      background: #3B5998;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+	
+	.color-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-dot.selected {
+  border: 3px solid black;
+  transform: scale(1.1);
+}
+
+#sizeWrapper {
+  display: flex;
+  justify-content: center;   /* center all circles horizontally */
+  gap: 10px;                 /* space between circles */
+  flex-wrap: wrap;           /* wrap to next line if too many */
+}
+
+
+.size-box {
+  display: flex;
+  align-items: center;       /* vertical center */
+  justify-content: center;   /* horizontal center */
+  width: 40px;               /* fixed width for perfect circle */
+  height: 40px;              /* fixed height for perfect circle */
+  border: 1px solid #3B5998;
+  color: #3B5998;
+  border-radius: 50%;        /* circle */
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  text-align: center;
+  flex-shrink: 0;            /* prevent shrinking in flex container */
+}
+
+.size-box.selected {
+  background-color: #3B5998;
+  color: white;
+}
+ .qty-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: 10px 0;
+    }
+
+    .qty-btn {
+    background: #3B5998;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #3B5998;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+	aspect-ratio:1/1;
+    }
+
+    .qty-count {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+.price {
+    font-size: 276.92308%;
+    line-height: 111.11111%;
+    display: block;
+    float: none;
+    text-align: center;
+	color: #086fcf;
+	margin:0; padding:0;
+  }
+#loadMoreBtn {
+  width: 96%;
+  padding: 13px;
+  margin: 10px auto;
+  cursor: pointer;
+  background: #3B5998;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-transform:uppercase;
+}
+
+/* 🔝 Return to Top */
+.return-top {
+  position: fixed;
+    bottom: 60px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: #3B5998;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+	border:2px solid #eee;
+    cursor: pointer;
+    display: none;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+    user-select: none;
+	padding-bottom:10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+	footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3B5998; /* Your footer color */
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  z-index: 1000; /* To ensure it stays on top */
+  font-size: 14px;
+  border-radius:0;
+}
+
+.modalwrap {
+  position: fixed !important;
+  inset: 0 !important; /* replaces left:0; top:0; width:100%; height:100%; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  z-index: 999999 !important; /* ensure absolute top priority */
+  isolation: isolate; /* create a top-level layer that nothing can escape */
+}
+
+.modalwrap.active {
+  display: flex; /* show when needed */
+}
+
+.modalwrap-content {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  background: none;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000000; /* optional but ensures content sits above backdrop */
+}
+
+
+
+.close {
+  position: fixed; /* ✅ changed from absolute */
+  top: 80px;
+  right: 50px;
+  z-index: 2000000; /* ✅ above all modal layers */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(0,0,0,0.6);
+  line-height: 1;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  transform: scale(1) translateZ(0);
+  aspect-ratio: 1 / 1;
+}
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.gallery {
+  display: none;
+}
+
+
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 14px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  transition: 0.6s ease;
+  border-radius: 5px;
+  user-select: none;
+  -webkit-user-select: none;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.next {
+  right: 10px;
+  border-radius: 5px;
+}
+
+.prev {
+  left: 10px;
+  border-radius: 5px;
+}
+
+
+.prev:focus,
+.next:focus {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+img {
+  margin-bottom: -4px; cursor: pointer;
+}
+.column img {
+  border-radius:5px;
+  
+  
+}
+
+
+.column img:hover {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+
+.lightbox {
+  opacity: 0.6;
+}
+
+.active,
+.lightbox:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.modalwrap-content img {
+  width:60%;
+  margin:50px auto;
+  display:block;
+  padding:5px; 
+
+  
+  
+}
+
+@media screen and (max-width: 600px) {
+  .modalwrap-content img  {
+    width: 100%;
+	height:auto;
+  }
+}
+
+::placeholder{font-family:arial;}
+
+.card .fa-whatsapp{margin-left:5px;}
+</style>
+</head>
+<body>
+
+
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="index.html" class="active"></a>
+  </div>
+  
+ 
+  <a href="index-register.html" ><i class="fa fa-user" aria-hidden="true"></i> SHOP ASSISTANT</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+ <a href="javascript:void(0);" id="searchToggle">
+  <i class="fa fa-search" aria-hidden="true"></i>
+</a>
+   
+	 <a href="#index"><i class="fa fa-home" aria-hidden="true"></i></a>
+    
+  </div>
+  
+</div>
+  <div class="container">
+        <img src="swim/21.jpeg" style="width:100%"> <!-- Replace with your image -->
+        <div class="gradient-overlay"></div>
+        
+        <div class="avatar-container">
+            <img src="avatar/1.jpg" style="width:34px; height:34px;" class="avatar"> <!-- Replace with your avatar image -->
+            <span style ="font-size:12px;"><i class="fa fa-user" aria-hidden="true"> </i> ELEGANT SWIMSUIT <i class="fa fa-globe" aria-hidden="true"> </i></span> <!-- Replace with your text -->
+        </div>
+        
+        <a href="tel:+260770304374"><button id="whatsappBtn" class="download-button"><i class="fa fa-phone" aria-hidden="true"> </i> CALL</button></a> <!-- Download button -->
+        
+        <div class="top-buttons">
+		     <a onclick ="https//www.facebook.com"><button class="top-button fb"><i class="fa fa-facebook"></i></button></a> <!-- Second top button (Check Icon) -->
+             <a href ="contact.html"> <button class="top-button whatsapp"><i class="fa fa-whatsapp"></i></button></a> <!-- First top button (Info Icon) -->
+           
+        </div>
+    </div>
+
+<div class="pill-nav" style ="margin-top:10px;">
+  <a href="gallery.html"><i class="fa fa-camera" aria-hidden="true"></i> GALLERY</a>
+  <a href='about-us.html'><i class="fa fa-user" aria-hidden="true"></i> ABOUT-US</a>
+ <a href="https://api.whatsapp.com/send?text=Check out this amazing ELEGANT SWIMSUIT! https://enweb-io.github.io/enweb/fashion/index.html" target="_blank">
+  <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> SHARE
+</a>
+
+ 
+</div>
+<div style ="padding:0 10px;">
+
+<div class="search-container hidden" id="searchBox">
+  <input type="text" id="searchInput" placeholder="Search products...">
+  <button id="searchBtn"><i class="fa fa-search"></i></button>
+  <button id="clearBtn"><i class="fa fa-times"></i></button>
+</div>
+</div>
+  <!-- 📝 Message (below grid) -->
+<div id="message" class="message"></div>
+
+<!-- 🛍️ Grid Container -->
+<div class="grid-container" id="productGrid" style="padding:0 10px;">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/1.jpg" alt="Product 1" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(1)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT ONE</h3>
+    <p class="product-price">ZMW 300</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT ONE"
+            data-price="300"
+            data-image="swim/1.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/2.jpg" alt="Product 2" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(2)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT TWO</h3>
+    <p class="product-price">ZMW 1000</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT TWO"
+            data-price="1000"
+            data-image="swim/2.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/3.jpg" alt="Product 3" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(3)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT THREE</h3>
+    <p class="product-price">ZMW 350</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT THREE"
+            data-price="350"
+            data-image="swim/3.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/4.jpg" alt="Product 4" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(4)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT FOUR</h3>
+    <p class="product-price">ZMW 350</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT FOUR"
+            data-price="350"
+            data-image="swim/4.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/5.jpg" alt="Product 5" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(5)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT FIVE</h3>
+    <p class="product-price">ZMW 350</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT FIVE"
+            data-price="350"
+            data-image="swim/5.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/6.jpg" alt="Product 6" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(6)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT SIX</h3>
+    <p class="product-price">ZMW 350</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT SIX"
+            data-price="350"
+            data-image="swim/6.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 7 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/7.jpg" alt="Product 7" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(7)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT SEVEN</h3>
+    <p class="product-price">ZMW 1000</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT SEVEN"
+            data-price="1000"
+            data-image="swim/7.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 8 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/8.jpg" alt="Product 8" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(8)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT EIGHT</h3>
+    <p class="product-price">ZMW 350</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT EIGHT"
+            data-price="350"
+            data-image="swim/8.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 9 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/9.jpg" alt="Product 9" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(9)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT NINE</h3>
+    <p class="product-price">ZMW 350</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT NINE"
+            data-price="350"
+            data-image="swim/9.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+
+  <!-- CARD 10 -->
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/10.jpg" alt="Product 10" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(10)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT TEN</h3>
+    <p class="product-price">ZMW 300</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT TEN"
+            data-price="300"
+            data-image="swim/10.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+  <div class="card">
+    <div style="position:relative;">
+      <img src="swim/11.jpg" alt="Product 10" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(10)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT TEN</h3>
+    <p class="product-price">ZMW 300</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT TEN"
+            data-price="300"
+            data-image="swim/11.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+  
+    <div class="card">
+    <div style="position:relative;">
+      <img src="swim/12.jpg" alt="Product 10" style="width:100%; display:block;">
+ <span onclick="openimage();currentSlide(12)"
+    style="position:absolute; top:8px; right:8px; width:36px; height:36px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); border-radius:50%; cursor:pointer; z-index:100;"   
+   >
+    <i class="fa fa-camera" style="font-size:18px; color:white;"></i>
+  </span>
+    </div>
+    <h3 class="product-name">ELEGANT SWIMSUIT TEN</h3>
+    <p class="product-price">ZMW 300</p>
+    <button class="product-btn share-btn open-modal" 
+            data-name="ELEGANT SWIMSUIT TEN"
+            data-price="300"
+            data-image="swim/12.jpg"
+            data-description="STYLISH LADIES BIKINI SET"
+            data-sizes="S,M,L,XL,XXL">
+      <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> ORDER swim
+    </button>
+  </div>
+</div>
+
+<div id="modalwrapimg" class="modalwrap">
+  <span class="close cursor" onclick="closeimage()">&times;</span>
+  <div class="modalwrap-content">
+
+  
+    <div class="gallery">
+    <img src="swim/1.jpg" >
+    </div>
+
+    <div class="gallery">
+        <img src="swim/2.jpg" >
+    </div>
+
+    <div class="gallery">
+   
+      <img src="swim/3.jpg">
+    </div>
+    
+    <div class="gallery">
+   
+      <img src="swim/4.jpg" >
+    </div>
+	
+	 <div class="gallery">
+  
+      <img src="swim/5.jpg" >
+    </div>
+    
+    <div class="gallery">
+        <img src="swim/6.jpg" >
+    </div>
+	
+	<div class="gallery">
+        <img src="swim/7.jpg" >
+    </div>
+	
+	<div class="gallery">
+        <img src="swim/8.jpg" >
+    </div>
+	<div class="gallery">
+        <img src="swim/9.jpg" >
+    </div>
+	
+	<div class="gallery">
+        <img src="swim/10.jpg" >
+    </div>
+	
+		<div class="gallery">
+        <img src="swim/11.jpg" >
+    </div>
+	
+	<div class="gallery">
+        <img src="swim/12.jpg" >
+    </div>
+	
+
+	
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a> 
+   
+
+</div>
+</div>
+<script>
+function openimage() {
+  document.getElementById('modalwrapimg').style.display = "block";
+}
+
+function closeimage() {
+  document.getElementById('modalwrapimg').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("gallery");
+  var dots = document.getElementsByClassName("lightbox");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+
+}
+</script>
+    
+
+
+
+<div class="modal" id="orderModal">
+  <div class="modal-content">
+    <button onclick="closeModal()" style="
+        position: absolute;
+    top: 40px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.6);
+    z-index: 10000;
+    line-height: 1;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    transform: scale(1) translateZ(0); /* Prevent Safari stretch */
+    aspect-ratio: 1 / 1;              /* Keeps perfect circle ratio */
+    font-stretch: normal;
+    ">×</button>
+
+    <img src="" class="modal-img" id="modalImage" />
+    <h2 id="modalName" style="color:#3B5998;"></h2>
+    <p id="modalDesc" style="color:gray; font-size:12px;"></p>
+    <p style="display:none;visibility:hidden;"><b>PRICE</b> ZMW <span id="modalPrice">0</span></p>
+	 <p id="totalDisplay" style="text-align:center;font-weight:bold;margin-top:5px;">
+      TOTAL: ZMW <span id="totalPrice">0</span>
+    </p>
+
+    <!-- ✅ Sizes container -->
+    <div id="sizeWrapper" style="margin:10px 0; display:flex; gap:8px; flex-wrap:wrap;"></div>
+
+    <!-- ✅ Quantity selector -->
+    <div class="qty-row" style="display:flex;justify-content:center;align-items:center;gap:10px;margin:15px 0;">
+      <button type="button" onclick="adjustQty(-1)" style="padding:5px 10px;" class ="qty-btn">-</button>
+      <span id="qty">1</span>
+      <button type="button" onclick="adjustQty(1)" style="padding:5px 10px;" class ="qty-btn">+</button>
+    </div>
+   
+
+  <form id="orderForm">
+  <input type="text" id="cname" placeholder="Your Name" required>
+  <input type="tel" id="cphone" placeholder="Phone Number" required>
+  <input type="text" id="caddress" placeholder="Address" required>
+  
+  <p style="color:gray; margin:0; text-align:left;">Delivery Date Tap To Edit</p>
+  <input type="date" id="cdate" required min="" style="height:45px;important!">
+
+  <textarea id="cinstructions" placeholder="Extra Instructions..." required></textarea>
+</form>
+
+
+    <button class="close-btn" onclick="submitOrder()">SUBMIT ORDER VIA WHATSAPP</button>
+  </div>
+</div>
+
+<!-- 🔽 Load More -->
+<button id="loadMoreBtn">Load More</button>
+
+<!-- 🔝 Return to Top -->
+<button id="returnTopBtn" class="return-top">↑</button>
+<footer style="border-radius:0;">&copy; 2025 SHOP ASSISTANT</footer>
+
+<script>
+  const toggleBtn = document.getElementById("searchToggle");
+  const searchBox = document.getElementById("searchBox");
+
+  toggleBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    searchBox.classList.toggle("hidden");
+  });
+</script>
+
+<script>
+/* ⚡ Search & Grid logic kept the same */
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+const clearBtn = document.getElementById('clearBtn');
+const productGrid = document.getElementById('productGrid');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const messageDiv = document.getElementById('message');
+const returnTopBtn = document.getElementById('returnTopBtn');
+
+let cards = Array.from(productGrid.children);
+let visibleCount = 6;
+
+function updateVisibleCards() {
+  cards.forEach((card, index) => card.style.display = index < visibleCount ? 'block' : 'none');
+  loadMoreBtn.style.display = visibleCount < cards.length ? 'block' : 'none';
+}
+updateVisibleCards();
+
+searchBtn.addEventListener('click', () => {
+  const query = searchInput.value.toLowerCase();
+  let found = 0;
+  cards.forEach(card => {
+    const name = card.querySelector('.product-name').textContent.toLowerCase();
+    if (name.includes(query)) {
+      card.style.display = 'block';
+      found++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  messageDiv.innerHTML = found ? `<b>${found}</b> <span>results found</span>` : `<b>No</b> <span>results found</span>`;
+  loadMoreBtn.style.display = 'none';
+});
+
+clearBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  visibleCount = 4;
+  updateVisibleCards();
+  messageDiv.textContent = '';
+});
+
+loadMoreBtn.addEventListener('click', () => {
+  visibleCount += 4;
+  updateVisibleCards();
+});
+
+window.addEventListener('scroll', () => {
+  returnTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+});
+returnTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+searchInput.addEventListener('keypress', (e) => {
+  if(e.key === 'Enter') searchBtn.click();
+});
+</script>
+
+
+
+<script>
+const modal = document.getElementById('orderModal');
+const image = document.getElementById('modalImage');
+const nameField = document.getElementById('modalName');
+const desc = document.getElementById('modalDesc');
+const price = document.getElementById('modalPrice');
+const qtyDisplay = document.getElementById('qty');
+const totalPriceEl = document.getElementById('totalPrice');
+let basePrice = 0;
+
+// ✅ Date validation setup (runs once, not inside submitOrder)
+const dateInput = document.getElementById('cdate');
+const validationMessage = document.getElementById('validationMessage');
+const today = new Date();
+today.setHours(0,0,0,0);
+
+// Prefill tomorrow’s date & prevent past date selection
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
+dateInput.value = tomorrow.toISOString().split('T')[0];
+dateInput.min = dateInput.value;
+
+dateInput.addEventListener('change', function() {
+  const value = this.value;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    validationMessage.textContent = "Please enter a valid date format (YYYY-MM-DD).";
+    this.setCustomValidity("Invalid date format.");
+    return;
+  }
+
+  const selected = new Date(value);
+  selected.setHours(0,0,0,0);
+
+  if (selected < today) {
+    validationMessage.textContent = "Past dates are not allowed.";
+    this.setCustomValidity("Past date not allowed.");
+  } else {
+    validationMessage.textContent = "";
+    this.setCustomValidity("");
+  }
+});
+
+
+// ✅ Open modal logic (unchanged)
+document.querySelectorAll('.open-modal').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.name;
+    const img = btn.dataset.image;
+    const descText = btn.dataset.description;
+    basePrice = parseInt(btn.dataset.price);
+
+    image.src = img;
+    nameField.textContent = name;
+    desc.textContent = descText;
+    price.textContent = basePrice;
+    qtyDisplay.textContent = 1;
+    totalPriceEl.textContent = basePrice;
+
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('active');
+
+    const sizeWrapper = document.getElementById('sizeWrapper');
+    sizeWrapper.innerHTML = '';
+    const sizes = btn.dataset.sizes ? btn.dataset.sizes.split(',') : [];
+    sizes.forEach(size => {
+      const div = document.createElement('div');
+      div.className = 'size-box';
+      div.textContent = size.trim();
+      div.addEventListener('click', () => {
+        sizeWrapper.querySelectorAll('.size-box').forEach(s => s.classList.remove('selected'));
+        div.classList.add('selected');
+      });
+      sizeWrapper.appendChild(div);
+    });
+    if (sizeWrapper.firstChild) sizeWrapper.firstChild.classList.add('selected');
+
+    ['cname', 'cphone', 'caddress'].forEach(id => {
+      document.getElementById(id).value = localStorage.getItem(id) || '';
+    });
+  });
+});
+
+
+// ✅ Quantity adjustment
+function adjustQty(change) {
+  let qty = parseInt(qtyDisplay.textContent) + change;
+  if (qty < 1) qty = 1;
+  qtyDisplay.textContent = qty;
+  totalPriceEl.textContent = basePrice * qty;
+}
+
+
+// ✅ WhatsApp submission with date validation
+function submitOrder() {
+  const name = document.getElementById('cname').value.trim();
+  const phone = document.getElementById('cphone').value.trim();
+  const address = document.getElementById('caddress').value.trim();
+  const date = document.getElementById('cdate').value;
+  const instructions = document.getElementById('cinstructions').value.trim();
+  const product = nameField.textContent;
+  const qty = qtyDisplay.textContent;
+  const total = totalPriceEl.textContent;
+
+  const selectedSizeBox = document.querySelector('#sizeWrapper .size-box.selected');
+  const selectedSize = selectedSizeBox ? selectedSizeBox.textContent : '';
+
+  if (!name || !phone || !address || !instructions || !date || !selectedSize) {
+    alert("Please fill in all required fields, including instructions and size.");
+    return;
+  }
+
+  // ✅ Block submission if past date
+  const selected = new Date(date);
+  selected.setHours(0,0,0,0);
+  if (selected < today) {
+    alert("Delivery date cannot be in the past.");
+    return;
+  }
+
+  localStorage.setItem('cname', name);
+  localStorage.setItem('cphone', phone);
+  localStorage.setItem('caddress', address);
+
+  const msg = `*NEW swim ORDER* \n\n` +
+              `*Product:* ${product}\n` +
+              `*Quantity:* ${qty}\n` +
+              `*Price:* ZMW${total}\n` +
+              `*Size:* ${selectedSize}\n` +
+              `*Delivery Date:* ${date}\n\n` +
+              `*CUSTOMER DETAILS* \n\n` +
+              `*Name:* ${name}\n` +
+              `*Phone No.:* ${phone}\n` +
+              `*Address:* ${address}\n` +
+              `*Instructions:* ${instructions}`;
+
+  const encoded = encodeURIComponent(msg);
+  window.location.href = `https://wa.me/260770304374?text=${encoded}`;
+}
+
+
+// ✅ Modal close
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeModal();
+});
+</script>
+
+
+</body>
+</html>

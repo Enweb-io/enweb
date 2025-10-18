@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" href="fonts/css/font-awesome.min.css" />
-<title>Two Column Portrait Gallery with Load More 20</title>
+<title>gallery</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
 
@@ -53,7 +53,7 @@ a{ font-family:arial;}
 .topnav {
   position: relative;
   overflow: hidden;
-  background:  #3B5998;
+  background: black;
 }
 
 .topnav a {
@@ -119,7 +119,7 @@ a {
             position: absolute; /* Position for download button */
             bottom: 10%; /* Space from bottom */
             right: 5%; /* Space from right */
-            background-color:  #3B5998; /* Button color */
+            background-color: #ea5f5f; /* Button color */
             color: white; /* Text color */
             border: none; /* No border */
             padding: 8px 18px; /* Button padding */
@@ -141,7 +141,7 @@ a {
             height: 40px; /* Height for top buttons */
             border-radius: 50%; /* Make buttons round */
             background-color: white; /* Button color */
-            color:  #3B5998; /* Button text color */
+            color: #ea5f5f; /* Button text color */
             border: none; /* No border */
             margin-left: 10px; /* Space between buttons */
             cursor: pointer; /* Pointer cursor on hover */
@@ -231,7 +231,7 @@ a {
     overflow: hidden;
     border-radius: var(--card-radius);
     background: #fff;
-    height: 260px;  /* fixed portrait height */
+
     /* remove flex alignment */
     /* display: flex; align-items: flex-end; */
 }
@@ -286,7 +286,7 @@ a {
 
   .controls{ text-align:center; margin:14px 0 30px 0; }
   .btn {
-    display:inline-block; background: #3B5998; color:#fff; border:none;
+    display:inline-block; background:#ea5f5f; color:#fff; border:none;
     padding:10px 18px; border-radius:999px; cursor:pointer; font-weight:600;
     box-shadow:0 8px 18px rgba(0,0,0,0.08);
   }
@@ -295,7 +295,7 @@ a {
     position:fixed; right:18px; bottom:70px; z-index:999;
     width:46px; height:46px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    background: #3B5998; color:#fff; cursor:pointer; box-shadow:0 8px 22px rgba(0,0,0,0.18);
+    background:#ea5f5f; color:#fff; cursor:pointer; box-shadow:0 8px 22px rgba(0,0,0,0.18);
 	border:2px solid white;
     display:none;
   }
@@ -326,7 +326,7 @@ a {
   }
   .footer 
 {
-	background-color: #3B5998;
+	background-color:black;
 	color: #ffffff;
 	padding:5px;
 	width:100%;
@@ -346,7 +346,7 @@ a {
 <body>
 <div class="topnav">  <!-- Centered link -->
 
- <a onclick="history.back()"><i class="fa fa-arrow-left" aria-hidden="true"></i>   GENDER VIOLENCE</a>
+ <a onclick="history.back()"><i class="fa fa-arrow-left" aria-hidden="true"></i> 	GENDER VIOLENCE</a>
   
   <!-- Right-aligned links -->
   <div class="topnav-right">
@@ -359,12 +359,12 @@ a {
 </div>
 
     <div class="container">
-        <img src="wedding/22.jpg" style="width:100%"> <!-- Replace with your image -->
+        <img src="img/istockphoto-980871268-612x612.jpg" style="width:100%"> <!-- Replace with your image -->
         <div class="gradient-overlay"></div>
         
         <div class="avatar-container">
-            <img src="avatar/1.jpg" style="width:40px; height:40px;" class="avatar"> <!-- Replace with your avatar image -->
-            <span>Fashion Crib</span> <!-- Replace with your text -->
+            <img src="img/1.jpg" style="width:40px; height:40px;" class="avatar"> <!-- Replace with your avatar image -->
+            <span>Our Gallery</span> <!-- Replace with your text -->
         </div>
         
         <button id="whatsappBtn" class="download-button"><i class="fa fa-whatsapp" aria-hidden="true"> </i> CHAT</button> <!-- Download button -->
@@ -379,11 +379,11 @@ a {
   <div class="meta-row">
     <div class="left-meta">
       <div class="avatars">
-        <img src="avatar/5.jpg" alt="Avatar 1">
-        <img src="avatar/4.jpg" alt="Avatar 2">
-        <img src="avatar/face.png" alt="Avatar 3">
+        <img src="avatar/1.jpg" alt="Avatar 1">
+        <img src="avatar/2.jpg" alt="Avatar 2">
+        <img src="avatar/3.jpg" alt="Avatar 3">
       </div>
-      <div class="meta-text"> <strong>1000</strong> Followers</div>
+      <div class="meta-text"> ONE LOVE</strong> </div>
     </div>
     <div class="meta-date" aria-label="Post date">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="opacity:.7" aria-hidden="true">
@@ -410,11 +410,11 @@ document.write(Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
   <div style="background: #fff; padding: 24px; border-radius: 15px; width: 90%; max-width: 480px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); position: relative;">
 
     <!-- Heading -->
-    <h3 style="text-align: center; margin-top: 0; font-size:16px; color: #3B5998; margin-bottom: 4px;">WHICH PRODUCT WOULD YOU LIKE</h3>
+    <h3 style="text-align: center; margin-top: 0; font-size:16px; color:#ea5f5f; margin-bottom: 4px;">EXPRESS YOUR THOUGHTS</h3>
     <p style="text-align: center; font-size: 12px; color: #666; margin-bottom: 16px;">START A CHAT WITH US</p>
 
     <!-- Textarea -->
-    <textarea id="cakeMessage" style="width: 100%; height: 80px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); resize: none;" placeholder="Type your cake request..."></textarea>
+    <textarea id="cakeMessage" style="width: 100%; height: 80px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); resize: none;" placeholder="Type your Message..."></textarea>
 
     <!-- Send Button -->
     <button id="sendWhatsApp" style="margin-top: 16px; width: 100%; background: #25D366; color: white; padding: 12px; border: none; border-radius: 5px; font-size: 12px; cursor: pointer;">
@@ -459,19 +459,26 @@ document.write(Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
 
 <script>
 const galleryItems = [
-  { img: "img/1.jpg", title: "Our Gallery", desc:"Elegant Fabric E100" },
-  { img: "img/2.jpg", title: "Our Gallery", desc:"Elegant Fabric E101" },
-  { img: "img/3.jpg", title: "Our Gallery", desc:"Elegant Fabric E102" },
-  { img: "img/4.jpg", title: "Our Gallery", desc:"Elegant Fabric E103" },
-  { img: "img/5.jpg", title: "Our Gallery", desc:"Elegant Fabric E104" },
-  { img: "img/6.jpg", title: "Our Gallery", desc:"Elegant Fabric E105" },
-  { img: "img/7.jpg", title: "Our Gallery", desc:"Elegant Fabric E106" },
-  { img: "img/8.jpg", title: "Our Gallery", desc:"Elegant Fabric E107" },
-  { img: "img/9.jpg", title: "Our Gallery", desc:"Elegant Fabric E108" },
-  { img: "img/10.jpg", title: "Our Gallery", desc:"Elegant Fabric E109" },
-  { img: "img/11.jpg", title: "Our Gallery", desc:"Elegant Fabric H110" },
-  { img: "img/12.jpg", title: "Our Gallery", desc:"Elegant Fabric H111" }
-
+  { img: "pics/1.jpg", title: "", desc:"No Violence" },
+  { img: "pics/2.jpg", title: "k", desc:"No Violence" },
+  { img: "pics/3.jpg", title: "", desc:"No Violence" },
+  { img: "pics/4.jpg", title: "", desc:"No Violence" },
+  { img: "pics/5.jpg", title: "", desc:"No Violence" },
+  { img: "pics/6.jpg", title: "", desc:"No Violence" },
+  { img: "pics/7.jpg", title: "", desc:"No Violence" },
+  { img: "pics/8.jpg", title: "", desc:"No Violence" },
+  { img: "pics/9.jpg", title: "", desc:"No Violence" },
+  { img: "pics/10.jpg", title: "", desc:"No Violence" },
+  { img: "pics/11.jpg", title: "", desc:"No Violence" },
+  { img: "pics/12.jpg", title: "", desc:"No Violence" },
+  { img: "pics/13.jpg", title: "", desc:"No Violence" },
+  { img: "pics/14.jpg", title: "", desc:"No Violence" },
+  { img: "pics/15.jpg", title: "", desc:"No Violence" },
+  { img: "pics/16.jpg", title: "", desc:"No Violence" },
+  { img: "pics/17.jpg", title: "", desc:"No Violence" },
+  { img: "pics/18.jpg", title: "", desc:"No Violence" },
+  { img: "pics/19.jpg", title: "", desc:"No Violence" },
+  { img: "pics/20.jpg", title: "", desc:"No Violence" }
 ];
 
 const relatedItems = [

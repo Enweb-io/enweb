@@ -88,7 +88,7 @@ button:focus,a:focus,input:focus{outline:3px solid rgba(234,95,95,0.25);outline-
     <img src="img/iStock-501650894-scaled.jpg" alt="Feature" class="feature-img"/>
     <div class="share-row">
               <button class="share-btn facebook" onclick="history.back()"><i class="fa fa-angle-left"></i></button>
-               <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20gender%20violence%20post!%20https://enweb-io.github.io/postnews4.html"><button class="share-btn whatsapp"><i class="fa fa-whatsapp"></i></button></a>
+              <a href="https://api.whatsapp.com/send?text=Check out this gender violence post! https://enweb-io.github.io/gender/postnews4.html"><button class="share-btn whatsapp"><i class="fa fa-whatsapp"></i></button></a>
             </div>
     <div class="img-overlay">
       <div class="author">
@@ -110,7 +110,7 @@ button:focus,a:focus,input:focus{outline:3px solid rgba(234,95,95,0.25);outline-
     </div>
   </div>
 <article id="postBody" style="padding:15px; text-align:justify; line-height:1.6;">
-  <h1 style="text-align:center; margin:5px; color:#111;font-size:14px;"id="postTitle" >Supporting Victims After a Partner is Arrested</h1>
+  <h1 style="text-align:center; margin:20px 10px; color:#111;">Supporting Victims After a Partner is Arrested</h1>
 
   <p><strong style="display:block; font-size:14px; margin-bottom:5px; color:#111;">1. Introduction</strong>
   Even after a perpetrator is arrested, victims may face emotional, social, and financial challenges. Proper support is essential to ensure safety and recovery.</p>
@@ -148,7 +148,7 @@ button:focus,a:focus,input:focus{outline:3px solid rgba(234,95,95,0.25);outline-
   </div>
 
   <div class="next-post">
-    <div><strong>Next:</strong> <span id="nextTitle"><a  href="postnews25.html">Unfaithful Behaviour</a></span></div>
+    <div><strong>Next:</strong> <span id="nextTitle">How Unfaithful Behavior</span></div>
     <div> <a class="icon-btn" href="postnews25.html"><button class="next-btn" id="nextPostBtn"><i class="fa fa-angle-right"></i></button></div></a>
   </div>
 </main>
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const comment = document.getElementById('comment').value.trim();
     if(!name || !email || !comment){ alert('Please fill in all fields.'); return; }
     localStorage.setItem('userEmail', email);
-    window.location.href = `mailto:michaellarvel@gmail.com?subject=Supporting Victims After a Partner is Arrested&body=Name: ${name}%0AEmail: ${email}%0AComment: ${comment}`;
+    window.location.href = `mailto:michaellarvel@gmail.com?subject=Gender based violence against women&body=Name: ${name}%0AEmail: ${email}%0AComment: ${comment}`;
     modal.classList.remove('open');
   });
 
