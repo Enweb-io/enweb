@@ -1281,7 +1281,7 @@ function showSlides(n) {
     <p id="modalDescription" style="text-align:center;font-size:14px;color:#555;"></p>
     <p id="modalPrice" style="font-weight:bold;text-align:center;color:#222;font-size:16px;"></p>
 
-    <form id="orderForm" style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+    <form id="orderForm" style="display:flex;flex-direction:column;gap:8px;margin-top:10px;padding-bottom:80px">
       <input type="text" id="cname" placeholder="Your Name" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
       <input type="tel" id="cphone" placeholder="Phone Number" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
       <input type="text" id="caddress" placeholder="Delivery Address" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
@@ -1492,7 +1492,7 @@ form.addEventListener('submit', e => {
     return;
   }
 
-  const msg = `*NEW SUIT ORDER*\n\n*Product:* ${name}\n*Price:* ${price}\n*Delivery Date:* ${cdate}\n*Time:* ${ctime}\n\n*CUSTOMER DETAILS*\n*Name:* ${cname}\n*Phone:* ${cphone}\n*Address:* ${caddress}\n*Instructions:* ${cinstructions}\n\n${image}`;
+  const msg = `*NEW APPOINTMENT*\n\n*Service:* ${name}\n*Price:* ${price}\n*Delivery Date:* ${cdate}\n*Time:* ${ctime}\n\n*CUSTOMER DETAILS*\n*Name:* ${cname}\n*Phone:* ${cphone}\n*Address:* ${caddress}\n*Instructions:* ${cinstructions}\n\n${image}`;
 
   const encoded = encodeURIComponent(msg);
   window.open(`https://wa.me/260770304374?text=${encoded}`, '_blank');

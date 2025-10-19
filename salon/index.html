@@ -1492,7 +1492,7 @@ form.addEventListener('submit', e => {
     return;
   }
 
-  const msg = `*NEW SUIT ORDER*\n\n*Product:* ${name}\n*Price:* ${price}\n*Delivery Date:* ${cdate}\n*Time:* ${ctime}\n\n*CUSTOMER DETAILS*\n*Name:* ${cname}\n*Phone:* ${cphone}\n*Address:* ${caddress}\n*Instructions:* ${cinstructions}\n\n${image}`;
+  const msg = `*NEW APPOINTMENT*\n\n*Service:* ${name}\n*Price:* ${price}\n*Delivery Date:* ${cdate}\n*Time:* ${ctime}\n\n*CUSTOMER DETAILS*\n*Name:* ${cname}\n*Phone:* ${cphone}\n*Address:* ${caddress}\n*Instructions:* ${cinstructions}\n\n${image}`;
 
   const encoded = encodeURIComponent(msg);
   window.open(`https://wa.me/260770304374?text=${encoded}`, '_blank');
