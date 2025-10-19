@@ -3,8 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Our Wedding Gallery — Home</title>
-  <meta name="description" content="Mobile-first wedding gallery — categories, Photos, search, view gallery." />
+  <meta property="og:title" content="Our wedding Gallery">
+<meta property="og:description" content="Elegant wedding gallery.">
+<meta property="og:image" content="https://enweb-io.github.io/enweb/wedding/images/venue.jpg">
+<meta property="og:url" content="https://enweb-io.github.io/enweb/wedding/index.html">
+<meta property="og:type" content="website">
+
+<!--  Twitter Card (specifically for Twitter/X) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our wedding Gallery">
+<meta name="twitter:description" content="Elegant wedding gallery.">
+<meta name="twitter:image" content="https://enweb-io.github.io/enweb/wedding/images/venue.jpg">
+<meta name="twitter:url" content="https://enweb-io.github.io/enweb/wedding/index.html">
+  <title>Our Wedding Gallery</title>
+
   <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
   <style>
     :root{
@@ -247,7 +259,10 @@
         </div>
       </div>
       <div class="nav-actions">
-         <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20wedding%20gallery%20post!%20https://codeit.42web.io/wedding/bride.html"> <button class="icon-btn" title="Share" style ="background:#25d366; color:white;"><i class="fa fa-whatsapp"></i></button></a>
+    
+		 
+		    <a href="https://api.whatsapp.com/send?text=Check out Our Wedding Gallery! https://enweb-io.github.io/enweb/wedding/index.html" target="_blank"> <button class="icon-btn" title="Share" style ="background:#25d366; color:white;"><i class="fa fa-whatsapp"></i></button></a>
+		 
        <a href="contact.html" > <button class="icon-btn" title="Menu" style ="background:#1877f2; color:white;"><i class="fa fa-envelope"></i></button></a>
       </div>
     </header>
@@ -275,7 +290,7 @@
   </div>
 
   <div class="story-card" onclick="openStoryPlayer(1)">
-    <a href ="groom.html"> <img src="groom/2.jpg" class="story-img" /></a>
+    <a href ="groom.html"> <img src="images/21.jpg" class="story-img" /></a>
     <div class="story-overlay">
       <div class="story-top">
        <img src="avatar/1.jpg" class="avatar" style ="width:30px;height:30px;" /></a>
@@ -300,7 +315,7 @@
   </div>
 
   <div class="story-card" onclick="openStoryPlayer(3)">
-    <a href ="cake.html"> <img src="nail/4.jpg" class="story-img" /></a>
+    <a href ="cake.html"> <img src="images/ceke.jpg" class="story-img" /></a>
     <div class="story-overlay">
       <div class="story-top">
         <img src="avatar/1.jpg" class="avatar" style ="width:30px;height:30px;" />
@@ -346,8 +361,8 @@
       {id:'bridal-party',title:'Bridal Party',slug:'bridal.html',Photos:12,image:'images/bridal.jpg',avatars:['avatar/1.jpg','avatar/2.jpg','avatar/3.jpg'],date:'Feb 2025'},
       {id:'car',title:'Car',slug:'car.html',Photos:12,image:'images/car.jpg',avatars:['avatar/1.jpg','avatar/2.jpg','avatar/3.jpg'],date:'Jan 2025'},
       {id:'high-tale',title:'High Table',slug:'hightable.html',Photos:12,image:'images/high-table.jpg',avatars:['avatar/1.jpg','avatar/2.jpg','avatar/3.jpg'],date:'Dec 2024'},
-      {id:'groom',title:'groom Shots',slug:'groom.html',Photos:12,image:'images/groom.jpg',avatars:['avatar/31.jpg','avatar/32.jpg','avatar/33.jpg'],date:'Nov 2024'},
-      {id:'photos',title:'photos',slug:'photos.html',Photos:12,image:'images/photos.jpg',avatars:['avatar/34.jpg','avatar/35.jpg','avatar/3.jpg'],date:'Oct 2024'}
+      {id:'groom',title:'groom Shots',slug:'groom.html',Photos:12,image:'images/groom.jpg',avatars:['avatar/1.jpg','avatar/2.jpg','avatar/3.jpg'],date:'Nov 2024'},
+      {id:'photos',title:'photos',slug:'photos.html',Photos:12,image:'images/photos.jpg',avatars:['avatar/1.jpg','avatar/2.jpg','avatar/3.jpg'],date:'Oct 2024'}
     ];
 
     const GRID = document.getElementById('grid');

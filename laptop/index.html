@@ -830,7 +830,7 @@ img.hover-shadow {
   </div>
   
  
-  <a href="index-register.html" ><i class="fa fa-user" aria-hidden="true"></i> PHONE ASSISTANT</a>
+  <a href="index-register.html" ><i class="fa fa-user" aria-hidden="true"></i> COMPUTER ASSISTANT</a>
   
   <!-- Right-aligned links -->
   <div class="topnav-right">
@@ -849,10 +849,10 @@ img.hover-shadow {
         
         <div class="avatar-container">
             <img src="avatar/1.jpg" style="width:34px; height:34px;" class="avatar"> <!-- Replace with your avatar image -->
-            <span style ="font-size:12px;"><i class="fa fa-user" aria-hidden="true"> </i>MOBILE PHONES <i class="fa fa-globe" aria-hidden="true"> </i></span> <!-- Replace with your text -->
+            <span style ="font-size:12px;"><i class="fa fa-user" aria-hidden="true"> </i>MOBILE COMPUTERS <i class="fa fa-globe" aria-hidden="true"> </i></span> <!-- Replace with your text -->
         </div>
         
-        <a href="tel:+260770304374"><button id="whatsappBtn" class="download-button"><i class="fa fa-phone" aria-hidden="true"> </i> CALL</button></a> <!-- Download button -->
+        <a href="tel:+260770304374"><button id="whatsappBtn" class="download-button"><i class="fa fa-COMPUTER" aria-hidden="true"> </i> CALL</button></a> <!-- Download button -->
         
         <div class="top-buttons">
 		     <a onclick ="https//www.facebook.com"><button class="top-button fb"><i class="fa fa-facebook"></i></button></a> <!-- Second top button (Check Icon) -->
@@ -864,7 +864,7 @@ img.hover-shadow {
 <div class="pill-nav" style ="margin-top:10px;">
   <a href="gallery.html"><i class="fa fa-camera" aria-hidden="true"></i> GALLERY</a>
   <a href='about-us.html'><i class="fa fa-user" aria-hidden="true"></i> ABOUT-US</a>
- <a href="https://api.whatsapp.com/send?text=Check out this amazing HP LAPTOP! https://enweb-io.github.io/enweb/phone/index.html" target="_blank">
+ <a href="https://api.whatsapp.com/send?text=Check out this amazing HP LAPTOP! https://enweb-io.github.io/enweb/COMPUTER/index.html" target="_blank">
   <i class="fa fa-whatsapp" aria-hidden="true" style="margin-right:5px;"></i> SHARE
 </a>
 
@@ -1286,7 +1286,7 @@ function showSlides(n) {
 
     <form id="orderForm" style="display:flex;flex-direction:column;gap:8px;margin-top:10px; padding-bottom:80px">
       <input type="text" id="cname" placeholder="Your Name" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
-      <input type="tel" id="cphone" placeholder="Phone Number" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
+      <input type="tel" id="cCOMPUTER" placeholder="COMPUTER Number" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
       <input type="text" id="caddress" placeholder="Delivery Address" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
 
       <p style="color:gray;margin:0;font-size:16px;text-align:left;">Set Pickup/Delivery Date</p>
@@ -1380,7 +1380,7 @@ searchInput.addEventListener('keypress', (e) => {
 
 <script>
 // ====== Customer localStorage script ======
-const fields = ['cname', 'cphone', 'caddress', 'cdate', 'ctime'];
+const fields = ['cname', 'cCOMPUTER', 'caddress', 'cdate', 'ctime'];
 
 // Prefill inputs from localStorage
 fields.forEach(id => {
@@ -1507,17 +1507,17 @@ form.addEventListener('submit', e => {
   const image = document.getElementById('modalImage').src;
 
   const cname = document.getElementById('cname').value.trim();
-  const cphone = document.getElementById('cphone').value.trim();
+  const cCOMPUTER = document.getElementById('cCOMPUTER').value.trim();
   const caddress = document.getElementById('caddress').value.trim();
   const cdate = document.getElementById('cdate').value;
   const cinstructions = document.getElementById('cinstructions').value.trim();
 
-  if (!cname || !cphone || !caddress || !cdate) {
+  if (!cname || !cCOMPUTER || !caddress || !cdate) {
     alert("Please fill all required fields.");
     return;
   }
 
-  const msg = `*NEW PRODUCT ORDER*\n\n*Product:* ${name}\n*Price per item:* ZMW ${price.toFixed(2)}\n*Quantity:* ${currentQty}\n*Total:* ZMW ${total}\n*Delivery Date:* ${cdate}\n\n*CUSTOMER DETAILS*\n*Name:* ${cname}\n*Phone:* ${cphone}\n*Address:* ${caddress}\n*Instructions:* ${cinstructions}\n\n${image}`;
+  const msg = `*NEW PRODUCT ORDER*\n\n*Product:* ${name}\n*Price per item:* ZMW ${price.toFixed(2)}\n*Quantity:* ${currentQty}\n*Total:* ZMW ${total}\n*Delivery Date:* ${cdate}\n\n*CUSTOMER DETAILS*\n*Name:* ${cname}\n*COMPUTER:* ${cCOMPUTER}\n*Address:* ${caddress}\n*Instructions:* ${cinstructions}\n\n${image}`;
 
   const encoded = encodeURIComponent(msg);
   window.open(`https://wa.me/260770304374?text=${encoded}`, '_blank');
