@@ -364,14 +364,14 @@ a {
         
         <div class="avatar-container">
             <img src="avatar/1.jpg" style="width:40px; height:40px;" class="avatar"> <!-- Replace with your avatar image -->
-            <span>Phones and Accesories</span> <!-- Replace with your text -->
+            <span>Swimsuits</span> <!-- Replace with your text -->
         </div>
         
         <button id="whatsappBtn" class="download-button"><i class="fa fa-whatsapp" aria-hidden="true"> </i> CHAT</button> <!-- Download button -->
         
         <div class="top-buttons">
 		     <a onclick ="history.back()"><button class="top-button"><i class="fa fa-angle-left"></i></button></a> <!-- Second top button (Check Icon) -->
-             <a href ="tel:+260950439623"> <button class="top-button"><i class="fa fa-phone"></i></button></a> <!-- First top button (Info Icon) -->
+             <a href ="tel:+260770304374"> <button class="top-button"><i class="fa fa-phone"></i></button></a> <!-- First top button (Info Icon) -->
            
         </div>
     </div>
@@ -379,15 +379,15 @@ a {
   <div class="meta-row">
     <div class="left-meta">
       <div class="avatars">
-        <img src="avatar/5.jpg" alt="Avatar 1">
-        <img src="avatar/4.jpg" alt="Avatar 2">
+        <img src="avatar/1.jpg" alt="Avatar 1">
+        <img src="avatar/5.jpg" alt="Avatar 2">
         <img src="avatar/face.png" alt="Avatar 3">
       </div>
-      <div class="meta-text"> <strong>1000</strong> Followers</div>
+      <div class="meta-text"> <strong><i class="fa fa-user"></i> 10K</strong> </div>
     </div>
     <div class="meta-date" aria-label="Post date">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="opacity:.7" aria-hidden="true">
-        <path d="M3.5 0a.5.5 0 0 0 0 1H4v1h8V1h.5a.5.5 0 0 0 0-1h-9zM2 3a1 1 0 0 0-1 1v1B14V4a1 1 0 0 0-1-1H2zM15 6B1v7a1 1 0 0 0 1 1B12a1 1 0 0 0 1-1V6z"/>
+        <path d="M3.5 0a.5.5 0 0 0 0 1H4v1h8V1h.5a.5.5 0 0 0 0-1h-9zM2 3a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zM15 6H1v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6z"/>
       </svg>
       <div style="font-size:.82rem;color:#6b6b6b;"><script type="text/javascript"><!--
 var now = new Date();
@@ -438,23 +438,62 @@ document.write(Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
 <button id="toTop" title="Back to top" class="to-top" aria-label="Back to top">↑</button>
 
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
 <script>
-  const modal = document.getElementById('whatsappModal');
-  const openBtn = document.getElementById('whatsappBtn');
-  const closeBtn = document.getElementById('closeModal');
-  const sendBtn = document.getElementById('sendWhatsApp');
+(function() {
+  // Run only when everything is ready
+  window.addEventListener('load', () => {
+    const modal = document.getElementById('whatsappModal');
+    const openBtn = document.getElementById('whatsappBtn');
+    const closeBtn = document.getElementById('closeModal');
+    const sendBtn = document.getElementById('sendWhatsApp');
+    const textarea = document.getElementById('cakeMessage');
 
-  openBtn.onclick = () => modal.style.display = 'flex';
-  closeBtn.onclick = () => modal.style.display = 'none';
-  window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
+    if (!modal || !openBtn) {
+      console.warn('WhatsApp modal or button not found in DOM');
+      return;
+    }
 
-  sendBtn.onclick = () => {
-    const message = document.getElementById('cakeMessage').value.trim();
-    const finalMessage = message ? message : "I would like cake:";
-    const phone = "260950439623"; // Update to your number
-    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+    // ✅ Open modal
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    // ✅ Close modal
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // ✅ Click outside closes modal
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // ✅ Android keyboard fix
+    textarea.addEventListener('focus', () => {
+      setTimeout(() => {
+        modal.scrollTo({ top: textarea.offsetTop - 40, behavior: 'smooth' });
+      }, 400);
+    });
+    textarea.addEventListener('blur', () => {
+      modal.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ✅ Send WhatsApp message
+    sendBtn.addEventListener('click', () => {
+      const message = textarea.value.trim();
+      const finalMessage = message || "I would like a swimsuit:";
+      const phone = "260950439623";
+      const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  });
+})();
 </script>
 
 <script>

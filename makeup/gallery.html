@@ -410,7 +410,7 @@ document.write(Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
   <div style="background: #fff; padding: 24px; border-radius: 15px; width: 90%; max-width: 480px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); position: relative;">
 
     <!-- Heading -->
-    <h3 style="text-align: center; margin-top: 0; font-size:16px; color:#ea5f5f; margin-bottom: 4px;">WHICH makeupSUIT WOULD YOU LIKE</h3>
+    <h3 style="text-align: center; margin-top: 0; font-size:16px; color:#ea5f5f; margin-bottom: 4px;">WHICH MAKEUP WOULD YOU LIKE</h3>
     <p style="text-align: center; font-size: 12px; color: #666; margin-bottom: 16px;">START A CHAT WITH US</p>
 
     <!-- Textarea -->
@@ -438,23 +438,62 @@ document.write(Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
 <button id="toTop" title="Back to top" class="to-top" aria-label="Back to top">↑</button>
 
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
 <script>
-  const modal = document.getElementById('whatsappModal');
-  const openBtn = document.getElementById('whatsappBtn');
-  const closeBtn = document.getElementById('closeModal');
-  const sendBtn = document.getElementById('sendWhatsApp');
+(function() {
+  // Run only when everything is ready
+  window.addEventListener('load', () => {
+    const modal = document.getElementById('whatsappModal');
+    const openBtn = document.getElementById('whatsappBtn');
+    const closeBtn = document.getElementById('closeModal');
+    const sendBtn = document.getElementById('sendWhatsApp');
+    const textarea = document.getElementById('cakeMessage');
 
-  openBtn.onclick = () => modal.style.display = 'flex';
-  closeBtn.onclick = () => modal.style.display = 'none';
-  window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
+    if (!modal || !openBtn) {
+      console.warn('WhatsApp modal or button not found in DOM');
+      return;
+    }
 
-  sendBtn.onclick = () => {
-    const message = document.getElementById('cakeMessage').value.trim();
-    const finalMessage = message ? message : "I would like cake:";
-    const phone = "260950439623"; // Update to your number
-    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+    // ✅ Open modal
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    // ✅ Close modal
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // ✅ Click outside closes modal
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // ✅ Android keyboard fix
+    textarea.addEventListener('focus', () => {
+      setTimeout(() => {
+        modal.scrollTo({ top: textarea.offsetTop - 40, behavior: 'smooth' });
+      }, 400);
+    });
+    textarea.addEventListener('blur', () => {
+      modal.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ✅ Send WhatsApp message
+    sendBtn.addEventListener('click', () => {
+      const message = textarea.value.trim();
+      const finalMessage = message || "I would like a makeup:";
+      const phone = "260950439623";
+      const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  });
+})();
 </script>
 
 <script>
