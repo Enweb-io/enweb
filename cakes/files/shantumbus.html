@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4a90e2, #9013fe);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info .username {
+    font-weight: bold;
+}
+
+.user-info .tagline {
+    font-size: 0.8em;
+    color: #555;
+}
+
+.home-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 18px;
+}
+
+/* Logout Section */
+.logout-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logout-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.logout-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Action Buttons Horizontal */
+.actions-horizontal {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    justify-content: center; /* centers and balances left/right margins */
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 5px;
+}
+
+.action-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #1a237e;
+    color: white;
+    border: none;
+    font-size: 20px; /* reduced font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.action-item span {
+    font-size: 0.75em; /* slightly smaller label */
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Stats Horizontal Visible */
+.stats-horizontal {
+    display: flex;
+    gap: 15px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.stats-horizontal span {
+    background: #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 5px; /* smaller radius */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Products Heading */
+.products-heading {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Products Grid */
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-card .name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    color: #1a237e;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="header-left">
+        <div class="avatar"></div>
+        <div class="user-info">
+            <div class="username">MikeBakes</div>
+            <div class="tagline">Admin Dashboard</div>
+        </div>
+    </div>
+    <button class="home-btn"><i class="fa fa-home"></i></button>
+</div>
+
+<!-- Logout Section -->
+<div class="logout-section">
+    <div class="logout-text"><i class="fa fa-lock"></i> Logout</div>
+    <button class="logout-btn"><i class="fa fa-right-from-bracket"></i></button>
+</div>
+
+<!-- Action Buttons -->
+<div class="actions-horizontal">
+    <div class="action-item">
+        <button class="action-btn"><i class="fa fa-pencil"></i></button>
+        <span>Create</span>
+    </div>
+    <div class="action-item">
+        <button class="action-btn"><i class="fa fa-envelope"></i></button>
+        <span>Messages</span>
+    </div>
+    <div class="action-item">
+        <button class="action-btn"><i class="fa fa-cog"></i></button>
+        <span>Manage</span>
+    </div>
+    <div class="action-item">
+        <button class="action-btn"><i class="fa fa-home"></i></button>
+        <span>Home</span>
+    </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-horizontal">
+    <span><i class="fa fa-eye"></i> 20 Views</span>
+    <span><i class="fa fa-heart"></i> 30 Likes</span>
+    <span><i class="fa fa-box"></i> 400 Products</span>
+</div>
+
+<!-- Products Heading -->
+<div class="products-heading">Recently Uploaded Products</div>
+
+<!-- Products Grid -->
+<div class="products">
+    <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Product 1">
+        <div class="name">Product 1</div>
+        <div class="price">ZMW 20</div>
+    </div>
+    <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Product 2">
+        <div class="name">Product 2</div>
+        <div class="price">ZMW 30</div>
+    </div>
+    <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Product 3">
+        <div class="name">Product 3</div>
+        <div class="price">ZMW 25</div>
+    </div>
+    <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Product 4">
+        <div class="name">Product 4</div>
+        <div class="price">ZMW 15</div>
+    </div>
+</div>
+
+</body>
+</html>

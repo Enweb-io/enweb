@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suggested for You</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    background-color: #0d0d0d;
+    color: #fff;
+    max-width: 480px;
+    margin: auto;
+    padding: 15px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .card {
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+  }
+
+  .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .username {
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .subtext {
+    font-size: 12px;
+    color: #aaa;
+    margin: 4px 0 10px;
+  }
+
+  .follow-btn {
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #999;
+    font-size: 16px;
+  }
+
+  .shuffle {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 25px auto 70px;
+    font-weight: bold;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    border-top: 1px solid #222;
+  }
+
+  .bottom-nav i {
+    color: #fff;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Suggested for you</h2>
+
+<div class="grid">
+  <div class="card">
+    <i class="fa-solid fa-xmark close"></i>
+    <img src="https://via.placeholder.com/80" alt="Profile 1">
+    <div class="username">sanamchunu7</div>
+    <div class="subtext">Followed by makhi_the_shwapa_queen</div>
+    <button class="follow-btn">Follow</button>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-xmark close"></i>
+    <img src="https://via.placeholder.com/80" alt="Profile 2">
+    <div class="username">kamo_wamabbw</div>
+    <div class="subtext">Followed by makhi_the_shwapa_queen</div>
+    <button class="follow-btn">Follow</button>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-xmark close"></i>
+    <img src="https://via.placeholder.com/80" alt="Profile 3">
+    <div class="username">talk.to.taffy</div>
+    <div class="subtext">Suggested for you</div>
+    <button class="follow-btn">Follow</button>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-xmark close"></i>
+    <img src="https://via.placeholder.com/80" alt="Profile 4">
+    <div class="username">leon_gumede</div>
+    <div class="subtext">Followed by makhi_the_shwapa_queen</div>
+    <button class="follow-btn">Follow</button>
+  </div>
+</div>
+
+<div class="shuffle">Shuffle suggestions</div>
+
+<div class="bottom-nav">
+  <i class="fa-solid fa-house"></i>
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <i class="fa-regular fa-square-plus"></i>
+  <i class="fa-solid fa-clapperboard"></i>
+  <i class="fa-solid fa-user-circle"></i>
+</div>
+
+</body>
+</html>

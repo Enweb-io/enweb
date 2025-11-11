@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chocolate Cupcake - K120</title>
+
+<!-- OG meta tags for WhatsApp preview -->
+<meta property="og:title" content="Chocolate Cupcake - K120">
+<meta property="og:description" content="Rich chocolate cupcake with creamy frosting.">
+<meta property="og:image" content="https://yourusername.github.io/images/chocolate1.jpg">
+<meta property="og:url" content="https://yourusername.github.io/cupcakes/chocolate.html">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Cupcake Delight">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+  margin:0; font-family:system-ui,sans-serif; background:#fef7f7; color:#333; display:flex; justify-content:center; padding:20px;
+}
+.card {
+  width:100%; max-width:400px; background:#fff; border-radius:20px; box-shadow:0 5px 15px rgba(0,0,0,0.2); overflow:hidden;
+}
+
+/* Swiper */
+.swiper-card {height:300px;}
+.swiper-card .swiper-slide img {width:100%; height:100%; object-fit:cover; border-radius:20px 20px 0 0;}
+.swiper-button-next, .swiper-button-prev {background: rgba(255,255,255,0.8); color:#000; width:40px; height:40px; border-radius:50%; top:50%; transform:translateY(-50%);}
+.swiper-pagination-bullet {background:white; opacity:1;}
+.swiper-pagination-bullet-active {background:#25d366;}
+
+.details {padding:15px;}
+.author {display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
+.author-info {display:flex; align-items:center;}
+.author img {width:35px; height:35px; border-radius:50%; margin-right:8px;}
+.rating {color:gold; font-size:14px;}
+h2 {text-align:center; margin:5px 0;}
+.price {text-align:center; color:#d63384; font-weight:bold; font-size:18px;}
+.description {text-align:center; font-size:14px; margin-bottom:15px; color:#555;}
+.section-title {font-weight:bold; margin:20px 0 10px; border-bottom:2px solid #ccc; padding-bottom:5px;}
+
+form {display:flex; flex-direction:column; gap:10px;}
+input, textarea {width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; font-size:15px; box-sizing:border-box;}
+button {background:#25d366; color:white; border:none; padding:12px; border-radius:5px; font-size:16px; cursor:pointer;}
+button:hover {background:#1eb346;}
+
+/* Floating share buttons */
+.float-btn {position:fixed; z-index:1000; width:45px; height:45px; border-radius:50%; display:flex; justify-content:center; align-items:center; color:white; font-size:22px; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.3);}
+.back-btn {top:20px; left:15px; background:rgba(0,0,0,0.6);}
+.whatsapp-btn {top:20px; right:70px; background:#25d366;}
+.facebook-btn {top:20px; right:15px; background:#1877f2;}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <!-- Swiper -->
+  <div class="swiper swiper-card mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://yourusername.github.io/images/chocolate1.jpg" alt="Chocolate Cupcake"></div>
+      <div class="swiper-slide"><img src="https://yourusername.github.io/images/chocolate2.jpg" alt="Chocolate Cupcake"></div>
+      <div class="swiper-slide"><img src="https://yourusername.github.io/images/chocolate3.jpg" alt="Chocolate Cupcake"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Product details -->
+  <div class="details">
+    <div class="author">
+      <div class="author-info">
+        <img src="https://yourusername.github.io/images/baker-avatar.jpg" alt="Baker">
+        <span>Baker Jane</span>
+      </div>
+      <div class="rating">★★★★★</div>
+    </div>
+
+    <h2>Chocolate Cupcake</h2>
+    <div class="price">K120</div>
+    <p class="description">Rich chocolate cupcake with creamy frosting.</p>
+
+    <div class="section-title">• CUSTOMER DETAILS</div>
+
+    <form id="orderForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="text" id="address" placeholder="Delivery Address" required>
+      <input type="date" id="date" required>
+      <textarea id="instructions" placeholder="Special Instructions (optional)"></textarea>
+      <button type="button" onclick="sendOrder()">SUBMIT ORDER VIA WHATSAPP</button>
+    </form>
+  </div>
+</div>
+
+<!-- Floating buttons -->
+<div class="float-btn back-btn" onclick="history.back()"><i class="fa fa-arrow-left"></i></div>
+<div class="float-btn whatsapp-btn" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i></div>
+<div class="float-btn facebook-btn" onclick="shareFacebook()"><i class="fab fa-facebook-f"></i></div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+new Swiper(".mySwiper", {
+  navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+  pagination: { el: ".swiper-pagination", clickable:true },
+});
+
+// Share functions
+function shareWhatsApp(){
+  const text = `📦 *NEW PRODUCT ORDER*%0A*Product:* Chocolate Cupcake%0A*Price:* K120%0Ahttps://yourusername.github.io/cupcakes/chocolate.html`;
+  window.open(`https://wa.me/?text=${text}`,"_blank");
+}
+function shareFacebook(){
+  const url=encodeURIComponent("https://yourusername.github.io/cupcakes/chocolate.html");
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`,"_blank");
+}
+
+// Send order via WhatsApp
+function sendOrder(){
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const address=document.getElementById("address").value.trim();
+  const date=document.getElementById("date").value.trim();
+  const notes=document.getElementById("instructions").value.trim();
+
+  if(!name||!phone||!address||!date){alert("Please fill all required fields"); return;}
+
+  // Build message with clickable phone
+  const message =
+`📦 *NEW PRODUCT ORDER*
+
+*PRODUCT DETAILS*
+*Product:* Chocolate Cupcake
+*Price:* K120
+
+*CUSTOMER DETAILS*
+*Name:* ${name}
+*Phone:* ${phone} (click: https://wa.me/${phone})
+*Address:* ${address}
+*Delivery Date:* ${date}
+${notes? "*Notes:* " + notes : ""}
+
+https://yourusername.github.io/cupcakes/chocolate.html`;
+
+  const whatsappNumber="260770304374";
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,"_blank");
+}
+</script>
+
+</body>
+</html>

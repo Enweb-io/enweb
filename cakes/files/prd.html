@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Food Detail — with call & link</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+    body{background:#f5f5f5;padding:20px}
+    .container{
+      max-width:420px;margin:12px auto;border-radius:20px;overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,.12);background:#fff;
+    }
+
+    .top-image{
+      position:relative;height:260px;background:url("https://images.unsplash.com/photo-1604908177522-c4f7f7de9a6f?q=80&w=800&auto=format&fit=crop") center/cover no-repeat;
+    }
+    .top-buttons{position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center}
+    .btn-round{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(0,0,0,.18);cursor:pointer}
+    .btn-group{display:flex;gap:10px}
+
+    .content{
+      background:#fff;border-radius:22px 22px 0 0;margin-top:-30px;padding:18px;
+    }
+
+    .title{display:flex;align-items:center;justify-content:space-between}
+    .title h2{font-size:20px}
+    .rating{color:orange;font-weight:700}
+
+    /* --- UPDATED AUTHOR ROW --- */
+    .author{
+      display:flex;
+      align-items:center;
+      justify-content:space-between; /* pushes actions to the far right */
+      margin:12px 0;
+      gap:12px;
+    }
+
+    .author-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0; /* allow flex shrinking on small screens */
+    }
+
+    .author img{
+      width:48px;height:48px;border-radius:50%;object-fit:cover;
+      box-shadow:0 2px 6px rgba(0,0,0,.12);
+      flex:0 0 auto;
+    }
+
+    .author-details{
+      font-size:14px;
+      color:#222;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+
+    .author-details strong{display:block}
+    .author-details small{color:#777;font-size:12px}
+
+    .author-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex:0 0 auto;
+      margin-left:8px;
+    }
+
+    .icon-round{
+      width:40px;height:40px;border-radius:50%;
+      background:#fff;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 3px 8px rgba(0,0,0,.14);
+      cursor:pointer;border:none;font-size:16px;
+    }
+
+    .icon-round:active{transform:scale(.97)}
+
+    /* rest of card */
+    .description{color:#666;font-size:14px;line-height:1.4;margin:10px 0}
+    .info{display:flex;justify-content:space-between;margin:12px 0;font-size:14px;color:#333}
+    .bottom-bar{display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px solid #eee;margin-top:12px}
+    .price{color:#e74c3c;font-weight:700;font-size:18px}
+    .add-btn{background:#ff6600;color:#fff;border:none;padding:10px 18px;border-radius:22px;font-weight:700;cursor:pointer}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="top-image">
+      <div class="top-buttons">
+        <div class="btn-round" aria-label="Back"><i class="fa fa-arrow-left"></i></div>
+        <div class="btn-group">
+          <div class="btn-round" aria-label="Favorite"><i class="fa fa-heart-o"></i></div>
+          <div class="btn-round" aria-label="Share"><i class="fa fa-share"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="title">
+        <h2>Taco Bell</h2>
+        <span class="rating">★ 4.7</span>
+      </div>
+      <p style="color:gray;font-size:13px;margin-top:4px">By McDonald's</p>
+
+      <!-- --- AUTHOR ROW: avatar + details on left, round call/link buttons on right --- -->
+      <div class="author">
+        <div class="author-left">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar">
+          <div class="author-details">
+            <strong>Mitchel Santnar</strong>
+            <small>ID: 13256626</small>
+          </div>
+        </div>
+
+        <div class="author-actions">
+          <!-- call button -->
+          <button class="icon-round" aria-label="Call seller" title="Call seller">
+            <i class="fa fa-phone"></i>
+          </button>
+
+          <!-- link / website / chat button -->
+          <button class="icon-round" aria-label="Open link" title="Open link">
+            <i class="fa fa-link"></i>
+          </button>
+        </div>
+      </div>
+      <!-- --- end author row --- -->
+
+      <div class="description">
+        From fresh bread to dairy, we’ve got all your groceries. Shop now, and we’ll deliver them fast! Shop now, and we’ll deliver it… <b>Read more</b>
+      </div>
+
+      <div class="info">
+        <div>⏱ Delivery Time <br><b>25 min</b></div>
+        <div>🚚 Delivery Type <br><b>Taco Bell</b></div>
+      </div>
+
+      <div class="bottom-bar">
+        <span class="price">$25.00</span>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

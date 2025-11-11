@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials Section</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+  }
+
+  .testimonials-section {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+  }
+
+  .testimonials-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  .testimonial-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 350px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+
+  .testimonial {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    text-align: justify;
+    color: #333;
+  }
+
+  .testimonial.active {
+    background: #ff69b4;
+    color: #fff;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  .testimonial h4 {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    z-index: 10;
+    user-select: none;
+  }
+
+  .arrow.prev { left: -40px; }
+  .arrow.next { right: -40px; }
+
+  .testimonial-bullets {
+    margin-top: 15px;
+  }
+
+  .bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: gray;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .bullet.active {
+    background: pink;
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 600px) {
+    .testimonial-container {
+      max-width: 90%;
+    }
+    .arrow {
+      font-size: 1.5rem;
+    }
+    .arrow.prev { left: -20px; }
+    .arrow.next { right: -20px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="testimonials-section">
+  <h2>TESTIMONIALS</h2>
+  <div class="testimonial-container">
+    <button class="arrow prev">&#10094;</button>
+    
+    <div class="testimonial-slider">
+      <div class="testimonial active">
+        <img src="https://i.pravatar.cc/80?img=1" alt="Alice" class="avatar">
+        <h4>Alice</h4>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."</p>
+      </div>
+      <div class="testimonial">
+        <img src="https://i.pravatar.cc/80?img=2" alt="Bob" class="avatar">
+        <h4>Bob</h4>
+        <p>"Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla."</p>
+      </div>
+      <div class="testimonial">
+        <img src="https://i.pravatar.cc/80?img=3" alt="Carol" class="avatar">
+        <h4>Carol</h4>
+        <p>"Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."</p>
+      </div>
+    </div>
+
+    <button class="arrow next">&#10095;</button>
+  </div>
+
+  <div class="testimonial-bullets">
+    <span class="bullet active"></span>
+    <span class="bullet"></span>
+    <span class="bullet"></span>
+  </div>
+</section>
+
+<script>
+const testimonials = document.querySelectorAll('.testimonial');
+const bullets = document.querySelectorAll('.bullet');
+const slider = document.querySelector('.testimonial-slider');
+let current = 0;
+
+function showTestimonial(index) {
+  slider.style.transform = `translateX(-${index*100}%)`;
+  bullets.forEach(b => b.classList.remove('active'));
+  bullets[index].classList.add('active');
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+  current = (current + 1) % testimonials.length;
+  showTestimonial(current);
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  current = (current - 1 + testimonials.length) % testimonials.length;
+  showTestimonial(current);
+});
+
+bullets.forEach((b, i) => b.addEventListener('click', () => {
+  current = i;
+  showTestimonial(current);
+}));
+
+// Autoplay every 5 seconds
+setInterval(() => {
+  current = (current + 1) % testimonials.length;
+  showTestimonial(current);
+}, 5000);
+
+// Swipe support for mobile
+let startX = 0;
+slider.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+slider.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) { // swipe left
+    current = (current + 1) % testimonials.length;
+  } else if (endX - startX > 50) { // swipe right
+    current = (current - 1 + testimonials.length) % testimonials.length;
+  }
+  showTestimonial(current);
+});
+</script>
+
+</body>
+</html>

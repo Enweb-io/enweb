@@ -1,0 +1,154 @@
+<form id="orderForm">
+  <input type="text" id="cname" placeholder="Your Name" required
+         style="height:45px!important; padding:10px; width:100%; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+         
+  <input type="tel" id="cphone" placeholder="Phone Number" required
+         style="height:45px!important; padding:10px; width:100%; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+         
+  <input type="text" id="caddress" placeholder="Address" required
+         style="height:45px!important; padding:10px; width:100%; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+
+  <p style="color:gray; margin:0; text-align:left;">Delivery Date Tap To Edit</p>
+  <input type="date" id="cdate" required
+         style="height:45px!important; width:100%; padding:8px; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+
+  <!-- Time & Flavor inline picker -->
+  <div style="display:flex; gap:10px; margin-bottom:10px;">
+    <select id="ctime" required
+            style="flex:1; height:45px!important; padding:10px; border-radius:6px; border:1px solid #ccc;">
+      <option value="">Select Time</option>
+      <option>9:00 AM</option>
+      <option>10:00 AM</option>
+      <option>11:00 AM</option>
+      <option>12:00 PM</option>
+      <option>1:00 PM</option>
+      <option>2:00 PM</option>
+      <option>3:00 PM</option>
+      <option>4:00 PM</option>
+    </select>
+
+    <select id="cflavor" required
+            style="flex:1; height:45px!important; padding:10px; border-radius:6px; border:1px solid #ccc;">
+      <option value="">Select Flavor</option>
+      <option>Chocolate</option>
+      <option>Vanilla</option>
+    </select>
+  </div>
+
+  <textarea id="cinstructions" placeholder="Extra Instructions..." required
+            style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; height:80px; margin-bottom:10px;"></textarea>
+
+  <p id="validationMessage" style="color:red;font-size:14px;margin:4px 0;"></p>
+  <button type="button" onclick="submitOrder()"
+          style="width:100%; padding:10px; background:#2196F3; color:#fff; border:none; border-radius:6px; font-size:16px; cursor:pointer;">Submit Order</button>
+</form>
+
+<script>
+const modal = document.getElementById('orderModal'); // FIRST LINE
+
+// ===== Modal references =====
+const image = document.getElementById('modalImage');
+const nameField = document.getElementById('modalName');
+const desc = document.getElementById('modalDesc');
+const price = document.getElementById('modalPrice');
+const qtyDisplay = document.getElementById('qty');
+const totalPriceEl = document.getElementById('totalPrice');
+let basePrice = 50; // default price
+let qty = 1;
+
+// ===== Date Validation =====
+const dateInput = document.getElementById('cdate');
+const validationMessage = document.getElementById('validationMessage');
+const today = new Date();
+today.setHours(0,0,0,0);
+
+// Prefill tomorrow’s date & prevent past dates
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
+dateInput.value = tomorrow.toISOString().split('T')[0];
+dateInput.min = dateInput.value;
+
+dateInput.addEventListener('change', function() {
+  const value = this.value;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(value)){
+    validationMessage.textContent = "Please enter a valid date format (YYYY-MM-DD).";
+    this.setCustomValidity("Invalid date format.");
+    return;
+  }
+  const selected = new Date(value);
+  selected.setHours(0,0,0,0);
+  if(selected < today){
+    validationMessage.textContent = "Past dates are not allowed.";
+    this.setCustomValidity("Past date not allowed.");
+  } else {
+    validationMessage.textContent = "";
+    this.setCustomValidity("");
+  }
+});
+
+// ===== Prefill from localStorage =====
+['cname','cphone','caddress','ctime','cflavor'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el && localStorage.getItem(id)) el.value = localStorage.getItem(id);
+});
+
+// ===== Quantity adjustment =====
+function adjustQty(change){
+  qty += change;
+  if(qty < 1) qty = 1;
+  if(qtyDisplay) qtyDisplay.textContent = qty;
+  if(totalPriceEl) totalPriceEl.textContent = basePrice * qty;
+}
+
+// ===== Submit Order =====
+function submitOrder(){
+  const name = document.getElementById('cname').value.trim();
+  const phone = document.getElementById('cphone').value.trim();
+  const address = document.getElementById('caddress').value.trim();
+  const date = document.getElementById('cdate').value;
+  const time = document.getElementById('ctime').value;
+  const flavor = document.getElementById('cflavor').value;
+  const instructions = document.getElementById('cinstructions').value.trim();
+  const product = "Cupcake";
+
+  if(!name || !phone || !address || !date || !time || !flavor || !instructions){
+    alert("Please fill all required fields including time and flavor.");
+    return;
+  }
+
+  const selected = new Date(date);
+  selected.setHours(0,0,0,0);
+  if(selected < today){
+    alert("Delivery date cannot be in the past.");
+    return;
+  }
+
+  // Save to localStorage
+  ['cname','cphone','caddress','ctime','cflavor'].forEach(id => {
+    localStorage.setItem(id, document.getElementById(id).value);
+  });
+
+  const msg = `*NEW CUPCAKE ORDER*\n\n` +
+              `*Product:* ${product}\n` +
+              `*Quantity:* ${qty}\n` +
+              `*Price:* ZMW${basePrice*qty}\n` +
+              `*Flavor:* ${flavor}\n` +
+              `*Delivery Date:* ${date}\n` +
+              `*Time:* ${time}\n\n` +
+              `*CUSTOMER DETAILS*\n` +
+              `*Name:* ${name}\n` +
+              `*Phone No.:* ${phone}\n` +
+              `*Address:* ${address}\n` +
+              `*Instructions:* ${instructions}`;
+
+  const encoded = encodeURIComponent(msg);
+  window.location.href = `https://wa.me/260770304374?text=${encoded}`;
+}
+
+// ===== Modal close =====
+function closeModal(){
+  if(modal) modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+if(modal) modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+</script>

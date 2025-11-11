@@ -1,0 +1,307 @@
+<!DOCTYPE html>.
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Explorer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins, sans-serif;}
+body{
+  background:linear-gradient(to bottom,#f4f3ff,#fff);
+  padding:15px;
+  color:#333;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+header .profile{
+  display:flex;
+  align-items:center;
+}
+header .profile img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  margin-right:10px;
+}
+header h2{font-size:18px;}
+header .actions{
+  display:flex;
+  gap:8px;
+}
+header .actions a{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+header .actions a.phone{background:#ff6b6b;}
+header .actions a.face{background:#1877f2;}
+header .actions a.call{background:#25d366;}
+
+/* SEARCH */
+.search{
+  display:flex;
+  align-items:center;
+  background:#fff;
+  border-radius:25px;
+  padding:8px 12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom:12px;
+}
+.search input{
+  flex:1;
+  border:none;
+  outline:none;
+  font-size:14px;
+}
+.search i{
+  color:#888;
+  font-size:16px;
+}
+
+/* CATEGORIES */
+.categories{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  margin-bottom:18px;
+  padding-bottom:5px;
+}
+.categories::-webkit-scrollbar{display:none;}
+.categories button{
+  background:#ecebff;
+  border:none;
+  border-radius:20px;
+  padding:8px 18px;
+  font-size:14px;
+  color:#444;
+  white-space:nowrap;
+}
+.categories button.active{
+  background:#6c63ff;
+  color:#fff;
+}
+
+/* CARD SECTION */
+.cards{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding-bottom:80px; /* for nav space */
+}
+.cards::-webkit-scrollbar{display:none;}
+
+.card{
+  flex:0 0 80%;
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  position:relative;
+}
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
+  box-shadow:0 4px 8px rgba(0,0,0,0.3);
+}
+.card .overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  padding:8px 12px;
+}
+.overlay .agent{
+  display:flex;
+  align-items:center;
+  color:#fff;
+  font-size:13px;
+}
+.overlay .agent img{
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  margin-right:6px;
+  border:1px solid #fff;
+}
+.overlay .rating{
+  color:#fff;
+  font-size:13px;
+}
+
+.card h3{
+  padding:10px 12px 4px;
+  font-size:17px;
+  margin-top:-3px;
+}
+.card p{
+  padding:0 12px 12px;
+  font-size:14px;
+  color:#666;
+  margin-bottom:0;
+}
+.card a.top-link{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#6c63ff;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:14px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* BOTTOM NAV */
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#6c63ff;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:10px 0;
+  box-shadow:0 -2px 6px rgba(0,0,0,0.2);
+}
+nav a{
+  color:#fff;
+  text-align:center;
+  font-size:13px;
+  text-decoration:none;
+}
+nav i{
+  display:block;
+  font-size:18px;
+  margin-bottom:3px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="profile">
+    <img src="https://i.pravatar.cc/150?img=11">
+    <h2>Hi, David 👋</h2>
+  </div>
+  <div class="actions">
+    <a href="tel:+260770304374" class="phone"><i class="fa fa-phone"></i></a>
+    <a href="https://facebook.com" class="face"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://wa.me/260770304374" class="call"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</header>
+
+<div class="search">
+  <i class="fa fa-search"></i>
+  <input type="text" placeholder="Search destinations...">
+</div>
+
+<div class="categories">
+  <button class="active">Popular</button>
+  <button>Adventure</button>
+  <button>Luxury</button>
+  <button>Romantic</button>
+</div>
+
+<section class="cards">
+  <div class="card">
+    <a href="dubai.html" class="top-link"><i class="fa fa-link"></i></a>
+    <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" alt="Dubai">
+    <div class="overlay">
+      <div class="agent"><img src="https://i.pravatar.cc/50?img=32">Travel Co.</div>
+      <div class="rating"><i class="fa fa-star"></i> 4.5</div>
+    </div>
+    <h3>Dubai</h3>
+    <p>Experience the luxury and modern charm of the desert metropolis.</p>
+  </div>
+
+  <div class="card">
+    <a href="seychelles.html" class="top-link"><i class="fa fa-link"></i></a>
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Seychelles">
+    <div class="overlay">
+      <div class="agent"><img src="https://i.pravatar.cc/50?img=22">Oceanic Tours</div>
+      <div class="rating"><i class="fa fa-star"></i> 4.0</div>
+    </div>
+    <h3>Seychelles</h3>
+    <p>Discover turquoise waters and pristine beaches of paradise islands.</p>
+  </div>
+
+  <div class="card">
+    <a href="maldives.html" class="top-link"><i class="fa fa-link"></i></a>
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?2" alt="Maldives">
+    <div class="overlay">
+      <div class="agent"><img src="https://i.pravatar.cc/50?img=12">Aqua Travels</div>
+      <div class="rating"><i class="fa fa-star"></i> 4.6</div>
+    </div>
+    <h3>Maldives</h3>
+    <p>Relax in luxurious overwater villas surrounded by clear blue seas.</p>
+  </div>
+
+  <div class="card">
+    <a href="zanzibar.html" class="top-link"><i class="fa fa-link"></i></a>
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Zanzibar">
+    <div class="overlay">
+      <div class="agent"><img src="https://i.pravatar.cc/50?img=21">Coastal Getaways</div>
+      <div class="rating"><i class="fa fa-star"></i> 4.4</div>
+    </div>
+    <h3>Zanzibar</h3>
+    <p>Enjoy white sands, coral reefs, and rich Swahili culture.</p>
+  </div>
+
+  <div class="card">
+    <a href="victoria.html" class="top-link"><i class="fa fa-link"></i></a>
+    <img src="https://images.unsplash.com/photo-1582560474934-3e8e63d4a7f2" alt="Victoria Falls">
+    <div class="overlay">
+      <div class="agent"><img src="https://i.pravatar.cc/50?img=31">Zambezi Tours</div>
+      <div class="rating"><i class="fa fa-star"></i> 4.7</div>
+    </div>
+    <h3>Victoria Falls</h3>
+    <p>Witness the mighty thunder of one of the world’s largest waterfalls.</p>
+  </div>
+</section>
+
+<nav>
+  <a href="#"><i class="fa fa-home"></i>Home</a>
+  <a href="#"><i class="fa fa-globe"></i>Explore</a>
+  <a href="#"><i class="fa fa-bookmark"></i>Bookings</a>
+  <a href="#"><i class="fa fa-user"></i>Profile</a>
+</nav>
+
+<script>
+// Active category simulation
+document.querySelectorAll('.categories button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

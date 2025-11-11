@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Carousel</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .swiper-slide {
+    position: relative;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Bottom gradient overlay */
+  .swiper-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 2; /* above gradient */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .slide-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: white;
+    color: #111;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .slide-btn:hover {
+    background: #e6e6e6;
+  }
+
+  /* Custom Navigation Buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 80px;
+    background: black;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 10px;
+    z-index: 10;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none; /* hide default arrows */
+  }
+
+  .swiper-button-next { right: 10px; }
+  .swiper-button-prev { left: 10px; }
+
+  /* Pagination */
+  .swiper-pagination-bullet {
+    background: white;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active {
+    background: #357ABD;
+  }
+
+  /* Stats Bar */
+  .stats-bar {
+    position: absolute;
+    bottom: 40px; /* above bullets */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+    color: white;
+    font-weight: bold;
+    background: rgba(0,0,0,0.4); /* semi-transparent */
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 14px;
+  }
+
+  .stat {
+    padding: 0 10px;
+  }
+
+  .divider {
+    width: 1px;
+    height: 16px;
+    background: white;
+  }
+
+  @media(max-width: 600px) {
+    .slide-heading { font-size: 22px; }
+    .slide-btn { padding: 10px 20px; font-size: 16px; }
+    .swiper-button-next, .swiper-button-prev {
+      width: 35px;
+      height: 70px;
+      font-size: 20px;
+    }
+    .stats-bar {
+      font-size: 12px;
+      padding: 4px 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="background-image: url('images/create.jpg')">
+      <div class="slide-content">
+        <div class="slide-heading">Create Page</div>
+        <a href="create.html" class="slide-btn">Go to Create</a>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url('images/messages.jpg')">
+      <div class="slide-content">
+        <div class="slide-heading">Messages Page</div>
+        <a href="messages.html" class="slide-btn">Go to Messages</a>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url('images/manage.jpg')">
+      <div class="slide-content">
+        <div class="slide-heading">Manage Page</div>
+        <a href="manage.html" class="slide-btn">Go to Manage</a>
+      </div>
+    </div>
+    <div class="swiper-slide" style="background-image: url('images/products.jpg')">
+      <div class="slide-content">
+        <div class="slide-heading">Products Page</div>
+        <a href="products.html" class="slide-btn">Go to Products</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat">20 Views</div>
+    <div class="divider"></div>
+    <div class="stat">30 Likes</div>
+    <div class="divider"></div>
+    <div class="stat">400 Products</div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- Navigation buttons -->
+  <div class="swiper-button-prev">&#10094;</div>
+  <div class="swiper-button-next">&#10095;</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  });
+</script>
+
+</body>
+</html>

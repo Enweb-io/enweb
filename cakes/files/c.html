@@ -1,0 +1,312 @@
+<!DOCTYPE html>.
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel App</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background: #f8f9fb;
+  color: #111;
+  padding-bottom: 90px;
+}
+
+/* 🔷 Top Section */
+.top-section {
+  background: linear-gradient(135deg, #2c2d5b, #0b0c23);
+  color: #fff;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 25px 20px 35px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.profile-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.profile-btn i {
+  color: #333;
+}
+.search-box {
+  position: relative;
+  margin-top: 25px;
+}
+.search-box input {
+  width: 100%;
+  padding: 12px 80px 12px 15px;
+  border-radius: 15px;
+  border: none;
+  font-size: 14px;
+}
+.search-box input:focus { outline: none; }
+.search-box .fa-search {
+  position: absolute;
+  right: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+.search-box .fa-times {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  cursor: pointer;
+}
+
+/* 🔹 Categories */
+.categories {
+  background: #fff;
+  margin-top: 15px;
+  padding: 10px 0 5px 15px;
+}
+.cat-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cat-scroll::-webkit-scrollbar { display: none; }
+.cat-btn {
+  background: #f1f2f6;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #333;
+}
+.cat-btn.active, .cat-btn:focus {
+  background: #ff7b00;
+  color: #fff;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(255,123,0,0.3);
+}
+
+/* 🧳 Destinations Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 15px;
+}
+.card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: relative;
+}
+.card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+.card .img-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255,255,255,0.9);
+  color: #ff7b00;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+}
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.text-group h4 {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 2px;
+}
+.text-group p {
+  font-size: 12px;
+  color: gray;
+}
+.small-btn {
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+}
+
+/* ⚪ Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  z-index: 10;
+}
+.bottom-nav i {
+  font-size: 18px;
+  color: #ccc;
+}
+.bottom-nav i.active {
+  color: #ff7b00;
+}
+
+/* Floating Control Button */
+.control-btn {
+  position: fixed;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff7b00;
+  color: white;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  border: none;
+  font-size: 24px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 15;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .grid { gap: 12px; }
+  .card img { height: 120px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 🔷 Top Blue Section -->
+<div class="top-section">
+  <div class="header">
+    <div class="user-info">
+      <img src="avatar.jpg" alt="user" class="avatar">
+      <p>Hai, <b>Magdalena!</b></p>
+    </div>
+    <button class="profile-btn"><i class="fa fa-user"></i></button>
+  </div>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search your destination!" id="searchInput">
+    <i class="fa fa-search"></i>
+    <i class="fa fa-times" onclick="document.getElementById('searchInput').value=''"></i>
+  </div>
+</div>
+
+<!-- 🔹 Categories -->
+<section class="categories">
+  <div class="cat-scroll">
+    <button class="cat-btn active">All</button>
+    <button class="cat-btn">Beaches</button>
+    <button class="cat-btn">Mountains</button>
+    <button class="cat-btn">Cities</button>
+    <button class="cat-btn">Adventure</button>
+  </div>
+</section>
+
+<!-- 🧳 Destinations -->
+<section class="grid">
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200?text=Paris" alt="Paris">
+    <button class="img-btn"><i class="fa fa-heart"></i></button>
+    <div class="card-body">
+      <div class="text-group">
+        <h4>Paris</h4>
+        <p>France</p>
+      </div>
+      <button class="small-btn"><i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200?text=Dubai" alt="Dubai">
+    <button class="img-btn"><i class="fa fa-heart"></i></button>
+    <div class="card-body">
+      <div class="text-group">
+        <h4>Dubai</h4>
+        <p>UAE</p>
+      </div>
+      <button class="small-btn"><i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200?text=Cape+Town" alt="Cape Town">
+    <button class="img-btn"><i class="fa fa-heart"></i></button>
+    <div class="card-body">
+      <div class="text-group">
+        <h4>Cape Town</h4>
+        <p>South Africa</p>
+      </div>
+      <button class="small-btn"><i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200?text=Tokyo" alt="Tokyo">
+    <button class="img-btn"><i class="fa fa-heart"></i></button>
+    <div class="card-body">
+      <div class="text-group">
+        <h4>Tokyo</h4>
+        <p>Japan</p>
+      </div>
+      <button class="small-btn"><i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ⚪ Bottom Navigation -->
+<nav class="bottom-nav">
+  <i class="fa fa-home active"></i>
+  <i class="fa fa-search"></i>
+  <i class="fa fa-bookmark"></i>
+  <i class="fa fa-user"></i>
+</nav>
+
+<!-- ✈️ Floating Control Button -->
+<button class="control-btn"><i class="fa fa-plane"></i></button>
+
+</body>
+</html>

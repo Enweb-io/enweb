@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fashionista Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container d-flex align-items-center justify-content-between">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" href="#">Fashionista</a>
+
+    <!-- Right Section -->
+    <div class="d-flex align-items-center">
+
+      <!-- Social Buttons -->
+      <a href="#" class="btn btn-primary btn-sm rounded-circle me-2"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="btn btn-success btn-sm rounded-circle me-2"><i class="bi bi-whatsapp"></i></a>
+
+      <!-- Cart Button -->
+      <button class="btn btn-light btn-sm me-2" data-bs-toggle="modal" data-bs-target="#cartModal">
+        <i class="bi bi-cart text-dark"></i>
+      </button>
+
+      <!-- Navbar Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Collapsible Menu -->
+    <div id="navbarNav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto text-center">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Carousel -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+  </div>
+
+  <div class="carousel-inner" style="max-height: 520px;">
+    <div class="carousel-item active">
+      <img src="https://picsum.photos/1200/520?fashion1" class="d-block w-100" alt="Fashion 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Elegant Styles</h3>
+        <p>Discover the latest fashion trends.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/1200/520?fashion2" class="d-block w-100" alt="Fashion 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Fresh Arrivals</h3>
+        <p>Feel confident in every outfit.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/1200/520?fashion3" class="d-block w-100" alt="Fashion 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Luxury & Comfort</h3>
+        <p>Shop elegant pieces for every occasion.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Products Section -->
+<section id="shop" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4 fw-bold">Our Products</h2>
+    <div class="row g-4">
+
+      <!-- Product Card -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card h-100 text-center">
+          <img src="https://picsum.photos/400/400?dress" class="card-img-top" alt="Dress">
+          <div class="card-body">
+            <h5 class="card-title">Elegant Dress</h5>
+            <p class="card-text fw-bold">K450</p>
+            <div class="d-flex justify-content-center align-items-center mb-2">
+              <button class="btn btn-dark btn-sm minus">−</button>
+              <input type="number" class="form-control form-control-sm mx-2 text-center quantity" value="1" min="1" style="width:60px;">
+              <button class="btn btn-dark btn-sm plus">+</button>
+            </div>
+            <button class="btn btn-dark w-100 add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card h-100 text-center">
+          <img src="https://picsum.photos/400/400?jacket" class="card-img-top" alt="Jacket">
+          <div class="card-body">
+            <h5 class="card-title">Leather Jacket</h5>
+            <p class="card-text fw-bold">K750</p>
+            <div class="d-flex justify-content-center align-items-center mb-2">
+              <button class="btn btn-dark btn-sm minus">−</button>
+              <input type="number" class="form-control form-control-sm mx-2 text-center quantity" value="1" min="1" style="width:60px;">
+              <button class="btn btn-dark btn-sm plus">+</button>
+            </div>
+            <button class="btn btn-dark w-100 add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card h-100 text-center">
+          <img src="https://picsum.photos/400/400?heels" class="card-img-top" alt="Heels">
+          <div class="card-body">
+            <h5 class="card-title">Stylish Heels</h5>
+            <p class="card-text fw-bold">K620</p>
+            <div class="d-flex justify-content-center align-items-center mb-2">
+              <button class="btn btn-dark btn-sm minus">−</button>
+              <input type="number" class="form-control form-control-sm mx-2 text-center quantity" value="1" min="1" style="width:60px;">
+              <button class="btn btn-dark btn-sm plus">+</button>
+            </div>
+            <button class="btn btn-dark w-100 add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Cart</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Cart feature coming soon...</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success w-100">Checkout via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="contact" class="bg-dark text-light text-center py-4">
+  <div class="container">
+    <p>© 2025 Fashionista. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Quantity control
+  document.querySelectorAll('.plus').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const qty = e.target.closest('.card-body').querySelector('.quantity');
+      qty.value = parseInt(qty.value) + 1;
+    });
+  });
+  document.querySelectorAll('.minus').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const qty = e.target.closest('.card-body').querySelector('.quantity');
+      if (qty.value > 1) qty.value = parseInt(qty.value) - 1;
+    });
+  });
+</script>
+</body>
+</html>

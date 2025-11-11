@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elit Photo Studio</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+    }
+
+    header h1 { font-size: 18px; letter-spacing: 1px; }
+    header .menu-icon { font-size: 22px; color: #fff; }
+
+    .spacer { height: 60px; }
+
+    /* ===== Landing Section ===== */
+    .landing {
+      position: relative;
+      height: 100vh;
+      background: url('https://via.placeholder.com/1920x1080/222/999') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .landing::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideUp 1.5s ease forwards;
+    }
+
+    @keyframes fadeSlideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .landing h2 { font-size: 34px; letter-spacing: 2px; font-weight: 600; margin-bottom: 10px; }
+    .landing p { color: #ddd; font-size: 15px; margin-bottom: 20px; }
+
+    .btn-pink {
+      background-color: #ff4081;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .btn-pink:hover { background-color: #ff1e6e; }
+
+    /* Landing social buttons */
+    .landing-social {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: socialUp 1s forwards 1s;
+    }
+
+    @keyframes socialUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .landing-social a {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .fb { background: #3b5998; }
+    .wa { background: #25d366; }
+    .call { background: #e53935; }
+    .share { background: #90caf9; color: #000; }
+
+    /* ===== Staff Bar ===== */
+    .staff-bar {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      background: #111;
+    }
+
+    .avatars { display: flex; align-items: center; }
+    .avatars img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #000;
+      margin-left: -8px;
+    }
+    .likes { margin-left: 10px; color: #ccc; }
+    .date-info i { margin-right: 5px; color: #ff4081; }
+
+    /* ===== Gallery ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
+      padding: 10px;
+      background: #000;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px; /* rounded corners */
+      min-height: 150px;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+      border-radius: 5px; /* ensure images also have rounded corners */
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      border-radius: 5px;
+    }
+
+    .camera-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 6px;
+      border-radius: 50%;
+      font-size: 13px;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      font-size: 13px;
+      z-index: 2;
+    }
+
+    /* ===== Jumbotron Separator ===== */
+    .jumbotron-separator {
+      position: relative;
+      height: 200px;
+      background: url('https://via.placeholder.com/1920x400/111/ff4081') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .jumbotron-separator::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+
+    .jumbo-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+    }
+
+    .jumbo-content h2 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+    .jumbo-content p { font-size: 14px; color: #ccc; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ELIT PHOTO</h1>
+  <i class="fa fa-bars menu-icon"></i>
+</header>
+<div class="spacer"></div>
+
+<!-- Landing Section -->
+<section class="landing">
+  <div class="landing-content">
+    <h2>Where Creativity Meets the Lens</h2>
+    <p>Capture every beautiful story with light and emotion.</p>
+    <a href="#gallery" class="btn-pink">View Gallery</a>
+
+    <!-- Social Icons Under Button -->
+    <div class="landing-social">
+      <a href="#" class="fb"><i class="fa fa-facebook"></i></a>
+      <a href="#" class="wa"><i class="fa fa-whatsapp"></i></a>
+      <a href="#" class="call"><i class="fa fa-phone"></i></a>
+      <a href="#" class="share"><i class="fa fa-share-alt"></i></a>
+    </div>
+  </div>
+</section>
+
+<div class="staff-bar">
+  <div class="avatars">
+    <img src="https://via.placeholder.com/28/ff4081" alt="">
+    <img src="https://via.placeholder.com/28/ff4081" alt="">
+    <img src="https://via.placeholder.com/28/ff4081" alt="">
+    <span class="likes">20 Likes</span>
+  </div>
+  <div class="date-info">
+    <i class="fa fa-calendar"></i> Nov 2025
+  </div>
+</div>
+
+<!-- Gallery Section -->
+<div class="gallery" id="gallery">
+  <!-- 8 gallery cards as an example -->
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/ff4081/000" data-caption="Adventure">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/ff4081/000" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Adventure</div>
+    </div>
+  </a>
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/25d366/000" data-caption="Moments">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/25d366/000" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Moments</div>
+    </div>
+  </a>
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/3b5998/fff" data-caption="Lifestyle">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/3b5998/fff" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Lifestyle</div>
+    </div>
+  </a>
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/e53935/fff" data-caption="Portraits">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/e53935/fff" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Portraits</div>
+    </div>
+  </a>
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/ff9800/000" data-caption="Nature">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/ff9800/000" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Nature</div>
+    </div>
+  </a>
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/9c27b0/fff" data-caption="Urban">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/9c27b0/fff" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Urban</div>
+    </div>
+  </a>
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/03a9f4/000" data-caption="Travel">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/03a9f4/000" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Travel</div>
+    </div>
+  </a>
+  <a data-fancybox="gallery" href="https://via.placeholder.com/800x600/4caf50/000" data-caption="Food">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/400x300/4caf50/000" alt="">
+      <i class="fa fa-camera camera-icon"></i>
+      <div class="caption">Food</div>
+    </div>
+  </a>
+</div>
+
+<section class="jumbotron-separator">
+  <div class="jumbo-content">
+    <h2>Capture Every Moment</h2>
+    <p>Photography is the art of frozen time — a way to tell stories beyond words.</p>
+    <a href="#" class="btn-pink">Explore More</a>
+  </div>
+</section>
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+<script>
+  Fancybox.bind("[data-fancybox='gallery']", {
+    Thumbs: {
+      autoStart: true,
+      axis: "x"
+    },
+    Carousel: { infinite: false }
+  });
+</script>
+
+</body>
+</html>

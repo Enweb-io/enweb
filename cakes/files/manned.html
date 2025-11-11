@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      background: #fafafa;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #e67e22;
+    }
+
+    .order-btn {
+      background: #ff6600;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .order-btn:hover {
+      background: #e65c00;
+    }
+  </style>
+</head>
+<body>
+  <h2>Our Products</h2>
+
+  <div class="grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Chocolate Cake">
+      <h3>Chocolate Cake</h3>
+      <p>Rich chocolate with creamy icing.</p>
+      <p class="price">K80</p>
+      <button class="order-btn"
+        data-name="Chocolate Cake"
+        data-price="80"
+        data-desc="Rich chocolate with creamy icing.">
+        Order Now
+      </button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Vanilla Cupcake">
+      <h3>Vanilla Cupcake</h3>
+      <p>Soft and sweet vanilla treat.</p>
+      <p class="price">K20</p>
+      <button class="order-btn"
+        data-name="Vanilla Cupcake"
+        data-price="20"
+        data-desc="Soft and sweet vanilla treat.">
+        Order Now
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // When user clicks any "Order Now" button
+    document.querySelectorAll('.order-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const product = {
+          name: btn.dataset.name,
+          price: btn.dataset.price,
+          desc: btn.dataset.desc
+        };
+        localStorage.setItem('selectedProduct', JSON.stringify(product));
+        window.location.href = 'order.html';
+      });
+    });
+  </script>
+</body>
+</html>

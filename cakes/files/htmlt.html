@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Serverless Music Player</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{
+    --bg:#f7f7f7; --card:#fff; --accent:#ff7a1a; --muted:#777; --line:#e0e0e0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#222}
+  .container{max-width:900px;margin:0 auto;padding:18px}
+  header{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+  form.search{flex:1;display:flex;gap:8px}
+  .search input[type=search]{flex:1;padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:#fff}
+  .search button{padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#fff}
+  .controls{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+  .msg{color:var(--muted);font-size:14px;margin-left:4px}
+  .tracks{display:block;gap:12px}
+  .track{background:var(--card);padding:12px;border-radius:8px;display:flex;gap:12px;align-items:center;border:1px solid #eee}
+  .left{display:flex;gap:10px;align-items:center;width:56px;flex-shrink:0}
+  .playbtn{width:44px;height:44px;border-radius:50%;border:0;background:linear-gradient(#ff8f3a,#ff6b00);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 4px 8px rgba(0,0,0,.08)}
+  .meta{flex:1;min-width:0}
+  .title{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .artist{color:var(--muted);font-size:13px;margin-top:3px}
+  .time{width:54px;text-align:right;color:var(--muted);font-size:13px}
+  .actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+  .download{background:transparent;border:0;font-size:18px;color:#2b7cff}
+  .progresswrap{height:4px;background:#eee;border-radius:4px;margin-top:10px;overflow:hidden}
+  .progress{height:100%;width:0%;transform-origin:left center;background:linear-gradient(90deg,var(--accent),#ff3b3b)}
+  .hidden{display:none}
+  .loadmore{display:block;margin:18px auto 6px;padding:12px 18px;border-radius:8px;border:0;background:var(--accent);color:#fff}
+  .topbtn{position:fixed;right:14px;bottom:80px;padding:10px 12px;border-radius:999px;background:#333;color:#fff;border:0;display:none;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+  /* modal */
+  .modal-back{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;padding:18px}
+  .modal{width:100%;max-width:760px;background:#fff;border-radius:12px;padding:14px}
+  .modal .head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .dots{position:relative}
+  .dotsmenu{position:absolute;right:0;top:40px;background:#fff;border:1px solid var(--line);padding:6px;border-radius:6px;display:none;min-width:180px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+  .dotsmenu button{display:block;width:100%;text-align:left;padding:8px;border:0;background:transparent}
+  .modal .body{margin-top:10px}
+  .instructions{font-size:13px;color:var(--muted);margin-top:10px;padding:8px;background:#fafafa;border-radius:6px;border:1px solid var(--line)}
+  /* small */
+  @media (max-width:520px){
+    .time{width:46px;font-size:12px}
+    .download{font-size:16px}
+    .playbtn{width:40px;height:40px}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <form id="searchForm" class="search" autocomplete="off" onsubmit="return false;">
+        <input id="q" type="search" placeholder="Search for songs or artist" aria-label="search"/>
+        <button id="submitBtn" title="Search"><i class="fa fa-search"></i></button>
+      </form>
+      <div class="controls">
+        <button id="clearBtn" title="Clear search" style="padding:10px;border-radius:8px;border:1px solid var(--line);background:#fff"><i class="fa fa-eraser"></i></button>
+        <div class="msg" id="resultMsg">Showing all tracks</div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div id="tracksList" class="tracks"></div>
+      <button id="loadMore" class="loadmore">Load more tracks</button>
+    </main>
+  </div>
+
+  <button id="toTop" class="topbtn" title="Return to top"><i class="fa fa-arrow-up"></i></button>
+
+  <!-- Modal -->
+  <div id="modalBack" class="modal-back" role="dialog" aria-hidden="true">
+    <div class="modal" role="document">
+      <div class="head">
+        <div>
+          <strong id="modalTitle">Track</strong><div id="modalArtist" style="font-size:13px;color:var(--muted)"></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="dots">
+            <button id="dotsBtn" title="More"><i class="fa fa-ellipsis-vertical"></i></button>
+            <div id="dotsMenu" class="dotsmenu" role="menu">
+              <button id="directDl">Download (direct link)</button>
+              <button id="blobDl">Download as Blob (fetch & save)</button>
+              <button id="closeMenu">Close</button>
+            </div>
+          </div>
+          <button id="closeModal" title="Close"><i class="fa fa-times"></i></button>
+        </div>
+      </div>
+
+      <div class="body">
+        <audio id="modalAudio" controls style="width:100%;margin-top:8px"></audio>
+        <div class="instructions">
+          <strong>How to download (serverless):</strong>
+          <ol style="padding-left:18px;margin:6px 0 0 0">
+            <li>Try <em>Download (direct link)</em> first — it uses the audio URL with a download attribute.</li>
+            <li>If the filename is wrong or CORS blocks direct naming, choose <em>Download as Blob</em>. The player will fetch the audio and prompt a local save.</li>
+            <li>Both methods require the audio URL to be reachable. For private files, host them where they allow cross-origin requests or provide direct access.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ---------- DATA (replace with your own URLs) ---------- */
+const tracks = [
+  { id:1, title:"SoundHelix Song 1", artist:"SoundHelix", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", duration:"5:26" },
+  { id:2, title:"SoundHelix Song 2", artist:"SoundHelix", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", duration:"4:02" },
+  { id:3, title:"Sample Track A", artist:"Demo Artist", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", duration:"6:07" },
+  { id:4, title:"Short Beat", artist:"BeatMaker", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", duration:"3:33" },
+  { id:5, title:"Calm Ambient", artist:"Relaxation", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", duration:"7:02" },
+  { id:6, title:"Groove Loop", artist:"Loop Studio", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3", duration:"2:54" },
+  { id:7, title:"Epic Track", artist:"Orchestra", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", duration:"8:11" },
+  { id:8, title:"Uplift", artist:"Motivation", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3", duration:"4:48" },
+  { id:9, title:"Late Night", artist:"Nocturne", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3", duration:"5:05" },
+  { id:10, title:"Sunrise", artist:"Dawn", src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3", duration:"6:40" }
+];
+
+/* ---------- UI state ---------- */
+let shownCount = 4;      // how many tracks to show initially
+const increment = 3;     // load more step
+let filtered = [...tracks]; // current filtered array
+let currentAudio = null; // HTMLAudioElement playing
+let currentTrackId = null;
+const tracksList = document.getElementById('tracksList');
+const loadMoreBtn = document.getElementById('loadMore');
+const resultMsg = document.getElementById('resultMsg');
+const qInput = document.getElementById('q');
+const searchForm = document.getElementById('searchForm');
+const clearBtn = document.getElementById('clearBtn');
+const toTop = document.getElementById('toTop');
+const modalBack = document.getElementById('modalBack');
+const modalAudio = document.getElementById('modalAudio');
+const modalTitle = document.getElementById('modalTitle');
+const modalArtist = document.getElementById('modalArtist');
+const dotsBtn = document.getElementById('dotsBtn');
+const dotsMenu = document.getElementById('dotsMenu');
+const directDl = document.getElementById('directDl');
+const blobDl = document.getElementById('blobDl');
+const closeModal = document.getElementById('closeModal');
+
+/* ---------- Render tracks (only up to shownCount) ---------- */
+function render(){
+  tracksList.innerHTML = '';
+  const visible = filtered.slice(0, shownCount);
+  if(visible.length === 0){
+    resultMsg.textContent = 'No results found';
+    loadMoreBtn.style.display = 'none';
+    return;
+  } else {
+    resultMsg.textContent = `Showing ${visible.length} of ${filtered.length} track(s)`;
+  }
+  visible.forEach(t => {
+    const div = document.createElement('div');
+    div.className = 'track';
+    div.dataset.id = t.id;
+    div.innerHTML = `
+      <div class="left">
+        <button class="playbtn" aria-label="Play/Pause"><i class="fa fa-play"></i></button>
+      </div>
+      <div class="meta">
+        <div style="display:flex;gap:8px;align-items:center">
+          <div style="min-width:0">
+            <div class="title">${escapeHtml(t.title)}</div>
+            <div class="artist">${escapeHtml(t.artist)}</div>
+          </div>
+          <div style="flex:1"></div>
+          <div class="time">${t.duration || ''}</div>
+        </div>
+        <div class="progresswrap"><div class="progress"></div></div>
+      </div>
+      <div class="actions">
+        <button class="download" title="Download / More"><i class="fa fa-download"></i></button>
+      </div>
+    `;
+    tracksList.appendChild(div);
+
+    const playbtn = div.querySelector('.playbtn');
+    const dlbtn = div.querySelector('.download');
+    const progressEl = div.querySelector('.progress');
+
+    // create a lightweight audio element per track (not attached to DOM)
+    const audio = new Audio(t.src);
+    audio.preload = 'metadata';
+
+    // Play/pause handler
+    playbtn.addEventListener('click', async () => {
+      // if some other audio playing, pause it
+      if(currentAudio && currentAudio !== audio){
+        pauseAudioElement(currentAudio);
+      }
+
+      if(audio.paused){
+        try{
+          await audio.play();
+          currentAudio = audio;
+          currentTrackId = t.id;
+          updatePlayButton(playbtn, true);
+          // start progress raf
+          startProgressUpdate(audio, progressEl, div);
+        }catch(err){
+          console.error('Play failed',err);
+          alert('Playback failed — check the file or browser autoplay policy.');
+        }
+      } else {
+        pauseAudioElement(audio);
+        updatePlayButton(playbtn, false);
+      }
+      syncAllPlayButtons();
+    });
+
+    // when audio ends -> advance to next shown track
+    audio.addEventListener('ended', () => {
+      updatePlayButton(playbtn, false);
+      // find index in filtered
+      const idx = filtered.findIndex(x => x.id === t.id);
+      if(idx >= 0 && idx < filtered.length - 1){
+        // next visible
+        const next = filtered[idx+1];
+        const nextDiv = tracksList.querySelector(`.track[data-id="${next.id}"]`);
+        if(nextDiv){
+          const nextPlay = nextDiv.querySelector('.playbtn');
+          nextPlay.click(); // triggers auto-play
+          nextDiv.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+      }
+    });
+
+    // update UI on play/pause events
+    audio.addEventListener('play', () => {
+      updatePlayButton(playbtn, true);
+    });
+    audio.addEventListener('pause', () => {
+      updatePlayButton(playbtn, false);
+    });
+
+    // download button opens modal with this track loaded
+    dlbtn.addEventListener('click', () => openModalForTrack(t, audio));
+  });
+
+  // show or hide load more
+  loadMoreBtn.style.display = (shownCount < filtered.length) ? 'block' : 'none';
+  syncAllPlayButtons();
+}
+
+/* ---------- Utility helpers ---------- */
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+
+function updatePlayButton(btn, isPlaying){
+  btn.innerHTML = `<i class="fa ${isPlaying? 'fa-pause':'fa-play'}"></i>`;
+}
+
+function pauseAudioElement(audio){
+  try{ audio.pause(); } catch(e){}
+  if(currentAudio === audio) currentAudio = null;
+  currentTrackId = null;
+}
+
+/* track progress updating via rAF */
+let rafId = null;
+function startProgressUpdate(audio, progressEl, trackDiv){
+  cancelAnimationFrame(rafId);
+  function step(){
+    if(audio && progressEl){
+      const pct = (audio.duration && !isNaN(audio.duration)) ? (audio.currentTime / audio.duration) * 100 : 0;
+      progressEl.style.width = pct + '%';
+    }
+    if(!audio.paused && !audio.ended){
+      rafId = requestAnimationFrame(step);
+    }
+  }
+  rafId = requestAnimationFrame(step);
+}
+
+/* ensure only the current audio shows playing icon */
+function syncAllPlayButtons(){
+  document.querySelectorAll('.track').forEach(div => {
+    const id = Number(div.dataset.id);
+    const pb = div.querySelector('.playbtn');
+    if(currentTrackId === id){
+      updatePlayButton(pb, true);
+    } else {
+      updatePlayButton(pb, false);
+      // reset progress if not current
+      const pr = div.querySelector('.progress');
+      if(pr) pr.style.width = '0%';
+    }
+  });
+}
+
+/* ---------- Search & Clear ---------- */
+function applySearch(q){
+  const term = (q||'').trim().toLowerCase();
+  if(!term){
+    filtered = [...tracks];
+  } else {
+    filtered = tracks.filter(t => (t.title + ' ' + t.artist).toLowerCase().includes(term));
+  }
+  shownCount = Math.min(filtered.length, Math.max(4, shownCount));
+  render();
+}
+
+// keyboard submit and search button behavior
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  applySearch(qInput.value);
+  // close virtual keyboard on mobile: blur input
+  qInput.blur();
+});
+
+// allow pressing the search icon (button) or keyboard Enter
+document.getElementById('submitBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  applySearch(qInput.value);
+  qInput.blur();
+});
+
+// clear
+clearBtn.addEventListener('click', () => {
+  qInput.value = '';
+  applySearch('');
+  qInput.focus();
+});
+
+/* ---------- Load more ---------- */
+loadMoreBtn.addEventListener('click', () => {
+  shownCount = Math.min(filtered.length, shownCount + increment);
+  render();
+});
+
+/* ---------- Return to top ---------- */
+window.addEventListener('scroll', () => {
+  toTop.style.display = (window.scrollY > 220) ? 'block' : 'none';
+});
+toTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ---------- Modal logic (download) ---------- */
+let modalTrack = null;
+function openModalForTrack(t, audio){
+  modalTrack = t;
+  modalTitle.textContent = t.title;
+  modalArtist.textContent = t.artist;
+  modalAudio.src = t.src;
+  modalAudio.load();
+  modalBack.style.display = 'flex';
+  modalBack.setAttribute('aria-hidden','false');
+  // hide dots menu
+  dotsMenu.style.display = 'none';
+}
+function closeModalFunc(){
+  modalBack.style.display = 'none';
+  modalBack.setAttribute('aria-hidden','true');
+  modalAudio.pause();
+}
+closeModal.addEventListener('click', closeModalFunc);
+modalBack.addEventListener('click', (e) => { if(e.target === modalBack) closeModalFunc(); });
+
+dotsBtn.addEventListener('click', (e) => {
+  dotsMenu.style.display = (dotsMenu.style.display === 'block') ? 'none' : 'block';
+});
+document.getElementById('closeMenu').addEventListener('click', ()=>dotsMenu.style.display='none');
+
+/* Direct download anchor (uses download attribute) */
+directDl.addEventListener('click', () => {
+  if(!modalTrack) return;
+  const a = document.createElement('a');
+  a.href = modalTrack.src;
+  a.download = `${sanitizeFilename(modalTrack.title)}.mp3`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+
+/* Blob download: fetch file and save as blob (serverless) */
+blobDl.addEventListener('click', async () => {
+  if(!modalTrack) return;
+  try{
+    blobDl.disabled = true;
+    blobDl.textContent = 'Fetching…';
+    const resp = await fetch(modalTrack.src);
+    if(!resp.ok) throw new Error('Network response not ok');
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${sanitizeFilename(modalTrack.title)}.mp3`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }catch(err){
+    alert('Download failed: ' + err.message + '\nCheck CORS or that the URL is reachable.');
+    console.error(err);
+  }finally{
+    blobDl.disabled = false;
+    blobDl.textContent = 'Download as Blob (fetch & save)';
+    dotsMenu.style.display = 'none';
+  }
+});
+
+/* small helpers */
+function sanitizeFilename(s){
+  return s.replace(/[\/\\?%*:|"<>]/g, '-').trim().substring(0,120);
+}
+
+/* ---------- Init ---------- */
+applySearch('');
+render();
+
+/* Stop other audios before leaving page */
+window.addEventListener('beforeunload', ()=> {
+  if(currentAudio){ try { currentAudio.pause(); } catch(e){} }
+});
+
+/* Prevent multiple tracks playing by pausing all non-current audio objects.
+   Because each track created its own Audio object isolated in closure, we maintain currentAudio only.
+   When user clicks play on a new one we pause the previous (handled above).
+*/
+
+/* Accessibility: allow Enter on search input to trigger */
+qInput.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter') {
+    e.preventDefault();
+    applySearch(qInput.value);
+    qInput.blur();
+  }
+});
+
+/* click outside dots menu closes it */
+document.addEventListener('click', (ev) => {
+  if(!ev.target.closest('.dots')) dotsMenu.style.display = 'none';
+});
+</script>
+</body>
+</html>

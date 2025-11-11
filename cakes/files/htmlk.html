@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cupcake Order</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; }
+  /* Modal Styles */
+  #orderModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000; overflow:auto; }
+  #orderModal.active { display:flex; }
+  .modal-content { background:#fff; border-radius:10px; padding:20px; max-width:400px; width:90%; position:relative; }
+  #modalImage { width:100%; border-radius:10px; margin-bottom:10px; }
+  #sizeWrapper { display:flex; gap:5px; margin-bottom:10px; flex-wrap:wrap; }
+  .size-box { padding:5px 10px; border:1px solid #ccc; border-radius:5px; cursor:pointer; }
+  .size-box.selected { background:#2196F3; color:#fff; border-color:#2196F3; }
+  .qty-wrapper { display:flex; gap:10px; align-items:center; margin-bottom:10px; }
+  .qty-btn { padding:5px 10px; cursor:pointer; background:#2196F3; color:#fff; border:none; border-radius:5px; }
+  .submit-btn { width:100%; padding:10px; background:#2196F3; color:#fff; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
+  input, select, textarea { box-sizing:border-box; }
+</style>
+</head>
+<body>
+
+<!-- Trigger Example -->
+<button class="open-modal" data-name="Chocolate Delight" data-image="https://via.placeholder.com/400" data-description="Delicious chocolate cupcake" data-price="50" data-sizes="Small,Medium,Large">Order Cupcake</button>
+
+<!-- Modal -->
+<div id="orderModal">
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Product Image">
+    <h2 id="modalName"></h2>
+    <p id="modalDesc"></p>
+    <p>Price: ZMW <span id="modalPrice"></span></p>
+
+    <div id="sizeWrapper"></div>
+
+    <div class="qty-wrapper">
+      <button class="qty-btn" onclick="adjustQty(-1)">-</button>
+      <span id="qty">1</span>
+      <button class="qty-btn" onclick="adjustQty(1)">+</button>
+      <span>Total: ZMW <span id="totalPrice">0</span></span>
+    </div>
+
+    <!-- Order Form -->
+    <form id="orderForm">
+      <input type="text" id="cname" placeholder="Your Name" required style="height:45px!important; padding:10px; width:100%; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+      <input type="tel" id="cphone" placeholder="Phone Number" required style="height:45px!important; padding:10px; width:100%; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+      <input type="text" id="caddress" placeholder="Address" required style="height:45px!important; padding:10px; width:100%; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+
+      <p style="color:gray; margin:0; text-align:left;">Delivery Date Tap To Edit</p>
+      <input type="date" id="cdate" required style="height:45px!important; width:100%; padding:8px; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
+
+      <!-- Time & Flavor inline picker -->
+      <div style="display:flex; gap:10px; margin-bottom:10px;">
+        <select id="ctime" required style="flex:1; height:45px!important; padding:10px; border-radius:6px; border:1px solid #ccc;">
+          <option value="">Select Time</option>
+          <option>9:00 AM</option>
+          <option>10:00 AM</option>
+          <option>11:00 AM</option>
+          <option>12:00 PM</option>
+          <option>1:00 PM</option>
+          <option>2:00 PM</option>
+          <option>3:00 PM</option>
+          <option>4:00 PM</option>
+        </select>
+
+        <select id="cflavor" required style="flex:1; height:45px!important; padding:10px; border-radius:6px; border:1px solid #ccc;">
+          <option value="">Select Flavor</option>
+          <option>Chocolate</option>
+          <option>Vanilla</option>
+        </select>
+      </div>
+
+      <textarea id="cinstructions" placeholder="Extra Instructions..." required style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; height:80px; margin-bottom:10px;"></textarea>
+
+      <p id="validationMessage" style="color:red;font-size:14px;margin:4px 0;"></p>
+      <button type="button" class="submit-btn" onclick="submitOrder()">Submit Order</button>
+    </form>
+
+    <button onclick="closeModal()" style="position:absolute; top:10px; right:10px; font-size:24px; background:none; border:none; color:#000; cursor:pointer;">&times;</button>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById('orderModal');
+const image = document.getElementById('modalImage');
+const nameField = document.getElementById('modalName');
+const desc = document.getElementById('modalDesc');
+const price = document.getElementById('modalPrice');
+const qtyDisplay = document.getElementById('qty');
+const totalPriceEl = document.getElementById('totalPrice');
+let basePrice = 0;
+
+// ===== Date Validation =====
+const dateInput = document.getElementById('cdate');
+const validationMessage = document.getElementById('validationMessage');
+const today = new Date();
+today.setHours(0,0,0,0);
+
+// Prefill tomorrow’s date & prevent past date selection
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
+dateInput.value = tomorrow.toISOString().split('T')[0];
+dateInput.min = dateInput.value;
+
+dateInput.addEventListener('change', function() {
+  const value = this.value;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    validationMessage.textContent = "Please enter a valid date format (YYYY-MM-DD).";
+    this.setCustomValidity("Invalid date format.");
+    return;
+  }
+  const selected = new Date(value);
+  selected.setHours(0,0,0,0);
+  if (selected < today) {
+    validationMessage.textContent = "Past dates are not allowed.";
+    this.setCustomValidity("Past date not allowed.");
+  } else {
+    validationMessage.textContent = "";
+    this.setCustomValidity("");
+  }
+});
+
+// ===== Modal Open Logic =====
+document.querySelectorAll('.open-modal').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.name;
+    const img = btn.dataset.image;
+    const descText = btn.dataset.description;
+    basePrice = parseInt(btn.dataset.price);
+
+    image.src = img;
+    nameField.textContent = name;
+    desc.textContent = descText;
+    price.textContent = basePrice;
+    qtyDisplay.textContent = 1;
+    totalPriceEl.textContent = basePrice;
+
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('active');
+
+    const sizeWrapper = document.getElementById('sizeWrapper');
+    sizeWrapper.innerHTML = '';
+    const sizes = btn.dataset.sizes ? btn.dataset.sizes.split(',') : [];
+    sizes.forEach(size => {
+      const div = document.createElement('div');
+      div.className = 'size-box';
+      div.textContent = size.trim();
+      div.addEventListener('click', () => {
+        sizeWrapper.querySelectorAll('.size-box').forEach(s => s.classList.remove('selected'));
+        div.classList.add('selected');
+      });
+      sizeWrapper.appendChild(div);
+    });
+    if(sizeWrapper.firstChild) sizeWrapper.firstChild.classList.add('selected');
+
+    // Prefill form fields from localStorage
+    ['cname','cphone','caddress','ctime','cflavor'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el && localStorage.getItem(id)) el.value = localStorage.getItem(id);
+    });
+  });
+});
+
+// ===== Quantity adjustment =====
+function adjustQty(change){
+  let qty = parseInt(qtyDisplay.textContent) + change;
+  if(qty < 1) qty = 1;
+  qtyDisplay.textContent = qty;
+  totalPriceEl.textContent = basePrice * qty;
+}
+
+// ===== Submit Order =====
+function submitOrder(){
+  const name = document.getElementById('cname').value.trim();
+  const phone = document.getElementById('cphone').value.trim();
+  const address = document.getElementById('caddress').value.trim();
+  const date = document.getElementById('cdate').value;
+  const time = document.getElementById('ctime').value;
+  const flavor = document.getElementById('cflavor').value;
+  const instructions = document.getElementById('cinstructions').value.trim();
+  const product = nameField.textContent;
+  const qty = qtyDisplay.textContent;
+  const total = totalPriceEl.textContent;
+
+  const selectedSizeBox = document.querySelector('#sizeWrapper .size-box.selected');
+  const selectedSize = selectedSizeBox ? selectedSizeBox.textContent : '';
+
+  if(!name || !phone || !address || !date || !time || !flavor || !instructions || !selectedSize){
+    alert("Please fill in all required fields including size, time, and flavor.");
+    return;
+  }
+
+  const selected = new Date(date);
+  selected.setHours(0,0,0,0);
+  if(selected < today){
+    alert("Delivery date cannot be in the past.");
+    return;
+  }
+
+  // Save to localStorage
+  ['cname','cphone','caddress','ctime','cflavor'].forEach(id => {
+    localStorage.setItem(id, document.getElementById(id).value);
+  });
+
+  const msg = `*NEW CUPCAKE ORDER*\n\n` +
+              `*Product:* ${product}\n` +
+              `*Quantity:* ${qty}\n` +
+              `*Price:* ZMW${total}\n` +
+              `*Size:* ${selectedSize}\n` +
+              `*Flavor:* ${flavor}\n` +
+              `*Delivery Date:* ${date}\n` +
+              `*Time:* ${time}\n\n` +
+              `*CUSTOMER DETAILS*\n` +
+              `*Name:* ${name}\n` +
+              `*Phone No.:* ${phone}\n` +
+              `*Address:* ${address}\n` +
+              `*Instructions:* ${instructions}`;
+
+  const encoded = encodeURIComponent(msg);
+  window.location.href = `https://wa.me/260770304374?text=${encoded}`;
+}
+
+// ===== Close Modal =====
+function closeModal(){
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
+</script>
+
+</body>
+</html>

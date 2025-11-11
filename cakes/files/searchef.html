@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Bikini Shop — Demo</title>
+
+<!-- Font Awesome 4.7 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  :root{
+    --card-w:320px;
+    --accent:#b8947a;
+    --shadow: 0 6px 18px rgba(23,23,23,0.08);
+  }
+
+  /* Page */
+  body{
+    margin:0;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:#f4f5f7;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    color:#222;
+    padding:18px 16px 90px;
+    box-sizing:border-box;
+  }
+
+  /* Search bar full-width */
+  .search-wrap{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto 18px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .search {
+    width:100%;
+    display:flex;
+    align-items:center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 10px;
+    box-shadow: var(--shadow);
+    max-width:1100px;
+    gap:8px;
+  }
+
+  .search input{
+    border:0;
+    outline:0;
+    font-size:16px;
+    flex:1;
+    padding:10px 6px;
+    min-width:0;
+    background:transparent;
+  }
+
+  /* Square icons on the right */
+  .search-controls{
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+
+  .square-btn{
+    width:44px;
+    height:44px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: #111; /* default for search icon; will theme individually */
+    color:#fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    border: none;
+    cursor: pointer;
+    font-size:18px;
+  }
+
+  .clear-btn{
+    background:#fff;
+    color:#444;
+    border:1px solid #eee;
+  }
+
+  .square-btn:active{ transform: translateY(1px); }
+
+  /* Grid container for cards */
+  .grid-wrap{
+    width:100%;
+    max-width:1100px;
+    margin: 12px auto 0;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-w), 1fr));
+    gap:18px;
+    justify-items:center;
+  }
+
+  /* No-results centered message */
+  .no-results{
+    display:none;
+    width:100%;
+    max-width:600px;
+    margin: 40px auto;
+    text-align:center;
+    color:#666;
+    background:rgba(255,255,255,0.9);
+    padding:18px;
+    border-radius:12px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Product card */
+  .product-card{
+    width:var(--card-w);
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow: 0 8px 22px rgba(20,20,20,0.06);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+
+  .product-card:active{ transform: translateY(2px); }
+
+  .image-container{
+    position:relative;
+    height:420px;
+    overflow:hidden;
+    perspective:1000px;
+  }
+
+  .image-container img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:absolute;
+    top:0; left:0;
+    transition: transform .65s ease;
+    backface-visibility:hidden;
+  }
+
+  .image-container img.back{
+    transform: rotateY(180deg);
+  }
+
+  .image-container.flipped img.front{
+    transform: rotateY(180deg);
+  }
+
+  .image-container.flipped img.back{
+    transform: rotateY(0deg);
+  }
+
+  /* Bottom full-width gradient overlay (caption) */
+  .bottom-gradient{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:12px 14px;
+    box-sizing:border-box;
+    background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0));
+    color:#fff;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+  }
+
+  /* icon buttons top-right (white squares) */
+  .icon-buttons{
+    position:absolute;
+    top:12px;
+    right:12px;
+    display:flex;
+    gap:8px;
+  }
+
+  .icon-btn{
+    width:40px; height:40px;
+    border-radius:10px;
+    background:#fff;
+    border:1px solid #eee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    transition: box-shadow .15s ease, transform .08s ease;
+  }
+
+  .icon-btn:active{ transform: translateY(1px); }
+
+  /* Heart icons (outline and solid) should be red always */
+  .icon-btn i.fa-heart-o,
+  .icon-btn i.fa-heart {
+    color: #e32b2b;
+    font-size:16px;
+  }
+
+  .icon-btn i.fa-camera {
+    color:#444;
+    font-size:16px;
+  }
+
+  /* Product info */
+  .product-info{
+    padding:12px 14px 16px;
+  }
+
+  .rating{ color:#ffb400; font-size:13px; margin-bottom:4px; }
+  .product-name{ font-size:17px; font-weight:600; margin:0 0 6px; color:#222; }
+  .meta-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .left-actions{ display:flex; gap:8px; align-items:center; }
+  .action-btn{
+    border:0;
+    border-radius:8px;
+    padding:8px 10px;
+    background:#efefef;
+    cursor:pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+  }
+
+  .action-btn.cart{ background: var(--accent); color:#fff; }
+
+  .price{ font-size:18px; font-weight:700; color:#444; white-space:nowrap; }
+
+  /* Load more full width button */
+  .controls{
+    width:100%;
+    max-width:1100px;
+    margin:18px auto 90px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .load-more{
+    width:100%;
+    max-width:1100px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow: var(--shadow);
+    padding:12px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .btn-full{
+    width:100%;
+    max-width:1100px;
+    display:block;
+    padding:14px;
+    border-radius:10px;
+    border:0;
+    background:var(--accent);
+    color:#fff;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow: 0 8px 20px rgba(20,20,20,0.08);
+  }
+
+  /* Return to top button (bottom-right) */
+  .to-top{
+    position:fixed;
+    right:16px;
+    bottom:18px;
+    width:56px;
+    height:56px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#111;
+    color:#fff;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+    border:0;
+    z-index:9999;
+    cursor:pointer;
+    display:none; /* hidden until show */
+  }
+
+  /* small screens tweaks */
+  @media (max-width:420px){
+    body{ padding:14px 12px 90px; }
+    .product-card { width:92vw; max-width:360px; }
+    .image-container{ height:380px; }
+    .square-btn{ width:44px; height:44px; border-radius:10px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search" role="search">
+    <input id="searchInput" type="search" placeholder="Search bikinis, e.g. 'Floral Bikini'..." aria-label="Search products">
+    <div class="search-controls" aria-hidden="false">
+      <button id="clearBtn" class="square-btn clear-btn" title="Clear" style="display:none;">
+        <i class="fa fa-times"></i>
+      </button>
+      <button id="searchBtn" class="square-btn" title="Search">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap" id="grid">
+  <!-- 10 product cards (data-name used for search filtering) -->
+  <!-- Card 1 -->
+  <article class="product-card" data-name="2 Piece Swimsuit">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1599940824399-b87987ceb72f?auto=format&fit=crop&w=900&q=60" alt="2 Piece Swimsuit front">
+      <img class="back" src="https://images.unsplash.com/photo-1608062813538-7e9e7b1d9b69?auto=format&fit=crop&w=900&q=60" alt="2 Piece Swimsuit back">
+      <div class="bottom-gradient">Discounted up to 45%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip" title="View back/front"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like" title="Add to wishlist"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★☆</div>
+      <div class="product-name">2 Piece Swimsuit</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart" title="Add to cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn" title="Quantity">+</button>
+        </div>
+        <div class="price">ZMW 350.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 2 -->
+  <article class="product-card" data-name="Floral Bikini">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=60" alt="Floral Bikini front">
+      <img class="back" src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=60" alt="Floral Bikini back">
+      <div class="bottom-gradient">Discounted up to 35%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★☆</div>
+      <div class="product-name">Floral Bikini</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 420.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 3 -->
+  <article class="product-card" data-name="Summer Bliss Set">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1588628566587-dbd98e4bc19b?auto=format&fit=crop&w=900&q=60" alt="Summer Bliss front">
+      <img class="back" src="https://images.unsplash.com/photo-1585155779268-68a8bbfc33db?auto=format&fit=crop&w=900&q=60" alt="Summer Bliss back">
+      <div class="bottom-gradient">Discounted up to 50%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★★</div>
+      <div class="product-name">Summer Bliss Set</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 380.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 4 -->
+  <article class="product-card" data-name="Beach Glow Set">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1598454444620-c9e6423e4e84?auto=format&fit=crop&w=900&q=60" alt="Beach Glow front">
+      <img class="back" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=60" alt="Beach Glow back">
+      <div class="bottom-gradient">Discounted up to 40%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★☆☆</div>
+      <div class="product-name">Beach Glow Set</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 310.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 5 -->
+  <article class="product-card" data-name="Tropical Bloom">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?auto=format&fit=crop&w=900&q=60" alt="Tropical Bloom front">
+      <img class="back" src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=60" alt="Tropical Bloom back">
+      <div class="bottom-gradient">Discounted up to 20%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★★</div>
+      <div class="product-name">Tropical Bloom</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 450.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 6 -->
+  <article class="product-card" data-name="Sunset Dream">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=60" alt="Sunset Dream front">
+      <img class="back" src="https://images.unsplash.com/photo-1600240644459-6f8b88e2d2e4?auto=format&fit=crop&w=900&q=60" alt="Sunset Dream back">
+      <div class="bottom-gradient">Discounted up to 30%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★☆</div>
+      <div class="product-name">Sunset Dream</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 390.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 7 -->
+  <article class="product-card" data-name="Ocean Pearl">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=900&q=60" alt="Ocean Pearl front">
+      <img class="back" src="https://images.unsplash.com/photo-1585155779268-68a8bbfc33db?auto=format&fit=crop&w=900&q=60" alt="Ocean Pearl back">
+      <div class="bottom-gradient">Discounted up to 25%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★☆</div>
+      <div class="product-name">Ocean Pearl</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 370.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 8 -->
+  <article class="product-card" data-name="Coral Kiss">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=60" alt="Coral Kiss front">
+      <img class="back" src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=900&q=60" alt="Coral Kiss back">
+      <div class="bottom-gradient">Discounted up to 15%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★☆</div>
+      <div class="product-name">Coral Kiss</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 320.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 9 -->
+  <article class="product-card" data-name="Azure Tide">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=60" alt="Azure Tide front">
+      <img class="back" src="https://images.unsplash.com/photo-1559582931-3170c45c25c8?auto=format&fit=crop&w=900&q=60" alt="Azure Tide back">
+      <div class="bottom-gradient">Discounted up to 10%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★☆☆</div>
+      <div class="product-name">Azure Tide</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 280.00</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 10 -->
+  <article class="product-card" data-name="Golden Wave">
+    <div class="image-container">
+      <img class="front" src="https://images.unsplash.com/photo-1585155779268-68a8bbfc33db?auto=format&fit=crop&w=900&q=60" alt="Golden Wave front">
+      <img class="back" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=60" alt="Golden Wave back">
+      <div class="bottom-gradient">Discounted up to 60%</div>
+      <div class="icon-buttons">
+        <button class="icon-btn flip"><i class="fa fa-camera"></i></button>
+        <button class="icon-btn like"><i class="fa fa-heart-o"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="rating">★★★★★</div>
+      <div class="product-name">Golden Wave</div>
+      <div class="meta-row">
+        <div class="left-actions">
+          <button class="action-btn cart"><i class="fa fa-shopping-bag"></i></button>
+          <button class="action-btn">+</button>
+        </div>
+        <div class="price">ZMW 490.00</div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- No results message -->
+<div class="no-results" id="noResults">No products found. Try a different search.</div>
+
+<!-- Load more / Next page -->
+<div class="controls">
+  <div class="load-more">
+    <button id="loadMoreBtn" class="btn-full">Load More</button>
+  </div>
+</div>
+
+<!-- Return to top -->
+<button id="toTop" class="to-top" title="Return to top"><i class="fa fa-chevron-up"></i></button>
+
+<script>
+  // --- Config ---
+  const perPage = 6; // show initially
+  const grid = document.getElementById('grid');
+  const cards = Array.from(grid.querySelectorAll('.product-card'));
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearBtn');
+  const searchBtn = document.getElementById('searchBtn');
+  const noResults = document.getElementById('noResults');
+  const toTop = document.getElementById('toTop');
+
+  // Initialize: hide cards beyond perPage
+  let visibleCount = 0;
+  function setInitialVisibility(){
+    cards.forEach((c, idx) => {
+      if(idx < perPage){ c.style.display = ''; visibleCount++; }
+      else { c.style.display = 'none'; }
+    });
+    updateLoadMoreText();
+  }
+  setInitialVisibility();
+
+  // Update load more button text
+  function updateLoadMoreText(){
+    const total = cards.length;
+    if(visibleCount >= total){
+      loadMoreBtn.textContent = 'Next Page →';
+    } else {
+      loadMoreBtn.textContent = 'Load More';
+    }
+  }
+
+  // Load more handler
+  loadMoreBtn.addEventListener('click', () => {
+    const total = cards.length;
+    const remaining = total - visibleCount;
+    if(remaining > 0){
+      // show next batch (all remaining or perPage)
+      const next = Math.min(remaining, perPage);
+      let shown = 0;
+      for(let i=0;i<cards.length && shown < next;i++){
+        const c = cards[i];
+        if(c.style.display === 'none'){
+          c.style.display = '';
+          shown++; visibleCount++;
+        }
+      }
+      updateLoadMoreText();
+      checkNoResults();
+      // smooth scroll to newly loaded area on mobile
+      if(shown>0) cards[visibleCount-1].scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      // All items visible -> Next Page behaviour
+      // For demo: scroll to top and reset (in production, navigate to next page URL)
+      window.alert('Next page would load here (demo).');
+      // optional: window.location.href = '/page/2';
+    }
+  });
+
+  // Search functionality
+  function performSearch(){
+    const q = searchInput.value.trim().toLowerCase();
+    // reset visibility counters for filtered set
+    let found = 0;
+    cards.forEach((c, idx) => {
+      const name = c.getAttribute('data-name') || '';
+      if(name.toLowerCase().includes(q)){
+        // show up to currently allowed visibleCount positions:
+        // we will make matching cards visible up to current visibleCount OR just show all matches (UX choice).
+        // We'll show matches but limit to visibleCount (so search respects loaded pages),
+        // but if query has content, show all matches regardless of load-more to be user-friendly.
+        c.style.display = '';
+        found++;
+      } else {
+        c.style.display = 'none';
+      }
+    });
+    // show no-results if none found
+    noResults.style.display = found === 0 ? 'block' : 'none';
+  }
+
+  // If you prefer the search to show only those within visibleCount, comment previous logic and use this:
+  // (keeps search within loaded page)
+  // For now we show all matches when searching.
+
+  searchBtn.addEventListener('click', performSearch);
+  searchInput.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') performSearch();
+  });
+
+  // Clear button
+  function updateClearVisibility(){
+    if(searchInput.value.trim().length > 0){
+      clearBtn.style.display = 'inline-flex';
+    } else {
+      clearBtn.style.display = 'none';
+    }
+  }
+  searchInput.addEventListener('input', () => {
+    updateClearVisibility();
+    if(searchInput.value.trim().length === 0){
+      // if empty, reset to previously loaded state (respecting visibleCount)
+      let shown = 0;
+      cards.forEach((c, idx) => {
+        if(idx < visibleCount){ c.style.display = ''; shown++; } else { c.style.display = 'none'; }
+      });
+      noResults.style.display = 'none';
+      updateLoadMoreText();
+    }
+  });
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    updateClearVisibility();
+    // restore visibility according to visibleCount
+    cards.forEach((c, idx) => {
+      c.style.display = idx < visibleCount ? '' : 'none';
+    });
+    noResults.style.display = 'none';
+  });
+
+  // ICON interactions: flip images + like (heart toggles)
+  function initCardInteractions(){
+    // flip buttons
+    document.querySelectorAll('.flip').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const container = e.target.closest('.image-container');
+        container.classList.toggle('flipped');
+      });
+    });
+
+    // like buttons
+    document.querySelectorAll('.like').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const icon = btn.querySelector('i');
+        if(icon.classList.contains('fa-heart-o')){
+          icon.classList.remove('fa-heart-o');
+          icon.classList.add('fa-heart');
+        } else {
+          icon.classList.remove('fa-heart');
+          icon.classList.add('fa-heart-o');
+        }
+      });
+    });
+  }
+  initCardInteractions();
+
+  // initial clear button state
+  updateClearVisibility();
+
+  // No results check (used after load more / search)
+  function checkNoResults(){
+    const anyVisible = cards.some(c => c.style.display !== 'none');
+    noResults.style.display = anyVisible ? 'none' : 'block';
+  }
+
+  // Return to top button behavior
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 300){ toTop.style.display = 'flex'; }
+    else { toTop.style.display = 'none'; }
+  });
+
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Accessibility: pressing ESC clears search
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+      searchInput.value = '';
+      updateClearVisibility();
+      cards.forEach((c, idx) => { c.style.display = idx < visibleCount ? '' : 'none'; });
+      noResults.style.display = 'none';
+    }
+  });
+
+  // ensure initial check
+  checkNoResults();
+  updateLoadMoreText();
+</script>
+
+</body>
+</html>
