@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop</title>
+<!--  Open Graph (for Facebook, WhatsApp, LinkedIn, etc.) -->
+<meta property="og:title" content="Elegant men's queens">
+<meta property="og:description" content="Affordable Elegant men's queens.">
+<meta property="og:image" content="https://enweb-io.github.io/enweb/queens/img/trdual.jpg">
+<meta property="og:url" content="https://enweb-io.github.io/enweb/queens/index.html">
+<meta property="og:type" content="website">
+
+<!--  Twitter Card (specifically for Twitter/X) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elegant men's queens">
+<meta name="twitter:description" content="Trending Affordable Elegant men's queens.">
+<meta name="twitter:image" content="https://enweb-io.github.io/enweb/queens/img/trdual.jpg">
+<meta name="twitter:url" content="https://enweb-io.github.io/enweb/queens/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>E-shop</title>
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+<link rel="stylesheet" href="asset/swiper-bundle.min.css" /> 
+
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color:white;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+
+
+a {
+  color: #ea3830;
+  text-decoration: none;
+}
+
+.swiper {
+      width: 100%;
+      height:auto;
+	  position: relative;
+      z-index: 1;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+	
+	.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 14px;
+  color: #fff;
+}
+.swiper-button-prev {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  left: 20px;
+}
+.swiper-button-prev:hover {
+  border: 1px solid #fff;
+}
+.swiper-button-next {
+  border: 1px solid #111;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #111;
+  right: 20px;
+}
+.swiper-button-next:hover {
+  border: 1px solid #fff;
+}
+
+.swiper-button-next:hover:after,
+.swiper-button-prev:hover:after {
+  color: #fff;
+}
+  
+    
+.mobile-container {
+  margin: auto;
+
+  height: 500px;
+  color: white;
+  border-radius: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #ea5f5f;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+.topnav a.icon {
+  float: right;
+}
+
+ 
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  border:none;
+ 
+}
+
+.card img {
+  width:100%;
+  object-fit: cover;
+  border-radius:5px;
+
+ 
+}
+
+.padding{padding:5px;}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h5{font-size:12px;padding:0; margin:0;text-align:center;text-transform:uppercase; margin:10px;}
+
+h6{font-size:12px; font-weight:bold;text-align:center;color: #ea5f5f; margin:10px;}
+
+.button {
+	background:   #ea5f5f;
+	border: 0;
+	border-color: transparent;
+	color: #fff;
+	padding: 14px 16px;
+	border-radius: 3px;	
+    width:100%;	
+	
+	
+}
+
+.button a{font-size: 14px; color:white;}
+
+.footer 
+{
+	background-color: #ea5f5f;
+	color: #ffffff;
+	padding-top:10px;
+	border-bottom:1px solid #eee;
+	border-top:1px solid #eee;
+	width:100%;
+}
+
+/* Description in footer */
+.footer p 
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 13px;
+	text-align: center;
+}
+.meta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    padding:6px 12px;
+    border-radius:10px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04);
+    margin-bottom:12px;
+  }
+  .left-meta{display:flex; align-items:center; gap:10px;}
+  .avatars{display:flex; align-items:center;}
+  .avatars img{
+    width:28px; height:28px; border-radius:50%; object-fit:cover;
+    border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,0.08);
+    margin-left:-10px;
+  }
+  .avatars img:first-child{margin-left:0;}
+  .meta-text{color:var(--muted); font-size:0.82rem;}
+  .meta-date{color:var(--muted); font-size:0.82rem; display:flex; align-items:center; gap:8px;}
+	 .two-col {
+      display: flex;  justify-content: center;
+      gap: 4px; margin-top: 15px;
+    }
+    .two-col img { width: 48%; border-radius: 10px; }
+</style>
+</head>
+
+<body translate="no" >
+<div class="topnav">
+  <a href="#home" class="active"><i class="fa fa-camera"></i> BIRTHDAY QUEENS</a>
+  <div id="myLinks">
+  
+    <a href="about-us.html"><i class="fa fa-sign-in"></i></a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"> <img src="slide/1.jpg" alt="width:100%;"></div>
+      <div class="swiper-slide"><img src="slide/2.jpg" alt="width:100%;"></div>
+      <div class="swiper-slide"><img src="slide/3.jpg" alt="width:100%;"></div>
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+
+  <div class="meta-row">
+    <div class="left-meta">
+      <div class="avatars">
+        <img src="avatar/1.jpg" alt="Avatar 1">
+        <img src="avatar/5.jpg" alt="Avatar 2">
+        <img src="avatar/face.png" alt="Avatar 3">
+      </div>
+      <div class="meta-text"> <strong style="color:gray:">QUEENS</strong> </div>
+    </div>
+    <div class="meta-date" aria-label="Post date">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="opacity:.7" aria-hidden="true">
+        <path d="M3.5 0a.5.5 0 0 0 0 1H4v1h8V1h.5a.5.5 0 0 0 0-1h-9zM2 3a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zM15 6H1v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6z"/>
+      </svg>
+      <div style="font-size:.82rem;color:#6b6b6b;"><script type="text/javascript"><!--
+var now = new Date();
+var Month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(Month[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear());
+//--></script></div>
+    </div>
+  </div>
+<div class ="row" style ="padding:0 4px;">      <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+    
+             <div class="two-col">
+        <img src="img/1.jpg" alt="Laptop Marketing 1">
+        <img src="img/1.jpg" alt="Laptop Marketing 2">
+      </div>
+       
+		  <h6>NAVY TYPOGRAPHY ONE T01</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+	<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=NAVY TYPOGRAPHY ONE T01%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+	  
+	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+          <div class="two-col">
+        <img src="img/2.jpg" alt="Laptop Marketing 1">
+        <img src="img/2.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>NAVY TYPOGRAPHY TWO T02</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+	<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=NAVY TYPOGRAPHY TWO T021%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+	  
+<div class="card" data-item="category1">
+	  
+	  <div class="padding">
+          <div class="two-col">
+        <img src="img/3.jpg" alt="Laptop Marketing 1">
+        <img src="img/3.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>ORANGE BLUE TYPOGRAPHY ONE T03</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+	<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=ORANGE BLUE TYPOGRAPHY ONE T03%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+	  
+	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+         <div class="two-col">
+        <img src="img/4.jpg" alt="Laptop Marketing 1">
+        <img src="img/4.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>ORANGE GREEN TYPOGRAPHY TWO T04</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+	<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=ORANGE GREEN TYPOGRAPHY TWO T04%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+
+<div class="card" data-item="category1">
+	  
+	  <div class="padding">
+          <div class="two-col">
+        <img src="img/5.jpg" alt="Laptop Marketing 1">
+        <img src="img/5.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>GOLD AND BLACK TYPOGRAPHY T05</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+	<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=GOLD AND BLACK TYPOGRAPHY T05%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+	  
+	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+           <div class="two-col">
+        <img src="img/6.jpg" alt="Laptop Marketing 1">
+        <img src="img/6.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>NAVY BLUE GREEN TYPOGRAPHY TWO T06</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+	<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=NAVY BLUE GREEN TYPOGRAPHY TWO T061%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+
+<div class="card" data-item="category1">
+	  
+	  <div class="padding">
+          <div class="two-col">
+        <img src="img/7.jpg" alt="Laptop Marketing 1">
+        <img src="img/7.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>PURE GOLD TYPOGRAPHY THREE T07</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN</h5>
+								</div>
+	<button class="button"> 
+							<a href='https://api.whatsapp.com/send?queens=+260770304374&text=PURE GOLD TYPOGRAPHY THREE T071%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+	  
+	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+           <div class="two-col">
+        <img src="img/8.jpg" alt="Laptop Marketing 1">
+        <img src="img/8.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>PURE WHITE GOLD TYPOGRAPHY T08</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN</h5>
+								</div>
+	<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=PURE WHITE GOLD TYPOGRAPHY T08%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+
+<div class="card" data-item="category1">
+	  
+	  <div class="padding">
+           <div class="two-col">
+        <img src="img/9.jpg" alt="Laptop Marketing 1">
+        <img src="img/9.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>SOLID WHITE TYPOGRAPHY T09</h6>
+								
+								<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+		<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=SOLID WHITE TYPOGRAPHY T09%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+	  
+	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+           <div class="two-col">
+        <img src="img/10.jpg" alt="Laptop Marketing 1">
+        <img src="img/10.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>GREEN RED TYPOGRAPHY T10</h6>
+								
+<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+								<button class="button"> 
+								<a href='https://api.whatsapp.com/send?queens=+260770304374&text=GREEN RED TYPOGRAPHY T10%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>	  
+
+  	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+           <div class="two-col">
+        <img src="img/11.jpg" alt="Laptop Marketing 1">
+        <img src="img/11.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>GRAY TYPOGRAPHY T11</h6>
+								
+<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+								<button class="button"> 
+							<a href='https://api.whatsapp.com/send?queens=+260770304374&text=GRAY TYPOGRAPHY T11%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+
+
+	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+          <div class="two-col">
+        <img src="img/12.jpg" alt="Laptop Marketing 1">
+        <img src="img/12.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>BLUE BLACK TYPOGRAPHY T12</h6>
+								
+<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+								<button class="button"> 
+							<a href='https://api.whatsapp.com/send?queens=+260770304374&text=BLUE BLACK TYPOGRAPHY T121%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+
+
+		    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+          <div class="two-col">
+        <img src="img/13.jpg" alt="Laptop Marketing 1">
+        <img src="img/13.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>NAVY BLUE TYPOGRAPHY T13</h6>
+								
+<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+								<button class="button"> 
+							<a href='https://api.whatsapp.com/send?queens=+260770304374&text=NAVY BLUE TYPOGRAPHY T13%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>
+
+	    <div class="card" data-item="category1">
+	  
+	  <div class="padding">
+           <div class="two-col">
+        <img src="img/14.jpg" alt="Laptop Marketing 1">
+        <img src="img/14.jpg" alt="Laptop Marketing 2">
+      </div>
+		  <h6>SOLID BLACK TYPOGRAPHY T14</h6>
+								
+<div class="price">
+									<h5>REQUEST DESIGN OR SEND PHOTO</h5>
+								</div>
+								<button class="button"> 
+							<a href='https://api.whatsapp.com/send?queens=+260770304374&text=SOLID BLACK TYPOGRAPHY T14%20REQUEST%20.....'>
+								<i class="fa fa-shopping-bag" aria-hidden="true"></i> REQUEST DESIGN</a></button>
+	  </div>
+      </div>	  
+			   </div>
+   <img src="img/197135d625846dba1012681d666ead85.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  <img src="img/swap.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  <img src="img/whitehoodie.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  <img src="img/11.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  <img src="img/fdffff591db6359e9215f02ed550aa13.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  <img src="img/girl.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  <img src="img/eleganteorange.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  <img src="img/elegant-navy.jpg" style="width:96%; border-radius:5px; margin:10px; auto; display:block;"> 
+  
+<div  class="footer">
+					<div class="container">
+					 <center><p style ="text-align:center;" >&copy 2025 BIRTHDAY QUEENS </p></center>
+ 
+
+					</div>
+				</div>
+  
+</div>
+
+</body>
+  <!-- Swiper JS -->
+  <script src="asset/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+  
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+  <script src="asset/hide.js"></script> 
+
+</html>
+ 
