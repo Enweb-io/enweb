@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop</title>
+<!--  Open Graph (for Facebook, WhatsApp, LinkedIn, etc.) -->
+<meta property="og:title" content="Elegant Fashion vibes">
+<meta property="og:description" content="Trending fabric designs  for ladies wear.">
+<meta property="og:image" content="https://enweb-io.github.io/enweb/story/img/head.jpg">
+<meta property="og:url" content="https://enweb-io.github.io/enweb/story/index.html">
+<meta property="og:type" content="website">
+
+<!--  Twitter Card (specifically for Twitter/X) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elegant Fashion vibes">
+<meta name="twitter:description" content="Trending fabric designs  for ladies wear.">
+<meta name="twitter:image" content="https://enweb-io.github.io/enweb/story/img/head.jpg">
+<meta name="twitter:url" content="https://enweb-io.github.io/enweb/story/index.html">
+ <link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+
+<style>
+:root {
+  --nav-bg:#ea5f5f;
+  --body-bg:#f5f5f5;
+  --text-gray:#555;
+  --green:#4caf50;
+  --blue:#2196f3;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--body-bg);font-family:Poppins,sans-serif;color:var(--text-gray);text-align:center;padding-bottom:20px;}
+nav{display:flex;justify-content:space-between;align-items:center;background:var(--nav-bg);padding:8px 12px;}
+nav .brand{display:flex;align-items:center;}
+nav .brand img{width:32px;height:32px;border-radius:50%;margin-right:8px;border:2px solid white;}
+nav .brand span{color:#fff;font-weight:600;font-size:16px;}
+.nav-buttons{display:flex;gap:10px;}
+.nav-buttons a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:16px;text-decoration:none;box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+.nav-buttons a.call{background:var(--green);} .nav-buttons a.fb{background:var(--blue);}
+.header-img{position:relative;width:100%;height:200px;background:url('img/head.jpg')center/cover no-repeat;}
+.profile-avatar{position:absolute;bottom:-45px;left:50%;transform:translateX(-50%);width:100px;height:100px;border-radius:50%;border:5px solid var(--body-bg);background:url('img/av.jpg')center/cover no-repeat;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.online-badge{position:absolute;bottom:5px;right:5px;width:18px;height:18px;border-radius:50%;background:#4caf50;border:2px solid var(--body-bg);}
+.welcome{margin-top:60px;text-transform:uppercase;font-weight:600;color:var(--text-gray);font-size:16px;}
+.button-container{margin:10px 5px;background:var(--nav-bg);border-radius:5px;display:flex;justify-content:space-between;padding:5px;}
+.button-container a{flex:1;margin:0 5px;background:white;color:var(--nav-bg);font-weight:400;text-decoration:none;text-align:center;padding:8px;border-radius:5px;transition:.3s;font-size:16px;}
+.button-container a i{margin-right:5px;}
+.button-container a:hover{background:var(--nav-bg);color:white;}
+.container{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;padding:10px;}
+.card{background:#fff;border-radius:5px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);display:flex;flex-direction:column;transition:transform .2s ease;}
+.card:hover{transform:translateY(-3px);}
+.card img{width:100%;height:auto;object-fit:cover;}
+.card-body{padding:8px;text-align:center;}
+.card-body h3{font-size:13px;color:#000;text-transform:uppercase;margin-bottom:4px;}
+.card-body p{font-size:16px;color:var(--text-gray);margin-bottom:6px;text-transform:uppercase;}
+.card-body button{background:var(--nav-bg);color:#fff;border:none;border-radius:3px;padding:12px 10px;font-size:14px;cursor:pointer;width:100%;text-transform:uppercase;font-weight:500;transition:.3s;}
+.card-body button:focus{outline:2px solid #ffcaca;}
+.actions{display:flex;justify-content:center;align-items:center;flex-direction:column;margin:15px 0 50px;gap:10px;}
+.actions button{background:var(--nav-bg);border:none;color:white;border-radius:5px;padding:10px 20px;font-weight:500;font-size:13px;cursor:pointer; width:90%;}
+.actions button:disabled{opacity:.6;cursor:default;}
+#topBtn{position:fixed;bottom:65px;right:15px;background:var(--nav-bg);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 3px 6px rgba(0,0,0,.2);cursor:pointer;transition:.3s;}
+#topBtn:hover{transform:scale(1.05);}
+footer{position:fixed;bottom:0;left:0;width:100%;background:var(--nav-bg);color:#fff;font-size:16px;text-align:center;padding:10px 0;font-weight:400;}
+/* Modal */
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:1000;}
+.modal-content{background:#fff;width:96%;max-width:400px;border-radius:10px;overflow-y:auto;max-height:90vh;position:relative;padding-bottom:20px;}
+.modal-content img{width:100%;height:200px;object-fit:cover;}
+.close-btn{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+	border:none;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ea5f5f;
+    z-index: 70000;
+    line-height: 1;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    transform: scale(1) translateZ(0); /* Prevent Safari stretch */
+    aspect-ratio: 1 / 1;              /* Keeps perfect circle ratio */
+    font-stretch: normal;}
+.modal-body{padding:5px;text-align:center;}
+.modal-body h2{text-transform:uppercase;color:var(--nav-bg);font-size:16px;margin:5px 0;}
+.modal-body p.desc{text-transform:uppercase;color:#777;font-size:14px;margin-bottom:5px;}
+.modal-body .price{font-weight:700;color:#000;margin:10px 0;}
+.size-options{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:10px 0;}
+.size-options button{display: flex;
+  align-items: center;       /* vertical center */
+  justify-content: center;   /* horizontal center */
+  width: 40px;               /* fixed width for perfect circle */
+  height: 40px;              /* fixed height for perfect circle */
+  border: 1px solid #ea5f5f;
+  color: #ea5f5f;
+  border-radius: 50%;        /* circle */
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  text-align: center;
+  flex-shrink: 0;}
+.size-options button.active{background:var(--nav-bg);color:#fff;}
+.size-options button:focus{outline:2px solid #ffcaca;}
+.qty{display:flex;justify-content:center;align-items:center;gap:10px;margin:10px 0;}
+.qty button{width:38px;height:38px;border-radius:50%;border:none;background:var(--nav-bg);color:#fff;font-size:18px;font-weight:bold;cursor:pointer;}
+.qty button:focus{outline:2px solid #ffcaca;}
+.customer-form{display:flex;flex-direction:column;gap:10px;padding:0 15px;}
+.customer-form input{padding:10px;border-radius:5px;border:1px solid #ccc;font-size:16px;width:100%;}
+.customer-form input:focus{outline:2px solid #ffcaca;border-color:var(--nav-bg);}
+.submit-btn{margin:15px auto 0;display:block;background:var(--nav-bg);color:#fff;border:none;border-radius:5px;padding:10px 20px;font-size:16px;font-weight:400;cursor:pointer; width:100%;}
+.submit-btn:focus{outline:2px solid #ffcaca;}
+@media(max-width:480px){.button-container a{font-size:13px;padding:9px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand"><img src="img/av.jpg"><span>FASHIONSTORY</span></div>
+  <div class="nav-buttons">
+    <a href="tel:+260770304374" class="call"><i class="fa fa-phone"></i></a>
+    <a href="https://facebook.com" class="fb"><i class="fa fa-facebook"></i></a>
+  </div>
+</nav>
+<div class="header-img">
+  <div class="profile-avatar"><div class="online-badge"></div></div>
+</div>
+<p class="welcome">Welcome to FashionStory</p>
+<div class="button-container">
+  <a href="gallery.html"><i class="fa fa-camera"></i>Gallery</a>
+  <a href="about-us.html"><i class="fa fa-user"></i>About Us</a>
+  <a href="https://api.whatsapp.com/send?text=Check out these amazing ladies wear! https://enweb-io.github.io/enweb/story/index.html" target="_blank"><i class="fa fa-whatsapp"></i> Share</a>
+</div>
+
+<div class="container" id="productContainer"></div>
+<div class="actions"><button id="loadMoreBtn">LOAD MORE PRODUCTS</button></div>
+<button id="topBtn"><i class="fa fa-arrow-up"></i></button>
+<footer> © <span id="footerYear"></span>FASHION STORY</footer>
+
+<!-- Modal -->
+<div class="modal" id="buyModal">
+  <div class="modal-content">
+    <button class="close-btn" id="closeModal">×</button>
+    <img id="modalImg" src="">
+    <div class="modal-body">
+      <h2 id="modalName"></h2>
+      <p class="desc" id="modalDesc"></p>
+      <div class="price">PRICE: ZMW <span id="modalPrice"></span></div>
+      <div class="size-options" id="sizeOptions"></div>
+      <div class="qty">
+        <button id="minusBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="plusBtn">+</button>
+      </div>
+      <form class="customer-form" id="custForm">
+        <input type="text" id="custName" placeholder="Full Name" required>
+        <input type="tel" id="custPhone" placeholder="Phone Number" required>
+        <input type="text" id="custAddress" placeholder="Address" required>
+        <button type="submit" class="submit-btn">SUBMIT VIA WHATSAPP</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+// Manual array of fabric products
+const products = [
+  {img:'img/1.jpg',name:'Classic Beauty',price:180,description:'Elegant fabric in soft light tones.',sizes:['M','L','XL']},
+  {img:'img/2.jpg',name:'Golden Hour',price:200,description:'Warm golden light fabric perfect for interiors.',sizes:['M','L','S']},
+  {img:'img/3.jpg',name:'Urban Mood',price:150,description:'Stylish city-themed fabric with gray backdrop.',sizes:['M','L','S']},
+  {img:'img/4.jpg',name:'Soft Focus',price:170,description:'Dreamy tone fabric ideal for bedrooms or studios.',sizes:['M','L']},
+  {img:'img/5.jpg',name:'Nature Spirit',price:210,description:'Lively fabric surrounded by natural gray.',sizes:['M','L','S','XL']},
+  {img:'img/6.jpg',name:'Monochrome Magic',price:160,description:'Black and white art-style fabric.',sizes:['M','L']},
+  {img:'img/7.jpg',name:'Vibrant Smile',price:190,description:'Bright and colorful fabric that stands out.',sizes:['M','L','S']},
+  {img:'img/8.jpg',name:'Dream Frame',price:230,description:'Professional studio finish fabric.',sizes:['M','L','S','XL']},
+  {img:'img/9.jpg',name:'Royal Essence',price:250,description:'High-end luxury styled fabric for hall decor.',sizes:['L','S','XL']},
+  {img:'img/10.jpg',name:'Artistic Blur',price:175,description:'Fine art blur technique fabric.',sizes:['M','L']},
+  {img:'img/11.jpg',name:'Candid Smile',price:165,description:'Natural candid fashion fabric.',sizes:['M','L']},
+  {img:'img/12.jpg',name:'Elegant Frame',price:220,description:'Perfect outfit for ladies.',sizes:['L','S','XL']},
+  {img:'img/13.jpg',name:'Sunset Muse',price:210,description:'Soft fabric for ladies.',sizes:['M','L','S']},
+  {img:'img/14.jpg',name:'Studio Muse',price:240,description:'Elegant fashion piece.',sizes:['L','S','XL']},
+  {img:'img/15.jpg',name:'Vintage Soul',price:185,description:'Old-school plus modern tone.',sizes:['M','L']},
+  {img:'img/16.jpg',name:'Color Burst',price:260,description:'Vividly colorful fabric for bold personalities.',sizes:['M','L','XL']}
+];
+
+const container=document.getElementById('productContainer');
+const loadMoreBtn=document.getElementById('loadMoreBtn');
+const topBtn=document.getElementById('topBtn');
+const footerYear=document.getElementById('footerYear');
+footerYear.textContent=new Date().getFullYear();
+
+let loaded=0;
+const firstLoad=8,perLoad=4;
+window.addEventListener('DOMContentLoaded',()=>loadProducts(firstLoad));
+
+function loadProducts(count){
+  const slice=products.slice(loaded,loaded+count);
+  slice.forEach(p=>{
+    const card=document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML=`
+      <img src="${p.img}" alt="${p.name}">
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <p>ZMW ${p.price}</p>
+        <button data-image="${p.img}" data-name="${p.name}" data-price="${p.price}" data-description="${p.description}" data-sizes="${p.sizes.join(',')}">ORDER PRODUCT</button>
+      </div>`;
+    container.appendChild(card);
+  });
+  loaded+=count;
+  if(loaded>=products.length){loadMoreBtn.textContent='No more products';loadMoreBtn.disabled=true;}
+}
+loadMoreBtn.addEventListener('click',()=>loadProducts(perLoad));
+
+window.onscroll=()=>{topBtn.style.display=document.documentElement.scrollTop>300?"flex":"none";};
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+/* Modal */
+const modal=document.getElementById('buyModal'),
+imgEl=document.getElementById('modalImg'),
+nameEl=document.getElementById('modalName'),
+descEl=document.getElementById('modalDesc'),
+priceEl=document.getElementById('modalPrice'),
+sizeOptions=document.getElementById('sizeOptions'),
+minusBtn=document.getElementById('minusBtn'),
+plusBtn=document.getElementById('plusBtn'),
+qtyEl=document.getElementById('quantity'),
+form=document.getElementById('custForm'),
+custName=document.getElementById('custName'),
+custPhone=document.getElementById('custPhone'),
+custAddress=document.getElementById('custAddress');
+
+let basePrice=0,quantity=1,selectedSize='M',imgLink='',prodName='';
+
+container.addEventListener('click',e=>{
+  if(e.target.tagName==='BUTTON'){
+    const d=e.target.dataset;
+    openModal(d);
+  }
+});
+
+function openModal(d){
+  modal.style.display='flex';
+  imgEl.src=d.image;
+  nameEl.textContent=d.name;
+  descEl.textContent=d.description;
+  priceEl.textContent=d.price;
+  basePrice=+d.price;
+  imgLink=d.image;
+  prodName=d.name;
+  quantity=1;qtyEl.textContent=1;
+  const sizes=d.sizes.split(',');
+  sizeOptions.innerHTML='';
+  sizes.forEach((s,i)=>{
+    const btn=document.createElement('button');
+    btn.textContent=s;
+    if(i===0){btn.classList.add('active');selectedSize=s;}
+    btn.onclick=()=>{document.querySelectorAll('#sizeOptions button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectedSize=s;};
+    sizeOptions.appendChild(btn);
+  });
+  const saved=JSON.parse(localStorage.getItem('customer')||'{}');
+  if(saved.name)custName.value=saved.name;
+  if(saved.phone)custPhone.value=saved.phone;
+  if(saved.address)custAddress.value=saved.address;
+}
+
+document.getElementById('closeModal').onclick=()=>modal.style.display='none';
+window.onclick=e=>{if(e.target===modal)modal.style.display='none';};
+
+minusBtn.onclick=()=>{if(quantity>1){quantity--;updatePrice();}};
+plusBtn.onclick=()=>{quantity++;updatePrice();};
+function updatePrice(){qtyEl.textContent=quantity;priceEl.textContent=(basePrice*quantity).toFixed(2);}
+
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=custName.value.trim(),phone=custPhone.value.trim(),address=custAddress.value.trim();
+  localStorage.setItem('customer',JSON.stringify({name,phone,address}));
+  const msg=`*NEW PRODUCT ORDER*\n\n*Product Details:*\nfabric: ${prodName}\nSize: ${selectedSize}\nQuantity: ${quantity}\nTotal: ZMW ${(basePrice*quantity).toFixed(2)}\nImage: ${location.origin}/${imgLink}\n\n*CUSTOMER DETAILS:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+  const encoded=encodeURIComponent(msg);
+  window.open(`https://wa.me/260770304374?text=${encoded}`,'_blank');
+});
+</script>
+</body>
+</html>

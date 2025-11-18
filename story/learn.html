@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop</title>
+<!--  Open Graph (for Facebook, WhatsApp, LinkedIn, etc.) -->
+<meta property="og:title" content="Application Design">
+<meta property="og:description" content="Intro to mobile  application design">
+<meta property="og:image" content="https://enweb-io.github.io/enweb/story/img/sss.jpg">
+<meta property="og:url" content="https://enweb-io.github.io/enweb/story/index.html">
+<meta property="og:type" content="website">
+
+<!--  Twitter Card (specifically for Twitter/X) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Application Design">
+<meta name="twitter:description" content="Intro to mobile  application design">
+<meta name="twitter:image" content="https://enweb-io.github.io/enweb/story/img/sss.jpg">
+<meta name="twitter:url" content="https://enweb-io.github.io/enweb/story/index.html">
+ <link rel="stylesheet" href="fonts/css/font-awesome.min.css"> 
+<style>
+/* Global */
+  body{
+    margin:0;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.3;
+	width:100%;
+	overflow-x:hidden;
+  }::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background: #3B5998;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.topnav-right {
+  float: right;
+}
+
+a {
+  color: #ea3830;
+  text-decoration: none;
+}
+.container {
+            position: relative; /* Position for overlay and buttons */
+            width: 100%; /* Full width */
+			height:230px;
+            overflow: hidden; /* Crop overflow */
+        }
+
+        .container img {
+            height:230px;
+            object-fit:cover; /* Maintain aspect ratio */
+        }
+
+        .gradient-overlay {
+            position: absolute; /* Position for gradient */
+            bottom: 0; /* Align to bottom */
+            left: 0; /* Align to left */
+            right: 0; /* Align to right */
+            height: 50%; /* Half height for gradient */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); /* Gradient effect */
+        }
+
+        .avatar-container {
+            position: absolute; /* Position for avatar */
+            bottom: 7%; /* Space from bottom */
+            left: 2%; /* Space from left */
+            display: flex; /* Use flexbox for inline alignment */
+            align-items: center; /* Center vertically */
+            color: white; /* Text color */
+        }
+
+       
+
+        .download-button {
+            position: absolute; /* Position for download button */
+            bottom: 9%; /* Space from bottom */
+            right: 2%; /* Space from right */
+            background-color: #3B5998; /* Button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            padding: 6px 18px; /* Button padding */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+			font-size:13px;
+        }
+
+        .top-buttons {
+            position: absolute; /* Position for top buttons */
+            top: 20px; /* Space from top */
+            right: 20px; /* Space from right */
+            display: flex; /* Use flexbox for buttons */
+			
+        }
+
+        .top-button {
+            width: 35px; /* Width for top buttons */
+            height: 35px; /* Height for top buttons */
+            border-radius: 50%; /* Make buttons round */
+            background-color: white; /* Button color */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            margin-left: 10px; /* Space between buttons */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+		
+		.share-btn {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}
+a{text-decoration:none;}
+
+.fb {
+  background-color: #1877f2;
+}
+
+.whatsapp {
+  background-color: #25d366;
+  position: relative;
+  overflow: hidden;
+}
+		
+		 .avatar {
+            width: 32px; /* Width for the avatar */
+            height: 32px; /* Height for the avatar */
+            border-radius: 50%; /* Make avatar round */
+            margin-right: 10px; /* Space between avatar and text */
+        }
+
+.profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+			padding:5px 10px;
+        }
+        .avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+        .text {
+            flex-grow: 1;
+			padding:0;
+			margin:0;
+        }
+		
+		.text p, .text h3 {
+           
+			padding:0;
+			margin:0;
+        }
+        .follow-button {
+            padding: 6px 15px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+			font-size:11px;
+        }
+
+.social{
+  border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			width:96%;
+			margin:5px auto;
+			padding:5px;
+			}
+.tutorial-section {
+  margin:12px;
+}
+.tutorial-section h2 {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 15px;
+      font-weight: bold;
+	  text-align:center;
+	  text-transform:uppercase;
+}
+.tutorial-section p {
+ text-align: justify;
+      margin-top: 10px;
+      font-size: 15px;
+	  line-height:1.8;
+}
+.tutorial-code {
+  background:#3B5998;
+  color:#d4d4d4;
+  padding:10px;
+  border-radius:5px;
+  overflow-x:auto;
+  font-family:monospace;
+  font-size:14px;
+  white-space:pre-wrap;
+}
+/* Syntax Highlight */
+.tutorial-code .tag {color:#569CD6;}
+.tutorial-code .attr {color:#9CDCFE;}
+.tutorial-code .value {color:#CE9178;}
+.tutorial-code .comment {color:#6A9955;font-style:italic;}
+.tutorial-code .text {color:#d4d4d4;}
+
+/* Navbar */
+.nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#ea5f5f;
+  padding:6px 10px;
+  border-radius:5px;
+  color:#fff;
+}
+.nav .brand {
+  display:flex;
+  align-items:center;
+  font-weight:bold;
+}
+.nav .brand img {width:32px;height:32px;border-radius:50%;margin-right:5px;}
+.nav .nav-buttons a {
+  width:36px; height:36px;
+  display:inline-flex; justify-content:center; align-items:center;
+  border-radius:50%;
+  color:#fff; text-decoration:none;
+  margin-left:4px; box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Hero + Avatar */
+.hero { position:relative; width:100%; height:200px; }
+.hero img { width:100%; height:100%; object-fit:cover; }
+.avatar {
+  position:absolute; bottom:-45px; left:50%;
+  transform:translateX(-50%);
+  width:90px; height:90px;
+  border-radius:50%;
+  border:5px solid #f5f5f5;
+  overflow:hidden;
+}
+.avatar img { width:100%; height:100%; object-fit:cover; }
+.online-badge {
+  position:absolute; bottom:3px; right:3px;
+  width:15px; height:15px;
+  background:#4caf50; border-radius:50%;
+  border:2px solid #f5f5f5;
+}
+
+/* Main Buttons */
+.button-container {
+  display:flex;
+  justify-content:space-between;
+  background:#ea5f5f;
+  border-radius:5px;
+  margin:8px 0;
+  padding:4px;
+}
+.button-container a {
+  flex:1; text-align:center;
+  margin:0 3px; padding:6px;
+  border-radius:50px;
+  text-decoration:none;
+  color:#ea5f5f; background:#fff;
+  font-size:16px;
+}
+
+/* Product Cards */
+.card {
+  background:#fff;
+  border-radius:5px;
+  text-align:center;
+  padding:4px;
+  margin-bottom:5px;
+}
+.card img { width:100%; height:120px; object-fit:cover; border-radius:3px; }
+.card h3 { font-size:14px; color:#000; margin:2px 0; text-transform:uppercase; }
+.card p { font-size:13px; color:gray; margin:0 0 4px 0; text-transform:uppercase; }
+.card button {
+  margin-top:2px;
+  padding:6px 8px;
+  background:#ea5f5f; color:#fff;
+  border:none; border-radius:3px;
+  font-size:14px;
+  cursor:pointer;
+}
+
+/* Load More */
+#loadMore {
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  background:#ea5f5f;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* Return to Top */
+#returnTop {
+  position: fixed;
+  bottom: 20px; right:20px;
+  width:40px; height:40px;
+  border:none; border-radius:50%;
+  background:#ea5f5f; color:#fff;
+  font-size:18px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
+  z-index:1000;
+}
+
+/* Buy Modal */
+#buyModal {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  display:flex; align-items:center; justify-content:center;
+  z-index:999; overflow-y:auto;
+}
+.modal-content {
+  background:#fff; padding:12px; border-radius:8px;
+  width:90%; max-width:400px; position:relative;
+}
+#closeModal {
+  position:absolute; top:8px; right:8px;
+  background:#ea5f5f; color:#fff;
+  border:none; border-radius:3px;
+  width:28px; height:28px;
+  cursor:pointer;
+}
+#modalImage { width:100%; height:auto; border-radius:5px; margin-bottom:8px; }
+#sizeButtons button {
+  border-radius:50px; margin:2px; padding:5px 10px;
+  border:2px solid #ea5f5f; background:#fff;
+  cursor:pointer; font-size:14px;
+}
+#sizeButtons button.active {background:#ea5f5f; color:#fff;}
+#quantitySelector {
+  display:flex; align-items:center; justify-content:center; margin:8px 0;
+}
+#quantitySelector button {
+  border:none; border-radius:50%;
+  width:30px; height:30px;
+  background:#ea5f5f; color:#fff; font-size:16px;
+  cursor:pointer;
+}
+#quantitySelector span { display:inline-block; width:36px; text-align:center; font-weight:bold; }
+#customerForm input {
+  width:100%; padding:8px; margin:4px 0; border-radius:5px;
+  border:1px solid #ccc; font-size:16px;
+}
+#customerForm button {
+  width:100%; padding:10px; background:#ea5f5f; color:#fff;
+  border:none; border-radius:5px; cursor:pointer; font-size:16px;
+}
+
+/* Footer */
+footer { text-align:center; padding:6px 0; background:#ea5f5f; color:#fff; font-size:16px; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="learn.html" class="active"></a>
+  </div>
+  
+ 
+  <a href="learn.html" ><i class="fa fa-user" aria-hidden="true"></i> LEARN</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+ <a href="index.html">
+  <i class="fa fa-play" aria-hidden="true"></i>
+</a>
+   
+	 <a href="learn.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+    
+  </div>
+  
+</div>
+  <div class="container">
+        <img src="img/sss.jpg" style="width:100%"> <!-- Replace with your image -->
+        <div class="gradient-overlay"></div>
+        
+
+        
+        <div class="top-buttons">
+		    
+             <a href ="photos.html"> <button class="top-button whatsapp"><i class="fa fa-camera"></i></button></a> <!-- First top button (Info Icon) -->
+			  <a href ="about.html"><button class="top-button fb"><i class="fa fa-user"></i></button></a> <!-- Second top button (Check Icon) -->
+           
+        </div>
+    </div>
+<section class="tutorial-section">
+<h2>Navbar Section</h2>
+<p>Hi guys hope we are doing fine. Welcome to mobile web application design using vanilla JavaScript. As opposed to Bootstrap Technology and jQuery applications Vanilla JavaScript uses native JavaScript without need for external dependencies. Throughout the use of the application user data is stored in JavaScript variables and used to compute application transactions like price calculation and form submit. Here is an example of a work flow.
+The user selects the size and quantity the product has a price therefore we will need three variables and one computation.
+var sizes ="XL";<br>
+var qty = 2;<br>
+var price = 500;<br>
+Total = price * qty;<br>
+JavaScript will hold these values until the user submits the form. Upon submission this data is passed to message string that will look like 
+string order = "I would like to order T-Shirt (XL) 500 x 2 = ZMW 1000";<br>
+We can then pass this message to an email or whatsapp message. <br>
+If you have seen whatsapp store apps this is how they function. <br>
+This gives us the ability to build faster applications without technologies like Android programming or advanced php programming.<br>
+The advantage is that no backend no security risks the client confirms that the order was sent or received.<br>
+Look at how we order Hungry lion we call, place order, rider drops the package and we pay them in cash or mobile money then enjoy the meal. This application skips the calling part because we just browser select what we need include address as well service provider will call to confirm anything. We don't need high power expensive apps like Shopify or Preston store. so in this tutorial I will focus  us more on the JavaScript I know that css and html are kid stuff. our main focus will be how to place values into variables from both the application and from user input them how to create an order message and how to select sizes quantity and how to compute total. After this you will be able to build your lightweight Whatsapp store. <br>
+How does JavaScript fetch data for each item. Each item has a buy button in the opening tag we include data attributes that are unique for each product example to set T-shirt name in a button we would write<br>
+data-name = "T-shirt" when modal opens this name is passed to the order details. </p>
+<p>We will start with our simple yet powerful nav. What makes it powerful is the ability to place a call from the application and also link to our facebook page. We have a brand new facebook page that is almost lifeless for now. Brand on left, call & Facebook buttons on right. Rounded buttons with shadows. This translates to an image avatar with text on the left and two round buttons on the right. We use href="tel:+260770304374" to create a call link which opens the number in the phone book ready to call. For a better experience run the tutorial on desktop chrome. On android you can also swipe to see the rest of the code.</p>
+<div class="tutorial-code">
+<pre><code>&lt;nav class="nav"&gt;
+  &lt;div class="brand"&gt;
+    &lt;img src="img/avatar.jpg"&gt;Photostory
+  &lt;/div&gt;
+  &lt;div class="nav-buttons"&gt;
+    &lt;a href="tel:+260770304374"&gt;&lt;i class="fa fa-phone"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;a href="https://facebook.com"&gt;&lt;i class="fa fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+</div>
+</section>
+
+<section class="tutorial-section">
+<h2>Navbar Section CSS</h2>
+<p>We use the following css for the navigation</p>
+<div class="tutorial-code">
+<pre><code>
+nav{display:flex;justify-content:space-between;align-items:center;background:var(--nav-bg);padding:8px 12px;}
+nav .brand{display:flex;align-items:center;}
+nav .brand img{width:32px;height:32px;border-radius:50%;margin-right:8px;border:2px solid white;}
+nav .brand span{color:#fff;font-weight:600;font-size:16px;}
+.nav-buttons{display:flex;gap:10px;}
+.nav-buttons a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:16px;text-decoration:none;box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+.nav-buttons a.call{background:var(--green);} .nav-buttons a.fb{background:var(--blue);}
+
+</code></pre>
+</div>
+
+</section>
+<!-- Hero + Avatar -->
+<section class="tutorial-section">
+<h2>Hero + Avatar</h2>
+<p>Full-width hero image, round avatar overlapping at bottom with online badge.</p>
+<div class="tutorial-code">
+<pre><code>&lt;div class="hero"&gt;
+  &lt;img src="img/hero.jpg"&gt;
+  &lt;div class="avatar"&gt;
+    &lt;img src="img/avatar.jpg"&gt;
+    &lt;div class="online-badge"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</section>
+
+<section class="tutorial-section">
+<h2>Hero + Avatar CSS</h2>
+<p>We use the following css for the Hero + Avatar</p>
+<div class="tutorial-code">
+<pre><code>
+.header-img{position:relative;width:100%;height:200px;background:url('img/head.jpg')center/cover no-repeat;}
+.profile-avatar{position:absolute;bottom:-45px;left:50%;transform:translateX(-50%);width:90px;height:90px;border-radius:50%;border:5px solid var(--body-bg);background:url('img/av.jpg')center/cover no-repeat;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.online-badge{position:absolute;bottom:5px;right:5px;width:18px;height:18px;border-radius:50%;background:#4caf50;border:2px solid var(--body-bg);}
+.welcome{margin-top:60px;text-transform:uppercase;font-weight:600;color:var(--text-gray);font-size:16px;}
+</code></pre>
+</div>
+
+</section>
+<!-- Buttons -->
+<section class="tutorial-section">
+<h2>Three Buttons</h2>
+<p>Three  buttons for Gallery, About Us, and Share.</p>
+<div class="tutorial-code">
+<pre><code>&lt;div class="button-container"&gt;
+  &lt;a href="#"&gt;&lt;i class="fa fa-camera"&gt;&lt;/i&gt; Gallery&lt;/a&gt;
+  &lt;a href="#"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt; About Us&lt;/a&gt;
+  &lt;a href="#"&gt;&lt;i class="fa fa-whatsapp"&gt;&lt;/i&gt; Share&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</section>
+
+<section class="tutorial-section">
+<h2>Three Buttons css</h2>
+<p>Three  buttons for Gallery, About Us, and Share css.</p>
+<div class="tutorial-code">
+<pre><code>
+.button-container{margin:10px 5px;background:var(--nav-bg);border-radius:5px;display:flex;justify-content:space-between;padding:5px;}
+.button-container a{flex:1;margin:0 5px;background:white;color:var(--nav-bg);font-weight:400;text-decoration:none;text-align:center;padding:8px;border-radius:5px;transition:.3s;font-size:16px;}
+.button-container a i{margin-right:5px;}
+.button-container a:hover{background:var(--nav-bg);color:white;}
+</code></pre>
+</div>
+
+</section>
+<!-- Product Card Example -->
+<section class="tutorial-section">
+<h2>Product Card Example</h2>
+<p>Card structure for one product with Buy button containing data attributes. This card will be inserted dynamically using Javascript but here will just show you how it will render once inserted. pay attention to the data attributes like data-name="fashion-outfit 1" </p>
+<div class="tutorial-code">
+<pre><code>&lt;div class="card"&gt;
+  &lt;img src="img/1.jpg"&gt;
+  &lt;h3&gt;fashion-outfit 1&lt;/h3&gt;
+  &lt;p&gt;ZMW 120&lt;/p&gt;
+  &lt;button data-image="img/1.jpg" data-name="fashion-outfit 1" data-price="120" data-description="Beautiful fashion-outfit 1" data-sizes="S,M,L"&gt;Buy&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</section>
+
+<section class="tutorial-section">
+Product Card css
+<p>Product card is simple just imgage price name and button</p>
+<div class="tutorial-code">
+<pre><code>
+
+.container{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;padding:10px;}
+.card{background:#fff;border-radius:5px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);display:flex;flex-direction:column;transition:transform .2s ease;}
+.card:hover{transform:translateY(-3px);}
+.card img{width:100%;height:auto;object-fit:cover;}
+.card-body{padding:8px;text-align:center;}
+.card-body h3{font-size:13px;color:#000;text-transform:uppercase;margin-bottom:4px;}
+.card-body p{font-size:16px;color:var(--text-gray);margin-bottom:6px;text-transform:uppercase;}
+.card-body button{background:var(--nav-bg);color:#fff;border:none;border-radius:3px;padding:12px 10px;font-size:14px;cursor:pointer;width:100%;text-transform:uppercase;font-weight:500;transition:.3s;}
+.card-body button:focus{outline:2px solid #ffcaca;}
+
+</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Return to Top Button html & css</h2>
+<p>Scrolls smoothly to the top when clicked will explain the logic later.</p>
+<div class="tutorial-code">
+<pre><code>
+ &lt;button id="topBtn"&gt; &lt;i class="fa fa-arrow-up"&gt; &lt;/i&gt;/button&gt; 
+ 
+ #topBtn{position:fixed;bottom:65px;right:15px;background:var(--nav-bg);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 3px 6px rgba(0,0,0,.2);cursor:pointer;transition:.3s;}
+#topBtn:hover{transform:scale(1.05);}
+</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Load More Button</h2>
+<p>Used to loadmore products so that the page does not choke or consume a lot of device power if hun</p>
+<div class="tutorial-code">
+<pre><code> &lt;div class="actions" &gt; &lt;button id="loadMoreBtn" &gt;LOAD MORE PRODUCTS &lt;/button &gt; &lt;/div &gt;
+});
+.actions{display:flex;justify-content:center;align-items:center;flex-direction:column;margin:15px 0 50px;gap:10px;}
+.actions button{background:var(--nav-bg);border:none;color:white;border-radius:5px;padding:10px 20px;font-weight:500;font-size:13px;cursor:pointer; width:90%;}
+.actions button:disabled{opacity:.6;cursor:default;}</code></pre>
+</div>
+<button id="returnTop"><i class="fa fa-arrow-up"></i></button>
+</section>
+
+<section class="tutorial-section">
+<h2>Return to Top Button js logic</h2>
+<p>Scrolls smoothly to the top when clicked. Here the secret is top 0 so we are just resetting the page to its original on load status which is always top 0 where 0 is the top margin or space.  window.scrollTo({ top: 0, behavior: 'smooth' }); smooth behavior ensure that we scroll smoothly back to the top. This is a must for all mobile applications.</p>
+<div class="tutorial-code">
+<pre><code>const returnBtn = document.getElementById('returnTop');
+returnBtn.addEventListener('click', () =&gt; {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});</code></pre>
+</div>
+<button id="returnTop"><i class="fa fa-arrow-up"></i></button>
+</section>
+
+<!-- Load More -->
+<section class="tutorial-section">
+<h2>Load More Button js logic</h2>
+<p>Append more products dynamically using JavaScript. Tracks how many products are displayed, disables when finished. let displayed = 8; initially display 8 products  and ('click', () defines a click event to add more products and this function products.slice(displayed, displayed+4); adds 4 more products each time we click the loadmore buton. This part displayed += nextItems.length; keeps track of how many products are displayed when this value matches the two number of products, this part loadBtn.textContent = 'No More Products'; tell the application that there is no more product to display and blurs out the button. This is how the loadmore button works. </p>
+<div class="tutorial-code">
+<pre><code>
+let displayed = 8;
+const products = [ /* array of product objects */ ];
+const loadBtn = document.getElementById('loadMore');
+loadBtn.addEventListener('click', () =&gt; {
+  const nextItems = products.slice(displayed, displayed+4);
+  nextItems.forEach(product =&gt; {
+    // teach: create card element and append
+  });
+  displayed += nextItems.length;
+  if(displayed &gt;= products.length){
+    loadBtn.textContent = 'No More Products';
+    loadBtn.disabled = true;
+  }
+});</code></pre>
+</div>
+
+</section>
+
+
+<!-- Buy Modal -->
+<section class="tutorial-section">
+<h2>Buy Modal</h2>
+<p>Let's create a buy modal with the following section close button to close modal, product image, name, price, size selector, quantity selector, customer details and submit order button.</p>
+<div class="tutorial-code">
+<pre><code>
+ &lt;div class="modal" id="buyModal" &gt;
+   &lt;div class="modal-content" &gt;
+     &lt;button class="close-btn" id="closeModal" &gt;× &lt;/button &gt;
+     &lt;img id="modalImg" src="" &gt;
+     &lt;div class="modal-body" &gt;
+       &lt;h2 id="modalName" &gt; &lt;/h2 &gt;
+       &lt;p class="desc" id="modalDesc" &gt; &lt;/p &gt;
+       &lt;div class="price" &gt;PRICE: ZMW  &lt;span id="modalPrice" &gt; &lt;/span &gt; &lt;/div &gt;
+       &lt;div class="size-options" id="sizeOptions" &gt; &lt;/div &gt;
+       &lt;div class="qty" &gt;
+         &lt;button id="minusBtn" &gt;− &lt;/button &gt;
+         &lt;span id="quantity" &gt;1 &lt;/span &gt;
+         &lt;button id="plusBtn" &gt;+ &lt;/button &gt;
+       &lt;/div &gt;
+       &lt;form class="customer-form" id="custForm" &gt;
+         &lt;input type="text" id="custName" placeholder="Full Name" required &gt;
+         &lt;input type="tel" id="custPhone" placeholder="Phone Number" required &gt;
+         &lt;input type="text" id="custAddress" placeholder="Address" required &gt;
+         &lt;button type="submit" class="submit-btn" &gt;SUBMIT VIA WHATSAPP &lt;/button &gt;
+       &lt;/form &gt;
+     &lt;/div &gt;
+   &lt;/div &gt;
+ &lt;/div &gt;</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Buy Modal css</h2>
+<p>HTML, CSS, and JS explained together. Includes image, close button, name, description, price, size selection, quantity, customer form, checkout via WhatsApp.</p>
+<div class="tutorial-code">
+<pre><code>
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:1000;}
+.modal-content{background:#fff;width:96%;max-width:400px;border-radius:10px;overflow-y:auto;max-height:90vh;position:relative;padding-bottom:20px;}
+.modal-content img{width:100%;height:200px;object-fit:cover;}
+.close-btn{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+	border:none;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ea5f5f;
+    z-index: 70000;
+    line-height: 1;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    transform: scale(1) translateZ(0); /* Prevent Safari stretch */
+    aspect-ratio: 1 / 1;              /* Keeps perfect circle ratio */
+    font-stretch: normal;}
+.modal-body{padding:5px;text-align:center;}
+.modal-body h2{text-transform:uppercase;color:var(--nav-bg);font-size:16px;margin:5px 0;}
+.modal-body p.desc{text-transform:uppercase;color:#777;font-size:14px;margin-bottom:5px;}
+.modal-body .price{font-weight:700;color:#000;margin:10px 0;}
+.size-options{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:10px 0;}
+.size-options button{display: flex;
+  align-items: center;       /* vertical center */
+  justify-content: center;   /* horizontal center */
+  width: 40px;               /* fixed width for perfect circle */
+  height: 40px;              /* fixed height for perfect circle */
+  border: 1px solid #ea5f5f;
+  color: #ea5f5f;
+  border-radius: 50%;        /* circle */
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  text-align: center;
+  flex-shrink: 0;}
+.size-options button.active{background:var(--nav-bg);color:#fff;}
+.size-options button:focus{outline:2px solid #ffcaca;}
+.qty{display:flex;justify-content:center;align-items:center;gap:10px;margin:10px 0;}
+.qty button{width:38px;height:38px;border-radius:50%;border:none;background:var(--nav-bg);color:#fff;font-size:18px;font-weight:bold;cursor:pointer;}
+.qty button:focus{outline:2px solid #ffcaca;}
+.customer-form{display:flex;flex-direction:column;gap:10px;padding:0 15px;}
+.customer-form input{padding:10px;border-radius:5px;border:1px solid #ccc;font-size:16px;width:100%;}
+.customer-form input:focus{outline:2px solid #ffcaca;border-color:var(--nav-bg);}
+.submit-btn{margin:15px auto 0;display:block;background:var(--nav-bg);color:#fff;border:none;border-radius:5px;padding:10px 20px;font-size:16px;font-weight:400;cursor:pointer; width:100%;}
+.submit-btn:focus{outline:2px solid #ffcaca;}
+@media(max-width:480px){.button-container a{font-size:13px;padding:9px;}}
+
+</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Footer html & css</h2>
+
+<div class="tutorial-code">
+<pre><code>
+ &lt;footer &gt; &lt;span id="footerYear" &gt; &lt;/span &gt; © FASHION STORY &lt;/footer &gt;
+ footer{position:fixed;bottom:0;left:0;width:100%;background:var(--nav-bg);color:#fff;font-size:16px;text-align:center;padding:10px 0;font-weight:400;}</code></pre>
+</div>
+
+</section>
+
+<h2>Application Vanilla Logic</h2>
+<section class="tutorial-section">
+<h2>Create product cards</h2>
+<p>Our cards will be created in the script using an array of products.  This array allows the JavaScript to:
+Render products dynamically and vanilla JS uses products.forEach(...) to generate product cards automatically sing the following script</p>
+<div class="tutorial-code">
+<pre><code>const products = [
+  {img:'img/1.jpg',name:'Classic Beauty',price:180,description:'Elegant fabric in soft light tones.',sizes:['M','L','XL']},
+  {img:'img/2.jpg',name:'Golden Hour',price:200,description:'Warm golden light fabric perfect for interiors.',sizes:['M','L','S']},
+  {img:'img/3.jpg',name:'Urban Mood',price:150,description:'Stylish city-themed fabric with gray backdrop.',sizes:['M','L','S']}];</code></pre>
+</div>
+
+</section>
+
+
+<section class="tutorial-section">
+<h2>Select all elements</h2>
+<p>Any element that is using Javasript has to be selected before the script runs using get element by id, that is why html elements have ids assigned to them so js can uniquely idenity them, we are giving JavaScript "handles" to control parts of the page: 
+
+container → where cards will be displayed, 
+
+loadMoreBtn → the button that loads more, 
+
+topBtn → the return-to-top button, 
+
+footerYear → the dynamic footer,  we will select using the following script</p>
+<div class="tutorial-code">
+<pre><code>const container=document.getElementById('productContainer');
+const loadMoreBtn=document.getElementById('loadMoreBtn');
+const topBtn=document.getElementById('topBtn');
+const footerYear=document.getElementById('footerYear');
+footerYear.textContent=new Date().getFullYear();</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Create a card dynamically</h2>
+<p>Vanilla js can create html elements and inject then in the body of the page that is why we need an empty products container where we will display what js creates by fetching data from the product array. This line   const card=document.createElement('div'); creates the card and  &it;p &gt;ZMW ${p.price} &it;/p &gt; fetches product details from the array example ${p.price} fetches the price of each card. We already talked about load 8 and 4 using const firstLoad=8,perLoad=4; as well as return to top and load more.  slice.forEach( loops through the array creating a card for each array item then injects then into this container in the body:  &lt;div class="container" id="productContainer" &gt; &lt;/div &gt;</p>
+<div class="tutorial-code">
+<pre><code>
+let loaded=0;
+const firstLoad=8,perLoad=4;
+window.addEventListener('DOMContentLoaded',()= &gt;loadProducts(firstLoad));
+
+function loadProducts(count){
+  const slice=products.slice(loaded,loaded+count);
+  slice.forEach(p= &gt;{
+    const card=document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML=`
+       &it;img src="${p.img}" alt="${p.name}" &gt;
+       &it;div class="card-body" &gt;
+         &it;h3 &gt;${p.name} &it;/h3 &gt;
+         &it;p &gt;ZMW ${p.price} &it;/p &gt;
+         &it;button data-image="${p.img}" data-name="${p.name}" data-price="${p.price}" data-description="${p.description}" data-sizes="${p.sizes.join(',')}" &gt;ORDER PRODUCT &it;/button &gt;
+       &it;/div &gt;`;
+    container.appendChild(card);
+  });
+  loaded+=count;
+  if(loaded &gt;=products.length){loadMoreBtn.textContent='No more products';loadMoreBtn.disabled=true;}
+}
+loadMoreBtn.addEventListener('click',()= &gt;loadProducts(perLoad));
+
+window.onscroll=()= &gt;{topBtn.style.display=document.documentElement.scrollTop &gt;300?"flex":"none";};
+topBtn.onclick=()= &gt;window.scrollTo({top:0,behavior:'smooth'});
+</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Select all modal elements</h2>
+<p>The buy modal has a lot of elements and all of them have a javascript handle so we need to select them all by their unique id</p>
+<div class="tutorial-code">
+<pre><code>
+ const modal=document.getElementById('buyModal'),
+imgEl=document.getElementById('modalImg'),
+nameEl=document.getElementById('modalName'),
+descEl=document.getElementById('modalDesc'),
+priceEl=document.getElementById('modalPrice'),
+sizeOptions=document.getElementById('sizeOptions'),
+minusBtn=document.getElementById('minusBtn'),
+plusBtn=document.getElementById('plusBtn'),
+qtyEl=document.getElementById('quantity'),
+form=document.getElementById('custForm'),
+custName=document.getElementById('custName'),
+custPhone=document.getElementById('custPhone'),
+custAddress=document.getElementById('custAddress');</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Set default values</h2>
+<p>Quantity is set at 1 size is set as M and price at 0 this 0 will be replaced by the price in the array so js needs an initial figure before appending the actual price. Event listener: container.addEventListener targets the button that is why we have e.target.tagName==='BUTTON' which will allow form submit using default values instead of asking user to select size or quanity. That is the purpose of this script.  openModal(d); d here is default in short open modal with defaul values so that if user does not select size M will be submitted as size and 1 as quantity.</p>
+<div class="tutorial-code">
+<pre><code>
+ let basePrice=0,quantity=1,selectedSize='M',imgLink='',prodName='';
+
+container.addEventListener('click',e=>{
+  if(e.target.tagName==='BUTTON'){
+    const d=e.target.dataset;
+    openModal(d);
+  }
+});</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Open modal</h2>
+<p>Like I said the modal is just a duplicate of the product card with extra elemets like sizse quantity and customer details and submit button. Here the process is a bit complicated but lets look at it this way using the price, if you look at the array we have price price:180, when the creation of the card happens price is fetched and put in ${p.price} this is passed to the button as data-name="${p.name}" which becomes data-name="180" and textContent is used to display data attributes in the modal therefore price will display with   priceEl.textContent=d.price; That is how we fetch data from array to button and from button into modal.Sizes  sizes.forEach then uses a loop to create size circles. We save data in storage so that customer does not enter their details each time they want to order using  const saved=JSON.parse(localStorage.getItem('customer'). So when modal opens customer name phone and address will be inserted already. modal.style.display='none'; close the modal by setting it to display none. Finally: if(quantity>1) update the price example 2 x 180 =360. </p>
+<div class="tutorial-code">
+<pre><code>const products = [
+function openModal(d){
+  modal.style.display='flex';
+  imgEl.src=d.image;
+  nameEl.textContent=d.name;
+  descEl.textContent=d.description;
+  priceEl.textContent=d.price;
+  basePrice=+d.price;
+  imgLink=d.image;
+  prodName=d.name;
+  quantity=1;qtyEl.textContent=1;
+  const sizes=d.sizes.split(',');
+  sizeOptions.innerHTML='';
+  sizes.forEach((s,i)=>{
+    const btn=document.createElement('button');
+    btn.textContent=s;
+    if(i===0){btn.classList.add('active');selectedSize=s;}
+    btn.onclick=()=>{document.querySelectorAll('#sizeOptions button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectedSize=s;};
+    sizeOptions.appendChild(btn);
+  });
+  const saved=JSON.parse(localStorage.getItem('customer')||'{}');
+  if(saved.name)custName.value=saved.name;
+  if(saved.phone)custPhone.value=saved.phone;
+  if(saved.address)custAddress.value=saved.address;
+}
+
+document.getElementById('closeModal').onclick=()=>modal.style.display='none';
+window.onclick=e=>{if(e.target===modal)modal.style.display='none';};
+
+minusBtn.onclick=()=>{if(quantity>1){quantity--;updatePrice();}};
+plusBtn.onclick=()=>{quantity++;updatePrice();};
+function updatePrice(){qtyEl.textContent=quantity;priceEl.textContent=(basePrice*quantity).toFixed(2);}</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Submit order</h2>
+<p>To submit the order we collect all settings from the modal and pass then to a message that is encoded into a whatsapp message. The part at the start converts the customer details to string,  const name=custName.value.trim(),phone=custPhone.value.trim(),address=custAddress.value.trim();
+  localStorage.setItem('customer',JSON.stringify({name,phone,address})); only string can be passed to a message. Then we use variables to identify unique product details like ${prodName} this will fetch the product name we do the same for the rest.  After customer details are converted to string and variable values are fetched we encode message using,  const encoded=encodeURIComponent(msg);
+  window.open(`https://wa.me/260770304374?text=${encoded}`,'_blank');</p>
+<div class="tutorial-code">
+<pre><code>const products = [
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=custName.value.trim(),phone=custPhone.value.trim(),address=custAddress.value.trim();
+  localStorage.setItem('customer',JSON.stringify({name,phone,address}));
+  const msg=`*NEW PRODUCT ORDER*\n\n*Product Details:*\nfabric: ${prodName}\nSize: ${selectedSize}\nQuantity: ${quantity}\nTotal: ZMW ${(basePrice*quantity).toFixed(2)}\nImage: ${location.origin}/${imgLink}\n\n*CUSTOMER DETAILS:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+  const encoded=encodeURIComponent(msg);
+  window.open(`https://wa.me/260770304374?text=${encoded}`,'_blank');
+});</code></pre>
+</div>
+
+</section>
+<h2>Submit order</h2>
+<p>This is how we can build simple apps that function out of whatsapp but uses whatsapp to fetch and submit orders. If you want you can create libraries so that you can switch between applications for example we can use this to sell shoes so in the script we just change sizes to 39,40,41, e.t.c. </p>
+
+<section class="tutorial-section">
+<h2>og image</h2>
+<p>This is what they never taught us in class, when you share something with whatsapp or facebook a small image preview is generated. This image is called og image. we set it up in the meta tag we need the title, website url, description and link to the og image. Og is short for open graph image, We use the following code.</p>
+<div class="tutorial-code">
+<pre><code>
+&lt;meta property="og:title" content="Application Design"&gt;
+&lt;meta property="og:description" content="Trending fabric designs  for ladies wear."&gt;
+&lt;meta property="og:image" content="https://enweb-io.github.io/enweb/story/img/head.jpg"&gt;
+&lt;meta property="og:url" content="https://enweb-io.github.io/enweb/story/index.html"&gt;
+&lt;meta property="og:type" content="website"&gt;
+
+&lt;!--  Twitter Card (specifically for Twitter/X) --&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:title" content="Application Design"&gt;
+&lt;meta name="twitter:description" content="Trending fabric designs  for ladies wear."&gt;
+&lt;meta name="twitter:image" content="https://enweb-io.github.io/enweb/story/img/head.jpg"&gt;
+&lt;meta name="twitter:url" content="https://enweb-io.github.io/enweb/story/index.html"&gt;</code></pre>
+</div>
+
+</section>
+
+<section class="tutorial-section">
+<h2>Final Code</h2>
+<p>Let's put everything in one full file. You might want to view on desktop for a better view. This code is self contained no external css or js apart from the font awesome link to render forms.</p>
+<div class="tutorial-code">
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;
+  &lt;title&gt;Shop&lt;/title&gt;
+&lt;!--  Open Graph (for Facebook, WhatsApp, LinkedIn, etc.) --&gt;
+&lt;meta property="og:title" content="Application Design"&gt;
+&lt;meta property="og:description" content="Trending fabric designs  for ladies wear."&gt;
+&lt;meta property="og:image" content="https://enweb-io.github.io/enweb/story/img/head.jpg"&gt;
+&lt;meta property="og:url" content="https://enweb-io.github.io/enweb/story/index.html"&gt;
+&lt;meta property="og:type" content="website"&gt;
+
+&lt;!--  Twitter Card (specifically for Twitter/X) --&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:title" content="Application Design"&gt;
+&lt;meta name="twitter:description" content="Trending fabric designs  for ladies wear."&gt;
+&lt;meta name="twitter:image" content="https://enweb-io.github.io/enweb/story/img/head.jpg"&gt;
+&lt;meta name="twitter:url" content="https://enweb-io.github.io/enweb/story/index.html"&gt;
+ &lt;link rel="stylesheet" href="fonts/css/font-awesome.min.css"&gt; 
+
+&lt;style&gt;
+:root {
+  --nav-bg:#ea5f5f;
+  --body-bg:#f5f5f5;
+  --text-gray:#555;
+  --green:#4caf50;
+  --blue:#2196f3;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+* {
+  border-sizing: border-box; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2555; 
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--body-bg);font-family:Poppins,sans-serif;color:var(--text-gray);text-align:center;padding-bottom:20px;}
+nav{display:flex;justify-content:space-between;align-items:center;background:var(--nav-bg);padding:8px 12px;}
+nav .brand{display:flex;align-items:center;}
+nav .brand img{width:32px;height:32px;border-radius:50%;margin-right:8px;border:2px solid white;}
+nav .brand span{color:#fff;font-weight:600;font-size:16px;}
+.nav-buttons{display:flex;gap:10px;}
+.nav-buttons a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:16px;text-decoration:none;box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+.nav-buttons a.call{background:var(--green);} .nav-buttons a.fb{background:var(--blue);}
+.header-img{position:relative;width:100%;height:200px;background:url('img/head.jpg')center/cover no-repeat;}
+.profile-avatar{position:absolute;bottom:-45px;left:50%;transform:translateX(-50%);width:100px;height:100px;border-radius:50%;border:5px solid var(--body-bg);background:url('img/av.jpg')center/cover no-repeat;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.online-badge{position:absolute;bottom:5px;right:5px;width:18px;height:18px;border-radius:50%;background:#4caf50;border:2px solid var(--body-bg);}
+.welcome{margin-top:60px;text-transform:uppercase;font-weight:600;color:var(--text-gray);font-size:16px;}
+.button-container{margin:10px 5px;background:var(--nav-bg);border-radius:5px;display:flex;justify-content:space-between;padding:5px;}
+.button-container a{flex:1;margin:0 5px;background:white;color:var(--nav-bg);font-weight:400;text-decoration:none;text-align:center;padding:8px;border-radius:5px;transition:.3s;font-size:16px;}
+.button-container a i{margin-right:5px;}
+.button-container a:hover{background:var(--nav-bg);color:white;}
+.container{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;padding:10px;}
+.card{background:#fff;border-radius:5px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);display:flex;flex-direction:column;transition:transform .2s ease;}
+.card:hover{transform:translateY(-3px);}
+.card img{width:100%;height:auto;object-fit:cover;}
+.card-body{padding:8px;text-align:center;}
+.card-body h3{font-size:13px;color:#000;text-transform:uppercase;margin-bottom:4px;}
+.card-body p{font-size:16px;color:var(--text-gray);margin-bottom:6px;text-transform:uppercase;}
+.card-body button{background:var(--nav-bg);color:#fff;border:none;border-radius:3px;padding:12px 10px;font-size:14px;cursor:pointer;width:100%;text-transform:uppercase;font-weight:500;transition:.3s;}
+.card-body button:focus{outline:2px solid #ffcaca;}
+.actions{display:flex;justify-content:center;align-items:center;flex-direction:column;margin:15px 0 50px;gap:10px;}
+.actions button{background:var(--nav-bg);border:none;color:white;border-radius:5px;padding:10px 20px;font-weight:500;font-size:13px;cursor:pointer; width:90%;}
+.actions button:disabled{opacity:.6;cursor:default;}
+#topBtn{position:fixed;bottom:65px;right:15px;background:var(--nav-bg);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 3px 6px rgba(0,0,0,.2);cursor:pointer;transition:.3s;}
+#topBtn:hover{transform:scale(1.05);}
+footer{position:fixed;bottom:0;left:0;width:100%;background:var(--nav-bg);color:#fff;font-size:16px;text-align:center;padding:10px 0;font-weight:400;}
+/* Modal */
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:1000;}
+.modal-content{background:#fff;width:96%;max-width:400px;border-radius:10px;overflow-y:auto;max-height:90vh;position:relative;padding-bottom:20px;}
+.modal-content img{width:100%;height:200px;object-fit:cover;}
+.close-btn{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+	border:none;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ea5f5f;
+    z-index: 70000;
+    line-height: 1;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    transform: scale(1) translateZ(0); /* Prevent Safari stretch */
+    aspect-ratio: 1 / 1;              /* Keeps perfect circle ratio */
+    font-stretch: normal;}
+.modal-body{padding:5px;text-align:center;}
+.modal-body h2{text-transform:uppercase;color:var(--nav-bg);font-size:16px;margin:5px 0;}
+.modal-body p.desc{text-transform:uppercase;color:#777;font-size:14px;margin-bottom:5px;}
+.modal-body .price{font-weight:700;color:#000;margin:10px 0;}
+.size-options{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:10px 0;}
+.size-options button{display: flex;
+  align-items: center;       /* vertical center */
+  justify-content: center;   /* horizontal center */
+  width: 40px;               /* fixed width for perfect circle */
+  height: 40px;              /* fixed height for perfect circle */
+  border: 1px solid #ea5f5f;
+  color: #ea5f5f;
+  border-radius: 50%;        /* circle */
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  text-align: center;
+  flex-shrink: 0;}
+.size-options button.active{background:var(--nav-bg);color:#fff;}
+.size-options button:focus{outline:2px solid #ffcaca;}
+.qty{display:flex;justify-content:center;align-items:center;gap:10px;margin:10px 0;}
+.qty button{width:38px;height:38px;border-radius:50%;border:none;background:var(--nav-bg);color:#fff;font-size:18px;font-weight:bold;cursor:pointer;}
+.qty button:focus{outline:2px solid #ffcaca;}
+.customer-form{display:flex;flex-direction:column;gap:10px;padding:0 15px;}
+.customer-form input{padding:10px;border-radius:5px;border:1px solid #ccc;font-size:16px;width:100%;}
+.customer-form input:focus{outline:2px solid #ffcaca;border-color:var(--nav-bg);}
+.submit-btn{margin:15px auto 0;display:block;background:var(--nav-bg);color:#fff;border:none;border-radius:5px;padding:10px 20px;font-size:16px;font-weight:400;cursor:pointer; width:100%;}
+.submit-btn:focus{outline:2px solid #ffcaca;}
+@media(max-width:480px){.button-container a{font-size:13px;padding:9px;}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;nav&gt;
+  &lt;div class="brand"&gt;&lt;img src="img/av.jpg"&gt;&lt;span&gt;FashionStory&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="nav-buttons"&gt;
+    &lt;a href="tel:+260770304374" class="call"&gt;&lt;i class="fa fa-phone"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;a href="https://facebook.com" class="fb"&gt;&lt;i class="fa fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+&lt;div class="header-img"&gt;
+  &lt;div class="profile-avatar"&gt;&lt;div class="online-badge"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class="welcome"&gt;Welcome to FashionStory&lt;/p&gt;
+&lt;div class="button-container"&gt;
+  &lt;a href="gallery.html"&gt;&lt;i class="fa fa-camera"&gt;&lt;/i&gt;Gallery&lt;/a&gt;
+  &lt;a href="about-us.html"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;About Us&lt;/a&gt;
+  &lt;a href="https://api.whatsapp.com/send?text=Check out these amazing ladies wear! https://enweb-io.github.io/enweb/story/index.html" target="_blank"&gt;&lt;i class="fa fa-whatsapp"&gt;&lt;/i&gt; Share&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="container" id="productContainer"&gt;&lt;/div&gt;
+&lt;div class="actions"&gt;&lt;button id="loadMoreBtn"&gt;LOAD MORE PRODUCTS&lt;/button&gt;&lt;/div&gt;
+&lt;button id="topBtn"&gt;&lt;i class="fa fa-arrow-up"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;footer&gt;&lt;span id="footerYear"&gt;&lt;/span&gt; © FASHION STORY&lt;/footer&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class="modal" id="buyModal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;button class="close-btn" id="closeModal"&gt;×&lt;/button&gt;
+    &lt;img id="modalImg" src=""&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;h2 id="modalName"&gt;&lt;/h2&gt;
+      &lt;p class="desc" id="modalDesc"&gt;&lt;/p&gt;
+      &lt;div class="price"&gt;PRICE: ZMW &lt;span id="modalPrice"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="size-options" id="sizeOptions"&gt;&lt;/div&gt;
+      &lt;div class="qty"&gt;
+        &lt;button id="minusBtn"&gt;−&lt;/button&gt;
+        &lt;span id="quantity"&gt;1&lt;/span&gt;
+        &lt;button id="plusBtn"&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;form class="customer-form" id="custForm"&gt;
+        &lt;input type="text" id="custName" placeholder="Full Name" required&gt;
+        &lt;input type="tel" id="custPhone" placeholder="Phone Number" required&gt;
+        &lt;input type="text" id="custAddress" placeholder="Address" required&gt;
+        &lt;button type="submit" class="submit-btn"&gt;SUBMIT VIA WHATSAPP&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Manual array of fabric products
+const products = [
+  {img:'img/1.jpg',name:'Classic Beauty',price:180,description:'Elegant fabric in soft light tones.',sizes:['M','L','XL']},
+  {img:'img/2.jpg',name:'Golden Hour',price:200,description:'Warm golden light fabric perfect for interiors.',sizes:['M','L','S']},
+  {img:'img/3.jpg',name:'Urban Mood',price:150,description:'Stylish city-themed fabric with gray backdrop.',sizes:['M','L','S']},
+  {img:'img/4.jpg',name:'Soft Focus',price:170,description:'Dreamy tone fabric ideal for bedrooms or studios.',sizes:['M','L']},
+  {img:'img/5.jpg',name:'Nature Spirit',price:210,description:'Lively fabric surrounded by natural gray.',sizes:['M','L','S','XL']},
+  {img:'img/6.jpg',name:'Monochrome Magic',price:160,description:'Black and white art-style fabric.',sizes:['M','L']},
+  {img:'img/7.jpg',name:'Vibrant Smile',price:190,description:'Bright and colorful fabric that stands out.',sizes:['M','L','S']},
+  {img:'img/8.jpg',name:'Dream Frame',price:230,description:'Professional studio finish fabric.',sizes:['M','L','S','XL']},
+  {img:'img/9.jpg',name:'Royal Essence',price:250,description:'High-end luxury styled fabric for hall decor.',sizes:['L','S','XL']},
+  {img:'img/10.jpg',name:'Artistic Blur',price:175,description:'Fine art blur technique fabric.',sizes:['M','L']},
+  {img:'img/11.jpg',name:'Candid Smile',price:165,description:'Natural candid fashion fabric.',sizes:['M','L']},
+  {img:'img/12.jpg',name:'Elegant Frame',price:220,description:'Perfect outfit for ladies.',sizes:['L','S','XL']},
+  {img:'img/13.jpg',name:'Sunset Muse',price:210,description:'Soft fabric for ladies.',sizes:['M','L','S']},
+  {img:'img/14.jpg',name:'Studio Muse',price:240,description:'Elegant fashion piece.',sizes:['L','S','XL']},
+  {img:'img/15.jpg',name:'Vintage Soul',price:185,description:'Old-school plus modern tone.',sizes:['M','L']},
+  {img:'img/16.jpg',name:'Color Burst',price:260,description:'Vividly colorful fabric for bold personalities.',sizes:['M','L','XL']}
+];
+
+const container=document.getElementById('productContainer');
+const loadMoreBtn=document.getElementById('loadMoreBtn');
+const topBtn=document.getElementById('topBtn');
+const footerYear=document.getElementById('footerYear');
+footerYear.textContent=new Date().getFullYear();
+
+let loaded=0;
+const firstLoad=8,perLoad=4;
+window.addEventListener('DOMContentLoaded',()=&gt;loadProducts(firstLoad));
+
+function loadProducts(count){
+  const slice=products.slice(loaded,loaded+count);
+  slice.forEach(p=&gt;{
+    const card=document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML=`
+      &lt;img src="${p.img}" alt="${p.name}"&gt;
+      &lt;div class="card-body"&gt;
+        &lt;h3&gt;${p.name}&lt;/h3&gt;
+        &lt;p&gt;ZMW ${p.price}&lt;/p&gt;
+        &lt;button data-image="${p.img}" data-name="${p.name}" data-price="${p.price}" data-description="${p.description}" data-sizes="${p.sizes.join(',')}"&gt;ORDER PRODUCT&lt;/button&gt;
+      &lt;/div&gt;`;
+    container.appendChild(card);
+  });
+  loaded+=count;
+  if(loaded&gt;=products.length){loadMoreBtn.textContent='No more products';loadMoreBtn.disabled=true;}
+}
+loadMoreBtn.addEventListener('click',()=&gt;loadProducts(perLoad));
+
+window.onscroll=()=&gt;{topBtn.style.display=document.documentElement.scrollTop&gt;300?"flex":"none";};
+topBtn.onclick=()=&gt;window.scrollTo({top:0,behavior:'smooth'});
+
+/* Modal */
+const modal=document.getElementById('buyModal'),
+imgEl=document.getElementById('modalImg'),
+nameEl=document.getElementById('modalName'),
+descEl=document.getElementById('modalDesc'),
+priceEl=document.getElementById('modalPrice'),
+sizeOptions=document.getElementById('sizeOptions'),
+minusBtn=document.getElementById('minusBtn'),
+plusBtn=document.getElementById('plusBtn'),
+qtyEl=document.getElementById('quantity'),
+form=document.getElementById('custForm'),
+custName=document.getElementById('custName'),
+custPhone=document.getElementById('custPhone'),
+custAddress=document.getElementById('custAddress');
+
+let basePrice=0,quantity=1,selectedSize='M',imgLink='',prodName='';
+
+container.addEventListener('click',e=&gt;{
+  if(e.target.tagName==='BUTTON'){
+    const d=e.target.dataset;
+    openModal(d);
+  }
+});
+
+function openModal(d){
+  modal.style.display='flex';
+  imgEl.src=d.image;
+  nameEl.textContent=d.name;
+  descEl.textContent=d.description;
+  priceEl.textContent=d.price;
+  basePrice=+d.price;
+  imgLink=d.image;
+  prodName=d.name;
+  quantity=1;qtyEl.textContent=1;
+  const sizes=d.sizes.split(',');
+  sizeOptions.innerHTML='';
+  sizes.forEach((s,i)=&gt;{
+    const btn=document.createElement('button');
+    btn.textContent=s;
+    if(i===0){btn.classList.add('active');selectedSize=s;}
+    btn.onclick=()=&gt;{document.querySelectorAll('#sizeOptions button').forEach(b=&gt;b.classList.remove('active'));btn.classList.add('active');selectedSize=s;};
+    sizeOptions.appendChild(btn);
+  });
+  const saved=JSON.parse(localStorage.getItem('customer')||'{}');
+  if(saved.name)custName.value=saved.name;
+  if(saved.phone)custPhone.value=saved.phone;
+  if(saved.address)custAddress.value=saved.address;
+}
+
+document.getElementById('closeModal').onclick=()=&gt;modal.style.display='none';
+window.onclick=e=&gt;{if(e.target===modal)modal.style.display='none';};
+
+minusBtn.onclick=()=&gt;{if(quantity&gt;1){quantity--;updatePrice();}};
+plusBtn.onclick=()=&gt;{quantity++;updatePrice();};
+function updatePrice(){qtyEl.textContent=quantity;priceEl.textContent=(basePrice*quantity).toFixed(2);}
+
+form.addEventListener('submit',e=&gt;{
+  e.preventDefault();
+  const name=custName.value.trim(),phone=custPhone.value.trim(),address=custAddress.value.trim();
+  localStorage.setItem('customer',JSON.stringify({name,phone,address}));
+  const msg=`*NEW PRODUCT ORDER*\n\n*Product Details:*\nfabric: ${prodName}\nSize: ${selectedSize}\nQuantity: ${quantity}\nTotal: ZMW ${(basePrice*quantity).toFixed(2)}\nImage: ${location.origin}/${imgLink}\n\n*CUSTOMER DETAILS:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+  const encoded=encodeURIComponent(msg);
+  window.open(`https://wa.me/260770304374?text=${encoded}`,'_blank');
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+;</code></pre>
+</div>
+
+</section>
+
+<footer>2025 © Photostory</footer>
+
+</body>
+</html>
