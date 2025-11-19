@@ -409,7 +409,7 @@ a{text-decoration:none;}
 footer { text-align:center; padding:6px 0; background:#ea5f5f; color:#fff; font-size:16px; }
 </style>
 </head>
-<body>
+<body >
 
 <div class="topnav">
 
@@ -446,9 +446,9 @@ footer { text-align:center; padding:6px 0; background:#ea5f5f; color:#fff; font-
         </div>
     </div>
 <section class="tutorial-section">
-<h2>Navbar Section</h2>
-<p>Hi guys hope we are doing fine. Welcome to mobile web application design using vanilla JavaScript. As opposed to Bootstrap Technology and jQuery applications Vanilla JavaScript uses native JavaScript without need for external dependencies. Throughout the use of the application user data is stored in JavaScript variables and used to compute application transactions like price calculation and form submit. Here is an example of a work flow.
-The user selects the size and quantity the product has a price therefore we will need three variables and one computation.
+<h2>INTRODUCTION TO APP DESIGN</h2>
+<p>Hi guys hope we are all doing fine. Welcome to mobile web application design using vanilla JavaScript. As opposed to Bootstrap Technology and jQuery applications Vanilla JavaScript uses native JavaScript without need for external dependencies. Throughout the use of the application user data is stored in JavaScript variables and used to compute application transactions like price calculation and form submit. Here is an example of a work flow.
+The user selects the size and quantity the product has a price therefore we will need three variables and one computation.<br>
 var sizes ="XL";<br>
 var qty = 2;<br>
 var price = 500;<br>
@@ -463,6 +463,7 @@ Look at how we order Hungry lion we call, place order, rider drops the package a
 How does JavaScript fetch data for each item. Each item has a buy button in the opening tag we include data attributes that are unique for each product example to set T-shirt name in a button we would write<br>
 data-name = "T-shirt" when modal opens this name is passed to the order details. </p>
 <p>We will start with our simple yet powerful nav. What makes it powerful is the ability to place a call from the application and also link to our facebook page. We have a brand new facebook page that is almost lifeless for now. Brand on left, call & Facebook buttons on right. Rounded buttons with shadows. This translates to an image avatar with text on the left and two round buttons on the right. We use href="tel:+260770304374" to create a call link which opens the number in the phone book ready to call. For a better experience run the tutorial on desktop chrome. On android you can also swipe to see the rest of the code.</p>
+<h2>Navbar Section</h2>
 <div class="tutorial-code">
 <pre><code>&lt;nav class="nav"&gt;
   &lt;div class="brand"&gt;
@@ -563,7 +564,7 @@ nav .brand span{color:#fff;font-weight:600;font-size:16px;}
 
 <section class="tutorial-section">
 Product Card css
-<p>Product card is simple just imgage price name and button</p>
+<p>Product card is simple just image price name and button</p>
 <div class="tutorial-code">
 <pre><code>
 
@@ -598,7 +599,7 @@ Product Card css
 
 <section class="tutorial-section">
 <h2>Load More Button</h2>
-<p>Used to loadmore products so that the page does not choke or consume a lot of device power if hun</p>
+<p>Used to loadmore products so that the page does not choke or consume a lot of device power if app has too many product images.</p>
 <div class="tutorial-code">
 <pre><code> &lt;div class="actions" &gt; &lt;button id="loadMoreBtn" &gt;LOAD MORE PRODUCTS &lt;/button &gt; &lt;/div &gt;
 });
@@ -611,7 +612,7 @@ Product Card css
 
 <section class="tutorial-section">
 <h2>Return to Top Button js logic</h2>
-<p>Scrolls smoothly to the top when clicked. Here the secret is top 0 so we are just resetting the page to its original on load status which is always top 0 where 0 is the top margin or space.  window.scrollTo({ top: 0, behavior: 'smooth' }); smooth behavior ensure that we scroll smoothly back to the top. This is a must for all mobile applications.</p>
+<p>Scrolls smoothly to the top when clicked. Here the secret is top 0 so we are just resetting the page to its original on load status which is always top 0 where 0 is the top margin or space.  window.scrollTo({ top: 0, behavior: 'smooth' }); smooth behavior,  ensure that we scroll smoothly back to the top. This is a must for all mobile applications.</p>
 <div class="tutorial-code">
 <pre><code>const returnBtn = document.getElementById('returnTop');
 returnBtn.addEventListener('click', () =&gt; {
@@ -624,7 +625,7 @@ returnBtn.addEventListener('click', () =&gt; {
 <!-- Load More -->
 <section class="tutorial-section">
 <h2>Load More Button js logic</h2>
-<p>Append more products dynamically using JavaScript. Tracks how many products are displayed, disables when finished. let displayed = 8; initially display 8 products  and ('click', () defines a click event to add more products and this function products.slice(displayed, displayed+4); adds 4 more products each time we click the loadmore buton. This part displayed += nextItems.length; keeps track of how many products are displayed when this value matches the two number of products, this part loadBtn.textContent = 'No More Products'; tell the application that there is no more product to display and blurs out the button. This is how the loadmore button works. </p>
+<p>Append more products dynamically using JavaScript. Tracks how many products are displayed, disables when finished. let displayed = 8; initially display 8 products  and ('click', () defines a click event to add more products and this function products.slice(displayed, displayed+4); adds 4 more products each time we click the loadmore buton. This part: displayed += nextItems.length; keeps track of how many products are displayed. when this value matches the two number of products, this part loadBtn.textContent = 'No More Products'; tell the application that there is no more product to display and blurs out the button. This is how the loadmore button works. </p>
 <div class="tutorial-code">
 <pre><code>
 let displayed = 8;
@@ -649,7 +650,7 @@ loadBtn.addEventListener('click', () =&gt; {
 <!-- Buy Modal -->
 <section class="tutorial-section">
 <h2>Buy Modal</h2>
-<p>Let's create a buy modal with the following section close button to close modal, product image, name, price, size selector, quantity selector, customer details and submit order button.</p>
+<p>Let's create a buy modal with the following sections close button to close modal, product image, name, price, size selector, quantity selector, customer details and submit order button.</p>
 <div class="tutorial-code">
 <pre><code>
  &lt;div class="modal" id="buyModal" &gt;
@@ -681,7 +682,7 @@ loadBtn.addEventListener('click', () =&gt; {
 
 <section class="tutorial-section">
 <h2>Buy Modal css</h2>
-<p>HTML, CSS, and JS explained together. Includes image, close button, name, description, price, size selection, quantity, customer form, checkout via WhatsApp.</p>
+<p> Includes image, close button, name, description, price, size selection, quantity, customer form, checkout via WhatsApp.</p>
 <div class="tutorial-code">
 <pre><code>
 .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:1000;}
@@ -761,7 +762,7 @@ loadBtn.addEventListener('click', () =&gt; {
 <section class="tutorial-section">
 <h2>Create product cards</h2>
 <p>Our cards will be created in the script using an array of products.  This array allows the JavaScript to:
-Render products dynamically and vanilla JS uses products.forEach(...) to generate product cards automatically sing the following script</p>
+Render products dynamically and vanilla JS uses: products.forEach(...) to generate product cards automatically using the following script</p>
 <div class="tutorial-code">
 <pre><code>const products = [
   {img:'img/1.jpg',name:'Classic Beauty',price:180,description:'Elegant fabric in soft light tones.',sizes:['M','L','XL']},
@@ -774,13 +775,13 @@ Render products dynamically and vanilla JS uses products.forEach(...) to generat
 
 <section class="tutorial-section">
 <h2>Select all elements</h2>
-<p>Any element that is using Javasript has to be selected before the script runs using get element by id, that is why html elements have ids assigned to them so js can uniquely idenity them, we are giving JavaScript "handles" to control parts of the page: 
+<p>Any element that is using Javasript has to be selected before the script runs using get element by id, that is why html elements have ids assigned to them so js can uniquely idenity them, we are giving JavaScript "handles" to control parts of the page: <br>
 
-container → where cards will be displayed, 
+container → where cards will be displayed, <br>
 
-loadMoreBtn → the button that loads more, 
+loadMoreBtn → the button that loads more, <br>
 
-topBtn → the return-to-top button, 
+topBtn → the return-to-top button, <br>
 
 footerYear → the dynamic footer,  we will select using the following script</p>
 <div class="tutorial-code">
@@ -795,7 +796,7 @@ footerYear.textContent=new Date().getFullYear();</code></pre>
 
 <section class="tutorial-section">
 <h2>Create a card dynamically</h2>
-<p>Vanilla js can create html elements and inject then in the body of the page that is why we need an empty products container where we will display what js creates by fetching data from the product array. This line   const card=document.createElement('div'); creates the card and  &it;p &gt;ZMW ${p.price} &it;/p &gt; fetches product details from the array example ${p.price} fetches the price of each card. We already talked about load 8 and 4 using const firstLoad=8,perLoad=4; as well as return to top and load more.  slice.forEach( loops through the array creating a card for each array item then injects then into this container in the body:  &lt;div class="container" id="productContainer" &gt; &lt;/div &gt;</p>
+<p>Vanilla js can create html elements and inject them into the body of the page that is why we need an empty products container where we will display what js created by fetching data from the product array. This line:   const card=document.createElement('div'); creates the card and  &it;p &gt;ZMW ${p.price} &it;/p &gt; fetches product details from the array example ${p.price} fetches the price of each card. We already talked about load 8 and 4 using const firstLoad=8,perLoad=4; as well as return to top and load more.  slice.forEach( loops through the array creating a card for each array item then injects then into this container in the body:  &lt;div class="container" id="productContainer" &gt; &lt;/div &gt;</p>
 <div class="tutorial-code">
 <pre><code>
 let loaded=0;
@@ -852,7 +853,7 @@ custAddress=document.getElementById('custAddress');</code></pre>
 
 <section class="tutorial-section">
 <h2>Set default values</h2>
-<p>Quantity is set at 1 size is set as M and price at 0 this 0 will be replaced by the price in the array so js needs an initial figure before appending the actual price. Event listener: container.addEventListener targets the button that is why we have e.target.tagName==='BUTTON' which will allow form submit using default values instead of asking user to select size or quanity. That is the purpose of this script.  openModal(d); d here is default in short open modal with defaul values so that if user does not select size M will be submitted as size and 1 as quantity.</p>
+<p>Quantity is set at 1 size is set as M and price at 0 this 0 will be replaced by the price in the array so js needs an initial figure before appending the actual price. Event listener: container.addEventListener targets the button that is why we have e.target.tagName==='BUTTON' which will allow form submit using default values instead of asking user to select size or quanity. That is the purpose of this script.  openModal(d); d here is data in short open modal with default values so that if user does not select size M will be submitted as size and 1 as quantity.</p>
 <div class="tutorial-code">
 <pre><code>
  let basePrice=0,quantity=1,selectedSize='M',imgLink='',prodName='';
@@ -869,7 +870,7 @@ container.addEventListener('click',e=>{
 
 <section class="tutorial-section">
 <h2>Open modal</h2>
-<p>Like I said the modal is just a duplicate of the product card with extra elemets like sizse quantity and customer details and submit button. Here the process is a bit complicated but lets look at it this way using the price, if you look at the array we have price price:180, when the creation of the card happens price is fetched and put in ${p.price} this is passed to the button as data-name="${p.name}" which becomes data-name="180" and textContent is used to display data attributes in the modal therefore price will display with   priceEl.textContent=d.price; That is how we fetch data from array to button and from button into modal.Sizes  sizes.forEach then uses a loop to create size circles. We save data in storage so that customer does not enter their details each time they want to order using  const saved=JSON.parse(localStorage.getItem('customer'). So when modal opens customer name phone and address will be inserted already. modal.style.display='none'; close the modal by setting it to display none. Finally: if(quantity>1) update the price example 2 x 180 =360. </p>
+<p>Like I said the modal is just a duplicate of the product card with extra elemets like sizes, quantity and customer details and submit button. Here the process is a bit complicated but lets look at it this way using the price, if you look at the array we have price: price:180, when the creation of the card happens price is fetched and put in ${p.price} this is passed to the button as data-price="${p.price}" which becomes data-price="180" and textContent is used to display data attributes in the modal therefore price will display with   priceEl.textContent=d.price; That is how we fetch data from array to button and from button into modal.Sizes,  sizes.forEach then uses a loop to create size circles. We save data in storage so that customer does not enter their details each time they want to order using  const saved=JSON.parse(localStorage.getItem('customer'). So when modal opens customer name phone and address will be inserted already. modal.style.display='none'; close the modal by setting it to display none. Finally: if(quantity>1) update the price example 2 x 180 =360. </p>
 <div class="tutorial-code">
 <pre><code>const products = [
 function openModal(d){
@@ -951,7 +952,7 @@ form.addEventListener('submit',e=>{
 
 <section class="tutorial-section">
 <h2>Final Code</h2>
-<p>Let's put everything in one full file. You might want to view on desktop for a better view. This code is self contained no external css or js apart from the font awesome link to render forms.</p>
+<p>Let's put everything in one full file. You might want to view on desktop for a better view. This code is self contained no external css or js apart from the font awesome link to render icons.</p>
 <div class="tutorial-code">
 <pre><code>
 &lt;!DOCTYPE html&gt;
@@ -1270,7 +1271,7 @@ form.addEventListener('submit',e=&gt;{
 
 </section>
 
-<footer>2025 © Photostory</footer>
+<footer>2025 © Fashion</footer>
 
 </body>
 </html>
